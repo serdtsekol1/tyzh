@@ -1,0 +1,18 @@
+@import "./components/common/css/fonts";
+@import "./components/common/css/variables";
+
+body {
+  margin: 0;
+  font-family: "UT_Magazine";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  margin: 0;
+  font-family: "UT_Magazine";
+}
+
+.main-content {
+  margin-top: 100px;
+}
