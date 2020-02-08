@@ -1,0 +1,12 @@
+@import "./variables";
+p {
+  margin-bottom: 0 !important;
+  color: $almost-black;
+}
+
+a {
+  color: unset !important;
+  &:hover {
+    text-decoration: none !important;
+  }
+}

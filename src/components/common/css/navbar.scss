@@ -1,5 +1,76 @@
 @import "./variables";
 
 .navbar {
+  padding: 0 !important;
+  margin: 0;
   background-color: $white;
+  height: 60px;
+  border-bottom: 1px solid $light-grey;
+}
+.navbar-brand {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0;
+}
+.dropdown-menu {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.nav-link {
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.arrow-down {
+  color: $grey;
+}
+
+.logo {
+  height: 60px;
+}
+.separator {
+  font-size: 24px;
+  line-height: 24px;
+  color: $light-grey;
+  margin-right: $margin-small;
+  margin-left: $margin-small;
+}
+
+.uk-week {
+  font-size: 12px;
+  line-height: 130%;
+  color: $grey;
+}
+.navbar-text img {
+  opacity: 0.38;
+}
+
+.navbar-text img,
+p {
+  display: inline-block;
+}
+
+.navbar-toggler-icon {
+  background-image: url("../../../images/icons/menu-24px-white.svg") !important;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 0 !important;
+    margin: 0;
+    background-color: $red;
+    height: 60px;
+    border-bottom: 0;
+  }
+  .navbar .container {
+    background-color: $red;
+  }
+  .logo {
+    height: 45px;
+  }
 }

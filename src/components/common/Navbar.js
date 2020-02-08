@@ -1,73 +1,122 @@
 import React, { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
-} from "reactstrap";
+import { NavLink } from "react-router-dom";
+
+import "./css/navbar.scss";
 
 const Header = props => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
   return (
-    <div>
-      <Navbar fixed="top" expand="md">
-        <div className="container">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Новини</NavLink>
-              </NavItem>
+    <nav className="navbar navbar-expand-xl">
+      <img
+        className="d-block d-xl-none"
+        src={require("../../images/icons/search-24px-white.svg")}
+      />
+      <NavLink to="/" className="navbar-brand">
+        {" "}
+        <img
+          className="logo"
+          src={require("../../images/logo/logo-tyzhden_red_bg.svg")}
+          alt="Український тиждень"
+        />
+      </NavLink>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
 
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Статті
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>Усі рубрики</DropdownItem>
-                  <DropdownItem>Політика</DropdownItem>
-                  <DropdownItem>Світ</DropdownItem>
-                  <DropdownItem>Культура</DropdownItem>
-                  <DropdownItem>Наука</DropdownItem>
-                  <DropdownItem>Авто</DropdownItem>
-                  <DropdownItem>Економіка</DropdownItem>
-                  <DropdownItem>Суспільство</DropdownItem>
-                  <DropdownItem>Історія</DropdownItem>
-                  <DropdownItem>Подорожі</DropdownItem>
-                  <DropdownItem>Війна</DropdownItem>
-                  <DropdownItem>Спецтеми</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <NavItem>
-                <NavLink href="/components/">Колонки</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/components/">Фоторепортаж</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/components/">Журнал</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/components/">Передплата</NavLink>
-              </NavItem>
-            </Nav>
-            <NavbarText>The Ukrainian Week</NavbarText>
-          </Collapse>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <NavLink to="/" className="nav-link">
+              Новини
+            </NavLink>
+          </li>
+
+          <li className="nav-item dropdown">
+            <a
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Статті <i className="fa fa-angle-down arrow-down" />
+            </a>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <NavLink to="/" className="dropdown-item">
+                Усі рубрики
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Світ
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Економіка
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Культура
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Політика
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Наука
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Суспільство
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Історія
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Подорожі
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Війна
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Авто
+              </NavLink>
+              <NavLink to="/" className="dropdown-item">
+                Спецтеми
+              </NavLink>
+            </div>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/" className="nav-link">
+              Колонки
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/" className="nav-link">
+              Фоторепортаж
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/" className="nav-link">
+              Журнал
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/" className="nav-link">
+              Передплата
+            </NavLink>
+          </li>
+        </ul>
+        <div className="navbar-text">
+          <img alt="" src={require("../../images/icons/search-24px.svg")} />
+          <p className="separator">|</p>
+          <p className="uk-week">The Ukrainian Week</p>
         </div>
-      </Navbar>
-    </div>
+      </div>
+    </nav>
   );
 };
 export default Header;
