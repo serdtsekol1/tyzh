@@ -1,0 +1,26 @@
+@import "./variables";
+@import "./mixins";
+
+.fragment-header {
+  margin-bottom: $margin-medium !important;
+  color: $grey;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  @include for-phones {
+    margin-bottom: $margin-small !important;
+  }
+}
+
+.header-big {
+  margin-bottom: $margin-big !important;
+  font-size: 32px;
+  line-height: 130%;
+  @include for-phones {
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: $margin-small !important;
+  }
+}

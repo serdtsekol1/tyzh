@@ -45,7 +45,8 @@
   line-height: 130%;
   color: $grey;
 }
-.navbar-text img {
+
+.navbar-text .search-small {
   opacity: 0.38;
 }
 
@@ -59,6 +60,10 @@ p {
   background-repeat: no-repeat;
 }
 
+.nav-item .dropdown-toggle::after {
+  display: none !important;
+}
+
 @media (max-width: 1200px) {
   .navbar {
     padding: 0 !important;
@@ -67,10 +72,39 @@ p {
     height: 60px;
     border-bottom: 0;
   }
-  .navbar .container {
+
+  .navbar .container,
+  .container-fluid {
     background-color: $red;
   }
   .logo {
     height: 45px;
+  }
+  .nav-link {
+    color: $white !important;
+  }
+  .arrow-down {
+    color: $white;
+  }
+  .dropdown-menu {
+    width: 270px;
+    border: none !important;
+    background-color: $red !important;
+    a {
+      color: $white !important;
+    }
+  }
+  .uk-week {
+    color: $white;
+    text-transform: uppercase;
+  }
+  .navbar-text .search-small {
+    display: none;
+  }
+  .separator {
+    display: none;
+  }
+  .navbar-text {
+    margin-bottom: $margin-big;
   }
 }

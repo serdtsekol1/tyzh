@@ -10,3 +10,8 @@ a {
     text-decoration: none !important;
   }
 }
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: unset !important;
+}
