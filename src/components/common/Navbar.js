@@ -6,8 +6,8 @@ import "./css/navbar.scss";
 const Header = props => {
   return (
     <nav className="navbar navbar-expand-xl fixed-top">
-      <div class="container-fluid">
-        <div class="container">
+      <div className="container-fluid">
+        <div className="container">
           <img
             className="d-block d-xl-none"
             src={require("../../images/icons/search-24px-white.svg")}

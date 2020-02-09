@@ -2,20 +2,25 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import JournalsList from "./JournalsList";
 import Header from "../common/Header";
+import DateSlider from "./DateSlider";
+import Pagination from "../common/Pagination";
 function Journals() {
   return (
     <div>
-      <Header title="Журнал «Український тиждень»" size="big" />
-      <ul className="navbar-nav m-auto">
-        <li>
-          <Link to="/journals/2019">2019</Link>
-        </li>
-        <li>
-          <Link to="/journals/2020">2020</Link>
-        </li>
-      </ul>
-      <div className="row">
-        <Route path={"/journals/:year"} component={JournalsList} />
+      <div className="container">
+        <Header title="Журнал «Український тиждень»" size="big" />
+      </div>
+      <div className="d-none d-md-block">
+        <DateSlider />
+      </div>
+
+      <div className="container">
+        <div className="d-block d-md-none">
+          <Pagination />
+        </div>
+        <div className="row">
+          <Route path={"/journals/:year"} component={JournalsList} />
+        </div>
       </div>
     </div>
   );
