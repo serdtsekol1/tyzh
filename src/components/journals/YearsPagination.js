@@ -1,30 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import "../common/css/pagination.scss";
 
-export default function YearsPagination() {
-  const activeStyle = {
-    color: "#ED1B2F",
-    fontSize: 32,
-    width: 75
-  };
-  const firstYear = 2007;
-  const lastYear = 2020;
-  const yearsArray = Array.from(
-    Array(lastYear - firstYear + 1),
-    (x, index) => index + firstYear
+function YearsPagination(props) {
+  console.log(props.page);
+  return (
+    <div className="pagination">
+      {props.yearsComponents.slice(
+        props.page - 2007 - 1,
+        props.page - 2007 - 1 + 3
+      )}
+    </div>
   );
-  const yearsComponents = yearsArray.map(year => (
-    <li key={year}>
-      <NavLink
-        activeStyle={activeStyle}
-        className="year-link"
-        key={year * 2}
-        to={`/journals/${year}`}
-      >
-        {year}
-      </NavLink>
-    </li>
-  ));
-  console.log(yearsComponents);
-  return <p>{yearsComponents.slice(4, 7)}</p>;
 }
+export default YearsPagination;
