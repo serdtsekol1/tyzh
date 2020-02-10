@@ -8,11 +8,11 @@ export default function DateSlider() {
     fontSize: 32,
     width: 75
   };
-  const startYear = 2007;
-  const currentYear = 2020;
+  const firstYear = 2007;
+  const lastYear = 2020;
   const yearsArray = Array.from(
-    Array(currentYear - startYear + 1),
-    (x, index) => index + startYear
+    Array(lastYear - firstYear + 1),
+    (x, index) => index + firstYear
   );
   const yearsComponents = yearsArray.map(year => (
     <li key={year}>
@@ -31,7 +31,7 @@ export default function DateSlider() {
       <NavLink
         activeStyle={activeStyle}
         className="dot"
-        key={year * 2}
+        key={year * 6}
         to={`/journals/${year}`}
       >
         {`  ▪  `}

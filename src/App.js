@@ -13,9 +13,11 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="main-content">
-          <Route exact path="/" component={HomePage} />
-          <Route path="/articles/:category" component={Articles} />
-          <Route path="/journals" component={Journals} />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/articles/:category" component={Articles} />
+            <Route path="/journals" component={Journals} />
+          </Switch>
         </div>
       </div>
     </Router>
