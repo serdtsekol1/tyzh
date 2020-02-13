@@ -2,14 +2,10 @@ import React, { useState } from "react";
 import DateSlider from "./DateSlider";
 
 import YearsPagination from "./YearsPagination";
-import { yearsLinks } from "./YearsLinks";
+
 import { NavLink } from "react-router-dom";
 
 function YearsNavBar() {
-  // const yearsPeriod = {
-  //   firstYear: 2007,
-  //   lastYear: 2020
-  // };
   const firstYear = 2007;
   const lastYear = 2020;
   const [page, setPage] = useState(lastYear);
@@ -18,25 +14,32 @@ function YearsNavBar() {
     fontSize: 32,
     width: 75
   };
+  const activeStylePagination = {
+    color: "#ED1B2F",
+    fontSize: 20
+  };
   const yearsArray = Array.from(
     Array(lastYear - firstYear + 1),
     (x, index) => index + firstYear
   );
-  const yearsComponents = yearsArray.map(year => (
-    <li key={year}>
-      <NavLink
-        onClick={() => {
-          setPage(currentPage => (currentPage = year));
-        }}
-        activeStyle={activeStyle}
-        className="year-link"
-        key={year * 2}
-        to={`/journals/${year}`}
-      >
-        {year}
-      </NavLink>
-    </li>
-  ));
+  const yearsComponents = isSmall => {
+    return yearsArray.map(year => (
+      <li key={year}>
+        <NavLink
+          onClick={() => {
+            setPage(currentPage => (currentPage = year));
+          }}
+          activeStyle={isSmall ? activeStylePagination : activeStyle}
+          className="year-link"
+          key={year * 2}
+          to={`/journals/${year}`}
+        >
+          {year}
+        </NavLink>
+      </li>
+    ));
+  };
+
   const dotsComponents = yearsArray.map(year => (
     <li key={year}>
       <NavLink
@@ -49,27 +52,49 @@ function YearsNavBar() {
       </NavLink>
     </li>
   ));
+  const arrowBack = (
+    <NavLink
+      className={page !== firstYear ? "arrow-active" : "arrow-disable"}
+      to={`/journals/${page == firstYear ? page : page - 1}`}
+      onClick={() => {
+        if (page !== firstYear)
+          setPage(currentPage => (currentPage = currentPage - 1));
+      }}
+    >
+      <img src={require("../../images/icons/arrow_back-32px.svg")} alt="" />
+    </NavLink>
+  );
+  const arrowForward = (
+    <NavLink
+      className={page !== lastYear ? "arrow-active" : "arrow-disable"}
+      to={`/journals/${page == lastYear ? page : page + 1}`}
+      onClick={() => {
+        if (page !== lastYear)
+          setPage(currentPage => (currentPage = currentPage + 1));
+      }}
+    >
+      <img src={require("../../images/icons/arrow_forward-32px.svg")} alt="" />
+    </NavLink>
+  );
 
-  //const [yearsComponents, dotsComponents] = yearsLinks(yearsPeriod, setPage);
-  console.log([yearsComponents, dotsComponents]);
   return (
     <div>
       <div className="d-none d-md-block">
         <DateSlider
           dotsComponents={dotsComponents}
-          yearsComponents={yearsComponents}
+          yearsComponents={yearsComponents(false)}
           page={page}
-          setPage={setPage}
         />
       </div>
-      <div className="container">
-        <div className="d-block d-md-none">
-          <YearsPagination
-            yearsComponents={yearsComponents}
-            page={page}
-            setPage={setPage}
-          />
-        </div>
+
+      <div className="d-block d-md-none">
+        <YearsPagination
+          arrowForward={arrowForward}
+          arrowBack={arrowBack}
+          yearsComponents={yearsComponents(true)}
+          page={page}
+          yearsPeriod={{ firstYear: firstYear, lastYear: lastYear }}
+        />
       </div>
     </div>
   );

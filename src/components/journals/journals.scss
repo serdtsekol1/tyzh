@@ -2,6 +2,7 @@
 @import "../common/css/mixins";
 .year-nav {
   @include flex-row;
+  height: 32px;
   //   li {
   //     width: 70px;
   //   }
@@ -61,4 +62,20 @@
       color: transparent;
     }
   }
+}
+
+.pagination-line {
+  width: 100%;
+}
+
+.years-pagination {
+  @include flex-row;
+}
+
+.arrow-active {
+  opacity: 0.6;
+}
+
+.arrow-disable {
+  opacity: 0.12;
 }
