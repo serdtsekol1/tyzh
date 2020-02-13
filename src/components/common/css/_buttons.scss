@@ -1,0 +1,27 @@
+@import "./variables";
+@import "./mixins";
+
+.button-red {
+  @include myButton;
+  background-color: $red;
+  color: $white;
+  &:hover {
+    background-color: $dark-red;
+  }
+  &:active {
+    background-color: $dark-red;
+  }
+}
+
+.button-default {
+  @include myButton;
+  border: $red;
+  background-color: $white;
+  color: $red;
+  &:hover {
+    background-color: $red;
+  }
+  &:active {
+    background-color: $dark-red;
+  }
+}

@@ -1,0 +1,22 @@
+@import "../common/css/variables";
+@import "../common/css/mixins";
+
+.journal-title {
+  @include small-header;
+}
+
+.journal-number {
+  @include small-header;
+  font-weight: 600;
+  margin-bottom: $margin-very-small;
+}
+
+.journal-cover {
+  @include image-cover;
+  margin-bottom: $margin-small;
+}
+
+.journal-period {
+  @include very-small-header;
+  margin-bottom: $margin-very-small !important;
+}

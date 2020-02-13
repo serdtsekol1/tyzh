@@ -1,5 +1,9 @@
 @import "../common/css/variables";
 @import "../common/css/mixins";
+
+.journals-list {
+  margin-bottom: $margin-large;
+}
 .year-nav {
   @include flex-row;
   height: 32px;
@@ -17,7 +21,7 @@
   line-height: 32px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  transition-duration: 0.3s;
+  transition-duration: 0.4s;
   //   margin: 0 auto;
   //   display: block;
   //   text-align: center;
@@ -78,4 +82,20 @@
 
 .arrow-disable {
   opacity: 0.12;
+}
+
+.journal {
+  margin-bottom: $margin-big;
+  p {
+    width: 100%;
+  }
+}
+
+.years-pagination-wrap {
+  margin-bottom: $margin-big;
+}
+
+.special-editions {
+  padding-top: $padding-super-big;
+  background-color: $light-grey-backgound;
 }

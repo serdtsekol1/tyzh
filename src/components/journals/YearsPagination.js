@@ -13,7 +13,7 @@ function YearsPagination(props) {
   if (page === firstYear) startIndex = startIndex + 1;
   else if (page == lastYear) startIndex = startIndex - 1;
   return (
-    <div>
+    <div className="years-pagination-wrap">
       <div className="years-pagination container">
         {props.arrowBack}
         {props.yearsComponents.slice(startIndex, startIndex + 3)}

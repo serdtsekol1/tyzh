@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import DateSlider from "./DateSlider";
-
+import Header from "../common/Header";
 import YearsPagination from "./YearsPagination";
-
 import { NavLink } from "react-router-dom";
+import "./journals.scss";
 
 function YearsNavBar() {
   const firstYear = 2007;
@@ -79,6 +79,9 @@ function YearsNavBar() {
 
   return (
     <div>
+      <div className="container">
+        <Header title="Журнал «Український тиждень»" size="big" />
+      </div>
       <div className="d-none d-md-block">
         <DateSlider
           dotsComponents={dotsComponents}

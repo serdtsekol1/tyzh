@@ -1,12 +1,25 @@
 import React from "react";
+import "./journalItem.scss";
+import Button from "../common/Button";
 
-function Journal(props) {
+function JournalItem(props) {
   return (
     <div className="col-12 col-md-3 journal">
       <img
-        src={require(`../../images/journals/${props.journal_image}`)}
-        alt={`Український тиждень №${props.journal_image}`}
+        className="journal-cover"
+        src={require(`../../images/journals/${props.journalItem.journal_image}`)}
+        alt={`Український тиждень №${props.journalItem.journal_number}`}
       />
+      <p className="journal-title">Український тиждень</p>
+      <p className="journal-number">{`№ ${props.journalItem.journal_number} (${props.journalItem.journal_number_old})`}</p>
+      <p className="journal-period">{props.journalItem.period}</p>
+      {props.journalItem.isSpecialEdition ? (
+        <Button redButton={true} title="Завантажити pdf" />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
+
+export default JournalItem;

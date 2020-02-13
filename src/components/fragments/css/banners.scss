@@ -1,0 +1,6 @@
+@import "../../common/css/variables";
+@import "../../common/css/mixins";
+
+.banner {
+  @include image-cover;
+}
