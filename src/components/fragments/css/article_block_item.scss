@@ -1,0 +1,38 @@
+@import "../../common/css/mixins";
+@import "../../common/css/variables";
+
+.article-block-title {
+  @include post-header-medium;
+  margin-bottom: $margin-extra-small !important;
+}
+.article-block-abstract {
+  @include post-abstract-medium;
+  margin-bottom: $margin-more-smaller !important;
+  @include for-phones {
+    display: none;
+  }
+}
+
+.article-block-image {
+  @include image-cover;
+  @include small-margin-bottom;
+}
+.atricle-image-margin {
+  margin-top: $margin-big;
+  @include for-phones {
+    margin-top: 0 !important;
+  }
+}
+
+.articleInfo {
+  padding-left: $padding-extra-small;
+  margin-left: $margin-medium;
+
+  @include for-phones {
+    margin-left: $margin-small;
+  }
+}
+
+.article-block-item {
+  margin-bottom: $margin-big;
+}

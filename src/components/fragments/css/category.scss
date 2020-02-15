@@ -1,0 +1,19 @@
+@import "../../common/css/mixins";
+@import "../../common/css/variables";
+
+.category {
+  @include navigation-link;
+  @include opacity-animation;
+
+  @include for-phones {
+    font-size: 10px;
+    line-height: 24px;
+  }
+}
+.category-wrap {
+  padding-left: $padding-medium;
+  border-left: 4px solid $red;
+  @include for-phones {
+    padding-left: $padding-small;
+  }
+}

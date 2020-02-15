@@ -1,0 +1,22 @@
+@import "../common/css/mixins";
+@import "../common/css/variables";
+@import "../common/css/headers";
+
+.news-title {
+  @include post-header-small;
+  display: inline;
+}
+
+.unique-news {
+  display: inline;
+  vertical-align: baseline;
+  margin-right: $margin-very-small;
+}
+
+.title-wrap {
+  margin-bottom: $margin-extra-small;
+}
+
+.news-item-small {
+  margin-bottom: $margin-medium;
+}

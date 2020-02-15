@@ -24,25 +24,17 @@
   }
 }
 
-@mixin flex-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@mixin image-cover {
-  width: 100%;
-}
+/*TYPOGRAPHY*/
 
 @mixin very-small-header {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 136%;
+  line-height: 14px;
   color: $grey;
   @include for-medium-devices-and-phones {
     font-size: 12px;
+    line-height: 130%;
   }
 }
 
@@ -58,7 +50,29 @@
   }
 }
 
-@mixin Button {
+@mixin post-header-small {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 136%;
+  letter-spacing: 0.02em;
+}
+@mixin post-header-medium {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+  @include for-phones {
+    font-size: 20px;
+  }
+}
+@mixin post-abstract-medium {
+  font-family: Georgia;
+  font-size: 20px;
+  line-height: 150%;
+  color: $dark-grey;
+}
+
+@mixin button {
   padding: 14px 32px 10px 32px;
   border: 2px solid $red;
   border-radius: 0;
@@ -76,9 +90,51 @@
   }
 }
 
+@mixin navigation-link {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $black !important;
+}
+
+/*POSITION ELEMENTS*/
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin image-cover {
+  width: 100%;
+}
 @mixin large-padding-bottom {
   padding-bottom: $padding-large !important;
   @include for-phones {
     padding-bottom: $padding-super-big !important;
+  }
+}
+
+@mixin small-margin-bottom {
+  margin-bottom: $margin-small !important;
+  @include for-phones {
+    margin-bottom: $margin-more-smaller !important;
+  }
+}
+
+/*Animation*/
+
+@mixin opacity-animation {
+  cursor: pointer;
+  transition-duration: 0.3s;
+  opacity: 0.38;
+  &:hover {
+    opacity: 0.6;
+  }
+  &:active {
+    opacity: 0.87;
   }
 }

@@ -2,6 +2,8 @@
 @import "./components/common/css/variables";
 @import "./components/common/css/overrides";
 @import "./components/common/css/mixins";
+@import "./components/common/css/buttons";
+@import "./components/common/css/fragments.scss";
 
 html,
 body,
@@ -26,6 +28,7 @@ body {
   margin-bottom: -336px;
   @include for-phones {
     margin-bottom: -510px;
+    padding-top: 76px;
   }
   @include for-medium-devices {
     margin-bottom: -236px;
