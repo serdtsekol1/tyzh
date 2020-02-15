@@ -1,0 +1,159 @@
+@import "../css/variables";
+@import "../css/mixins";
+
+#sticky-footer {
+  padding-top: $padding-big;
+  flex-shrink: none;
+  height: 336px;
+  background-color: $red;
+}
+
+.categories {
+  @include flex-row;
+  margin-bottom: $margin-big;
+}
+
+.footer-category {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+  color: $white;
+  transition-duration: 0.3s;
+  &:hover {
+    color: $almost-white;
+  }
+}
+
+.footer-logo {
+  width: 300px;
+  display: inline-block;
+  margin: $margin-medium 0;
+}
+
+.social-networks-footer {
+  margin-top: 0 !important;
+  margin-bottom: 32px;
+  margin-left: $margin-very-big;
+  display: inline-block;
+}
+.partners {
+  margin-top: $margin-more-smaller;
+}
+.partners img,
+p {
+  display: inline-block;
+}
+.partners p {
+  color: $white;
+  font-size: 12px;
+  margin-right: $margin-big;
+  line-height: 130%;
+}
+.partners img {
+  margin-right: $margin-small;
+  line-height: 130%;
+}
+
+.rss {
+  margin-right: $margin-very-small !important;
+}
+
+.partner-text-logo {
+  padding-top: 3px;
+}
+
+.copyright,
+.separator {
+  color: $dark-white !important;
+}
+.contact {
+  margin-top: $margin-medium;
+  margin-bottom: $margin-extra-small;
+}
+.contact img {
+  margin-right: $margin-small;
+}
+
+.contact p {
+  color: $white;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+.phone {
+  font-weight: 600;
+}
+.flex {
+  display: flex;
+}
+.contacts-wrap {
+  text-align: left;
+  width: 190px;
+}
+.partners-footer {
+  display: none;
+}
+
+@include for-medium-devices-and-phones {
+  .footer-logo {
+    width: 190px;
+  }
+  #sticky-footer {
+    height: 236px;
+  }
+  .contact {
+    margin-top: 0 !important;
+    margin-bottom: $margin-small;
+  }
+  .contacts-wrap {
+    margin-bottom: $margin-small;
+  }
+  .partners {
+    margin-top: 0 !important;
+  }
+  .partners p {
+    display: block;
+    margin: 0 !important;
+    margin-bottom: $margin-more-smaller !important;
+  }
+  .partners img {
+    display: block;
+    margin: 0;
+  }
+  .partner-image-logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: $margin-small !important;
+  }
+  .partner-text-logo {
+    margin-bottom: $margin-big !important;
+  }
+
+  .rss {
+    margin-right: 0 !important;
+  }
+}
+
+@include for-phones {
+  .footer-logo {
+    width: 190px;
+    margin: 0 !important;
+    display: inline-block;
+    text-align: center;
+  }
+  .logo-and-socnets-wrap {
+    text-align: center;
+  }
+  #sticky-footer {
+    height: 510px;
+  }
+  .partners-footer {
+    display: block;
+  }
+  .social-networks-footer {
+    margin-top: $margin-very-small !important;
+    margin-left: $margin-very-small !important;
+    display: block;
+  }
+}

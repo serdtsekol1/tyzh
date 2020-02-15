@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./components/home/HomePage";
 
 import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
 import Articles from "./components/articles/Articles";
 import Journals from "./components/journals/Journals";
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/journals" component={Journals} />
           </Switch>
         </div>
+        <Footer />
       </div>
     </Router>
   );

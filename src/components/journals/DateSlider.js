@@ -4,7 +4,7 @@ import "./journals.scss";
 
 function DateSlider(props) {
   return (
-    <div class="date-slider">
+    <div className="date-slider">
       <div className="years container">
         <ul className="year-nav">{props.yearsComponents}</ul>
       </div>

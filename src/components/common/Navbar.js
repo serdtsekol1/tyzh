@@ -4,6 +4,9 @@ import SocialNetworks from "./SocialNetworks";
 import "./css/navbar.scss";
 
 const Header = props => {
+  const activeStyle = {
+    color: "#ED1B2F"
+  };
   return (
     <nav className="navbar navbar-expand-xl fixed-top">
       <div className="container-fluid">
@@ -35,7 +38,11 @@ const Header = props => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav m-auto">
               <li className="nav-item active">
-                <NavLink to="/" className="nav-link">
+                <NavLink
+                  activeStyle={activeStyle}
+                  to="/news"
+                  className="nav-link"
+                >
                   Новини
                 </NavLink>
               </li>
@@ -53,61 +60,125 @@ const Header = props => {
                   Статті <i className="fa fa-angle-down arrow-down" />
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Усі рубрики
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Світ
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Економіка
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Культура
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Політика
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Наука
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Суспільство
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Історія
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Подорожі
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Війна
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Авто
                   </NavLink>
-                  <NavLink to="/" className="dropdown-item">
+                  <NavLink
+                    activeStyle={activeStyle}
+                    to="/"
+                    className="dropdown-item"
+                  >
                     Спецтеми
                   </NavLink>
                 </div>
               </li>
               <li className="nav-item">
-                <NavLink to="/" className="nav-link">
+                <NavLink
+                  activeStyle={activeStyle}
+                  to="/colums"
+                  className="nav-link"
+                >
                   Колонки
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/" className="nav-link">
+                <NavLink
+                  activeStyle={activeStyle}
+                  to="/photoreports"
+                  className="nav-link"
+                >
                   Фоторепортаж
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/journals/2020" className="nav-link">
+                <NavLink
+                  activeStyle={activeStyle}
+                  to="/journals/2020"
+                  className="nav-link"
+                >
                   Журнал
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/" className="nav-link">
+                <NavLink
+                  activeStyle={activeStyle}
+                  to="/subscribe"
+                  className="nav-link"
+                >
                   Передплата
                 </NavLink>
               </li>
@@ -118,7 +189,7 @@ const Header = props => {
                 alt=""
                 src={require("../../images/icons/search-24px.svg")}
               />
-              <p className="separator">|</p>
+              <p className="separator separatopr-navbar">|</p>
               <p className="uk-week">The Ukrainian Week</p>
               <div className="d-block d-xl-none">
                 <SocialNetworks color="white" />

@@ -2,7 +2,7 @@
 @import "./mixins";
 
 .button-red {
-  @include myButton;
+  @include Button;
   background-color: $red;
   color: $white;
   &:hover {
@@ -14,8 +14,8 @@
 }
 
 .button-default {
-  @include myButton;
-  border: $red;
+  @include Button;
+  border: 2px solid $red;
   background-color: $white;
   color: $red;
   &:hover {

@@ -58,8 +58,8 @@
   }
 }
 
-@mixin myButton {
-  padding: $padding-small $padding-medium $padding-more-smaller $padding-medium;
+@mixin Button {
+  padding: 14px 32px 10px 32px;
   border: 2px solid $red;
   border-radius: 0;
   letter-spacing: 0.1em;
@@ -73,5 +73,12 @@
   }
   &:active {
     color: $white;
+  }
+}
+
+@mixin large-padding-bottom {
+  padding-bottom: $padding-large !important;
+  @include for-phones {
+    padding-bottom: $padding-super-big !important;
   }
 }

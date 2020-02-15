@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import journalsData from "../journalData.json";
 import JournalItem from "./JournalItem";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";

@@ -2,7 +2,10 @@
 @import "../common/css/mixins";
 
 .journals-list {
-  margin-bottom: $margin-large;
+  padding-bottom: 56px;
+  @include for-phones {
+    padding-bottom: 32px;
+  }
 }
 .year-nav {
   @include flex-row;
@@ -98,4 +101,11 @@
 .special-editions {
   padding-top: $padding-super-big;
   background-color: $light-grey-backgound;
+  @include for-phones {
+    padding-top: $padding-medium;
+  }
+}
+
+.journals-list-last {
+  @include large-padding-bottom;
 }
