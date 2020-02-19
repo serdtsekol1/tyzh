@@ -6,7 +6,9 @@ import SpecialEditions from "./SpecialEditions";
 
 function JournalsList({ match }) {
   const journalsComponents = journalsData.map(journal => (
-    <JournalItem key={journal.id} journalItem={journal} />
+    <div key={journal.id - 1000} className="col-12 col-md-3">
+      <JournalItem key={journal.id} journalItem={journal} />
+    </div>
   ));
   return (
     <div>

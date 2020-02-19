@@ -15,6 +15,10 @@ a {
 .dropdown-item:active {
   background-color: unset !important;
 }
+.dropdown-item.hover,
+.dropdown-item:hover {
+  background-color: unset !important;
+}
 
 ul,
 li {

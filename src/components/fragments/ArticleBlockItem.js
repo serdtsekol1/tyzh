@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CategoryLink from "./CategoryLink";
 import DateAndAuthor from "./DateAndAuthor";
 import "./css/article_block_item.scss";
@@ -19,9 +20,11 @@ function ArticleBlockItem(props) {
             categoryInfo={props.articleItem}
           />
           <div className="articleInfo">
-            <p className="article-block-title">
-              {props.articleItem.article_title}
-            </p>
+            <Link to={`/article/${props.articleItem.id}`}>
+              <p className="article-block-title">
+                {props.articleItem.article_title}
+              </p>
+            </Link>
             <p className="article-block-abstract">
               {props.articleItem.article_abstract}
             </p>
@@ -39,6 +42,7 @@ function ArticleBlockItem(props) {
           }
         >
           <img
+            style={props.imageStyle}
             className={
               props.mainArticle
                 ? "article-block-image"

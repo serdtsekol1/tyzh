@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./mixins";
 
 .social-networks {
   margin-top: $margin-medium;
@@ -6,4 +7,9 @@
   img {
     margin-right: $margin-small;
   }
+}
+
+.share-wrap {
+  padding: $padding-medium;
+  background-color: rgba(30, 30, 30, 0.03);
 }

@@ -1,13 +1,62 @@
 [
-  { "categoty_id": 0, "category_name": "Політика", "categoty_color": "" },
-  { "categoty_id": 1, "category_name": "Економіка", "categoty_color": "" },
-  { "categoty_id": 2, "category_name": "Світ", "categoty_color": "" },
-  { "categoty_id": 3, "category_name": "Суспільство", "categoty_color": "" },
-  { "categoty_id": 4, "category_name": "Культура", "categoty_color": "" },
-  { "categoty_id": 5, "category_name": "Історія", "categoty_color": "" },
-  { "categoty_id": 6, "category_name": "Наука", "categoty_color": "" },
-  { "categoty_id": 7, "category_name": "Подорожі", "categoty_color": "" },
-  { "categoty_id": 8, "category_name": "Авто", "categoty_color": "" },
-  { "categoty_id": 9, "category_name": "Війна", "categoty_color": "" },
-  { "categoty_id": 10, "category_name": "Спецтеми", "categoty_color": "" }
+  {
+    "category_id": "all-categories",
+    "category_name": "Статті",
+    "category_color": "#3F51B5"
+  },
+  {
+    "category_id": "politics",
+    "category_name": "Політика",
+    "category_color": "#3F51B5"
+  },
+  {
+    "category_id": "economics",
+    "category_name": "Економіка",
+    "category_color": "#ED1B2F"
+  },
+  {
+    "category_id": "world",
+    "category_name": "Світ",
+    "category_color": "#03A9F4"
+  },
+  {
+    "category_id": "society",
+    "category_name": "Суспільство",
+    "category_color": "#DCD417"
+  },
+  {
+    "category_id": "culture",
+    "category_name": "Культура",
+    "category_color": "#03A9F4"
+  },
+  {
+    "category_id": "history",
+    "category_name": "Історія",
+    "category_color": "#795548"
+  },
+  {
+    "category_id": "science",
+    "category_name": "Наука",
+    "category_color": "#03A9F4"
+  },
+  {
+    "category_id": "travels",
+    "category_name": "Подорожі",
+    "category_color": "#795548"
+  },
+  {
+    "category_id": "auto",
+    "category_name": "Авто",
+    "category_color": "#3F51B5"
+  },
+  {
+    "category_id": "war",
+    "category_name": "Війна",
+    "category_color": "#795548"
+  },
+  {
+    "category_id": "special_topics",
+    "category_name": "Спецтеми",
+    "category_color": "#3F51B5"
+  }
 ]

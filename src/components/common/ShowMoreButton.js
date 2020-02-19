@@ -5,7 +5,7 @@ function ShowMoreButton(props) {
   return (
     <Link to={props.to} className="show-more-button">
       {props.title}
-      <i className="fa fa-angle-right arrow-right" />
+      <img src={require("../../images/icons/arrow_right-24px.svg")} alt=">" />
     </Link>
   );
 }

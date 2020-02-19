@@ -1,0 +1,54 @@
+@import "../../common/css/variables";
+@import "../../common/css/mixins";
+
+.photos-quantity-holder {
+  display: flex;
+  align-items: center;
+  background-color: $almost-white;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 184px;
+  height: 56px;
+  padding: $padding-very-small $padding-small;
+  @include for-phones {
+    width: 123px;
+    height: 40px;
+    padding: $padding-very-small;
+  }
+}
+
+.camera {
+  margin-right: $margin-very-small;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  opacity: 0.38;
+}
+
+.report-image-cover {
+  @include image-cover;
+  position: relative;
+}
+
+.image-cover-wrap {
+  width: 100%;
+  position: relative;
+}
+
+.photo-report-title {
+  @include post-header-medium;
+  margin-top: $margin-medium;
+  margin-bottom: $margin-more-smaller !important;
+}
+
+.photo-report-author {
+  @include very-small-header;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.small-photo-reports-wrap {
+  margin-top: $margin-big;
+}

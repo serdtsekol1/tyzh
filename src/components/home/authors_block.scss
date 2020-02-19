@@ -1,0 +1,35 @@
+@import "../common/css/mixins";
+@import "../common/css/variables";
+
+.authors-half-block {
+  display: flex;
+  justify-content: center;
+}
+
+.author-column-link-big {
+  @include big-margin-bottom;
+}
+.author-column-link-small {
+  margin-bottom: $margin-medium;
+}
+.author_photo {
+  @include image-cover;
+}
+
+.author-name {
+  @include title-small;
+  color: $grey;
+  margin-bottom: $margin-extra-small !important;
+}
+
+.column-title-big {
+  @include title-medium;
+  margin-bottom: $margin-more-smaller !important;
+  @include for-phones {
+    margin-bottom: $margin-extra-small !important;
+  }
+}
+
+.column-title-small {
+  @include post-header-small;
+}

@@ -1,0 +1,12 @@
+@import "../../common/css/mixins";
+@import "../../common/css/variables";
+
+.image-banner {
+  margin-top: $margin-big;
+  img {
+    @include image-cover;
+  }
+  @include for-phones {
+    margin-top: 0;
+  }
+}

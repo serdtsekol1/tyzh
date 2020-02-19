@@ -35,4 +35,10 @@
 .show-more-button {
   @include opacity-animation;
   @include navigation-link;
+  img {
+    display: inline-block;
+
+    vertical-align: middle;
+    margin-bottom: 2px;
+  }
 }

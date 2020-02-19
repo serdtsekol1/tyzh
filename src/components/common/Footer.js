@@ -6,11 +6,17 @@ import SocialNetworks from "./SocialNetworks";
 import categoriesData from "./categories.json";
 
 function Footer() {
-  const categoriesComponents = categoriesData.map(category => (
-    <NavLink to="/" className="footer-category" key={category.id}>
-      {category.category_name}
-    </NavLink>
-  ));
+  const categoriesComponents = categoriesData
+    .slice(1, categoriesData.length)
+    .map(category => (
+      <NavLink
+        to={"/articles/" + category.category_id}
+        className="footer-category"
+        key={category.categoty_id}
+      >
+        {category.category_name}
+      </NavLink>
+    ));
   return (
     <footer id="sticky-footer">
       <div className="container ">

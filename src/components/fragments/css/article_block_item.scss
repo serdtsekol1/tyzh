@@ -16,6 +16,7 @@
 .article-block-image {
   @include image-cover;
   @include small-margin-bottom;
+  object-fit: cover;
 }
 .atricle-image-margin {
   margin-top: $margin-big;

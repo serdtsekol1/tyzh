@@ -4,6 +4,7 @@
 .category {
   @include navigation-link;
   @include opacity-animation;
+  line-height: 34px;
 
   @include for-phones {
     font-size: 10px;

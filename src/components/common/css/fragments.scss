@@ -1,10 +1,7 @@
 @import "./variables";
 @import "./mixins";
 .fragment-medium {
-  margin-bottom: $margin-big;
-  @include for-phones {
-    margin-bottom: $margin-super-big;
-  }
+  margin-bottom: $margin-super-big;
 }
 .fragment-big {
   @include large-padding-bottom;

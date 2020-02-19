@@ -13,11 +13,18 @@
     @content;
   }
 }
-@mixin for-large-devices {
+@mixin for-medium-and-large-devices {
   @media (min-width: 992px) and( max-width: 1200px) {
     @content;
   }
 }
+
+@mixin for-large-devices {
+  @media (min-width: 768p) and( max-width: 1200px) {
+    @content;
+  }
+}
+
 @mixin for-extra-large-devices {
   @media (min-width: 1200px) {
     @content;
@@ -35,6 +42,14 @@
   @include for-medium-devices-and-phones {
     font-size: 12px;
     line-height: 130%;
+  }
+}
+@mixin title-small {
+  font-size: 16px;
+  line-height: 130%;
+  @include for-phones {
+    font-size: 14px;
+    line-height: 14px;
   }
 }
 
@@ -56,6 +71,16 @@
   line-height: 136%;
   letter-spacing: 0.02em;
 }
+@mixin title-medium {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+  @include for-phones {
+    font-size: 16px;
+    line-height: 136%;
+  }
+}
 @mixin post-header-medium {
   font-weight: 600;
   font-size: 24px;
@@ -70,6 +95,24 @@
   font-size: 20px;
   line-height: 150%;
   color: $dark-grey;
+}
+@mixin post-abstract-large {
+  font-family: Georgia;
+  font-style: italic;
+  font-size: 30px;
+  line-height: 150%;
+  @include for-phones {
+    font-size: 20px;
+  }
+}
+@mixin post-title-large {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+  @include for-phones {
+    font-size: 24px;
+  }
 }
 
 @mixin button {
@@ -93,10 +136,12 @@
 @mixin navigation-link {
   font-weight: 600;
   font-size: 14px;
-  line-height: 34px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: $black !important;
+  @include for-phones {
+    font-size: 10px;
+  }
 }
 
 /*POSITION ELEMENTS*/
@@ -115,6 +160,18 @@
   padding-bottom: $padding-large !important;
   @include for-phones {
     padding-bottom: $padding-super-big !important;
+  }
+}
+@mixin big-margin-bottom {
+  margin-bottom: $margin-big !important;
+  @include for-phones {
+    margin-bottom: $margin-medium !important;
+  }
+}
+@mixin medium-margin-bottom {
+  margin-bottom: $margin-medium !important;
+  @include for-phones {
+    margin-bottom: $margin-small !important;
   }
 }
 

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "author_name": "Максим Віхров",
+    "author_photo": "Group 123.png",
+    "column_title": "Квартальщина "
+  },
+  {
+    "id": 1,
+    "author_name": "Ворожбит Ольга",
+    "author_photo": "Group 62.png",
+    "column_title": "Російський ліберальний імперіалізм"
+  },
+  {
+    "id": 2,
+    "author_name": "Тарас Березовець",
+    "author_photo": "Group 62(1).png",
+    "column_title": "Сцілла і Харібда Зеленського"
+  },
+  {
+    "id": 3,
+    "author_name": "Анатолій Шара",
+    "author_photo": "Group 62(2).png",
+    "column_title": "Як тил вбиває не менше за війну"
+  },
+  {
+    "id": 4,
+    "author_name": "Андрій Домаранський",
+    "author_photo": "Group 62(3).png",
+    "column_title": "Вони вже тут"
+  },
+  {
+    "id": 5,
+    "author_name": "Катерина Барабаш",
+    "author_photo": "Group 62(4).png",
+    "column_title": "Вони вже тут – «Убивайте всіх — Господь своїх упізнає!»"
+  }
+]

@@ -4,6 +4,7 @@
 @import "./components/common/css/mixins";
 @import "./components/common/css/buttons";
 @import "./components/common/css/fragments.scss";
+@import "./components/common/css/pagination.scss";
 
 html,
 body,
@@ -36,11 +37,11 @@ body {
 }
 
 .main-content > div {
-  margin-bottom: 336px;
+  padding-bottom: 336px;
   @include for-medium-devices {
-    margin-bottom: 236px;
+    padding-bottom: 236px;
   }
   @include for-phones {
-    margin-bottom: 510px;
+    padding-bottom: 510px;
   }
 }

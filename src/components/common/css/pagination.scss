@@ -3,4 +3,68 @@
 
 .pagination {
   @include flex-row;
+  width: fit-content;
+  margin: auto;
+  margin-top: $margin-large !important;
+}
+
+.pagination > li > a {
+  @include title-medium;
+  padding: $padding-extra-small $padding-small;
+  letter-spacing: 0.1em !important;
+  color: $dark-grey;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition-duration: 0.1s;
+  &:hover {
+    color: $almost-black;
+  }
+  &:hover:before {
+    opacity: 0.87 !important;
+  }
+  &:hover:after {
+    opacity: 0.87 !important;
+  }
+}
+
+.pagination > li.active > a {
+  color: $red;
+}
+.pagination > .disabled > a {
+  opacity: 0.38;
+  &:hover {
+    color: $dark-grey !important;
+  }
+  &:hover:before {
+    opacity: 0.6 !important;
+  }
+  &:hover:after {
+    opacity: 0.6 !important;
+  }
+}
+
+.pagination > .previous > a::before {
+  content: "";
+  display: inline-block;
+  background-image: url("../../../images/icons/arrow_back-32px.svg");
+  vertical-align: middle;
+  margin-bottom: 5px;
+  margin-right: $margin-more-smaller;
+  opacity: 0.6;
+  width: 32px;
+  height: 32px;
+  transition-duration: 0.1s;
+}
+
+.pagination > .next > a::after {
+  content: "";
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-left: $margin-more-smaller;
+  vertical-align: middle;
+  background-image: url("../../../images/icons/arrow_forward-32px.svg");
+  opacity: 0.6;
+  width: 32px;
+  height: 32px;
+  transition-duration: 0.1s;
 }

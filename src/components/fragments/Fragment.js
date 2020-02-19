@@ -6,7 +6,7 @@ function Fragment(props) {
     <div className={`fragment-${props.size}`}>
       {props.children}
       <div className={`fragment-${props.size}-button`}>
-        <Button title="Показати ще" />
+        {props.noShowMore ? "" : <Button title="Показати ще" />}
       </div>
     </div>
   );

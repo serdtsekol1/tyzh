@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "images": ["tyz_g_STAS0672 1.png"],
+    "images_quantity": 20,
+    "photo_report_title": "Золото кайзера на службі Владіміра Лєніна",
+    "author": "Станіслав Козлюк"
+  },
+  {
+    "id": 1,
+    "images": ["tyz_g_STAS0065 1.png"],
+    "images_quantity": 21,
+    "photo_report_title": "На Майдані близько 10 тис людей вимагають не йти на поступки Росії ",
+    "author": "Віра Агеєва"
+  },
+  {
+    "id": 2,
+    "images": ["tyz_g_11_1 1.png"],
+    "images_quantity": 14,
+    "photo_report_title": "До Дня ЗСУ. Навчання 93-ої бригади Холодний Яр",
+    "author": "Ірина Рибакова"
+  },
+  {
+    "id": 3,
+    "images": ["tyz_g_P0A4923 1.png"],
+    "images_quantity": 10,
+    "photo_report_title": "Одеса. Ліквідація пожежі в будівлі коледжу економіки та права",
+    "author": ""
+  }
+]

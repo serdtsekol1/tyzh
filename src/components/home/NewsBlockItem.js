@@ -5,7 +5,7 @@ import "./news.scss";
 function NewsBlockItem(props) {
   console.log(props);
   return (
-    <div class="news-item-small">
+    <div className="news-item-small">
       <div className="title-wrap">
         {props.newsItem.is_unique ? (
           <img
@@ -17,7 +17,7 @@ function NewsBlockItem(props) {
           ""
         )}
 
-        <p class="news-title">{props.newsItem.news_title}</p>
+        <p className="news-title">{props.newsItem.news_title}</p>
       </div>
       <DateAndAuthor
         date={props.newsItem.date}

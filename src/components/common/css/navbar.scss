@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./mixins";
 
 .navbar {
   padding: 0 !important;
@@ -16,14 +17,25 @@
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
+  @include for-medium-and-large-devices {
+    width: 100% !important;
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
+  }
 }
 
-.nav-link {
+.nav-link,
+.nav-link > p {
   color: $almost-black;
   font-size: 16px;
   line-height: 130%;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  transition-duration: 0.1s;
+  &:hover {
+    color: $red;
+  }
 }
 
 .arrow-down {
@@ -53,7 +65,7 @@
 }
 
 .navbar-text img,
-p {
+.navbar-text p {
   display: inline-block;
 }
 
@@ -72,7 +84,37 @@ p {
   padding: 0 !important;
 }
 
+.articles-nav::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../../../images/icons/arrow_down.svg");
+  background-size: cover;
+  vertical-align: middle;
+  margin-bottom: 4px;
+  margin-left: 6px;
+
+  width: 12px;
+  height: 8px;
+  transition-duration: 0.1s;
+}
+
+.show > .dropdown-toggle > .articles-nav::after {
+  background-image: url("../../../images/icons/arrow_up.svg") !important;
+}
+
+.dropdown-item {
+  transition-duration: 0.1s;
+  &:hover {
+    color: $red !important;
+  }
+}
+
 @media (max-width: 1200px) {
+  .dropdown-item {
+    &:hover {
+      color: $white !important;
+    }
+  }
   .navbar {
     padding: 0 !important;
     margin: 0;
@@ -88,9 +130,17 @@ p {
   .logo {
     height: 45px;
   }
-  .nav-link {
+  .nav-link,
+  .nav-link p {
     color: $white !important;
   }
+  .articles-nav::after {
+    background-image: url("../../../images/icons/arrow_down_white.svg");
+  }
+  .show > .dropdown-toggle > .articles-nav::after {
+    background-image: url("../../../images/icons/arrow_up_white.svg") !important;
+  }
+
   .arrow-down {
     color: $white;
   }

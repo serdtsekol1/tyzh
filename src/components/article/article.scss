@@ -1,0 +1,41 @@
+@import "../common/css/mixins";
+@import "../common/css/variables";
+
+.main-article-image {
+  @include image-cover;
+  margin-bottom: 72px !important;
+  @include for-phones {
+    margin-bottom: 32px !important;
+  }
+}
+
+.article-block-abstract-big {
+  @include post-abstract-large;
+
+  margin-bottom: 72px !important;
+  @include for-phones {
+    margin-bottom: 40px !important;
+  }
+}
+
+.category-and-date {
+  @include flex-row;
+  @include big-margin-bottom;
+  justify-content: space-between !important;
+}
+
+.notice-mistake {
+  @include title-small;
+  margin-bottom: $margin-big !important;
+  color: $grey;
+}
+
+.shared-flex {
+  @include flex-row;
+  @include big-margin-bottom;
+  justify-content: space-between !important;
+}
+
+.shared-flex > .social-networks {
+  margin: 0 !important;
+}

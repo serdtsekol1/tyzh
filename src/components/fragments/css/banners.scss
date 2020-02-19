@@ -4,3 +4,7 @@
 .banner {
   @include image-cover;
 }
+
+.subscription-banner {
+  margin-bottom: $margin-large;
+}

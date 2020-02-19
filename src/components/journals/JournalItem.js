@@ -4,7 +4,7 @@ import Button from "../common/Button";
 
 function JournalItem(props) {
   return (
-    <div className="col-12 col-md-3 journal">
+    <div className=" journal">
       <img
         className="journal-cover"
         src={require(`../../images/journals/${props.journalItem.journal_image}`)}

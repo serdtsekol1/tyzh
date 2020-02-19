@@ -1,12 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SocialNetworks from "./SocialNetworks";
+
+import categoriesData from "./categories.json";
 import "./css/navbar.scss";
 
 const Header = props => {
   const activeStyle = {
     color: "#ED1B2F"
   };
+  const categoriesComponents = categoriesData
+    .slice(1, categoriesData.length)
+    .map(category => (
+      <NavLink
+        key={category.category_id}
+        activeStyle={activeStyle}
+        to={"/articles/" + category.category_id}
+        className="dropdown-item"
+      >
+        {category.category_name}
+      </NavLink>
+    ));
   return (
     <nav className="navbar navbar-expand-xl fixed-top">
       <div className="container-fluid">
@@ -16,7 +30,6 @@ const Header = props => {
             src={require("../../images/icons/search-24px-white.svg")}
           />
           <NavLink to="/" className="navbar-brand">
-            {" "}
             <img
               className="logo"
               src={require("../../images/logo/logo-tyzhden_red_bg.svg")}
@@ -57,93 +70,18 @@ const Header = props => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Статті <i className="fa fa-angle-down arrow-down" />
+                  <p className="articles-nav">Статті</p>
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <NavLink
                     activeStyle={activeStyle}
-                    to="/"
+                    exact
+                    to={"/articles/"}
                     className="dropdown-item"
                   >
                     Усі рубрики
                   </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Світ
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Економіка
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Культура
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Політика
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Наука
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Суспільство
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Історія
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Подорожі
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Війна
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Авто
-                  </NavLink>
-                  <NavLink
-                    activeStyle={activeStyle}
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Спецтеми
-                  </NavLink>
+                  {categoriesComponents}
                 </div>
               </li>
               <li className="nav-item">

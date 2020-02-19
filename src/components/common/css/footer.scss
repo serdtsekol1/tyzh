@@ -14,10 +14,7 @@
 }
 
 .footer-category {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 130%;
-  letter-spacing: 0.02em;
+  @include title-medium;
   color: $white;
   transition-duration: 0.3s;
   &:hover {
@@ -40,17 +37,16 @@
 .partners {
   margin-top: $margin-more-smaller;
 }
-.partners img,
-p {
+
+.partners > p {
   display: inline-block;
-}
-.partners p {
   color: $white;
   font-size: 12px;
   margin-right: $margin-big;
   line-height: 130%;
 }
-.partners img {
+.partners > img {
+  display: inline-block;
   margin-right: $margin-small;
   line-height: 130%;
 }
@@ -76,6 +72,7 @@ p {
 }
 
 .contact p {
+  display: inline-block;
   color: $white;
   font-size: 16px;
   line-height: 130%;
@@ -89,7 +86,7 @@ p {
 }
 .contacts-wrap {
   text-align: left;
-  width: 190px;
+  width: 200px;
 }
 .partners-footer {
   display: none;
@@ -112,12 +109,12 @@ p {
   .partners {
     margin-top: 0 !important;
   }
-  .partners p {
+  .partners > p {
     display: block;
     margin: 0 !important;
     margin-bottom: $margin-more-smaller !important;
   }
-  .partners img {
+  .partners > img {
     display: block;
     margin: 0;
   }

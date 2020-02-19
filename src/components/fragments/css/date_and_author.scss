@@ -9,6 +9,7 @@
   .date,
   .author,
   .dot {
+    display: inline-block;
     @include very-small-header;
     margin-top: 2px !important;
     vertical-align: middle;
