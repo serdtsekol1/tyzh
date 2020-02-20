@@ -52,6 +52,25 @@
     line-height: 14px;
   }
 }
+@mixin title-link-small {
+  font-family: "UT_Magazine";
+  font-size: 16px;
+
+  color: $dark-grey;
+  @include for-phones {
+    font-size: 12px;
+    line-height: 40px;
+  }
+
+  a {
+    color: $almost-black;
+    font-weight: 600;
+    transition-duration: 0.2s;
+    &:hover {
+      color: $red;
+    }
+  }
+}
 
 @mixin small-header {
   font-style: normal;

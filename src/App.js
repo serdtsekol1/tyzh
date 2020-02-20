@@ -8,7 +8,8 @@ import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Articles from "./components/articles/Articles";
 import Journals from "./components/journals/Journals";
-import Article from "./components/article/Article";
+import Article from "./components/articles/Article";
+import NewsItem from "./components/news/NewsItem";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/article/:id" component={Article} />
+            <Route exact path="/news/:id" component={NewsItem} />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/articles/:category" component={Articles} />
             <Route

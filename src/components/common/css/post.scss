@@ -1,5 +1,5 @@
-@import "../common/css/mixins";
-@import "../common/css/variables";
+@import "./mixins";
+@import "./variables";
 
 .main-article-image {
   @include image-cover;
@@ -32,10 +32,23 @@
 
 .shared-flex {
   @include flex-row;
-  @include big-margin-bottom;
+  margin-bottom: $margin-big;
   justify-content: space-between !important;
 }
 
 .shared-flex > .social-networks {
   margin: 0 !important;
+}
+
+.news-header {
+  margin-bottom: 24px !important;
+}
+
+.news-date {
+  @include big-margin-bottom;
+}
+
+.source-label {
+  @include big-margin-bottom;
+  @include title-link-small;
 }

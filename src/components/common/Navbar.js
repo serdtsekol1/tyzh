@@ -53,6 +53,7 @@ const Header = props => {
               <li className="nav-item active">
                 <NavLink
                   activeStyle={activeStyle}
+                  exact
                   to="/news"
                   className="nav-link"
                 >
@@ -127,7 +128,7 @@ const Header = props => {
                 alt=""
                 src={require("../../images/icons/search-24px.svg")}
               />
-              <p className="separator separatopr-navbar">|</p>
+              <p className="separator separator-navbar">|</p>
               <p className="uk-week">The Ukrainian Week</p>
               <div className="d-block d-xl-none">
                 <SocialNetworks color="white" />

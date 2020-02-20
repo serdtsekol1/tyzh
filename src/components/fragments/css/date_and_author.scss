@@ -11,7 +11,7 @@
   .dot {
     display: inline-block;
     @include very-small-header;
-    margin-top: 2px !important;
+    margin-top: $margin-extra-small !important;
     vertical-align: middle;
   }
   .author {

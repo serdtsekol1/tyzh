@@ -41,7 +41,7 @@ function Articles({ match }) {
             mainArticle={true}
             articleItem={articlesData[5]}
           />
-          <ArticlesBlock quantity={11}>
+          <ArticlesBlock quantity={11} noShowMore={true}>
             <ReactPaginate
               previousLabel={"Назад"}
               nextLabel={"Далі"}

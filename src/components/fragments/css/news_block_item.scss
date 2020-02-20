@@ -1,0 +1,24 @@
+@import "../../common/css/mixins";
+@import "../../common/css/variables";
+
+.news-hours {
+  @include title-medium;
+  color: $grey;
+  padding-right: 48px;
+  @include for-phones {
+    padding-right: 27px;
+  }
+}
+
+.news-title-medium {
+  @include post-header-medium;
+  margin-bottom: $margin-very-small !important;
+}
+
+.news-abstract-medium {
+  @include post-abstract-medium;
+}
+
+.news-block-item {
+  margin-bottom: $margin-big;
+}

@@ -1,44 +1,32 @@
 import React from "react";
 import Parser from "html-react-parser";
-import Fragment from "../fragments/Fragment";
 import DateAndAuthor from "../fragments/DateAndAuthor";
-import CategoryLink from "../fragments/CategoryLink";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
 import BannersPanel from "../fragments/BannersPanel";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import SocialNetworks from "../common/SocialNetworks";
-
-import "./article.scss";
-import articlesData from "../articlesData.json";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
-import ArticlesBlock from "../fragments/AtriclesBlock";
+import NewsBlock from "../fragments/NewsBlock";
+import newsData from "../newsData.json";
 
-function Article({ match }) {
-  const articleItem = articlesData.find(
-    article => article.id == match.params.id
-  );
+import "../common/css/post.scss";
 
+function NewsItem({ match }) {
+  const newsItem = newsData.find(news => news.id == match.params.id);
   return (
     <div className="container">
-      <p className="big-post-header ">{articleItem.article_title}</p>
-      <div class="category-and-date">
-        <CategoryLink style={{ marginBottom: 8 }} categoryInfo={articleItem} />
-        <DateAndAuthor date={articleItem.date} author={articleItem.author} />
-      </div>
-
-      <img
-        className="main-article-image"
-        src={require(`../../images/articles/${articleItem.article_image}`)}
-        alt=""
-      />
       <div className="row">
         <div className="col-12 col-md-9">
-          <p className="article-block-abstract-big">
-            {articleItem.article_abstract}
-          </p>
+          <p className="big-post-header news-header ">{newsItem.news_title}</p>
+          <div className="news-date">
+            <DateAndAuthor date={newsItem.date} />
+          </div>
+        </div>
+        <div className="col-12 col-md-9">
+          <p className="article-block-abstract-big">{newsItem.news_abstract}</p>
           <div className="body-text">
-            {Parser(articleItem.html, {
+            {Parser(newsItem.html, {
               // replace: domNode => {
               //   if (domNode.name === "em") {
               //     return <strong>bar</strong>;
@@ -46,29 +34,34 @@ function Article({ match }) {
               // }
             })}
           </div>
-          <p className="notice-mistake">
+          <p className="notice-mistake d-none d-md-block">
             Якщо ви помітили помилку, виділіть необходіний текст і натисніть
             CTRL + ENTER, щоб повідомити про це редакцію.
           </p>
-          <TagsPanel tags={articleItem.tags} />
+          <p className="source-label">
+            Джерело: <a href={newsItem.source_url}>{newsItem.source}</a>
+          </p>
+          <TagsPanel tags={newsItem.tags} />
           <div class="shared-flex">
             <p className="quantity-label">
-              Поділилося: <b>{articleItem.shared_quantity} осіб</b>
+              Поділилося: <b>{newsItem.shared_quantity} осіб</b>
             </p>
             <SocialNetworks color="red" />
           </div>
           <SubscriptionBanner />
 
+          <div className="d-block d-md-none">
+            <BannersPanel />
+          </div>
           <Header size="big" title="Bам також буде цікаво почитати" />
-          <ArticlesBlock quantity={3} />
+          <NewsBlock quantity={3} />
         </div>
-        <div className="col-12 col-md-3">
-          <ShareBySocialNetworks quantity={articleItem.shared_quantity} />
+        <div className="d-none d-md-block col-md-3">
+          <ShareBySocialNetworks quantity={newsItem.shared_quantity} />
           <BannersPanel />
         </div>
       </div>
     </div>
   );
 }
-
-export default Article;
+export default NewsItem;
