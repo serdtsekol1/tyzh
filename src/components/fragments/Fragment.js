@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../common/Button";
 
 function Fragment(props) {
@@ -6,7 +7,13 @@ function Fragment(props) {
     <div className={`fragment-${props.size}`}>
       {props.children}
       <div className={`fragment-${props.size}-button`}>
-        {props.noShowMore ? "" : <Button title="Показати ще" />}
+        {props.noShowMore ? (
+          ""
+        ) : (
+          <Link to={props.showMoreLink}>
+            <Button title="Показати ще" />
+          </Link>
+        )}
       </div>
     </div>
   );

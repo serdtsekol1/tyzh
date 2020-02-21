@@ -12,7 +12,11 @@ function ArticlesBlock(props) {
       <ArticleBlockItem key={article.id} articleItem={article} />
     ));
   return (
-    <Fragment size="big" noShowMore={props.noShowMore}>
+    <Fragment
+      size="big"
+      noShowMore={props.noShowMore}
+      showMoreLink={props.showMoreLink}
+    >
       {articlesComponents}
       {props.children}
     </Fragment>

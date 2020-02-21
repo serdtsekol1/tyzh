@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import "./news.scss";
 
@@ -17,7 +18,9 @@ function NewsBlockItem(props) {
           ""
         )}
 
-        <p className="news-title">{props.newsItem.news_title}</p>
+        <Link to={`/news/${props.newsItem.id}`}>
+          <p className="news-title">{props.newsItem.news_title}</p>
+        </Link>
       </div>
       <DateAndAuthor
         date={props.newsItem.date}

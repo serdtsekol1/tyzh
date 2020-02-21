@@ -32,7 +32,7 @@ function HomePage() {
       <Header size="big" title="Статті" />
       <div className="row">
         <div className="col-12 col-md-9">
-          <ArticlesBlock quantity={5} />
+          <ArticlesBlock quantity={5} showMoreLink="/articles" />
         </div>
         <div className="col-12 col-md-3">
           <BannersPanel secondBanner={true} />
@@ -43,7 +43,7 @@ function HomePage() {
       <Header size="big" title="Обрана тема" />
       <div className="row">
         <div className="col-12 col-md-9">
-          <ArticlesBlock quantity={5} />
+          <ArticlesBlock quantity={5} showMoreLink="/articles" />
         </div>
         <div className="col-12 col-md-3">
           <BannersPanel secondBanner={true} />

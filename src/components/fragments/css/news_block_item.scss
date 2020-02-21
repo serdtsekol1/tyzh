@@ -17,6 +17,9 @@
 
 .news-abstract-medium {
   @include post-abstract-medium;
+  @include for-phones {
+    display: none;
+  }
 }
 
 .news-block-item {

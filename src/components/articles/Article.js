@@ -63,7 +63,7 @@ function Article({ match }) {
           </div>
 
           <Header size="big" title="Bам також буде цікаво почитати" />
-          <ArticlesBlock quantity={3} />
+          <ArticlesBlock quantity={3} showMoreLink="/articles" />
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks quantity={articleItem.shared_quantity} />
