@@ -12,7 +12,7 @@ function NewsBlockItem(props) {
         </td>
         <td>
           <tr>
-            <Link to={`news/${props.newsItem.id}`}>
+            <Link to={`/news/${props.newsItem.id}`}>
               <p className="news-title-medium">{props.newsItem.news_title}</p>
             </Link>
           </tr>
