@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DateAndAuthor from "../fragments/DateAndAuthor";
-import "./news.scss";
+import "../news/news.scss";
 
 function NewsBlockItem(props) {
   console.log(props);

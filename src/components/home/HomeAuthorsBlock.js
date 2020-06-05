@@ -1,13 +1,13 @@
 import React from "react";
 
-import AuthorsBlockItem from "./AuthorsBlockItem";
+import HomeAuthorsBlockItem from "./HomeAuthorsBlockItem";
 import Fragment from "../fragments/Fragment";
 import columnsData from "../columnData.json";
-import "./authors_block.scss";
+import "../fragments/css/authors_block.scss";
 
-function AuthorsBlock() {
+function HomeAuthorsBlock() {
   const columnsComponents = columnsData.map(column => (
-    <AuthorsBlockItem size="big" key={column.id} columnItem={column} />
+    <HomeAuthorsBlockItem size="big" key={column.id} columnItem={column} />
   ));
   return (
     <Fragment size="big">
@@ -27,4 +27,4 @@ function AuthorsBlock() {
   );
 }
 
-export default AuthorsBlock;
+export default HomeAuthorsBlock;

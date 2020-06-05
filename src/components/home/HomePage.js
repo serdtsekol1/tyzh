@@ -1,7 +1,7 @@
 import React from "react";
-import NewsBlock from "./NewsBlock";
-import AuthorsBlock from "./AuthorsBlock";
-import AuthorsSmallBlock from "./AuthorsSmallBlock";
+import SmallNewsBlock from "./SmallNewsBlock";
+import HomeAuthorsBlock from "./HomeAuthorsBlock";
+import HomeAuthorsSmallBlock from "./HomeAuthorsSmallBlock";
 import PhotoReportBlock from "./PhotoReportBlock";
 
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
@@ -19,13 +19,13 @@ function HomePage() {
     <div className="container">
       <div className="row">
         <div className="col-12 order-1 col-md-3 order-md-0">
-          <NewsBlock />
+          <SmallNewsBlock />
         </div>
         <div className="col-12 order-0 col-md-6 order-md-1 ">
           <ArticleBlockItem mainArticle={true} articleItem={articlesData[0]} />
         </div>
         <div className="d-none d-md-block col-md-3 order-md-2">
-          <AuthorsSmallBlock />
+          <HomeAuthorsSmallBlock />
         </div>
       </div>
       <SubscriptionBanner />
@@ -39,7 +39,7 @@ function HomePage() {
         </div>
       </div>
       <Header size="big" title="Авторські колонки" />
-      <AuthorsBlock />
+      <HomeAuthorsBlock />
       <Header size="big" title="Обрана тема" />
       <div className="row">
         <div className="col-12 col-md-9">

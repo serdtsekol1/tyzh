@@ -88,7 +88,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/colums"
+                  to="/columns"
                   className="nav-link"
                 >
                   Колонки

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "../news/news.scss"
 import "./css/news_block_item.scss";
 
 function NewsBlockItem(props) {

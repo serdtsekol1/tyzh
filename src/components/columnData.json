@@ -3,36 +3,42 @@
     "id": 0,
     "author_name": "Максим Віхров",
     "author_photo": "Group 123.png",
-    "column_title": "Квартальщина "
+    "column_title": "Квартальщина ",
+    "author_columns_quantity": "4 колонки"
   },
   {
     "id": 1,
     "author_name": "Ворожбит Ольга",
     "author_photo": "Group 62.png",
-    "column_title": "Російський ліберальний імперіалізм"
+    "column_title": "Російський ліберальний імперіалізм",
+    "author_columns_quantity": "33 колонки"
   },
   {
     "id": 2,
     "author_name": "Тарас Березовець",
     "author_photo": "Group 62(1).png",
-    "column_title": "Сцілла і Харібда Зеленського"
+    "column_title": "Сцілла і Харібда Зеленського",
+    "author_columns_quantity": "2 колонки"
   },
   {
     "id": 3,
     "author_name": "Анатолій Шара",
     "author_photo": "Group 62(2).png",
-    "column_title": "Як тил вбиває не менше за війну"
+    "column_title": "Як тил вбиває не менше за війну",
+    "author_columns_quantity": "102 колонки"
   },
   {
     "id": 4,
     "author_name": "Андрій Домаранський",
     "author_photo": "Group 62(3).png",
-    "column_title": "Вони вже тут"
+    "column_title": "Вони вже тут",
+    "author_columns_quantity": "23 колонки"
   },
   {
     "id": 5,
     "author_name": "Катерина Барабаш",
     "author_photo": "Group 62(4).png",
-    "column_title": "Вони вже тут – «Убивайте всіх — Господь своїх упізнає!»"
+    "column_title": "Вони вже тут – «Убивайте всіх — Господь своїх упізнає!»",
+    "author_columns_quantity": "44 колонки"
   }
 ]

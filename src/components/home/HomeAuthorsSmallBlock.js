@@ -1,14 +1,14 @@
 import React from "react";
 
-import AuthorsBlockItem from "./AuthorsBlockItem.js";
+import HomeAuthorsBlockItem from "./HomeAuthorsBlockItem.js";
 import Fragment from "../fragments/Fragment";
 import Header from "../common/Header";
 
 import authorsData from "../columnData.json";
 
-function AuthorsSmallBlock() {
+function HomeAuthorsSmallBlock() {
   const authorsComponents = authorsData.map(author => (
-    <AuthorsBlockItem size="small" key={author.id} columnItem={author} />
+    <HomeAuthorsBlockItem size="small" key={author.id} columnItem={author} />
   ));
   return (
     <div className="authors-small-block">
@@ -17,4 +17,4 @@ function AuthorsSmallBlock() {
     </div>
   );
 }
-export default AuthorsSmallBlock;
+export default HomeAuthorsSmallBlock;

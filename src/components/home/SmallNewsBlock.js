@@ -1,10 +1,10 @@
 import React from "react";
 import newsData from "../newsData.json";
-import NewsBlockItem from "./NewsBlockItem.js";
+import NewsBlockItem from "./SmallNewsBlockItem";
 import Header from "../common/Header";
 import Fragment from "../fragments/Fragment";
 
-function NewsBlock() {
+function SmallNewsBlock() {
   const newsComponents = newsData
     .slice(0, 4)
     .map(news => <NewsBlockItem key={news.id} newsItem={news} />);
@@ -17,4 +17,4 @@ function NewsBlock() {
   );
 }
 
-export default NewsBlock;
+export default SmallNewsBlock;

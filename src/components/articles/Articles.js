@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 import { useHistory } from "react-router-dom";
-import NewsBlock from "../home/NewsBlock";
+import SmallNewsBlock from "../home/SmallNewsBlock";
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ArticlesBlock from "../fragments/AtriclesBlock";
 import BannersPanel from "../fragments/BannersPanel";
@@ -59,7 +59,7 @@ function Articles({ match }) {
           </ArticlesBlock>
         </div>
         <div className="d-none d-md-block col-md-3 ">
-          <NewsBlock />
+          <SmallNewsBlock />
           <LastJournalBanner />
           <BannersPanel secondBanner={false} />
         </div>

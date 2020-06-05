@@ -1,8 +1,8 @@
 import React from "react";
 import ShowMoreButton from "../common/ShowMoreButton";
-import "./authors_block.scss";
+import "../fragments/css/authors_block.scss";
 
-function AuthorsBlockItem(props) {
+function HomeAuthorsBlockItem(props) {
   return (
     <div className={`author-column-link${"-" + props.size}`}>
       <div className="row">
@@ -14,7 +14,7 @@ function AuthorsBlockItem(props) {
           />
         </div>
         <div className="col-7">
-          <p className="author-name">{props.columnItem.author_name}</p>
+          <p className="small-author-name">{props.columnItem.author_name}</p>
           <p className={`column-title${"-" + props.size}`}>
             {props.columnItem.column_title}
           </p>
@@ -29,4 +29,4 @@ function AuthorsBlockItem(props) {
   );
 }
 
-export default AuthorsBlockItem;
+export default HomeAuthorsBlockItem;

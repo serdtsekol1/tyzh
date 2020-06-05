@@ -11,7 +11,7 @@ function Fragment(props) {
           ""
         ) : (
           <Link to={props.showMoreLink}>
-            <Button title="Показати ще" />
+            <Button title={props.showMoreTitle ? props.showMoreTitle: "Показати більше"} />
           </Link>
         )}
       </div>
