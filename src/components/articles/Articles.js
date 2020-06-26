@@ -23,7 +23,7 @@ function Articles({ match }) {
     const fetchData = async () => {
      
       let apiURL = page? `${initialApiURL}&offset=${page*10}`: initialApiURL;
-      const result = await axios(apiURL);
+      const result = await axios('/publications/?limit=10');
       setArticles(result.data.results);
       console.log(result.data);
      };
