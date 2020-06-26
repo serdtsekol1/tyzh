@@ -1,10 +1,12 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./css/photo_report.scss";
 import PhotosQuantityHolder from "./PhotosQuantityHolder";
 
 function PhotoReportItem(props) {
   return (
-    <div>
+    <div className="photo-report-item">
+      <Link to={`/photoreport/${props.reportItem.id}`}>
       <div className="image-cover-wrap">
         <img
           className="report-image-cover"
@@ -20,6 +22,7 @@ function PhotoReportItem(props) {
       <p className="photo-report-author d-none d-md-block">
         {props.reportItem.author}
       </p>
+      </Link>
     </div>
   );
 }

@@ -5,15 +5,17 @@ import categories from "../common/categories.json";
 
 function CategoryLink(props) {
   return (
-    <NavLink to={"/articles/" + props.categoryInfo.category_id}>
+    <NavLink to={props? "/articles/" + props.categoryInfo.journal.persistentname.toLowerCase(): "all-categories"}>
       <div style={props.style}>
         <div
           className="category-wrap"
-          style={{ borderLeftColor: props.categoryInfo.category_color }}
+          style={{ borderLeftColor: "#CCCCCC" }}
         >
-          <p className="category">{props.categoryInfo.category_name}</p>
+          {props.categoryInfo.journal?
+            <p className="category">{props.categoryInfo.journal.nameua}</p>
+          :""}
         </div>
-      </div>{" "}
+      </div>
     </NavLink>
   );
 }

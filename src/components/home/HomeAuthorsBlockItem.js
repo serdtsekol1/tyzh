@@ -10,13 +10,13 @@ function HomeAuthorsBlockItem(props) {
           <img
             className="author_photo"
             src={require(`../../images/columns/${props.columnItem.author_photo}`)}
-            alt={`Портрет:${props.columnItem.author_name}`}
+            alt={`Портрет:${props.columnItem.author}`}
           />
         </div>
         <div className="col-7">
-          <p className="small-author-name">{props.columnItem.author_name}</p>
+          <p className="small-author-name">{props.columnItem.author}</p>
           <p className={`column-title${"-" + props.size}`}>
-            {props.columnItem.column_title}
+            {props.columnItem.title}
           </p>
           {props.size === "small" ? (
             ""

@@ -7,7 +7,7 @@ import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
-import NewsBlock from "../fragments/NewsBlock";
+import SmallNewsBlock from "../fragments/SmallNewsBlock";
 import newsData from "../newsData.json";
 
 import "../common/css/post.scss";
@@ -18,13 +18,13 @@ function NewsItem({ match }) {
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-9">
-          <p className="big-post-header news-header ">{newsItem.news_title}</p>
+          <p className="big-post-header news-header ">{newsItem.title}</p>
           <div className="news-date">
             <DateAndAuthor date={newsItem.date} />
           </div>
         </div>
         <div className="col-12 col-md-9">
-          <p className="article-block-abstract-big">{newsItem.news_abstract}</p>
+          <p className="article-block-abstract-big">{newsItem.abstract}</p>
           <div className="body-text">
             {Parser(newsItem.html, {
               // replace: domNode => {
@@ -54,7 +54,7 @@ function NewsItem({ match }) {
             <BannersPanel />
           </div>
           <Header size="big" title="Bам також буде цікаво почитати" />
-          <NewsBlock quantity={3} />
+          <SmallNewsBlock quantity={3} />
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks quantity={newsItem.shared_quantity} />

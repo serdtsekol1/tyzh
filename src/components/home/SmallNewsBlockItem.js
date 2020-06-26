@@ -4,7 +4,7 @@ import DateAndAuthor from "../fragments/DateAndAuthor";
 import "../news/news.scss";
 
 function NewsBlockItem(props) {
-  console.log(props);
+  
   return (
     <div className="news-item-small">
       <div className="title-wrap">
@@ -19,7 +19,7 @@ function NewsBlockItem(props) {
         )}
 
         <Link to={`/news/${props.newsItem.id}`}>
-          <p className="news-title">{props.newsItem.news_title}</p>
+          <p className="news-title">{props.newsItem.title}</p>
         </Link>
       </div>
       <DateAndAuthor

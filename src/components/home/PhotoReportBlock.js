@@ -1,8 +1,10 @@
 import React from "react";
-import photoReportsData from "../photoReportData";
+
 import PhotoReportItem from "../fragments/PhotoReportItem";
 import Fragment from "../fragments/Fragment";
 import Header from "../common/Header";
+
+import photoReportsData from "../photoReportData";
 
 function PhotoReportBlock() {
   const photoReportsComponents = photoReportsData.map(photoReport => (

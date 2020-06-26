@@ -7,11 +7,12 @@ import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
 import BannersPanel from "../fragments/BannersPanel";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import SocialNetworks from "../common/SocialNetworks";
+import TagsPanel from "../fragments/TagsPanel";
+import Header from "../common/Header";
 
 import "../common/css/post.scss";
 import articlesData from "../articlesData.json";
-import TagsPanel from "../fragments/TagsPanel";
-import Header from "../common/Header";
+
 import ArticlesBlock from "../fragments/AtriclesBlock";
 
 function Article({ match }) {
@@ -21,7 +22,7 @@ function Article({ match }) {
 
   return (
     <div className="container">
-      <p className="big-post-header ">{articleItem.article_title}</p>
+      <p className="big-post-header ">{articleItem.title}</p>
       <div class="category-and-date">
         <CategoryLink style={{ marginBottom: 8 }} categoryInfo={articleItem} />
         <DateAndAuthor date={articleItem.date} author={articleItem.author} />

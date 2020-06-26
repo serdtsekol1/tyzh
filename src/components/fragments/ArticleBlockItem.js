@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CategoryLink from "./CategoryLink";
 import DateAndAuthor from "./DateAndAuthor";
 import "./css/press_item.scss";
+import PressItem from "./PressItem";
 
 function ArticleBlockItem(props) {
   return (
@@ -19,20 +20,9 @@ function ArticleBlockItem(props) {
             style={{ marginBottom: 8 }}
             categoryInfo={props.articleItem}
           />
-          <div className="articleInfo">
-            <Link to={`/article/${props.articleItem.id}`}>
-              <p className="article-block-title">
-                {props.articleItem.article_title}
-              </p>
-            </Link>
-            <p className="article-block-abstract">
-              {props.articleItem.article_abstract}
-            </p>
-            <DateAndAuthor
-              date={props.articleItem.date}
-              author={props.articleItem.author}
-            />
-          </div>
+        <div className="articlesInfo">
+          <PressItem pressItem={props.articleItem} type="article"/>
+        </div>
         </div>
         <div
           className={
@@ -48,7 +38,7 @@ function ArticleBlockItem(props) {
                 ? "article-block-image"
                 : "article-block-image atricle-image-margin"
             }
-            src={require(`../../images/articles/${props.articleItem.article_image}`)}
+            src={props.articleItem? props.articleItem.image1: ""}
             alt="Зображення: стаття"
           />
         </div>

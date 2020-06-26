@@ -34,11 +34,6 @@
   }
 }
 
-.quantity-label {
-  @include title-small;
-  color: $dark-grey;
-  display: inline-block;
-}
 
 .body-text {
   margin-bottom: $margin-big;

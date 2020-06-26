@@ -1,11 +1,11 @@
 @import "../../common/css/mixins";
 @import "../../common/css/variables";
 
-.article-block-title {
+.press-title {
   @include post-header-medium;
   margin-bottom: $margin-extra-small !important;
 }
-.article-block-abstract {
+.press-abstract {
   @include post-abstract-medium;
   margin-bottom: $margin-more-smaller !important;
   @include for-phones {
@@ -25,7 +25,7 @@
   }
 }
 
-.articleInfo {
+.articlesInfo {
   padding-left: $padding-extra-small;
   margin-left: $margin-medium;
 

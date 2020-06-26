@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import newsData from "../newsData.json";
-import SmallNewsBlockItem from "./NewsBlockItem";
+import SmallNewsBlockItem from "./SmallNewsBlockItem";
 import Fragment from "./Fragment";
 import "./css/news_block_item.scss";
+
+import newsData from "../newsData.json";
 
 function NewsBlock(props) {
   const newsComponents = newsData

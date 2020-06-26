@@ -12,7 +12,7 @@
   height: 56px;
   padding: $padding-very-small $padding-small;
   @include for-phones {
-    width: 123px;
+    width: auto;
     height: 40px;
     padding: $padding-very-small;
   }
@@ -24,6 +24,15 @@
   width: 40px;
   height: 40px;
   opacity: 0.38;
+  @include for-phones{
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.camera-small{
+  width: 24px !important;
+  height: 24px !important;
 }
 
 .report-image-cover {
@@ -49,6 +58,18 @@
   letter-spacing: 0.1em;
 }
 
-.small-photo-reports-wrap {
-  margin-top: $margin-big;
+.photo-report-item {
+   @include big-margin-bottom;
+}
+
+
+.quantity-label {
+  @include title-small;
+  color: $dark-grey;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.image-gallery{
+  @include big-margin-bottom;
 }

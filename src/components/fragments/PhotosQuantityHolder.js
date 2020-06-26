@@ -3,9 +3,9 @@ import "./css/photo_report.scss";
 
 function PhotosQuantityHolder(props) {
   return (
-    <div className="photos-quantity-holder ">
+    <div className={props.noFrame?"":"photos-quantity-holder"}>
       <img
-        className="camera"
+        className={props.noFrame?"camera camera-small":"camera"}
         src={require("../../images/icons/photo-24px.svg")}
         alt="Камера"
       />

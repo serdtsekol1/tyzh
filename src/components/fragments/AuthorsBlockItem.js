@@ -7,10 +7,10 @@ function AuthorsBlockItem(props){
             <img
             className="author_photo"
             src={require(`../../images/columns/${props.authorItem.author_photo}`)}
-            alt={`Портрет:${props.authorItem.author_name}`}
+            alt={`Портрет:${props.authorItem.author}`}
           />
             <div className="authors-info">
-                 <p className="author-name">{props.authorItem.author_name}</p>
+                 <p className="author-name">{props.authorItem.author}</p>
                  <p className="author-columns-quantity">{props.authorItem.author_columns_quantity}</p>
             </div>
         </div>
