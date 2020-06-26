@@ -2,7 +2,7 @@
   "name": "tyzden-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://django:5000",
+  "proxy": "https://newtestapi.tyzhden.ua",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",

@@ -15,7 +15,7 @@ const Header = props => {
       <NavLink
         key={category.category_id}
         activeStyle={activeStyle}
-        to={"/articles/" + category.category_id}
+        to={`/articles/${category.category_id}/page=1`}
         className="dropdown-item"
       >
         {category.category_name}
@@ -77,7 +77,7 @@ const Header = props => {
                   <NavLink
                     activeStyle={activeStyle}
                     exact
-                    to={"/articles/"}
+                    to={"/articles/all-categories/page=1"}
                     className="dropdown-item"
                   >
                     Усі рубрики

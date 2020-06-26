@@ -16,20 +16,25 @@ function Articles({ match }) {
   let apiDomain = config.get("apiDomain");
   let initialApiURL = `${apiDomain}/publications/?limit=10`;
   const [articles, setArticles] = useState([]);
-  const [page, setPage] = useState(null);
+  const [page, setPage] = useState(match.params.page);
+  const [matchPage,setMatchPage] = useState(match.params.page);
+  
   useEffect( () => {
-    console.log(page);
-    if (match.params.page) setPage(match.params.page);
-    const fetchData = async () => {
-     
-      let apiURL = page? `${initialApiURL}&offset=${page*10}`: initialApiURL;
-      const result = await axios('/publications/?limit=10');
+    
+    
+    //setPage(match.params.page);
+    const fetchData = async (page) => {
+      let result;
+      if (page) result = await axios(`/publications/?limit=10&offset=${page*10}`);
+      else result = await axios(`/publications/?limit=10`);
       setArticles(result.data.results);
-      console.log(result.data);
+      history.push(`/articles/${initialCategory}/page=${page}`);
+    
      };
-     fetchData();
+     if (page!=match.params.page) fetchData(match.params.page);
+     else fetchData(page);
      
-  }, []);
+  }, [page,match.params.page]);
   
   let mainArticle = articles.slice(0,1)
   .map(article => (
@@ -45,12 +50,11 @@ function Articles({ match }) {
 
   const handlePageClick = async (data) => {
     setPage(data.selected+1);
-    console.log(data.selected+1);
-    console.log(page);
-    // const result = await axios(`${apiDomain}/publications/?limit=10&offset=10`);
-    // setArticles(result.data.results);
-    // console.log(articles);
-    history.push(`/articles/${initialCategory}/page=${data.selected + 1}`);
+    match.params.page = data.selected+1;
+  
+    
+    
+  
   };
 
 
