@@ -16,7 +16,7 @@ function News({match}){
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(match.params.page);
   const [pagesCount, setPagesCount] = useState(0);
-
+  let history = useHistory();
   let initialPageNumber = 0;
   if (match.params.page) initialPageNumber = match.params.page - 1;
 
