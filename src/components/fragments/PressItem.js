@@ -6,6 +6,13 @@ import "./css/press_item.scss";
 
 function PressItem(props){
     /* Used in all press listed items: news list, articles list, columns list */
+    const today = new Date();
+    let options = {  month: 'long', day: 'numeric' };
+    let timeOptions = {  hour: 'numeric', minute: 'numeric' };
+    let date = new Date(props.pressItem.created_ts).toLocaleDateString('uK-UK', options);
+    if (props.pressItem.created_ts === today.getDate()) 
+        date = new Date(props.pressItem.created_ts).toLocaleTimeString('uK-UK', timeOptions);;
+      
     return (
     <div className="pressInfo">
     <Link to={`/${props.type}/${props.pressItem.id}`}>
@@ -17,7 +24,7 @@ function PressItem(props){
     {props.pressItem.abstract}
     </p>
     <DateAndAuthor
-    date={props.pressItem.created_ts}
+    date={date}
     author={props.pressItem.author? props.pressItem.author.fullnameua: null}
     />
     </div>

@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import "../news/news.scss";
 
-function NewsBlockItem(props) {
-  
+function SmallNewsBlockItem(props) {
+  const today = new Date();
+  let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
+  if (props.newsItem.created_ts === today.getDate()) options = {  hour: 'numeric', minute: 'numeric'};
+    
+
   return (
     <div className="news-item-small">
       <div className="title-wrap">
@@ -23,11 +27,11 @@ function NewsBlockItem(props) {
         </Link>
       </div>
       <DateAndAuthor
-        date={props.newsItem.date}
+        date={new Date(props.newsItem.created_ts).toLocaleTimeString('uK-UK', options)}
         author={props.newsItem.author}
       />
     </div>
   );
 }
 
-export default NewsBlockItem;
+export default SmallNewsBlockItem;

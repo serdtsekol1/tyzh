@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../common/Header";
-import SmallNewsBlock from "../fragments/SmallNewsBlock";
+import NewsBlock from "../fragments/NewsBlock";
 import BannersPanel from "../fragments/BannersPanel";
 import newsData from "../newsData.json";
 import PressItem from "../fragments/PressItem";
@@ -15,7 +15,7 @@ function News({match}){
               <Header  size="small" style={{ fontSize: 32 }} title="Новини" />
               <div className="row">
                 <div className="col-12 col-md-9">
-                <SmallNewsBlock quantity={20} />
+                <NewsBlock quantity={20} />
                 </div>
                 <div className="col-12 col-md-3">
                     <LastJournalBanner/>

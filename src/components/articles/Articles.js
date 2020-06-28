@@ -13,28 +13,39 @@ import config from "react-global-configuration";
 import axios from 'axios';
 
 function Articles({ match }) {
-  let apiDomain = config.get("apiDomain");
-  let initialApiURL = `${apiDomain}/publications/?limit=10`;
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(match.params.page);
-  const [matchPage,setMatchPage] = useState(match.params.page);
-  
-  useEffect( () => {
-    
-    
-    //setPage(match.params.page);
-    const fetchData = async (page) => {
-      let result;
-      if (page) result = await axios(`/publications/?limit=10&offset=${page*10}`);
-      else result = await axios(`/publications/?limit=10`);
-      setArticles(result.data.results);
-      history.push(`/articles/${initialCategory}/page=${page}`);
-    
-     };
-     if (page!=match.params.page) fetchData(match.params.page);
-     else fetchData(page);
-     
-  }, [page,match.params.page]);
+  const [pagesCount, setPagesCount] = useState(0);
+
+  console.log(config.get("apiDomain"));
+  let history = useHistory();
+  let initialCategory = "all-categories";
+  if (match.params.category) initialCategory = match.params.category;
+  let initialPageNumber = 0;
+  if (match.params.page) initialPageNumber = match.params.page - 1;
+
+ 
+  useEffect (()=>{
+    const fetchArticles = async (page) => {
+      let limit = 10;
+      let apiUrl;
+      if (page)  apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}&offset=${(page-1)*limit}`;
+      else apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}`;
+      await axios.get(apiUrl)
+      .then(res =>{ 
+        console.log(res);
+        setArticles(res.data.results);
+        setPagesCount(Math.floor(res.data.count/limit)+1);
+        history.push(`/articles/${initialCategory}/page=${page}`);
+        })
+      .catch(err => console.log(err));  
+      };
+      if (page!=match.params.page) fetchArticles(match.params.page);
+      else fetchArticles(page);
+  },[page,match.params.page]);
+ 
+
+ 
   
   let mainArticle = articles.slice(0,1)
   .map(article => (
@@ -42,19 +53,10 @@ function Articles({ match }) {
     mainArticle={true} key={article.id} articleItem={article} />
   ));
 
-  let history = useHistory();
-  let initialCategory = "all-categories";
-  if (match.params.category) initialCategory = match.params.category;
-  let initialPageNumber = 0;
-  if (match.params.page) initialPageNumber = match.params.page - 1;
 
   const handlePageClick = async (data) => {
     setPage(data.selected+1);
     match.params.page = data.selected+1;
-  
-    
-    
-  
   };
 
 
@@ -85,7 +87,7 @@ function Articles({ match }) {
               breakLabel={"..."}
               breakClassName={"break-me"}
               initialPage={initialPageNumber}
-              pageCount={100}
+              pageCount={pagesCount}
               marginPagesDisplayed={1}
               pageRangeDisplayed={3}
               onPageChange={handlePageClick}

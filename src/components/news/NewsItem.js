@@ -7,7 +7,7 @@ import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
-import SmallNewsBlock from "../fragments/SmallNewsBlock";
+import NewsBlock from "../fragments/NewsBlock";
 import newsData from "../newsData.json";
 
 import "../common/css/post.scss";
@@ -54,7 +54,7 @@ function NewsItem({ match }) {
             <BannersPanel />
           </div>
           <Header size="big" title="Bам також буде цікаво почитати" />
-          <SmallNewsBlock quantity={3} />
+          <NewsBlock quantity={3} />
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks quantity={newsItem.shared_quantity} />

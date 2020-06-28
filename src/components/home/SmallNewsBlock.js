@@ -1,16 +1,32 @@
-import React from "react";
-import newsData from "../newsData.json";
-import NewsBlockItem from "./SmallNewsBlockItem";
+import React,{useEffect, useState} from "react";
+
+import SmallNewsBlockItem from "./SmallNewsBlockItem";
 import Header from "../common/Header";
 import Fragment from "../fragments/Fragment";
+import axios from 'axios';
+import config from "react-global-configuration";
 
 function SmallNewsBlock() {
-  const newsComponents = newsData
+  const [news, setNews] = useState([]);
+  useEffect (()=>{
+    const fetchNews= async () => {
+      let limit = 4;
+      await axios.get(`${config.get("apiDomain")}/news/?limit=${limit}`)
+      .then(res =>{ 
+        setNews(res.data.results);
+      })
+      .catch(err => console.log(err));
+     };
+     fetchNews();
+  },[]);
+
+  
+  const newsComponents = news
     .slice(0, 4)
-    .map(news => <NewsBlockItem key={news.id} newsItem={news} />);
+    .map(news => <SmallNewsBlockItem key={news.id} newsItem={news} />);
 
   return (
-    <Fragment size="medium">
+    <Fragment size="medium" showMoreLink="/news">
       <Header title="Новини" size="small" />
       {newsComponents}
     </Fragment>

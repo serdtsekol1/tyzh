@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import "./journals.scss";
 
 function YearsNavBar() {
-  const firstYear = 2007;
+  const firstYear = 2010;
   const lastYear = 2020;
   const [page, setPage] = useState(lastYear);
   const activeStyle = {
