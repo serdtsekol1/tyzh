@@ -17,7 +17,6 @@ function Articles({ match }) {
   const [page, setPage] = useState(match.params.page);
   const [pagesCount, setPagesCount] = useState(0);
 
-  console.log(config.get("apiDomain"));
   let history = useHistory();
   let initialCategory = "all-categories";
   if (match.params.category) initialCategory = match.params.category;
@@ -33,7 +32,6 @@ function Articles({ match }) {
       else apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
-        console.log(res);
         setArticles(res.data.results);
         setPagesCount(Math.floor(res.data.count/limit)+1);
         history.push(`/articles/${initialCategory}/page=${page}`);
@@ -45,6 +43,10 @@ function Articles({ match }) {
   },[page,match.params.page]);
  
 
+  const handlePageClick = async (data) => {
+    setPage(data.selected+1);
+    match.params.page = data.selected+1;
+  };
  
   
   let mainArticle = articles.slice(0,1)
@@ -54,10 +56,6 @@ function Articles({ match }) {
   ));
 
 
-  const handlePageClick = async (data) => {
-    setPage(data.selected+1);
-    match.params.page = data.selected+1;
-  };
 
 
   let pageHeader;

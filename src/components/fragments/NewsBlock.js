@@ -8,9 +8,7 @@ import newsData from "../newsData.json";
 
 function NewsBlock(props) {
  
-  const newsComponents = newsData
-    .slice(0, props.quantity)
-    .map(news => <NewsBlockItem key={news.id} newsItem={news} />);
+  const newsComponents = props.news.map(news => <NewsBlockItem key={news.id} newsItem={news} />);
   return <Fragment size="big">{newsComponents}</Fragment>;
 }
 

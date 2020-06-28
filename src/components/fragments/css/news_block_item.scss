@@ -2,7 +2,7 @@
 @import "../../common/css/variables";
 
 .news-hours {
-  @include title-medium;
+  @include post-abstract-large;
   color: $grey;
   padding-right: 48px;
   @include for-phones {

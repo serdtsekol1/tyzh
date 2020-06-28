@@ -8,7 +8,7 @@ function NewsBlockItem(props) {
     <div className="news-block-item">
       <table>
         <td>
-          <p className="news-hours">{props.newsItem.date}</p>
+          <p className="news-hours">{props.newsItem.created_ts}</p>
         </td>
         <td>
           <tr>
