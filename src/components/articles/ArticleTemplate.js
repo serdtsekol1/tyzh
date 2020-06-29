@@ -28,7 +28,7 @@ function ArticleTemplate(props) {
         {(props.article.author) ?
         ( <div className="category-and-date">
           <CategoryLink style={{ marginBottom: 8 }} categoryInfo={props.article} />
-          <DateAndAuthor date={props.article.created_ts.toLocaleDateString('uK-UK', options)} author={props.article.author.fullnameua} /> 
+          <DateAndAuthor date={new Date(props.article.created_ts).toLocaleDateString('uK-UK', options)} author={props.article.author.fullnameua} /> 
         </div>)
       : ""}
       <img

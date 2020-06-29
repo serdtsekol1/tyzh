@@ -27,9 +27,12 @@ function Articles({ match }) {
   useEffect (()=>{
     const fetchArticles = async (page) => {
       let limit = 10;
-      let apiUrl;
-      if (page)  apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}&offset=${(page-1)*limit}`;
+      let apiUrl;   
+      if (initialCategory != "all-categories") 
+        apiUrl = `${config.get("apiDomain")}/publications/list/${initialCategory}/?limit=${limit}&offset=${(page-1)*limit}`;
       else apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}`;
+      if (page)  apiUrl = `${apiUrl}&offset=${(page-1)*limit}`;
+
       await axios.get(apiUrl)
       .then(res =>{ 
         setArticles(res.data.results);
@@ -40,7 +43,7 @@ function Articles({ match }) {
       };
       if (page!=match.params.page) fetchArticles(match.params.page);
       else fetchArticles(page);
-  },[page,match.params.page]);
+  },[page,match.params.page,match.params.category]);
  
 
   const handlePageClick = async (data) => {
@@ -60,14 +63,14 @@ function Articles({ match }) {
 
   let pageHeader;
   if (
-    categoties.filter(category => category.category_id == initialCategory)
+    categoties.filter(category => category.category_name == initialCategory)
       .length > 0
   ) {
     pageHeader = categoties.find(
-      category => category.category_id == initialCategory.toLowerCase()
+      category => category.category_name == initialCategory
     ).category_name;
   } else {
-    history.push(`/page-not-found`);
+    //history.push(`/page-not-found`);
   }
 
   return (

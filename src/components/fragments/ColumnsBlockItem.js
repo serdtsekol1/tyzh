@@ -6,17 +6,22 @@ import "../columns/columns.scss";
 function ColumnsBlockItem(props) {
  
   return (
-    <div className="column-item row">
-      <div className="col-2">
-      <img
-            className="author_photo"
-            src={require(`../../images/columns/${props.columnItem.author_photo}`)}
-            alt={`Портрет:${props.columnItem.author}`}
-          />
+
+    <div>
+      {props.columnItem ? 
+      <div className="column-item row">
+        <div className="col-2">
+        <img
+              className="author_photo"
+              src={props.columnItem.author.image1url}
+              alt={`Портрет:${props.columnItem.author.fullname}`}
+            />
+        </div>
+        <div className="col-10">
+        <PressItem pressItem = {props.columnItem} type="column"/>
+        </div>
       </div>
-      <div className="col-10">
-      <PressItem pressItem = {props.columnItem} type="column"/>
-      </div>
+      :""}
     </div>
   );
 }

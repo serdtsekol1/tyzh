@@ -15,7 +15,7 @@ const Header = props => {
       <NavLink
         key={category.category_id}
         activeStyle={activeStyle}
-        to={`/articles/${category.category_id}/page=1`}
+        to={`/articles/${category.category_name}/page=1`}
         className="dropdown-item"
       >
         {category.category_name}
