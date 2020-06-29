@@ -164,6 +164,9 @@
   &:active {
     color: $white;
   }
+  @include for-phones{
+    width: 100%;
+  }
 }
 
 @mixin navigation-link {

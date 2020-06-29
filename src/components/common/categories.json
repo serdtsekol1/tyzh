@@ -7,7 +7,7 @@
   {
     "category_id": "politics",
     "category_name": "Політика",
-    "category_color": "#3F51B5"
+    "category_color": "#DCD417"
   },
   {
     "category_id": "economics",
@@ -17,12 +17,12 @@
   {
     "category_id": "world",
     "category_name": "Світ",
-    "category_color": "#03A9F4"
+    "category_color": "#607D8B"
   },
   {
     "category_id": "society",
     "category_name": "Суспільство",
-    "category_color": "#DCD417"
+    "category_color": "#3F51B5"
   },
   {
     "category_id": "culture",

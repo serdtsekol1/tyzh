@@ -11,6 +11,7 @@ import BannersPanel from "../fragments/BannersPanel";
 import newsData from "../newsData.json";
 import PressItem from "../fragments/PressItem";
 import LastJournalBanner from "../fragments/LastJournalBanner";
+import ArticlesBlock from "../fragments/AtriclesBlock";
 import "./news.scss";
 
 function NewsTemplate(props){
@@ -34,6 +35,7 @@ function NewsTemplate(props){
                 </Fragment>
               </div>
               <div className="col-12 col-md-3">
+              <ArticlesBlock lastArticles={true }quantity={3} noShowMore={true}/>
                   <LastJournalBanner/>
                 <BannersPanel/>
               </div>

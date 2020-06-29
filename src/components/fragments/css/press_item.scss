@@ -30,10 +30,40 @@
   margin-left: $margin-medium;
 
   @include for-phones {
-    margin-left: $margin-small;
+    margin-left: 0;
+    padding-left: 0;
   }
 }
 
 .article-block-item {
   margin-bottom: $margin-big;
+}
+
+.article-item-small{
+  .category-wrap{
+    padding-left: 16px !important;
+    .category{
+      font-size: 10px !important;
+      line-height: 24px !important;
+    }}
+  .articlesInfo {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    .press-abstract {
+      display: none !important;
+    }
+    .press-title{
+      font-size: 20px !important;
+      line-height: 130% !important;
+    }
+    .date {
+      font-size: 12px;
+      line-height: 130%;
+    }
+    .author,.dot {
+      display: none;
+    }
+    
+    }
+  
 }

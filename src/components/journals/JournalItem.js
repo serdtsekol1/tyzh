@@ -5,7 +5,7 @@ import Button from "../common/Button";
 function JournalItem(props) {
   let options = {  month: 'long', day: 'numeric' };
   let journalData = props.journalItem;
-  console.log(journalData);
+  
 
   let date = new Date(journalData.created_ts).toLocaleDateString('uK-UK', options);
   return (

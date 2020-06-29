@@ -6,8 +6,9 @@ import "./css/press_item.scss";
 import PressItem from "./PressItem";
 
 function ArticleBlockItem(props) {
+  let style = props.small ? "article-item-small" :"";
   return (
-    <div className="article-block-item">
+    <div className={`${style} article-block-item`}>
       <div className="row">
         <div
           className={

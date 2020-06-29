@@ -2,8 +2,10 @@ import React from "react";
 import "./css/authors_block.scss";
 
 function AuthorsBlockItem(props){
+
+    let style = props.small ? "author-item-small" :"";
     return (
-        <div className="author-item col-12 col-md-2">
+        <div className={`${style} author-item col-12 col-md-2`}>
             <img
             className="author_photo"
             src={require(`../../images/columns/${props.authorItem.author_photo}`)}
