@@ -12,7 +12,6 @@ function ArticlesBlock(props) {
 
 
   const articlesComponents = props.articles
-    .slice(1, parseInt(props.quantity + 1))
     .map(article => (
       <ArticleBlockItem key={article.id} articleItem={article} />
     ));

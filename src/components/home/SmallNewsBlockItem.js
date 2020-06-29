@@ -5,14 +5,15 @@ import "../news/news.scss";
 
 function SmallNewsBlockItem(props) {
   const today = new Date();
+  // today.setDate(today.getDate() - 5);
   let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
-  if (props.newsItem.created_ts === today.getDate()) options = {  hour: 'numeric', minute: 'numeric'};
+  if (new Date(props.newsItem.created_ts).getDate() === today.getDate()) options = {  hour: 'numeric', minute: 'numeric'};
     
 
   return (
     <div className="news-item-small">
       <div className="title-wrap">
-        {props.newsItem.is_unique ? (
+        {props.newsItem.original ? (
           <img
             className="unique-news"
             src={require("../../images/icons/logo_mini_tyzhden.svg")}

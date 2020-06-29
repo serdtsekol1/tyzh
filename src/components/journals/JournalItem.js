@@ -12,7 +12,7 @@ function JournalItem(props) {
     <div className="journal">
       <img
         className="journal-cover"
-        src={journalData.image0}
+        src={journalData.image1}
         alt={`Український тиждень №${journalData.journal_number}`}
       />
       <p className="journal-title">Український тиждень</p>

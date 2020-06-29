@@ -4,11 +4,14 @@ import "../news/news.scss"
 import "./css/news_block_item.scss";
 
 function NewsBlockItem(props) {
+
+  let timeOptions = {  hour: 'numeric', minute: 'numeric' };
+  let date = new Date(props.newsItem.created_ts).toLocaleTimeString('uK-UK', timeOptions);
   return (
     <div className="news-block-item">
       <table>
         <td>
-          <p className="news-hours">{props.newsItem.created_ts}</p>
+          <p className="news-hours">{date}</p>
         </td>
         <td>
           <tr>

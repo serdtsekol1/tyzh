@@ -54,7 +54,7 @@ const Header = props => {
                 <NavLink
                   activeStyle={activeStyle}
                   exact
-                  to="/news"
+                  to="/news/page=1"
                   className="nav-link"
                 >
                   Новини

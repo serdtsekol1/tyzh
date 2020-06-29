@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/date_and_author.scss";
 function DateAndAuthor(props) {
+  
   return (
     <div className="date-and-author">
       <img

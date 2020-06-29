@@ -20,3 +20,13 @@
 .news-item-small {
   margin-bottom: $margin-medium;
 }
+
+.news-date{
+  @include post-abstract-large;
+  color: $red;
+
+}
+
+.news-wrap {
+  padding-top: $margin-small;
+}
