@@ -31,7 +31,7 @@ function ArticlesBlock(props) {
   }
   else { articlesComponents = props.articles
     .map(article => (
-      <ArticleBlockItem key={article.id} articleItem={article} />
+      <ArticleBlockItem categorial={props.categorial} key={article.id} articleItem={article} />
     ));}
 
     

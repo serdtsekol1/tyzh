@@ -1,6 +1,9 @@
 import React, { useState, useEffect}  from "react";
 import ReactPaginate from "react-paginate";
 import { useHistory } from "react-router-dom";
+import config from "react-global-configuration";
+import axios from 'axios';
+
 import SmallNewsBlock from "../home/SmallNewsBlock";
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ArticlesBlock from "../fragments/AtriclesBlock";
@@ -9,13 +12,15 @@ import Header from "../common/Header";
 import articlesData from "../articlesData.json";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import categoties from "../common/categories.json";
-import config from "react-global-configuration";
-import axios from 'axios';
+
+import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
+import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
 
 function Articles({ match }) {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(match.params.page);
   const [pagesCount, setPagesCount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   let history = useHistory();
   let initialCategory = "all-categories";
@@ -25,8 +30,9 @@ function Articles({ match }) {
 
  
   useEffect (()=>{
+    setLoading(true);
     const fetchArticles = async (page) => {
-      let limit = 10;
+      let limit = 11;
       let apiUrl;   
       if (initialCategory != "all-categories") 
         apiUrl = `${config.get("apiDomain")}/publications/list/${initialCategory}/?limit=${limit}&offset=${(page-1)*limit}`;
@@ -36,17 +42,24 @@ function Articles({ match }) {
       await axios.get(apiUrl)
       .then(res =>{ 
         setArticles(res.data.results);
+        
         setPagesCount(Math.floor(res.data.count/limit)+1);
-        history.push(`/articles/${initialCategory}/page=${page}`);
+        
+        setLoading(false);
         })
       .catch(err => console.log(err));  
       };
       if (page!=match.params.page) fetchArticles(match.params.page);
       else fetchArticles(page);
-  },[page,match.params.page,match.params.category]);
+  },[page,match.params.category]);
+  
+  // useEffect (()=>{
+  //   setPage(match.params.page);
+  // },[match.params.page]);
  
 
   const handlePageClick = async (data) => {
+    history.push(`/articles/${initialCategory}/page=${data.selected+1}`);
     setPage(data.selected+1);
     match.params.page = data.selected+1;
   };
@@ -54,8 +67,8 @@ function Articles({ match }) {
   
   let mainArticle = articles.slice(0,1)
   .map(article => (
-    <ArticleBlockItem imageStyle={{ height: 420 }}
-    mainArticle={true} key={article.id} articleItem={article} />
+    <ArticleBlockItem 
+    mainArticle={true} categorial={ match.params.category!="all-categories"?true:false} key={article.id} articleItem={article} />
   ));
 
 
@@ -75,12 +88,20 @@ function Articles({ match }) {
 
   return (
     <div className="container">
+    
+    
       <div className="row" style={{ marginTop: 10 }}>
         <div className="col-12 col-md-9">
+        {loading && <div>
+          <p className="skeleton-header"></p>
+          <SkeletonMainArticle/>
+        <SkeletonArticlesBlock quantity={10} /></div>}
+        {!loading &&
+        <div className="">
           <Header size="small" style={{ fontSize: 32 }} title={pageHeader} />
-         
+          
           {mainArticle}
-          <ArticlesBlock quantity={10} articles={articles} noShowMore={true}>
+          <ArticlesBlock categorial ={match.params.category!="all-categories"?true:false} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
             <div className="pagination-articles">
             <ReactPaginate
               previousLabel={"Назад"}
@@ -97,14 +118,18 @@ function Articles({ match }) {
               activeClassName={"active"}
             /></div>
           </ArticlesBlock>
+          </div>
+           }
         </div>
+       
         <div className="d-none d-md-block col-md-3 ">
           <SmallNewsBlock />
           <LastJournalBanner />
           <BannersPanel secondBanner={false} />
         </div>
+        </div>
       </div>
-    </div>
+  
   );
 }
 export default Articles;

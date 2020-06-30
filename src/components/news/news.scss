@@ -5,6 +5,10 @@
 .news-title {
   @include post-header-small;
   display: inline;
+  transition-duration: 0.2s;
+    &:hover {
+      color: $dark-grey;
+    }
 }
 
 .unique-news {
@@ -15,6 +19,8 @@
 
 .title-wrap {
   margin-bottom: $margin-extra-small;
+  
+
 }
 
 .news-item-small {

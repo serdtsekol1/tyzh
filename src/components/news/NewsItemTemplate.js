@@ -56,9 +56,9 @@ function NewsItemTemplate(props) {
             Якщо ви помітили помилку, виділіть необходіний текст і натисніть
             CTRL + ENTER, щоб повідомити про це редакцію.
           </p>
-          <p className="source-label">
+          {/* <p className="source-label">
             Джерело: <a href={props.newsItem.source_url}>{props.newsItem.source}</a>
-          </p>
+          </p> */}
           <TagsPanel tags={tags} />
           <div class="shared-flex">
             <p className="quantity-label">

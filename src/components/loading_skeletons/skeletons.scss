@@ -1,0 +1,14 @@
+@import "../common/css/variables";
+@import "../common/css/mixins";
+
+
+.skeleton-category-wrap{
+    margin: $margin-very-small 0px;
+}
+
+.skeleton-press-info{
+    @include small-margin-bottom;
+}
+.skeleton-header{
+    @include small-margin-bottom;
+}

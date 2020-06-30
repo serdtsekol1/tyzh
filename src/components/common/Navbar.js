@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import SocialNetworks from "./SocialNetworks";
 
 import categoriesData from "./categories.json";
 import "./css/navbar.scss";
 
+import $ from "jquery";
+
 const Header = props => {
+  const useForceUpdate = () => useState()[1];
+  useEffect(()=>{
+    $('.navbar-nav>li>a').on('click', function(){
+      $('.navbar-collapse').removeClass('show');
+  });
+    
+  },[])
   const activeStyle = {
     color: "#ED1B2F"
   };

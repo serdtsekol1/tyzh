@@ -4,6 +4,7 @@
 .press-title {
   @include post-header-medium;
   margin-bottom: $margin-extra-small !important;
+  @include link-hover;
 }
 .press-abstract {
   @include post-abstract-medium;
@@ -25,6 +26,17 @@
   }
 }
 
+.no-category-holder{
+  height: 8px;
+}
+
+#main-article{
+  height: 420px;
+  @include for-phones{
+    height: auto;
+  }
+}
+
 .articlesInfo {
   padding-left: $padding-extra-small;
   margin-left: $margin-medium;
@@ -36,7 +48,7 @@
 }
 
 .article-block-item {
-  margin-bottom: $margin-big;
+  margin-bottom: 32px;
 }
 
 .article-item-small{

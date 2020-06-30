@@ -39,6 +39,7 @@ function App() {
             />
             <Route exact path="/articles/:category" component={Articles} />
             <Route exact path="/columns" component={Columns} />
+            <Route exact path="/columns/page=:page" component={Columns} />
             <Route exact path="/columns/:author" component={Author} />
             <Route exact path="/columns/:author/:id" component={Column} />
             <Route exact path="/photoreports" component={PhotoReports} />

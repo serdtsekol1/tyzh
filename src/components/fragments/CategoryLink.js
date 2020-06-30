@@ -4,7 +4,7 @@ import "./css/category.scss";
 import categoties from "../common/categories.json";
 
 function CategoryLink(props) {
-  let category_color="#CCCCCC";
+  let category_color="#с0с0с0";
   if (
     categoties.filter(category => category.category_name == props.categoryInfo.journal.nameua)
       .length > 0

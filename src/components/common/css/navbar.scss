@@ -6,7 +6,8 @@
   margin: 0;
   background-color: $white;
   height: 60px;
-  border-bottom: 1px solid $light-grey;
+  border: 0 !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 .navbar-brand {
   padding-top: 0 !important;

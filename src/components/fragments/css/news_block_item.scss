@@ -23,5 +23,8 @@
 }
 
 .news-block-item {
-  margin-bottom: $margin-big;
+  margin-bottom: 32px;
+  @include for-phones{
+    margin-bottom: $margin-small !important;
+  }
 }

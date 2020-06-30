@@ -7,7 +7,7 @@ function PageNotFound() {
         <h2>На жаль, не можемо знайти сторінку за цим посиланням</h2>
         <img
           align="center"
-          style={{ height: "100%", marginBottom: 50 }}
+          style={{ height: "100%", width:"100%", marginBottom: 50 }}
           src={require("../../images/error-image.svg")}
         />
       </div>

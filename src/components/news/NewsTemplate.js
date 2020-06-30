@@ -24,18 +24,19 @@ function NewsTemplate(props){
 
   return (
       <div className="container">
-        <div className="row" style={{ marginTop: 10 }}>
+        <div className="row" >
           <div className="col-12">
-            <Header  size="small" style={{ fontSize: 32 }} title="Новини" />
             <div className="row">
               <div className="col-12 col-md-9">
                 <Fragment size={"big"} noShowMore={true}>
-                {groupedNewsComponents}
-                {props.children}
+                  <Header  size="small" style={{ fontSize: 32 }} title="Новини" />
+                   {groupedNewsComponents}
+                   {props.children}
                 </Fragment>
               </div>
-              <div className="col-12 col-md-3">
-              <ArticlesBlock lastArticles={true }quantity={3} noShowMore={true}/>
+              <div className="d-none d-md-block col-md-3" style={{ marginTop: 10 }}>
+              <Header title=" Останні статті" size="small" />
+              <ArticlesBlock lastArticles={true} quantity={3} noShowMore={true}/>
                   <LastJournalBanner/>
                 <BannersPanel/>
               </div>

@@ -20,7 +20,8 @@ function News({match}){
 
   
   useEffect (()=>{
-    const fetchData = async (page) => {
+    
+    const fetchData = async (page)  => {
       let limit = 20;
       let apiUrl;
       if (page)  apiUrl = `${config.get("apiDomain")}/news/?limit=${limit}&offset=${(page-1)*limit}`;
@@ -40,7 +41,7 @@ function News({match}){
         ));
 
         setPagesCount(Math.floor(res.data.count/limit)+1);
-        history.push(`/news/page=${page}`);
+        
         })
       .catch(err => console.log(err));  
       };
@@ -49,6 +50,7 @@ function News({match}){
   },[page,match.params.page]);
 
   const handlePageClick = async (data) => {
+    history.push(`/news/page=${data.selected+1}`);
     setPage(data.selected+1);
     match.params.page = data.selected+1;
   };

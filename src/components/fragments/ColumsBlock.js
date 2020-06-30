@@ -9,19 +9,7 @@ import Fragment from "../fragments/Fragment";
 import columnsData from "../columnData.json";
 
 function ColumnsBlock(props) {
-  const [authors, setAuthors] = useState([]);
-  useEffect (()=>{
-    const fetchData= async () => {
-      let limit = 12;
-      await axios.get(`${config.get("apiDomain")}/columns/?limit=${limit}`)
-      .then(res =>{ 
-        setAuthors(res.data.results);
-      })
-      .catch(err => console.log(err));
-     };
-     fetchData();
-  },[]);
-  const columnsComponents = authors
+  const columnsComponents = props.columns
     .map(column => (
       <ColumnsBlockItem key={column.id} columnItem={column} />
     ));

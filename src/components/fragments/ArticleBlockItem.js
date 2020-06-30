@@ -17,11 +17,13 @@ function ArticleBlockItem(props) {
               : "col-12 order-1 col-md-8 order-md-0"
           }
         >
+          {(props.categorial && props.mainArticle) ?<div className="no-category-holder"></div> :""}
+          {props.categorial? "" :
           <CategoryLink
-            style={{ marginBottom: 8 }}
-            categoryInfo={props.articleItem}
-          />
-        <div className="articlesInfo">
+          style={{ marginBottom: 8 }}
+          categoryInfo={props.articleItem} />}
+         
+        <div className={ props.categorial? "" :"articlesInfo"}>
           <PressItem pressItem={props.articleItem} type="article"/>
         </div>
         </div>
@@ -32,16 +34,19 @@ function ArticleBlockItem(props) {
               : "col-12 order-0 col-md-4 order-md-1"
           }
         >
+           <Link to={`/article/${props.articleItem.id}`}>
           <img
-            style={props.imageStyle}
+            id={props.mainArticle && !props.small? "main-article" : ""}
             className={
-              props.mainArticle
+              props.mainArticle || props.categorial
                 ? "article-block-image"
                 : "article-block-image atricle-image-margin"
             }
+            
             src={props.articleItem? props.articleItem.image1: ""}
             alt="Зображення: стаття"
           />
+          </Link>
         </div>
       </div>
     </div>
