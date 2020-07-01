@@ -21,3 +21,84 @@
   margin-bottom: $margin-very-small !important;
   line-height: 136% !important;
 }
+
+
+.journal-header-wrap{
+  margin-top: 32px;
+  margin-bottom: 72px;
+  
+}
+
+.journal-big-cover{
+  @include image-cover;
+  @include for-phones {
+    margin-bottom: 32px;
+  }
+}
+
+.journal-info-wrap{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 110px;
+  @include for-phones{
+    margin-left: 0;
+  }
+ 
+}
+
+.big-journal-date{
+ @include big-date-title;
+ margin-bottom: 32px !important;
+}
+
+.big-journal-number{
+  @include big-number-title;
+}
+
+.big-journal-title{
+  @include post-title-large;
+  margin-bottom: 32px !important;
+  @include for-phones{
+    margin-bottom: 12px !important;
+  }
+}
+
+.nav-tabs .active{
+  
+    @include button;
+    background-color: $red !important;
+    color: $white !important;
+    border-bottom: 1px solid $red;
+    border-radius: 0 !important;
+    font-size: 20px;
+    line-height: 130%;
+    &:hover {
+      background-color: $dark-red !important;
+    }
+    &:active {
+      border: 1px solid transparent !important;
+    }
+    
+  
+}
+
+.nav-tabs a{
+  
+  @include button;
+  font-size: 20px;
+  line-height: 130%;
+  background-color: $white !important;
+  color: $grey !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid $light-grey !important;
+  &:hover {
+    background-color: $dark-red;
+    border-bottom: 1px solid transparent !important;
+  }
+  &:active {
+    border: 1px solid transparent !important;
+  }
+
+
+}

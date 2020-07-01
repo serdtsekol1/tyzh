@@ -10,14 +10,14 @@ function ColumnsBlockItem(props) {
     <div>
       {props.columnItem ? 
       <div className="column-item row">
-        <div className="col-2">
+        <div className="col-3 col-md-2">
         <img
               className="author_photo"
               src={props.columnItem.author.image1url}
               alt={`Портрет:${props.columnItem.author.fullname}`}
             />
         </div>
-        <div className="col-10">
+        <div className="col-9 col-md-10">
         <PressItem pressItem = {props.columnItem} type="column"/>
         </div>
       </div>

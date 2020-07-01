@@ -53,7 +53,7 @@ function Columns({match}){
               <Header size="big" title="Останні колонки" />
               <div className="row">
                 <div className="col-12 col-md-9">
-                 <ColumnsBlock columns = {columns} quantity={12}>
+                 <ColumnsBlock  noShowMore={true} columns = {columns} quantity={12}>
                  <div className="pagination-articles">
                   <ReactPaginate
                     previousLabel={"Назад"}

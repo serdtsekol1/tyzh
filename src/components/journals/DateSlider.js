@@ -10,7 +10,7 @@ function DateSlider(props) {
       </div>
       <div className="slider">
         <div className="line">
-          <hr />
+          <hr className="journals-line"/>
         </div>
         <div className="dots-wrap container">
           <ul className="dots">{props.dotsComponents}</ul>

@@ -4,3 +4,32 @@
 .column-item{
     @include big-margin-bottom;
 }
+
+.column-author-photo{
+    @include image-cover;
+    border: 2px solid #DDDDDD;
+}
+
+.column-author-name {
+    @include column-author-header;
+    color: $red;
+}
+
+.column-header {
+    margin-top: 32px;
+    margin-bottom: 72px;
+    @include for-phones{
+        margin-top: $margin-very-small !important;
+        margin-bottom: 24px;
+    }
+}
+
+.column-title {
+    margin-top: 12px !important;
+}
+
+.mobile-column-author-info {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}

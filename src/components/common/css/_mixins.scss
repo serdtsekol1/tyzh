@@ -69,6 +69,25 @@
   }
 }
 
+@mixin big-date-title{
+  font-size: 16px;
+  line-height: 130%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $dark-grey;
+}
+
+@mixin big-number-title{
+  font-size: 32px;
+  line-height: 130%;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: $red;
+  @include for-phones{
+    font-size: 20px;
+  }
+}
+
 @mixin link-hover {
   transition-duration: 0.2s;
     &:hover {
@@ -96,6 +115,21 @@
   
 }
 
+@mixin column-author-header {
+  font-family: UT_Magazine;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.1em;
+  color: $almost-black;
+  text-transform: uppercase;
+  @include for-medium-devices-and-phones {
+    font-size: 14px;
+  }
+  
+}
+
 @mixin post-header-small {
   font-weight: 600;
   font-size: 16px;
@@ -113,6 +147,7 @@
   }
 }
 @mixin post-header-medium {
+  @include link-hover;
   font-weight: 600;
   font-size: 24px;
   line-height: 130%;

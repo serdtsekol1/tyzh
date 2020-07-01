@@ -43,12 +43,13 @@ function NewsItemTemplate(props) {
           <p className="article-block-abstract-big">{props.newsItem.abstract}</p>
           {props.newsItem.content?
           <div className="body-text">
-            {Parser(props.newsItem.content.replace(/<p>&nbsp;<\/p>/g,""), {
-              replace: domNode => {
-                if (domNode.name === "em") {
-                  return <strong>bar</strong>;
-                }
-              }
+           {Parser(props.newsItem.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
+            .replace(/<p><strong>Читайте також:&nbsp;/g,'<p class="read-also"><strong>Читайте також:&nbsp;'), {
+              // replace: domNode => {
+              //   if (domNode.name === "em") {
+              //     return <strong>bar</strong>;
+              //   }
+              // }
             })}
           </div>:""}
           

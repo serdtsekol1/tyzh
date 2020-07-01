@@ -45,7 +45,9 @@ function ArticleTemplate(props) {
             {props.article.abstract}
           </p>
           <div className="body-text">
-            {Parser(props.article.content.replace(/<p>&nbsp;<\/p>/g,""), {
+            {Parser(props.article.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
+            .replace(/<p><strong>Читайте також:&nbsp;/g,'<p class="read-also"><strong>Читайте також:&nbsp;')
+            .replace(/<li><strong>Читайте також:&nbsp;/g,'<li class="read-also"><strong>Читайте також:&nbsp;'), {
               // replace: domNode => {
               //   if (domNode.name === "em") {
               //     return <strong>bar</strong>;

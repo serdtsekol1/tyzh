@@ -20,7 +20,7 @@
 
 .category-and-date {
   @include flex-row;
-  @include big-margin-bottom;
+  @include medium-margin-bottom;
   justify-content: space-between !important;
 }
 

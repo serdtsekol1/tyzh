@@ -13,8 +13,7 @@ function Journals() {
   }
   return (
     <div>
-      <YearsNavBar />
-
+      <YearsNavBar/>
       <Route path={"/journals/:year"} component={JournalsList} />
     </div>
   );

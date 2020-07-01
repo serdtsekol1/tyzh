@@ -27,7 +27,7 @@
 
 .big-post-header {
   margin-top: 32px;
-  @include big-margin-bottom;
+  @include medium-margin-bottom;
   @include post-title-large;
   @include for-phones {
     margin-top: $margin-very-small;
@@ -45,6 +45,10 @@
     @include for-phones {
       font-size: 24px;
     }
+  }
+  iframe{
+    width: 100%;
+    
   }
   p {
     @include medium-margin-bottom;
@@ -78,29 +82,50 @@
     border-left: 4px solid $light-grey;
     padding-left: 44px;
     height: 56px;
+    line-height: 56px;
+    @include title-link-small;
     @include for-phones {
       padding-left: $padding-medium;
       height: 40px;
     }
 
-    p {
-      line-height: 56px;
-      @include title-link-small;
+    a {
+      cursor: pointer;
+      @include link-hover;
+      &:hover{
+        text-decoration: none !important;
+        color: $red;
+        
+      }
+      
     }
-    blockquote {
-      padding: 40px 48px;
-      border: 8px solid rgba(30, 30, 30, 0.03);
-      font-family: Georgia;
-      font-style: italic;
+    
+  }
+}
+
+blockquote  {
+  padding: 40px 48px;
+  border: 8px solid rgba(30, 30, 30, 0.03);
+  @include for-phones {
+    padding: 24px;
+  }
+  .teaser{
+    margin-bottom: 0 !important;
+    em{
+      font-family: UT_Magazine;
+      font-style: normal;
       font-weight: normal;
       font-size: 24px;
       line-height: 150%;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
       color: $red;
       @include for-phones {
-        padding: 24px 32px;
         font-size: 16px;
-        color: $almost-black;
-      }
+        line-height: 150%;
     }
   }
+  
+}
+  
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DateSlider from "./DateSlider";
 import Header from "../common/Header";
 import YearsPagination from "./YearsPagination";
@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import "./journals.scss";
 
 function YearsNavBar() {
-  const firstYear = 2010;
+  const firstYear = 2007;
   const lastYear = 2020;
   const [page, setPage] = useState(lastYear);
   const activeStyle = {
@@ -77,10 +77,15 @@ function YearsNavBar() {
     </NavLink>
   );
 
+
+    
+    
+  
+
   return (
-    <div>
-      <div className="container">
-        <Header title="Журнал «Український тиждень»" size="big" />
+    <div class="jounals-container">
+      <div className="container jounals ">
+        <Header id="journals-header" title="Журнал «Український тиждень»" size="big" />
       </div>
       <div className="d-none d-md-block">
         <DateSlider

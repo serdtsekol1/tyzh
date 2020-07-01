@@ -8,11 +8,12 @@ import "./css/navbar.scss";
 import $ from "jquery";
 
 const Header = props => {
-  const useForceUpdate = () => useState()[1];
+  
   useEffect(()=>{
-    $('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-nav>li>a').not(".dropdown-toggle").on('click', function(){
       $('.navbar-collapse').removeClass('show');
   });
+  
     
   },[])
   const activeStyle = {
@@ -34,6 +35,7 @@ const Header = props => {
     <nav className="navbar navbar-expand-xl fixed-top">
       <div className="container-fluid">
         <div className="container">
+          <div className="navbar-custom-wrap">
           <img
             className="d-block d-xl-none"
             src={require("../../images/icons/search-24px-white.svg")}
@@ -56,7 +58,7 @@ const Header = props => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-
+          </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav m-auto">
               <li className="nav-item active">

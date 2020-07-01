@@ -8,7 +8,7 @@ function HomeAuthorsBlockItem(props) {
     <div className={`author-column-link${"-" + props.size}`}>
       
       {props.columnItem.author? 
-      <Link to={`/columns/${props.columnItem.id}`}>
+      <Link to={`/column/${props.columnItem.id}`}>
       <div className="row">
         <div className="col-5">
           <img

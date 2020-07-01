@@ -8,8 +8,6 @@ import Fragment from "../fragments/Fragment";
 import Header from "../common/Header";
 import NewsBlock from "../fragments/NewsBlock";
 import BannersPanel from "../fragments/BannersPanel";
-import newsData from "../newsData.json";
-import PressItem from "../fragments/PressItem";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import ArticlesBlock from "../fragments/AtriclesBlock";
 import "./news.scss";

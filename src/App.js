@@ -8,6 +8,7 @@ import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Articles from "./components/articles/Articles";
 import Journals from "./components/journals/Journals";
+import Journal from "./components/journals/Journal";
 import Article from "./components/articles/Article";
 import News from "./components/news/News";
 import NewsItem from "./components/news/NewsItem";
@@ -39,6 +40,7 @@ function App() {
             />
             <Route exact path="/articles/:category" component={Articles} />
             <Route exact path="/columns" component={Columns} />
+            <Route exact path="/column/:id" component={Column} />
             <Route exact path="/columns/page=:page" component={Columns} />
             <Route exact path="/columns/:author" component={Author} />
             <Route exact path="/columns/:author/:id" component={Column} />
@@ -46,6 +48,8 @@ function App() {
             <Route exact path="/photoreports/page=:page" component={PhotoReports} />
             <Route exact path="/photoreport/:id" component={PhotoReport} />
             <Route path="/journals" component={Journals} />
+            <Route path="/journal/:id" component={Journal} />
+
             <Route path="*" component={PageNotFound} />
           </Switch>
         </div>

@@ -3,6 +3,7 @@
 
 .tag {
   margin-right: $margin-very-small;
+  margin-bottom: $margin-very-small;
   padding: $padding-small 11px;
   background: rgba(30, 30, 30, 0.03);
   p {
@@ -12,6 +13,7 @@
 }
 .tags-panel {
   @include flex-row;
-  width: max-content;
-  margin-bottom: $margin-big;
+  flex-wrap: wrap;
+  justify-content: start !important;
+  margin-bottom: 32px;
 }

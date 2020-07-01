@@ -1,6 +1,9 @@
-import React from "react";
-import ReactPaginate from "react-paginate";
+import React, { useState, useEffect} from "react";
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
+import config from "react-global-configuration";
+
+import ReactPaginate from "react-paginate";
 import Header from "../common/Header";
 import PhotoReportItem from "../fragments/PhotoReportItem";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
@@ -10,22 +13,50 @@ import BannersPanel from "../fragments/BannersPanel";
 import photoReportsData from "../photoReportData.json";
 
 function PhotoReports({match}){
+    const [galleries, setGalleries] = useState([]);
+    const [page, setPage] = useState(match.params.page);
+    const [pagesCount, setPagesCount] = useState(0);
+    const [loading, setLoading] = useState(false);
+    let history = useHistory();
+    let initialPageNumber = 0;
+    if (match.params.page) initialPageNumber = match.params.page - 1;
+
+
+    useEffect (()=>{
+        const fetchData = async (page) => {
+          let limit = 13;
+          let apiUrl = `${config.get("apiDomain")}/galleries/?limit=${limit}`;
+          if (page)  apiUrl = `${apiUrl}&offset=${(page-1)*limit}`;
+    
+          await axios.get(apiUrl)
+          .then(res =>{ 
+            setGalleries(res.data.results);
+            setPagesCount(Math.floor(res.data.count/limit)+1);
+           
+            })
+          .catch(err => console.log(err));  
+          };
+          if (page!=match.params.page) fetchData(match.params.page);
+          else fetchData(page);
+      },[page,match.params.page]);
+  
+    const handlePageClick = async (data) => {
+      history.push(`/photoreports/page=${data.selected + 1}`);
+      setPage();
+      match.params.page = data.selected+1;
+    };
    
-    const firstPhotoReportsComponent = photoReportsData.map(photoReport => (
-        <PhotoReportItem key={photoReport.id} reportItem={photoReport} />
+    const firstPhotoReportsComponent = galleries.map(photoReport => (
+        <PhotoReportItem key={photoReport.id} main={true} reportItem={photoReport} />
       ))[0];
-    const photoReportsComponents = photoReportsData.slice(1,13).map(photoReport => (
+    const photoReportsComponents = galleries.slice(1,13).map(photoReport => (
         <div className="col-12 col-md-6" key={photoReport.id+100}>
             <PhotoReportItem key={photoReport.id} reportItem={photoReport}/>
         </div>
       ));
     
-    let history = useHistory();
-    let initialPageNumber = 0;
-    if (match.params.page) initialPageNumber = match.params.page - 1;
-    function handlePageClick(data) {
-        history.push(`/photoreports/page=${data.selected + 1}`);
-    }
+    
+  
     return (
         <div className="container">
             

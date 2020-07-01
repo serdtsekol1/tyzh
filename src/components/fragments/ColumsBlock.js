@@ -16,7 +16,8 @@ function ColumnsBlock(props) {
   return (
     <Fragment
       size="big"
-      noShowMore={true}
+      noShowMore={props.noShowMore}
+      showMoreLink="/columns"
     >
       {columnsComponents}
       {props.children}
