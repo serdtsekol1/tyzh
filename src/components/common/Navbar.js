@@ -10,9 +10,11 @@ import $ from "jquery";
 const Header = props => {
   
   useEffect(()=>{
-    $('.navbar-nav>li>a').not(".dropdown-toggle").on('click', function(){
+    $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
       $('.navbar-collapse').removeClass('show');
-  });
+  }
+  );
+
   
     
   },[])
@@ -60,19 +62,8 @@ const Header = props => {
           </button>
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav m-auto">
-              <li className="nav-item active">
-                <NavLink
-                  activeStyle={activeStyle}
-                  exact
-                  to="/news/page=1"
-                  className="nav-link"
-                >
-                  Новини
-                </NavLink>
-              </li>
-
-              <li className="nav-item dropdown">
+            <ul className="navbar-nav">
+            <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -96,6 +87,18 @@ const Header = props => {
                   {categoriesComponents}
                 </div>
               </li>
+              <li className="nav-item active">
+                <NavLink
+                  activeStyle={activeStyle}
+                  exact
+                  to="/news/page=1"
+                  className="nav-link"
+                >
+                  Новини
+                </NavLink>
+              </li>
+
+              
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
@@ -129,18 +132,27 @@ const Header = props => {
                   to="/subscribe"
                   className="nav-link"
                 >
+                  Прес-релізи
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeStyle={activeStyle}
+                  to="/subscribe"
+                  className="nav-link"
+                >
                   Передплата
                 </NavLink>
               </li>
             </ul>
             <div className="navbar-text">
-              <img
+              {/* <img
                 className="search-small"
                 alt=""
                 src={require("../../images/icons/search-24px.svg")}
               />
               <p className="separator separator-navbar">|</p>
-              <p className="uk-week">The Ukrainian Week</p>
+              <p className="uk-week">The Ukrainian Week</p> */}
               <div className="d-block d-xl-none">
                 <SocialNetworks color="white" />
               </div>

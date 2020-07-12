@@ -9,18 +9,20 @@ import ColumnsBlock from "../fragments/ColumsBlock";
 import AuthorsBlock from "../fragments/AuthorsBlock";
 import BannersPanel from "../fragments/BannersPanel";
 
-
+import SkeletonNewsPage from "../loading_skeletons/SkeletonNewsPage";
 
 function Columns({match}){
     const [columns, setColumns] = useState([]);
     const [page, setPage] = useState(match.params.page);
     const [pagesCount, setPagesCount] = useState(0);
+    const [loading, setLoading] = useState(false);
   
     let history = useHistory();
     let initialPageNumber = 0;
     if (match.params.page) initialPageNumber = match.params.page - 1;
 
     useEffect (()=>{
+      setLoading(true);
       const fetchData = async (page) => {
         let limit = 12;
         let apiUrl = `${config.get("apiDomain")}/columns/?limit=${limit}`;
@@ -30,7 +32,7 @@ function Columns({match}){
         .then(res =>{ 
           setColumns(res.data.results);
           setPagesCount(Math.floor(res.data.count/limit)+1);
-         
+          setLoading(false);
           })
         .catch(err => console.log(err));  
         };
@@ -50,9 +52,14 @@ function Columns({match}){
             <div className="col-12">
               {/* <Header  size="small" style={{ fontSize: 32 }} title="Вибрані автори" /> */}
               {/* <AuthorsBlock quantity={6}></AuthorsBlock> */}
+             
               <Header size="big" title="Останні колонки" />
+              
               <div className="row">
+            
                 <div className="col-12 col-md-9">
+                {loading && <SkeletonNewsPage/>}
+               {!loading && 
                  <ColumnsBlock  noShowMore={true} columns = {columns} quantity={12}>
                  <div className="pagination-articles">
                   <ReactPaginate
@@ -70,7 +77,9 @@ function Columns({match}){
                     activeClassName={"active"}
                   /></div>
                   </ColumnsBlock>
+                }
                 </div>
+               
                 <div className="col-12 col-md-3">
                   <BannersPanel/>
                   

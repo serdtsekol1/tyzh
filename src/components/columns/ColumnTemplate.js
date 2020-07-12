@@ -39,14 +39,14 @@ function ColumnTemplate(props){
       
       {columnItem.author?
       <div className="row column-header">
-        <div className="col-3">
+        <div className="col-3 col-md-2">
           <div className="column-author-photo-wrap">
             <img className="column-author-photo" 
             src={columnItem.author.image1url}/>
           </div>
         </div>
         
-        <div className="col-9 d-none d-md-block">
+        <div className="col-9 col-md-10 d-none d-md-block">
           <div className="column-author-info">
            <p className="column-author-name">{columnItem.author.fullnameua}</p>
             <p className="big-post-header column-title ">{columnItem.title}</p>
@@ -55,7 +55,7 @@ function ColumnTemplate(props){
             </div>
             </div>
          </div>
-         <div className="col-9 d-block d-md-none">
+         <div className="col-9 col-md-10 d-block d-md-none">
           <div className="mobile-column-author-info">
            <p className="column-author-name">{columnItem.author.fullnameua}</p>
            
@@ -76,7 +76,9 @@ function ColumnTemplate(props){
           {columnItem.content?
           <div className="body-text">
             {Parser(columnItem.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
-            .replace(/<p><strong>Читайте також:&nbsp;/g,'<p class="read-also"><strong>Читайте також:&nbsp;'), {
+            .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<p class="read-also"><strong>Читайте також:')
+            .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
+            .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>'), {
               // replace: domNode => {
               //   if (domNode.name === "em") {
               //     return <strong>bar</strong>;

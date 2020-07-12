@@ -24,6 +24,9 @@
   cursor: pointer;
   text-transform: uppercase;
   transition-duration: 0.1s;
+  outline : none !important;
+  &:focus{
+    outline : none !important;}
   &:hover {
     color: $almost-black;
   }
@@ -35,8 +38,17 @@
   }
 }
 
+.pagination > li{
+  outline : none !important;
+  &:focus{
+  outline : none !important;}
+}
+
 .pagination > li.active > a {
   color: $red;
+  outline : none !important;
+  &:focus{
+  outline : none !important;}
 }
 .pagination > .disabled > a {
   opacity: 0.38;

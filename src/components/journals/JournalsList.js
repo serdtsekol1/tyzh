@@ -4,18 +4,24 @@ import JournalItem from "./JournalItem";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import SpecialEditions from "./SpecialEditions";
 import config from "react-global-configuration";
+import Skeleton from "react-loading-skeleton";
 
 import "./journals.scss";
 
 function JournalsList({ match }) {
+  const [loading, setLoading] = useState(false);
   const [journals, setJournals] = useState([]);
   useEffect (()=>{
+    setLoading(true);
+
     const fetchJournal= async () => {
       const limit = 60;
       await axios.get(`${config.get("apiDomain")}/magazines/year/${match.params.year}/?limit=${limit}`)
       .then(res =>{ 
         console.log(res);
         setJournals(res.data.results);
+        setLoading(false);
+
       })
       .catch(err => console.log(err));
      
@@ -48,12 +54,28 @@ function JournalsList({ match }) {
   return (
     <div id="journals-list" className="journal-list-padding">
       <div className="container">
-        <div className="row journals-list">
+        <div className=" ">
+        {loading && <Skeleton duration={1} height={800} width={'100%'}/>}
+           {!loading && 
+           <div className="row journals-list">
           {journalsComponents.slice(0, 8)}
+          </div>
+           }
           <SubscriptionBanner style={{ marginBottom: "72px" }} />
+          {loading && <Skeleton duration={1} height={800} width={'100%'}/>}
+           {!loading && 
+            <div className="row journals-list">
           {journalsComponents.slice(8, 16)}
+          </div>
+           }
           <SubscriptionBanner style={{ marginBottom: "72px" }} />
-          {journalsComponents.slice(16, journalsComponents.length)}
+          {loading && <Skeleton duration={1} height={800} width={'100%'}/>}
+           {!loading && 
+            <div className="row journals-list">
+           {journalsComponents.slice(16, journalsComponents.length)}
+          </div>
+           }
+        
         </div>
       </div>
       {/* <SpecialEditions components={journalsComponents.slice(16, 23)} /> */}

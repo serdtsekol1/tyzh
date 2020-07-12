@@ -15,9 +15,27 @@ function SmallNewsBlockItem(props) {
       <div className="title-wrap">
         {props.newsItem.original ? (
           <img
-            className="unique-news"
+            className="unique-news unique-news-small"
             src={require("../../images/icons/logo_mini_tyzhden.svg")}
-            alt="Унікальна новина"
+            alt=""
+          />
+        ) : (
+          ""
+        )}
+        {props.newsItem.photo ? (
+          <img
+            className="unique-news unique-news-small"
+            src={require("../../images/icons/ic-news-photo.svg")}
+            alt=""
+          />
+        ) : (
+          ""
+        )}
+        {props.newsItem.video ? (
+          <img
+            className="unique-news unique-news-small"
+            src={require("../../images/icons/ic-news-video.svg")}
+            alt=""
           />
         ) : (
           ""

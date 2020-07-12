@@ -18,3 +18,24 @@
     padding-left: $padding-small;
   }
 }
+
+
+.category-wrap-solid{
+
+  @include not-for-phones{
+    background-color: transparent !important;
+  }
+  @include for-phones {
+    margin-bottom: 16px !important;
+    border: none;
+    padding: 7px 12px 4px 12px;
+    p{
+      color: $white !important;
+      z-index: 100;
+      opacity: 1;
+      line-height: 13px !important;
+      font-weight: 600;
+      
+    }
+  }
+}

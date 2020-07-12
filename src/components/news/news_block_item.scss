@@ -1,5 +1,5 @@
-@import "../../common/css/mixins";
-@import "../../common/css/variables";
+@import "../common/css/mixins";
+@import "../common/css/variables";
 
 .news-hours {
   @include post-abstract-large;
@@ -12,6 +12,7 @@
 
 .news-title-medium {
   @include post-header-medium;
+  display: inline;
   margin-bottom: $margin-very-small !important;
 }
 

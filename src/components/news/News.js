@@ -3,10 +3,16 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import config from "react-global-configuration";
 
-import NewsTemplate from "./NewsTemplate";
-import NewsBlock from "../fragments/NewsBlock";
-import ReactPaginate from "react-paginate";
+import NewsBlock from "./NewsBlock";
+import BannersPanel from "../fragments/BannersPanel";
+import LastJournalBanner from "../fragments/LastJournalBanner";
+import ArticlesBlock from "../fragments/AtriclesBlock";
 
+
+import Fragment from "../fragments/Fragment";
+import Header from "../common/Header";
+import ReactPaginate from "react-paginate";
+import SkeletonNewsPage from "../loading_skeletons/SkeletonNewsPage";
 
 import "./news.scss";
 
@@ -14,13 +20,14 @@ function News({match}){
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(match.params.page);
   const [pagesCount, setPagesCount] = useState(0);
+  const [loading, setLoading] = useState(false);
   let history = useHistory();
   let initialPageNumber = 0;
   if (match.params.page) initialPageNumber = match.params.page - 1;
 
   
   useEffect (()=>{
-    
+    setLoading(true);
     const fetchData = async (page)  => {
       let limit = 20;
       let apiUrl;
@@ -30,7 +37,6 @@ function News({match}){
       .then(res =>{ 
         let firstNewsDate = new Date(res.data.results[0].created_ts);
         let lastNewsDate = new Date(res.data.results[res.data.results.length-1].created_ts);
-       
         setNews(getDates(firstNewsDate,lastNewsDate).map(
           date => {
             return {"date" : date, "news" : res.data.results.filter(news => {
@@ -39,15 +45,18 @@ function News({match}){
 
           }
         ));
-
         setPagesCount(Math.floor(res.data.count/limit)+1);
-        
+        setLoading(false);
         })
       .catch(err => console.log(err));  
       };
       if (page!=match.params.page) fetchData(match.params.page);
       else fetchData(page);
   },[page,match.params.page]);
+  let options = {  month: 'long', day: 'numeric' };
+  const groupedNewsComponents = news.map(news => <div class="news-wrap" id={news.date.getDate()*10}>
+    <p class="news-date">{news.date.toLocaleDateString('uK-UK', options)}</p>
+   <NewsBlock id={news.date.getDate()} news={news.news} /></div>);
 
   const handlePageClick = async (data) => {
     history.push(`/news/page=${data.selected+1}`);
@@ -68,23 +77,48 @@ function News({match}){
   
 
   return (
-    <NewsTemplate news={news}>
-      <div className="pagination-articles">
-          <ReactPaginate
-            previousLabel={"Назад"}
-            nextLabel={"Далі"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            initialPage={initialPageNumber}
-            pageCount={pagesCount}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={3}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
-          /></div>
-    </NewsTemplate>
+  
+    
+     <div className="container">
+     <div className="row" >
+       <div className="col-12">
+         <div className="row">
+           <div className="col-12 col-md-9">
+           {loading && <SkeletonNewsPage/>}
+           {!loading && 
+             <Fragment size={"big"} noShowMore={true}>
+               <Header  size="small" style={{ fontSize: 32 }} title="Новини" />
+                {groupedNewsComponents}
+                <div className="pagination-articles">
+                  <ReactPaginate
+                    previousLabel={"Назад"}
+                    nextLabel={"Далі"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    initialPage={initialPageNumber}
+                    pageCount={pagesCount}
+                    marginPagesDisplayed={1}
+                    pageRangeDisplayed={3}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}
+                  /></div>
+             </Fragment>
+            }
+           </div>
+           <div className="d-none d-md-block col-md-3" style={{ marginTop: 10 }}>
+           <Header title=" Останні статті" size="small" />
+           <ArticlesBlock lastArticles={true} quantity={3} noShowMore={true}/>
+               <LastJournalBanner/>
+             <BannersPanel/>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+
+  
     );
 }
 

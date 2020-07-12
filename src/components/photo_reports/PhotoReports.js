@@ -2,6 +2,8 @@ import React, { useState, useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import config from "react-global-configuration";
+import Skeleton from "react-loading-skeleton";
+
 
 import ReactPaginate from "react-paginate";
 import Header from "../common/Header";
@@ -10,7 +12,6 @@ import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import Fragment from "../fragments/Fragment";
 import BannersPanel from "../fragments/BannersPanel";
 
-import photoReportsData from "../photoReportData.json";
 
 function PhotoReports({match}){
     const [galleries, setGalleries] = useState([]);
@@ -23,6 +24,8 @@ function PhotoReports({match}){
 
 
     useEffect (()=>{
+      setLoading(true);
+
         const fetchData = async (page) => {
           let limit = 13;
           let apiUrl = `${config.get("apiDomain")}/galleries/?limit=${limit}`;
@@ -32,6 +35,8 @@ function PhotoReports({match}){
           .then(res =>{ 
             setGalleries(res.data.results);
             setPagesCount(Math.floor(res.data.count/limit)+1);
+            setLoading(false);
+
            
             })
           .catch(err => console.log(err));  
@@ -64,11 +69,15 @@ function PhotoReports({match}){
             <Fragment size="big" noShowMore={true}> 
             <div className="row">
                 <div className="col-12">
-                    {firstPhotoReportsComponent}
+                {loading && <Skeleton duration={1} height={1800} width={'100%'}/>}
+                {!loading && 
+                    <div className="">{firstPhotoReportsComponent}</div>
+                }
                 </div>
-                {photoReportsComponents}
+             {photoReportsComponents}</div>
+                 
             
-            </div>
+            
             <SubscriptionBanner />
             <div className="banner-mobile-only"></div>
             <div class="d-block d-md-none">

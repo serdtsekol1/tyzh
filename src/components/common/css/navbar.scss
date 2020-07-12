@@ -11,7 +11,8 @@
 }
 
 .navbar-custom-wrap{
-  @include for-phones{
+  
+  @include not-for-extra-large-devices {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,6 +58,7 @@
 
 .logo {
   height: 61px;
+  cursor: pointer;
 }
 .separator {
   font-size: 24px;
@@ -121,6 +123,13 @@
   }
 }
 
+@media (min-width: 1200px) {
+  .navbar-nav{
+    margin-left: 60px !important;
+    justify-content: space-between;
+    width: 100% !important;
+}
+}
 @media (max-width: 1200px) {
   .dropdown-item {
     &:hover {
@@ -178,6 +187,7 @@
     margin-bottom: $margin-big;
   }
   .navbar-nav {
+    
     padding-top: $padding-big;
   }
 }

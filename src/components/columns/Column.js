@@ -3,17 +3,18 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import config from "react-global-configuration";
 
-import Header from "../common/Header";
-import ColumnsBlock from "../fragments/ColumsBlock";
-import AuthorsBlock from "../fragments/AuthorsBlock";
-import BannersPanel from "../fragments/BannersPanel";
+import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
 import ColumnTemplate from "./ColumnTemplate";
 
 
 function Column({match}){
+  const [loading, setLoading] = useState(false);
+
   let [columnItem, setColumnItem] = useState({});
   useEffect (()=>{
+    setLoading(true);
+
     const fetchData = async () => {
       
       let apiUrl = `${config.get("apiDomain")}/columns/${match.params.id}`;
@@ -21,6 +22,8 @@ function Column({match}){
       .then(res =>{ 
         console.log(res.data);
         setColumnItem(res.data);
+        setLoading(false);
+
         })
       .catch(err => console.log(err));  
       };
@@ -28,7 +31,11 @@ function Column({match}){
     
   },[match.params.id]);
     return (
+      <div>
+      {loading && <SkeletonPublication article={true}/>}
+         {!loading &&
       <ColumnTemplate columnItem ={columnItem}/>
+         }</div>
       );
     
 }

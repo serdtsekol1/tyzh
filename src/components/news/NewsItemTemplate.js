@@ -7,7 +7,7 @@ import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
-import NewsBlock from "../fragments/NewsBlock";
+import NewsBlock from "./NewsBlock";
 import Fragment from "../fragments/Fragment";
 
 import "../common/css/post.scss";
@@ -44,7 +44,9 @@ function NewsItemTemplate(props) {
           {props.newsItem.content?
           <div className="body-text">
            {Parser(props.newsItem.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
-            .replace(/<p><strong>Читайте також:&nbsp;/g,'<p class="read-also"><strong>Читайте також:&nbsp;'), {
+            .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<p class="read-also"><strong>Читайте також:')
+            .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
+            .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>'), {
               // replace: domNode => {
               //   if (domNode.name === "em") {
               //     return <strong>bar</strong>;

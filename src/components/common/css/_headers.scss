@@ -37,9 +37,6 @@
 
 .body-text {
   margin-bottom: $margin-big;
-  img {
-    @include image-cover;
-  }
   br {
     line-height: 48px;
     @include for-phones {
@@ -50,10 +47,16 @@
     width: 100%;
     
   }
+  img{
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    display: block;
+  }
   p {
     @include medium-margin-bottom;
     font-family: Georgia;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 150%;
     @include for-phones {
       font-size: 16px;
@@ -73,7 +76,12 @@
     font-size: 32px;
     line-height: 130%;
     letter-spacing: 0.02em;
+    margin-top: 72px;
+    strong {
+      font-weight: 600 !important;
+    }
     @include for-phones {
+      margin-top: 40px;
       font-size: 20px;
     }
   }
@@ -82,10 +90,13 @@
     border-left: 4px solid $light-grey;
     padding-left: 44px;
     height: 56px;
-    line-height: 56px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
     @include title-link-small;
     @include for-phones {
       padding-left: $padding-medium;
+      line-height: 16px;
       height: 40px;
     }
 
@@ -123,8 +134,11 @@ blockquote  {
       @include for-phones {
         font-size: 16px;
         line-height: 150%;
+      }
+      strong{
+        font-weight: normal !important;
+      }
     }
-  }
   
 }
   

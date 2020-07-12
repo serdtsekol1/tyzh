@@ -18,11 +18,11 @@ function PhotoReportItem(props) {
         <PhotosQuantityHolder quantity={props.reportItem.count} />
       </div>
       <div>
-        <p className="photo-report-title d-none d-md-block">
+        <p className="photo-report-title ">
           {props.reportItem.title}
         </p>
         {props.reportItem.author?
-        <p className="photo-report-author d-none d-md-block">
+        <p className="photo-report-author ">
           {props.reportItem.author.fullnameua}
         </p>
          : "" }

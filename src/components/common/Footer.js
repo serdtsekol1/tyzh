@@ -54,11 +54,11 @@ function Footer() {
                   src={require("../../images/icons/logo_iua.svg")}
                   alt="iua"
                 />
-                <img
+                {/* <img
                   className="partner-text-logo"
                   src={require("../../images/icons/logo_rambler.svg")}
                   alt="Рамблер"
-                />
+                /> */}
                 <img
                   className="partner-text-logo"
                   src={require("../../images/icons/logo_bigmir.svg")}
@@ -109,21 +109,18 @@ function Footer() {
                 alt="iua"
               />
             </div>
+          
           </div>
           <div className="row">
-            <div className="col-3 offset-3 col-md-2 offset-md-4 flex justify-content-center">
-              <img
-                className="partner-text-logo"
-                src={require("../../images/icons/logo_rambler.svg")}
-                alt="Рамблер"
-              />
-            </div>
-            <div className="col-3 col-md-3 flex justify-content-center">
-              <img
+            <div className="col-4 offset-4 col-md-2 offset-md-4 flex justify-content-center">
+               <img
                 className="partner-text-logo"
                 src={require("../../images/icons/logo_bigmir.svg")}
                 alt="Bigmir)net"
               />
+            </div>
+            <div className="col-3 col-md-3 flex justify-content-center">
+             
             </div>
           </div>
           <div className="partners text-center">

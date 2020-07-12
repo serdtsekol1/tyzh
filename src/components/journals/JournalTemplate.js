@@ -42,12 +42,13 @@ function JournalTemplate(props) {
         <div className="row">
             <div className="col-12">
             <Fragment size="big" noShowMore={true}>
-                <Header title="Зміст"/>
+                
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                    <Tab eventKey="profile" title="Зміст"></Tab>
                     <Tab eventKey="home" title="Колонки">
                         {/* <СolumnsBlock /> */}
                     </Tab>
-                    <Tab eventKey="profile" title="Статті">
+                    <Tab eventKey="articles" title="Статті">
                         {/* <ArticlesBlock quantity={6} /> */}
                     </Tab>
                 

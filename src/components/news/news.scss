@@ -14,7 +14,14 @@
 .unique-news {
   display: inline;
   vertical-align: baseline;
-  margin-right: $margin-very-small;
+  margin-right: 12px;
+  margin-bottom: -3px;
+}
+.unique-news-small {
+  height: 16px;
+  width: 16px;
+  margin-right: 8px !important ;
+  margin-bottom: 0px !important;
 }
 
 .title-wrap {

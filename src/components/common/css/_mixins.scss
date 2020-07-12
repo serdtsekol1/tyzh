@@ -3,6 +3,11 @@
     @content;
   }
 }
+@mixin not-for-phones {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
 @mixin for-medium-devices {
   @media (min-width: 768px) and( max-width: 992px) {
     @content;
@@ -15,6 +20,11 @@
 }
 @mixin for-medium-and-large-devices {
   @media (min-width: 992px) and( max-width: 1200px) {
+    @content;
+  }
+}
+@mixin not-for-extra-large-devices {
+  @media ( max-width: 1200px) {
     @content;
   }
 }

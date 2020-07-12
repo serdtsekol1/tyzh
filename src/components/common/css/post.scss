@@ -22,6 +22,12 @@
   @include flex-row;
   @include medium-margin-bottom;
   justify-content: space-between !important;
+ 
+  @include for-phones{
+    flex-direction:column;
+    align-items: flex-start;
+  }
+  
 }
 
 .notice-mistake {

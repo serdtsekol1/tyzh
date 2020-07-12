@@ -38,25 +38,6 @@
     "category_id": "science",
     "category_name": "Наука",
     "category_color": "#03A9F4"
-  },
-  {
-    "category_id": "travels",
-    "category_name": "Подорожі",
-    "category_color": "#795548"
-  },
-  {
-    "category_id": "auto",
-    "category_name": "Авто",
-    "category_color": "#3F51B5"
-  },
-  {
-    "category_id": "war",
-    "category_name": "Війна",
-    "category_color": "#795548"
-  },
-  {
-    "category_id": "special_topics",
-    "category_name": "Спецтеми",
-    "category_color": "#3F51B5"
   }
+
 ]

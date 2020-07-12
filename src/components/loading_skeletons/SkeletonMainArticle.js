@@ -1,12 +1,9 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 
-import { Link } from "react-router-dom";
 import Fragment from "../fragments/Fragment";
-import DateAndAuthor from "../fragments/DateAndAuthor";
 import "../fragments/css/press_item.scss";
 import "./skeletons.scss";
-import PressItem from "../fragments/PressItem";
 
 const SkeletonMainArticle = (props) => {
 

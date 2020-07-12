@@ -1,24 +1,26 @@
 import React, { useState, useEffect}  from "react";
 import config from "react-global-configuration";
 import axios from 'axios';
-
+import SkeletonNewsBlock from "../loading_skeletons/SkeletonNewsBlock";
 import ArticleBlockItem from "./ArticleBlockItem.js";
 
 import Fragment from "../fragments/Fragment";
 
 
 function ArticlesBlock(props) {
+  const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   let articlesComponents = "";
   
   useEffect (()=>{
+    setLoading(true);
     const fetchArticles = async () => {
       let limit = props.quantity;
       let apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
         setArticles(res.data.results);
-        
+        setLoading(false);
         })
       .catch(err => console.log(err));  
       };
@@ -36,14 +38,19 @@ function ArticlesBlock(props) {
 
     
   return (
-    <Fragment
-      size="big"
-      noShowMore={props.noShowMore}
-      showMoreLink={props.showMoreLink}
-    >
-      {articlesComponents}
-      {props.children}
-    </Fragment>
+    <div>
+    {loading && <div><SkeletonNewsBlock/><SkeletonNewsBlock/><SkeletonNewsBlock/></div>}
+       {!loading &&
+      <Fragment
+        size="big"
+        noShowMore={props.noShowMore}
+        showMoreLink={props.showMoreLink}
+      >
+        {articlesComponents}
+        {props.children}
+      </Fragment>
+      }
+      </div>
   );
 }
 

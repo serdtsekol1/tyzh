@@ -3,23 +3,33 @@
 
 .journal-title {
   @include small-header;
+  @include for-phones{
+    text-align: center;
+  }
 }
 
 .journal-number {
   @include small-header;
   font-weight: 600;
   margin-bottom: $margin-very-small;
+  @include for-phones{
+    text-align: center;
+  }
 }
 
 .journal-cover {
   @include image-cover;
   margin-bottom: $margin-small;
+  cursor: pointer;
 }
 
 .journal-period {
   @include very-small-header;
   margin-bottom: $margin-very-small !important;
   line-height: 136% !important;
+  @include for-phones{
+    text-align: center;
+  }
 }
 
 
@@ -92,6 +102,9 @@
   color: $grey !important;
   border-radius: 0 !important;
   border-bottom: 1px solid $light-grey !important;
+  outline : none !important;
+  &:focus{
+  outline : none !important;}
   &:hover {
     background-color: $dark-red;
     border-bottom: 1px solid transparent !important;
@@ -101,4 +114,8 @@
   }
 
 
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  border: 1px solid transparent !important;
 }

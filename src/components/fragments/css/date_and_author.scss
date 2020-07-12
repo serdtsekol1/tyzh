@@ -3,31 +3,39 @@
 @import "../../common/css/headers";
 
 .date-and-author {
-  @include flex-row;
-  width: -moz-fit-content;
-  width: fit-content;
-  .date,
-  .author,
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 8px;
+  @include for-phones {
+    margin-top: 4px;
+  }
+  
   .dot {
-    display: inline-block;
+    height: 4px;
+    width: 4px;
+    background: $grey;
+    margin: 0 $margin-small;
+    @include for-phones {
+      height: 2px;
+      width: 2px;
+      margin: 0 $margin-very-small;
+    }
+  }
+  .author, .date{
+    color: $grey;
     @include very-small-header;
-    margin-top: $margin-extra-small !important;
-    vertical-align: middle;
+  }
+  .date{
+    margin-top: 4px; 
   }
   .author {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.1em;
+    margin-top: 5px;
   }
   .clock {
     margin-right: $margin-very-small;
-  }
-  .dot {
-    margin: 0 $margin-small;
-    font-size: 8px !important;
-    @include for-phones {
-      font-size: 4px !important;
-      margin: 0 $margin-very-small;
-    }
   }
 }

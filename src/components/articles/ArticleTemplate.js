@@ -22,12 +22,16 @@ function ArticleTemplate(props) {
   let options = {  month: 'long', day: 'numeric' };
   console.log(props.article);
   return (
+   
     <div className="container">
+        <div className="d-block d-md-none">
+        
+        </div>
       <p className="big-post-header ">{props.article.title}</p>
      
         {(props.article.author) ?
         ( <div className="category-and-date">
-          <CategoryLink style={{ marginBottom: 8 }} categoryInfo={props.article} />
+          <CategoryLink solid={true} style={{ marginBottom: 8 }} categoryInfo={props.article} />
           <DateAndAuthor date={new Date(props.article.created_ts).toLocaleDateString('uK-UK', options)} author={props.article.author.fullnameua} /> 
         </div>)
       : ""}
@@ -45,9 +49,11 @@ function ArticleTemplate(props) {
             {props.article.abstract}
           </p>
           <div className="body-text">
+          
             {Parser(props.article.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
-            .replace(/<p><strong>Читайте також:&nbsp;/g,'<p class="read-also"><strong>Читайте також:&nbsp;')
-            .replace(/<li><strong>Читайте також:&nbsp;/g,'<li class="read-also"><strong>Читайте також:&nbsp;'), {
+            .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<p class="read-also"><strong>Читайте також:')
+            .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
+            .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>'), {
               // replace: domNode => {
               //   if (domNode.name === "em") {
               //     return <strong>bar</strong>;
@@ -59,7 +65,9 @@ function ArticleTemplate(props) {
             Якщо ви помітили помилку, виділіть необходіний текст і натисніть
             CTRL + ENTER, щоб повідомити про це редакцію.
           </p>
-          <TagsPanel tags={props.article.tags.split(",")} />
+          {props.article.tags?
+            <TagsPanel tags={props.article.tags.split(",")} />
+          :""}
           <div class="shared-flex">
             <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
@@ -81,6 +89,7 @@ function ArticleTemplate(props) {
       </div>
     ):""}
      </div>
+    
   );
 }
 

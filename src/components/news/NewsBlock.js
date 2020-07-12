@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import NewsBlockItem from "./NewsBlockItem";
-import SubscriptionBanner from "./SubscriptionBanner";
+import SubscriptionBanner from "../fragments/SubscriptionBanner";
 
-import "./css/news_block_item.scss";
+import "./news_block_item.scss";
 
 import newsData from "../newsData.json";
 
