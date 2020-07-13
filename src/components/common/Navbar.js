@@ -129,7 +129,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/subscribe"
+                  to="/press-release"
                   className="nav-link"
                 >
                   Прес-релізи
