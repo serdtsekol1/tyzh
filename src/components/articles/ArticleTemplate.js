@@ -2,6 +2,7 @@ import React, { useState, useEffect}  from "react";
 import axios from 'axios';
 import config from 'react-global-configuration';
 
+import PublicationAbstract from "../common/PublicationAbstract";
 import Parser from "html-react-parser";
 import Fragment from "../fragments/Fragment";
 import DateAndAuthor from "../fragments/DateAndAuthor";
@@ -22,7 +23,7 @@ function ArticleTemplate(props) {
   let options = {  month: 'long', day: 'numeric' };
   console.log(props.article);
   return (
-   
+   <PublicationAbstract>
     <div className="container">
         <div className="d-block d-md-none">
         
@@ -31,8 +32,8 @@ function ArticleTemplate(props) {
      
         {(props.article.author) ?
         ( <div className="category-and-date">
-          <CategoryLink solid={true} style={{ marginBottom: 8 }} categoryInfo={props.article} />
           <DateAndAuthor date={new Date(props.article.created_ts).toLocaleDateString('uK-UK', options)} author={props.article.author.fullnameua} /> 
+          <CategoryLink solid={true} categoryInfo={props.article} />
         </div>)
       : ""}
       <img
@@ -40,6 +41,7 @@ function ArticleTemplate(props) {
         src={props.article.image1}
         alt=""
       />
+      
       {props.article.content? (
    
      
@@ -53,6 +55,7 @@ function ArticleTemplate(props) {
             {Parser(props.article.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<p class="read-also"><strong>Читайте також:')
             .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
+            .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>'), {
               // replace: domNode => {
               //   if (domNode.name === "em") {
@@ -68,12 +71,12 @@ function ArticleTemplate(props) {
           {props.article.tags?
             <TagsPanel tags={props.article.tags.split(",")} />
           :""}
-          <div class="shared-flex">
+          {/* <div class="shared-flex">
             <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
             </p>
             <SocialNetworks color="red" />
-          </div>
+          </div> */}
           <SubscriptionBanner />
           <div className="d-block d-md-none">
             <BannersPanel />
@@ -83,12 +86,13 @@ function ArticleTemplate(props) {
           <ArticlesBlock quantity={3} articles={props.article.more} showMoreLink="/articles" />
         </div>
         <div className="d-none d-md-block col-md-3">
-          <ShareBySocialNetworks quantity={12} />
+          {/* <ShareBySocialNetworks quantity={12} /> */}
           <BannersPanel />
         </div>
       </div>
     ):""}
      </div>
+     </PublicationAbstract>
     
   );
 }

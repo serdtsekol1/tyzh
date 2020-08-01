@@ -1,4 +1,8 @@
 import React from "react";
+import { useState, useEffect } from 'react';
+import ScriptTag from 'react-script-tag';
+import PublicationAbstract from "../common/PublicationAbstract";
+
 import Parser from "html-react-parser";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
@@ -9,13 +13,14 @@ import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import NewsBlock from "./NewsBlock";
 import Fragment from "../fragments/Fragment";
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 
 import "../common/css/post.scss";
 
 function NewsItemTemplate(props) {
   let tags = props.newsItem.tags? props.newsItem.tags.split(","):[];
   let today = new Date();
-
+ 
   // today.setDate(today.getDate() - 5);
 
   let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
@@ -31,7 +36,9 @@ function NewsItemTemplate(props) {
   }
   
   return (
+    <PublicationAbstract>
     <div className="container">
+
       <div className="row">
         <div className="col-12 col-md-9">
           <p className="big-post-header news-header ">{props.newsItem.title}</p>
@@ -46,6 +53,7 @@ function NewsItemTemplate(props) {
            {Parser(props.newsItem.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<p class="read-also"><strong>Читайте також:')
             .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
+            .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>'), {
               // replace: domNode => {
               //   if (domNode.name === "em") {
@@ -63,12 +71,12 @@ function NewsItemTemplate(props) {
             Джерело: <a href={props.newsItem.source_url}>{props.newsItem.source}</a>
           </p> */}
           <TagsPanel tags={tags} />
-          <div class="shared-flex">
+          {/* <div class="shared-flex">
             <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
             </p>
             <SocialNetworks color="red" />
-          </div>
+          </div> */}
           <SubscriptionBanner />
 
           <div className="d-block d-md-none">
@@ -81,11 +89,12 @@ function NewsItemTemplate(props) {
           </Fragment>
         </div>
         <div className="d-none d-md-block col-md-3">
-          <ShareBySocialNetworks quantity={14} />
+          {/* <ShareBySocialNetworks quantity={14} /> */}
           <BannersPanel />
         </div>
       </div>
     </div>
+    </PublicationAbstract>
   );
 }
 export default NewsItemTemplate;

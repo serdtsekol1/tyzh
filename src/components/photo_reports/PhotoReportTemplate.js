@@ -47,8 +47,10 @@ function PhotoReportTemplate(props){
                     <p className="big-post-header news-header ">{photoReport.title}</p>
                 </div>
                 <div className="col-10">
+               
                     <div className="news-date">
-                        <DateAndAuthor date={date} author={photoReport.author? photoReport.author.fullname: ""}/>
+                     
+                        <DateAndAuthor date={date} author={photoReport.author? photoReport.author.fullnameua: ""}/>
                     </div>
                 </div>
                 <div className="d-none d-md-block col-md-2 text-right">
@@ -70,12 +72,12 @@ function PhotoReportTemplate(props){
           
           <TagsPanel tags={photoReport.tags? photoReport.tags.split(","):[]} />
          
-          <div class="shared-flex">
+          {/* <div class="shared-flex">
             <p className="quantity-label">
               Поділилося: <b>{12} осіб</b>
             </p>
             <SocialNetworks color="red" />
-          </div>
+          </div> */}
           <SubscriptionBanner />
           <div className="d-block d-md-none">
             <BannersPanel />

@@ -10,14 +10,19 @@ function CategoryLink(props) {
       .length > 0
   ) {
     category_color = categoties.find(
-      category => category.category_name == props.categoryInfo.journal.nameua
-    ).category_color;}
-  let isSolid = props.solid?"category-wrap-solid":"";
+      category => {
+       
+        return category.category_name == props.categoryInfo.journal.nameua;}
+    ).category_color;
+    console.log("LFIF",category_color,props.categoryInfo.journal.nameua);
+  
+  }
+  let isSolid = props.solid?"category-wrap-solid":"category-wrap";
   return (
     <NavLink to={props? "/articles/" + props.categoryInfo.journal.nameua: "all-categories"}>
       <div style={props.style}>
         <div
-          className={`category-wrap ${isSolid}`}
+          className={`${isSolid}`}
           style={props.solid? {background:category_color} :{ borderLeftColor: category_color }}
         >
           {props.categoryInfo.journal?

@@ -4,6 +4,11 @@ import "./css/photo_report.scss";
 import PhotosQuantityHolder from "./PhotosQuantityHolder";
 
 function PhotoReportItem(props) {
+  let author_name="";
+  if (props.reportItem) {
+    author_name = props.reportItem.author? props.reportItem.author.fullnameua.split(" ").reverse().join(" "):"";
+  } 
+
   return (
     
     <div className="photo-report-item">
@@ -23,7 +28,7 @@ function PhotoReportItem(props) {
         </p>
         {props.reportItem.author?
         <p className="photo-report-author ">
-          {props.reportItem.author.fullnameua}
+          {author_name}
         </p>
          : "" }
       </div>

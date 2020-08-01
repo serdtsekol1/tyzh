@@ -24,7 +24,7 @@
   justify-content: space-between !important;
  
   @include for-phones{
-    flex-direction:column;
+    flex-direction:column-reverse;
     align-items: flex-start;
   }
   

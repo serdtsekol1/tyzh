@@ -4,7 +4,7 @@ import "../columns/columns.scss";
 
 
 function ColumnsBlockItem(props) {
- 
+  
   return (
 
     <div>
@@ -14,7 +14,7 @@ function ColumnsBlockItem(props) {
         <img
               className="author_photo"
               src={props.columnItem.author.image1url}
-              alt={`Портрет:${props.columnItem.author.fullname}`}
+              alt="Портрет"
             />
         </div>
         <div className="col-9 col-md-10">

@@ -4,6 +4,7 @@ import ShowMoreButton from "../common/ShowMoreButton";
 import "../fragments/css/authors_block.scss";
 
 function HomeAuthorsBlockItem(props) {
+  let author_name =props.columnItem.author.fullnameua.split(" ").reverse().join(" ");
   return (
     <div className={`author-column-link${"-" + props.size}`}>
       
@@ -14,11 +15,11 @@ function HomeAuthorsBlockItem(props) {
           <img
             className="author_photo"
             src={props.columnItem.author.image1url}
-            alt={`Портрет:${props.columnItem.author.fullnameua}`}
+            alt={`Портрет:${author_name}`}
           />
         </div>
         <div className="col-7">
-          <p className="small-author-name">{props.columnItem.author.fullnameua}</p>
+          <p className="small-author-name">{author_name}</p>
           <p className={`column-title${"-" + props.size}`}>
             {props.columnItem.title}
           </p>

@@ -1,43 +1,63 @@
 [
   {
     "category_id": "all-categories",
+    "category_name_short": "Статті",
     "category_name": "Статті",
     "category_color": "#3F51B5"
   },
   {
     "category_id": "politics",
+    "category_name_short": "Політика",
     "category_name": "Політика",
-    "category_color": "#DCD417"
-  },
-  {
-    "category_id": "economics",
-    "category_name": "Економіка",
     "category_color": "#ED1B2F"
   },
   {
+    "category_id": "economics",
+    "category_name_short": "Економіка",
+    "category_name": "Економіка",
+    "category_color": "#FF6D00"
+  },
+  {
     "category_id": "world",
+    "category_name_short": "Світ",
     "category_name": "Світ",
-    "category_color": "#607D8B"
+    "category_color": "#304FFE"
   },
   {
     "category_id": "society",
+    "category_name_short": "Суспільство",
     "category_name": "Суспільство",
-    "category_color": "#3F51B5"
+    "category_color": "#FFEA00"
   },
   {
     "category_id": "culture",
+    "category_name_short": "Культура",
     "category_name": "Культура",
-    "category_color": "#03A9F4"
+    "category_color": "#29B6F6"
   },
   {
     "category_id": "history",
+    "category_name_short": "Історія",
     "category_name": "Історія",
     "category_color": "#795548"
   },
   {
     "category_id": "science",
+    "category_name_short": "Наука",
     "category_name": "Наука",
-    "category_color": "#03A9F4"
+    "category_color": "#607D8B"
+  },
+  {
+    "category_id": "pandemy",
+    "category_name_short": "Пандемія",
+    "category_name":"Пандемія. Герої та антигерої",
+    "category_color": "#1E1E1E"
+  },
+  {
+    "category_id": "war",
+    "category_name_short": "Війна",
+    "category_name": "Війна",
+    "category_color": "#4CAF50"
   }
 
 ]

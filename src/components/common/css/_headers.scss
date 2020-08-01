@@ -45,6 +45,7 @@
   }
   iframe{
     width: 100%;
+    margin-bottom: 16px;
     
   }
   img{
@@ -52,6 +53,13 @@
     height: auto !important;
     margin: 0 !important;
     display: block;
+  }
+  ul {
+    margin-bottom: 16px !important;
+    margin-left: 16px;
+    font-family: Georgia;
+    font-size: 20px;
+    line-height: 180%;
   }
   p {
     @include medium-margin-bottom;
@@ -89,6 +97,7 @@
     @include medium-margin-bottom;
     border-left: 4px solid $light-grey;
     padding-left: 44px;
+    font-style: normal !important;
     height: 56px;
     line-height: 16px;
     display: flex;

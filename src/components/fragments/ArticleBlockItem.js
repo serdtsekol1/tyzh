@@ -7,6 +7,7 @@ import PressItem from "./PressItem";
 
 function ArticleBlockItem(props) {
   let style = props.small ? "article-item-small" :"";
+  
   return (
     <div className={`${style} article-block-item`}>
       <div className="row">
@@ -20,7 +21,6 @@ function ArticleBlockItem(props) {
           {(props.categorial && props.mainArticle) ?<div className="no-category-holder"></div> :""}
           {props.categorial? "" :
           <CategoryLink
-          style={{ marginBottom: 8 }}
           categoryInfo={props.articleItem} />}
          
         <div className={ props.categorial? "" :"articlesInfo"}>

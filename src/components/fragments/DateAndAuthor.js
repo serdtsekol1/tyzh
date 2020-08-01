@@ -1,8 +1,11 @@
 import React from "react";
 import "./css/date_and_author.scss";
 function DateAndAuthor(props) {
-  let author_name;
-  if (props.author) author_name= `${props.author.split(" ")[1]} ${props.author.split(" ")[0]}`
+  let author_name="";
+  if (props.author) {
+    author_name= props.author;
+    
+  }
   
   return (
     <div className="date-and-author">

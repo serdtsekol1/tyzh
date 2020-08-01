@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import SocialNetworks from "./SocialNetworks";
 
 import categoriesData from "./categories.json";
@@ -30,7 +30,7 @@ const Header = props => {
         to={`/articles/${category.category_name}/page=1`}
         className="dropdown-item"
       >
-        {category.category_name}
+        {category.category_name_short}
       </NavLink>
     ));
   return (
@@ -127,13 +127,13 @@ const Header = props => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  activeStyle={activeStyle}
-                  to="/press-release"
+                <a
+                 
+                  href="https://tyzhden.ua/PressReleases/"
                   className="nav-link"
                 >
                   Прес-релізи
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
                 <NavLink

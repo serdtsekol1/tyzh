@@ -5,6 +5,7 @@ function SocialNetworks(props) {
   const isRed = props.color == "red";
   return (
     <div className="social-networks">
+      <a href="https://www.facebook.com/tyzhdenUA/">
       <img
         src={
           isRed
@@ -13,6 +14,8 @@ function SocialNetworks(props) {
         }
         alt=""
       />
+      </a>
+      <a href="">
       <img
         src={
           isRed
@@ -21,6 +24,8 @@ function SocialNetworks(props) {
         }
         alt=""
       />
+      </a>
+      <a href="https://twitter.com/tyzhdenUA">
       <img
         src={
           isRed
@@ -29,6 +34,7 @@ function SocialNetworks(props) {
         }
         alt=""
       />
+      </a>
     </div>
   );
 }

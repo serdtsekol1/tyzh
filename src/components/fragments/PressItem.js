@@ -15,6 +15,7 @@ function PressItem(props){
         date = new Date(props.pressItem.created_ts).toLocaleTimeString('uK-UK', timeOptions);
         date = `Cьогодні, ${date}`;
     }
+    console.log(props.pressItem.author? props.pressItem.author.fullnameua: null);
       
     return (
     <div className="pressInfo">

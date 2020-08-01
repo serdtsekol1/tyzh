@@ -13,6 +13,7 @@ import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import Fragment from "../fragments/Fragment";
 import ColumnsBlock from "../fragments/ColumsBlock";
+import PublicationAbstract from "../common/PublicationAbstract";
 
 import "./columns.scss";
 
@@ -20,6 +21,7 @@ import "./columns.scss";
 
 function ColumnTemplate(props){
     let columnItem = props.columnItem;
+    let author_name = columnItem.author?columnItem.author.fullnameua.split(" ").reverse().join(" "):"";
     let today = new Date();
     let tags = columnItem.tags? columnItem.tags.split(","):[];
     let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
@@ -35,6 +37,7 @@ function ColumnTemplate(props){
     }
 
     return (
+      <PublicationAbstract>
       <div className="container">
       
       {columnItem.author?
@@ -48,7 +51,7 @@ function ColumnTemplate(props){
         
         <div className="col-9 col-md-10 d-none d-md-block">
           <div className="column-author-info">
-           <p className="column-author-name">{columnItem.author.fullnameua}</p>
+           <p className="column-author-name">{author_name}</p>
             <p className="big-post-header column-title ">{columnItem.title}</p>
              <div className="column-date">
                <DateAndAuthor date={date} />
@@ -57,7 +60,7 @@ function ColumnTemplate(props){
          </div>
          <div className="col-9 col-md-10 d-block d-md-none">
           <div className="mobile-column-author-info">
-           <p className="column-author-name">{columnItem.author.fullnameua}</p>
+           <p className="column-author-name">{author_name}</p>
            
          </div>
         </div>
@@ -73,11 +76,13 @@ function ColumnTemplate(props){
             </div>
           </div>
           <p className="article-block-abstract-big">{columnItem.abstract}</p>
+        
           {columnItem.content?
           <div className="body-text">
             {Parser(columnItem.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<p class="read-also"><strong>Читайте також:')
             .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
+            .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>'), {
               // replace: domNode => {
               //   if (domNode.name === "em") {
@@ -95,12 +100,12 @@ function ColumnTemplate(props){
             Джерело: <a href={columnItem.source_url}>{columnItem.source}</a>
           </p> */}
           <TagsPanel tags={tags} />
-          <div class="shared-flex">
+          {/* <div class="shared-flex">
             <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
             </p>
             <SocialNetworks color="red" />
-          </div>
+          </div> */}
           <SubscriptionBanner />
 
           <div className="d-block d-md-none">
@@ -115,11 +120,12 @@ function ColumnTemplate(props){
       
         </div>
         <div className="d-none d-md-block col-md-3">
-          <ShareBySocialNetworks quantity={14} />
+          {/* <ShareBySocialNetworks quantity={14} /> */}
           <BannersPanel />
         </div>
       </div>
     </div>
+    </PublicationAbstract>
       );
     
 }
