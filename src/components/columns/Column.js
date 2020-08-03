@@ -20,7 +20,7 @@ function Column({match}){
       let apiUrl = `${config.get("apiDomain")}/columns/${match.params.id}`;
       await axios.get(apiUrl)
       .then(res =>{ 
-        console.log(res.data);
+     
         setColumnItem(res.data);
         setLoading(false);
 

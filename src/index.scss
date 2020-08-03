@@ -22,18 +22,30 @@ body {
   margin: 0;
   font-family: "UT_Magazine";
 }
+body{
+	&::after{
+		position: absolute;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		z-index: -1;
+    content: url('images/icons/arrow_up.svg');}
+}
+    
 
 .main-content {
-  padding-top: 100px;
+  padding-top: 140px;
   min-height: 100%;
   margin-bottom: -336px;
+  @include  not-for-extra-large-devices {
+    margin-bottom: -236px;
+    padding-top: 88px;
+  }
   @include for-phones {
     margin-bottom: -510px;
     padding-top: 76px;
   }
-  @include for-medium-devices {
-    margin-bottom: -236px;
-  }
+ 
 }
 
 .main-content > div {

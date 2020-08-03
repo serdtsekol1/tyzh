@@ -6,7 +6,7 @@ import Button from "../common/Button";
 import JournalsFooter from "../fragments/JournalsFooter";
 import Fragment from '../fragments/Fragment';
 import BannersPanel from '../fragments/BannersPanel';
-
+import ColumnsBlock from "../fragments/ColumsBlock";
 import "./journalItem.scss";
 import Header from '../common/Header';
 import SubscriptionBanner from '../fragments/SubscriptionBanner';
@@ -44,13 +44,16 @@ function JournalTemplate(props) {
             <Fragment size="big" noShowMore={true}>
                 
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                    <Tab eventKey="profile" title="Зміст"></Tab>
-                    <Tab eventKey="home" title="Колонки">
-                        {/* <СolumnsBlock /> */}
+                    <Tab eventKey="profile" title="Зміст">
+
                     </Tab>
                     <Tab eventKey="articles" title="Статті">
                         {/* <ArticlesBlock quantity={6} /> */}
                     </Tab>
+                    <Tab eventKey="home" title="Колонки">
+                        {/* <ColumnsBlock columns={} quantity={3} /> */}
+                    </Tab>
+                    
                 
                 </Tabs>
                 <div className="row">

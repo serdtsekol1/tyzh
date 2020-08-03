@@ -15,7 +15,7 @@ function SocialNetworks(props) {
         alt=""
       />
       </a>
-      <a href="">
+      {/* <a href="">
       <img
         src={
           isRed
@@ -24,7 +24,7 @@ function SocialNetworks(props) {
         }
         alt=""
       />
-      </a>
+      </a> */}
       <a href="https://twitter.com/tyzhdenUA">
       <img
         src={

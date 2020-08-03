@@ -18,7 +18,7 @@ function NewsItem({ match }) {
       let apiUrl = `${config.get("apiDomain")}/news/${match.params.id}`;
       await axios.get(apiUrl)
       .then(res =>{ 
-        console.log(res.data);
+      
         setNewsItem(res.data);
         setLoading(false);
 

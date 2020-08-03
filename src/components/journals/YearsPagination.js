@@ -9,7 +9,6 @@ function YearsPagination(props) {
   const firstYear = parseInt(props.yearsPeriod.firstYear);
   let startIndex = page - firstYear - 1;
 
-  console.log();
   if (page === firstYear) startIndex = startIndex + 1;
   else if (page == lastYear) startIndex = startIndex - 1;
   return (

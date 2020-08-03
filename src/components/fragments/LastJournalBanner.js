@@ -12,7 +12,7 @@ function LastJournalBanner() {
       let today = new Date();
       await axios.get(`${config.get("apiDomain")}/magazines/year/${today.getFullYear()}/?limit=1`)
       .then(res =>{ 
-        console.log(res);
+      
         setJournals(res.data.results);
       })
       .catch(err => console.log(err));

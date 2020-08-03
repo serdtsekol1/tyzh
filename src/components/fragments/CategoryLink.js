@@ -14,7 +14,7 @@ function CategoryLink(props) {
        
         return category.category_name == props.categoryInfo.journal.nameua;}
     ).category_color;
-    console.log("LFIF",category_color,props.categoryInfo.journal.nameua);
+ 
   
   }
   let isSolid = props.solid?"category-wrap-solid":"category-wrap";

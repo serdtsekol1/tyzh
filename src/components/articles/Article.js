@@ -20,7 +20,7 @@ function Article({ match }) {
       let apiUrl = `${config.get("apiDomain")}/publications/${match.params.id}`;
       await axios.get(apiUrl)
       .then(res =>{ 
-        console.log(res.data);
+      
         setArticle(res.data);
         setLoading(false);
 

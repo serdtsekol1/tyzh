@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import SocialNetworks from "./SocialNetworks";
 
 import categoriesData from "./categories.json";
@@ -10,10 +10,17 @@ import $ from "jquery";
 const Header = props => {
   
   useEffect(()=>{
+    
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
-      $('.navbar-collapse').removeClass('show');
-  }
-  );
+      $('.navbar-collapse').removeClass('show'); }
+    );
+
+    $('.navbar-toggler, .navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
+      
+      $('#red-background').toggleClass('back-show'); }
+    );
+    
+   
 
   
     
@@ -24,24 +31,26 @@ const Header = props => {
   const categoriesComponents = categoriesData
     .slice(1, categoriesData.length)
     .map(category => (
+       
       <NavLink
         key={category.category_id}
         activeStyle={activeStyle}
         to={`/articles/${category.category_name}/page=1`}
         className="dropdown-item"
       >
-        {category.category_name_short}
+       <div style={{'backgroundColor': category.category_color}} className="rubric-color"></div> <p>{category.category_name_short}</p>
       </NavLink>
     ));
   return (
+    <div>
     <nav className="navbar navbar-expand-xl fixed-top">
       <div className="container-fluid">
         <div className="container">
           <div className="navbar-custom-wrap">
-          <img
+          <a href="https://tyzhden.ua/search?q="><img
             className="d-block d-xl-none"
             src={require("../../images/icons/search-24px-white.svg")}
-          />
+          /></a>
           <NavLink to="/" className="navbar-brand">
             <img
               className="logo"
@@ -62,8 +71,21 @@ const Header = props => {
           </button>
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+             <div className="inline-flex">
+                  <li class="nav-item second-nav-link">
+                      <a className="" href="https://tyzhden.ua/Login">
+                      <img className="account-icon" src={require("../../images/icons/account-24px.svg")}/>
+                        <p className="my-profile">Мій кабінет</p>
+                      </a>
+
+                  </li>
+                  <li class="nav-item second-nav-link ">
+                      <a className="" href="https://tyzhden.ua/InfoCenter/Subscription/"><p className="subscribe">Передплата</p></a>
+                  </li>
+                  
+              </div>
             <ul className="navbar-nav">
-            <li className="nav-item dropdown">
+            <li className="nav-item first-nav dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -76,15 +98,18 @@ const Header = props => {
                   <p className="articles-nav">Статті</p>
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                 
                   <NavLink
                     activeStyle={activeStyle}
                     exact
                     to={"/articles/all-categories/page=1"}
                     className="dropdown-item"
                   >
-                    Усі рубрики
+                     <div className="rubric-color"></div>
+                    <p>Усі рубрики</p>
                   </NavLink>
                   {categoriesComponents}
+                  <div class="dropdown-decoration"></div>
                 </div>
               </li>
               <li className="nav-item active">
@@ -126,34 +151,29 @@ const Header = props => {
                   Журнал
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <a
-                 
-                  href="https://tyzhden.ua/PressReleases/"
+              <li className="last-nav nav-item">
+                <a href="https://tyzhden.ua/PressReleases/"
+                  activeStyle={activeStyle}
                   className="nav-link"
                 >
                   Прес-релізи
                 </a>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  activeStyle={activeStyle}
-                  to="/subscribe"
-                  className="nav-link"
-                >
-                  Передплата
-                </NavLink>
-              </li>
+              
+              
             </ul>
-            <div className="navbar-text">
-              {/* <img
+            <a href="https://tyzhden.ua/search?q="><img
                 className="search-small"
                 alt=""
                 src={require("../../images/icons/search-24px.svg")}
-              />
-              <p className="separator separator-navbar">|</p>
-              <p className="uk-week">The Ukrainian Week</p> */}
+              /></a>
+            
+            <div className="navbar-text">
+              {/* 
+              
+              */}
               <div className="d-block d-xl-none">
+                <a href="https://ukrainianweek.com/"><p className="uk-week">The Ukrainian Week</p></a>
                 <SocialNetworks color="white" />
               </div>
             </div>
@@ -161,6 +181,33 @@ const Header = props => {
         </div>
       </div>
     </nav>
+    <div class="sticky-top second-nav-nar">
+      <nav class="navbar navbar-expand-sm second-nav">
+         <div className="container">
+          <div class="navbar-collapse collapse" id="navbar2">
+              <ul class="navbar-nav navbar-nav-second">
+                  <li class="nav-item active">
+                       <a href="https://ukrainianweek.com/"><p className="uk-week">The Ukrainian Week</p></a>
+                  </li>
+                  <div className="inline-flex">
+                  <li class="nav-item second-nav-link ">
+                      <a className="" href="https://tyzhden.ua/InfoCenter/Subscription/"><p className="subscribe">Передплата</p></a>
+                  </li>
+                  <li class="nav-item second-nav-link">
+                      <a className="" href="https://tyzhden.ua/Login"><p className="my-profile">Мій кабінет</p>
+                      <img className="account-icon" src={require("../../images/icons/account-24px.png")}/>
+                      </a>
+
+                  </li>
+                  </div>
+              </ul>
+          </div>
+          </div>
+      </nav>
+  </div>
+  <div id="red-background" className="red-background"></div>
+
+  </div>
   );
 };
 export default Header;

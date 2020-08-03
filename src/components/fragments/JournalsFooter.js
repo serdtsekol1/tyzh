@@ -13,7 +13,7 @@ function JournalsFooter() {
       const limit = 4;
       await axios.get(`${config.get("apiDomain")}/magazines/year/${today.getFullYear()-1}/?limit=${limit}`)
       .then(res =>{ 
-        console.log(res.data.results);
+    
         setJournalsFooter(res.data.results);
       })
       .catch(err => console.log(err));

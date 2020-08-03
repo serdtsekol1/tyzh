@@ -21,7 +21,7 @@ import ArticlesBlock from "../fragments/AtriclesBlock";
 
 function ArticleTemplate(props) {
   let options = {  month: 'long', day: 'numeric' };
-  console.log(props.article);
+
   return (
    <PublicationAbstract>
     <div className="container">

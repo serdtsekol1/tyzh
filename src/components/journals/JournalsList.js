@@ -18,7 +18,7 @@ function JournalsList({ match }) {
       const limit = 60;
       await axios.get(`${config.get("apiDomain")}/magazines/year/${match.params.year}/?limit=${limit}`)
       .then(res =>{ 
-        console.log(res);
+        
         setJournals(res.data.results);
         setLoading(false);
 
