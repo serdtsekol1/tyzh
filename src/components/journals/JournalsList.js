@@ -37,6 +37,7 @@ function JournalsList({ match }) {
   ));
 
 
+
   const onScroll = function() {
     if (document.getElementById("journals-header")){
       if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {

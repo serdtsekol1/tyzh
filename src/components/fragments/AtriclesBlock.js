@@ -45,6 +45,9 @@ function ArticlesBlock(props) {
         size="big"
         noShowMore={props.noShowMore}
         showMoreLink={props.showMoreLink}
+        redButton={props.redButton}
+        showMoreTitle={props.showMoreTitle}
+        showMoreHref ={props.showMoreHref}
       >
         {articlesComponents}
         {props.children}

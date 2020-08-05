@@ -11,6 +11,9 @@ import "./journalItem.scss";
 import Header from '../common/Header';
 import SubscriptionBanner from '../fragments/SubscriptionBanner';
 import ArticlesBlock from '../fragments/AtriclesBlock';
+import ArticleBlockItem from "../fragments/ArticleBlockItem";
+import ColumnsBlockItem from "../fragments/ColumnsBlockItem";
+
 
 function JournalTemplate(props) {
     let journal = props.journalItem? props.journalItem: {};
@@ -18,8 +21,13 @@ function JournalTemplate(props) {
     let options = { month: 'long', day: 'numeric'};
     let date = "";
     date = new Date(journal.created_ts).toLocaleDateString('uK-UK', options);
-    
-
+    let publicationsComponents=[];
+    if (journal.articles){
+        publicationsComponents = journal.articles.map(publication => {
+            if (publication.journal) return <ArticleBlockItem  key={publication.id} articleItem={publication} />;
+            else return <ColumnsBlockItem  key={publication.id} columnItem={publication} />;
+        });
+    }
     return <div className="container">
         <div className="row journal-header-wrap">
             <div className="col-12 col-md-4">
@@ -40,28 +48,54 @@ function JournalTemplate(props) {
             </div>
         </div>
         <div className="row">
-            <div className="col-12">
+            <div className="col-12 journal-page">
             <Fragment size="big" noShowMore={true}>
                 
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                        
                     <Tab eventKey="profile" title="Зміст">
-
+                    <div className="row">
+                            <div className="col-12 col-md-9">
+                            {publicationsComponents}
+                            <a className="subsc-button" href="https://tyzhden.ua/InfoCenter/Subscription/">
+                                <Button title="Передплата" redButton={true} />
+                            </a>
+                            </div>
+                            <div className="col-12 col-md-3">
+                            <BannersPanel />
+                            </div>
+                        </div>
+                        
                     </Tab>
                     <Tab eventKey="articles" title="Статті">
-                        {/* <ArticlesBlock quantity={6} /> */}
+                        <div className="row">
+                            <div className="col-12 col-md-9">
+                                <ArticlesBlock  articles={journal.publications?journal.publications:[]} redButton={true} 
+                                showMoreTitle="Передплата" showMoreHref={"https://tyzhden.ua/InfoCenter/Subscription/"}/>
+                              
+
+                            </div>
+                            <div className="col-12 col-md-3">
+                            <BannersPanel />
+                            </div>
+                        </div>
                     </Tab>
                     <Tab eventKey="home" title="Колонки">
-                        {/* <ColumnsBlock columns={} quantity={3} /> */}
+                        <div className="row">
+                            <div className="col-12 col-md-9">
+                            <ColumnsBlock columns={journal.columns?journal.columns:[]} 
+                            showMoreHref={"https://tyzhden.ua/InfoCenter/Subscription/"} showMoreTitle="Передплата" redButton={true}/>
+                            
+                            </div>
+                            <div className="col-12 col-md-3">
+                            <BannersPanel />
+                            </div>
+                        </div>
                     </Tab>
                     
                 
                 </Tabs>
-                <div className="row">
-                    <div className="col-12 col-md-9"></div>
-                    <div className="col-12 col-md-3">
-                    <BannersPanel />
-                    </div>
-                </div>
+               
             </Fragment>
             <SubscriptionBanner />
             <Header size="big" title="Інші номери"/>

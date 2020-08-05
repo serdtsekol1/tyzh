@@ -10,10 +10,19 @@ function Fragment(props) {
         {props.noShowMore ? (
           ""
         ) : (
-          <Link to={props.showMoreLink}>
-            <Button title={props.showMoreTitle ? props.showMoreTitle: "Показати більше"} />
-          </Link>
+          <div>
+          {props.showMoreLink ?
+          (<Link to={props.showMoreLink}>
+            <Button redButton={props.redButton?true:false} title={props.showMoreTitle ? props.showMoreTitle: "Показати більше"} />
+          </Link>)
+          :
+          (<a class="subsc-button" href={props.showMoreHref}>
+          <Button redButton={props.redButton?true:false} title={props.showMoreTitle ? props.showMoreTitle: "Показати більше"} />
+        </a>)
+        }
+        </div>
         )}
+        
       </div>
     </div>
   );

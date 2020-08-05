@@ -11,6 +11,7 @@
   text-transform: uppercase;
   @include for-phones {
     margin-bottom: $margin-small !important;
+    margin-top: 8px;
   }
 }
 

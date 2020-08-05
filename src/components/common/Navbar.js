@@ -71,15 +71,15 @@ const Header = props => {
           </button>
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-             <div className="inline-flex">
-                  <li class="nav-item second-nav-link">
+             <div className="inline-flex d-xl-none">
+                  <li className="nav-item second-nav-link">
                       <a className="" href="https://tyzhden.ua/Login">
                       <img className="account-icon" src={require("../../images/icons/account-24px.svg")}/>
                         <p className="my-profile">Мій кабінет</p>
                       </a>
 
                   </li>
-                  <li class="nav-item second-nav-link ">
+                  <li className="nav-item second-nav-link ">
                       <a className="" href="https://tyzhden.ua/InfoCenter/Subscription/"><p className="subscribe">Передплата</p></a>
                   </li>
                   
@@ -109,7 +109,7 @@ const Header = props => {
                     <p>Усі рубрики</p>
                   </NavLink>
                   {categoriesComponents}
-                  <div class="dropdown-decoration"></div>
+                  <div className="dropdown-decoration"></div>
                 </div>
               </li>
               <li className="nav-item active">
@@ -181,19 +181,19 @@ const Header = props => {
         </div>
       </div>
     </nav>
-    <div class="sticky-top second-nav-nar">
-      <nav class="navbar navbar-expand-sm second-nav">
+    <div className="sticky-top second-nav-nar">
+      <nav className="navbar navbar-expand-sm second-nav">
          <div className="container">
-          <div class="navbar-collapse collapse" id="navbar2">
-              <ul class="navbar-nav navbar-nav-second">
-                  <li class="nav-item active">
+          <div className="navbar-collapse collapse" id="navbar2">
+              <ul className="navbar-nav navbar-nav-second">
+                  <li className="nav-item active">
                        <a href="https://ukrainianweek.com/"><p className="uk-week">The Ukrainian Week</p></a>
                   </li>
                   <div className="inline-flex">
-                  <li class="nav-item second-nav-link ">
+                  <li className="nav-item second-nav-link ">
                       <a className="" href="https://tyzhden.ua/InfoCenter/Subscription/"><p className="subscribe">Передплата</p></a>
                   </li>
-                  <li class="nav-item second-nav-link">
+                  <li className="nav-item second-nav-link">
                       <a className="" href="https://tyzhden.ua/Login"><p className="my-profile">Мій кабінет</p>
                       <img className="account-icon" src={require("../../images/icons/account-24px.png")}/>
                       </a>

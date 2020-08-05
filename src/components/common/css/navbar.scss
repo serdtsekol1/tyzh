@@ -329,6 +329,7 @@
   .back-show{
     transition-duration: 0.5s;
     display:block !important;
+    position: fixed;
   }
   .navbar {
     padding: 0 !important;

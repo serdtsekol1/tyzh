@@ -36,6 +36,9 @@
 .journal-header-wrap{
   margin-top: 32px;
   margin-bottom: 72px;
+  @include not-for-extra-large-devices{
+    margin-top: 24px;
+  }
   
 }
 
@@ -47,12 +50,16 @@
 }
 
 .journal-info-wrap{
+  
   height: 100%;
   display: flex;
   align-items: center;
   margin-left: 110px;
   @include for-phones{
     margin-left: 0;
+    div{
+      width: 100%;
+    }
   }
  
 }
@@ -73,7 +80,12 @@
     margin-bottom: 12px !important;
   }
 }
-
+.nav-tabs{
+  @include for-phones{
+    flex-direction: row !important;
+    flex-wrap: initial !important;
+  }
+}
 .nav-tabs .active{
   
     @include button;
@@ -83,6 +95,13 @@
     border-radius: 0 !important;
     font-size: 20px;
     line-height: 130%;
+    @include for-phones{
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      padding: 12px 12px 6px 12px !important;
+      width: inherit;
+    }
     &:hover {
       background-color: $dark-red !important;
     }
@@ -103,6 +122,13 @@
   border-radius: 0 !important;
   border-bottom: 1px solid $light-grey !important;
   outline : none !important;
+  @include for-phones{
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    padding: 12px 12px 6px 12px !important;
+    width: inherit;
+  }
   &:focus{
   outline : none !important;}
   &:hover {
@@ -118,4 +144,23 @@
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
   border: 1px solid transparent !important;
+}
+
+.tab-pane{
+  margin-top: 40px;
+}
+
+.subsc-button{
+  margin-left: 50%;
+  @include for-phones{
+    margin-left: 0;
+    button{
+      margin-bottom: 72px;
+    }
+  }
+}
+.journal-page{
+  .fragment-big .fragment-big{
+    padding-bottom: 0 !important;
+  }
 }
