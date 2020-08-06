@@ -10,11 +10,11 @@ import Articles from "./components/articles/Articles";
 import Journals from "./components/journals/Journals";
 import Journal from "./components/journals/Journal";
 import Article from "./components/articles/Article";
+import Author from "./components/authors/Author";
 import News from "./components/news/News";
 import NewsItem from "./components/news/NewsItem";
 import Columns from "./components/columns/Columns";
 import Column from "./components/columns/Column";
-import Author from "./components/columns/Author";
 import PhotoReports from "./components/photo_reports/PhotoReports";
 import PhotoReport from "./components/photo_reports/PhotoReport";
 import ScrollToTop from "./components/common/ScrollToTop";
@@ -42,8 +42,7 @@ function App() {
             <Route exact path="/columns" component={Columns} />
             <Route exact path="/column/:id" component={Column} />
             <Route exact path="/columns/page=:page" component={Columns} />
-            <Route exact path="/columns/:author" component={Author} />
-            <Route exact path="/columns/:author/:id" component={Column} />
+            <Route exact path="/author/:id" component={Author} />
             <Route exact path="/photoreports" component={PhotoReports} />
             <Route exact path="/photoreports/page=:page" component={PhotoReports} />
             <Route exact path="/photoreport/:id" component={PhotoReport} />
