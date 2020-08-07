@@ -10,9 +10,11 @@ function NewsBlockItem(props) {
   return (
     <div className="news-block-item">
       <table>
+        {props.noTime?"":
         <td>
           <p className="news-hours">{date}</p>
         </td>
+        }
         <td>
           <tr>
           <div className="title-wrap">

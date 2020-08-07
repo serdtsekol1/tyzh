@@ -7,12 +7,15 @@ import JournalsFooter from "../fragments/JournalsFooter";
 import Fragment from '../fragments/Fragment';
 import BannersPanel from '../fragments/BannersPanel';
 import ColumnsBlock from "../fragments/ColumsBlock";
-import "./journalItem.scss";
+
 import Header from '../common/Header';
 import SubscriptionBanner from '../fragments/SubscriptionBanner';
 import ArticlesBlock from '../fragments/AtriclesBlock';
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ColumnsBlockItem from "../fragments/ColumnsBlockItem";
+
+import "./journalItem.scss";
+import "../common/css/tabs.scss";
 
 
 function JournalTemplate(props) {

@@ -9,7 +9,7 @@ import newsData from "../newsData.json";
 
 function NewsBlock(props) {
  
-  const newsComponents = props.news? props.news.map(news => <NewsBlockItem key={news.id} newsItem={news} />):"";
+  const newsComponents = props.news? props.news.map(news => <NewsBlockItem noTime={props.noTime} key={news.id} newsItem={news} />):"";
   return <div>
     {newsComponents.length>9 ?
      <div>

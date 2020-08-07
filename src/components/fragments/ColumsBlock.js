@@ -11,7 +11,7 @@ import columnsData from "../columnData.json";
 function ColumnsBlock(props) {
   const columnsComponents = props.columns
     .map(column => (
-      <ColumnsBlockItem key={column.id} columnItem={column} />
+      <ColumnsBlockItem noneImage={props.noneImages} key={column.id} columnItem={column} />
     ));
   return (
     <Fragment

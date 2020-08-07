@@ -27,7 +27,7 @@ function Footer() {
           </div>
         </div>
         <div className="row">
-          <div className="col-12 col-md-8">
+          <div className="col-12 col-md-6 col-lg-8">
             <div className="row">
               <div className="col-12 logo-and-socnets-wrap">
                 <img
@@ -71,7 +71,7 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-4 flex justify-content-center">
+          <div className="col-12 col-md-6 col-lg-4 flex justify-content-center">
             <div className="contacts-wrap" align="center">
               <div className="contact">
                 <img
@@ -99,21 +99,21 @@ function Footer() {
         </div>
         <div className="partners-footer">
           <div className="row">
-            <div className="col-2 offset-3 col-md-2 offset-md-3 flex justify-content-center">
+            <div className="col-2 offset-3 col-md-2 offset-md-4 d-md-none flex justify-content-center">
               <a href="https://tyzhden.ua/RSS/"><img
                 className="rss partner-image-logo"
                 src={require("../../images/icons/logo_rss.svg")}
                 alt="rss"
               /></a>
             </div>
-            <div className="col-2 col-md-2 flex justify-content-center">
+            <div className="col-2 col-md-2 d-md-none flex justify-content-center">
             <a href="https://www.i.ua/"><img
                 className="partner-image-logo"
                 src={require("../../images/icons/logo_iua.svg")}
                 alt="iua"
               /></a>
             </div>
-            <div className="col-2 col-md-2 offset-md-4 flex justify-content-center">
+            <div className="col-2 col-md-2 offset-md-5 d-md-none flex justify-content-center">
             <a href="https://www.bigmir.net/"> <img
                 className="partner-text-logo bigmir-phone"
                 src={require("../../images/icons/logo_bigmir.svg")}

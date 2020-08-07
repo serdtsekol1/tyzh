@@ -1,0 +1,18 @@
+@import "../common/css/variables";
+@import "../common/css/mixins";
+
+.author-info{
+    @include small-header;
+    color: $dark-grey;
+}
+
+.author-info-wrap{
+    @include for-extra-large-devices{
+        margin-left: 60px;
+    }
+    
+}
+
+.banner-no-margin .image-banner{
+    margin-top: 0!important;
+}
