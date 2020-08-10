@@ -9,9 +9,15 @@ function PhotosQuantityHolder(props) {
         src={require("../../images/icons/photo-24px.svg")}
         alt="Камера"
       />
+      {props.quantity? 
       <p className="quantity-label">
-        Зображень: <b>{props.quantity}</b>
+       Зображень: <b>{props.quantity}</b>
       </p>
+      :
+      <p className="quantity-label">
+       {props.title}
+      </p>
+      }
     </div>
   );
 }

@@ -13,6 +13,7 @@ import SubscriptionBanner from '../fragments/SubscriptionBanner';
 import ArticlesBlock from '../fragments/AtriclesBlock';
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ColumnsBlockItem from "../fragments/ColumnsBlockItem";
+import MetaTags from "../common/MetaTagsComponent";
 
 import "./journalItem.scss";
 import "../common/css/tabs.scss";
@@ -32,6 +33,11 @@ function JournalTemplate(props) {
         });
     }
     return <div className="container">
+        <MetaTags title={`Український тиждень № ${journal.localnum} (${journal.num})`} 
+          abstract={`Український тиждень № ${journal.localnum} (${journal.num})`} 
+          ct100={true} keywords={`Український тиждень № ${journal.localnum} (${journal.num})`} 
+          image={journal.image1}
+          />
         <div className="row journal-header-wrap">
             <div className="col-12 col-md-4">
                 <img className="journal-big-cover" src={journal.image1}/>
@@ -65,7 +71,7 @@ function JournalTemplate(props) {
                             </a>
                             </div>
                             <div className="col-12 col-md-3">
-                            <BannersPanel />
+                            <BannersPanel my={true} yottos={true}/>
                             </div>
                         </div>
                         
@@ -79,7 +85,7 @@ function JournalTemplate(props) {
 
                             </div>
                             <div className="col-12 col-md-3">
-                            <BannersPanel />
+                            <BannersPanel ria={true} yottos={true} />
                             </div>
                         </div>
                     </Tab>
@@ -91,7 +97,7 @@ function JournalTemplate(props) {
                             
                             </div>
                             <div className="col-12 col-md-3">
-                            <BannersPanel />
+                            <BannersPanel my={true} ria={true} />
                             </div>
                         </div>
                     </Tab>

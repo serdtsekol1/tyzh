@@ -18,36 +18,46 @@ import Column from "./components/columns/Column";
 import PhotoReports from "./components/photo_reports/PhotoReports";
 import PhotoReport from "./components/photo_reports/PhotoReport";
 import ScrollToTop from "./components/common/ScrollToTop";
+import ScriptTag from 'react-script-tag';
+
+
 
 function App() {
   return (
     <Router>
       <ScrollToTop/>
       <div className="App">
+      
         <Navbar />
         <div className="main-content">
           <Switch>
+
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/article/:id" component={Article} />
-            <Route exact path="/news" component={News} />
-            <Route exact path="/news/page=:page" component={News} />
-            <Route exact path="/news/:id" component={NewsItem} />
-            <Route exact path="/articles" component={Articles} />
-            <Route
-              exact
-              path="/articles/:category/page=:page"
-              component={Articles}
-            />
-            <Route exact path="/articles/:category" component={Articles} />
-            <Route exact path="/columns" component={Columns} />
-            <Route exact path="/column/:id" component={Column} />
-            <Route exact path="/columns/page=:page" component={Columns} />
+            <Route exact path="/News" component={News} />
+            <Route exact path="/News/page=:page" component={News} />
+            <Route exact path="/News/:id" component={NewsItem} />
+            
+            <Route exact path="/Columns" component={Columns} />
+            <Route exact path="/Columns/page=:page" component={Columns} />
+
+            <Route exact path="/Columns/:id" component={Column} />
             <Route exact path="/author/:id" component={Author} />
             <Route exact path="/photoreports" component={PhotoReports} />
             <Route exact path="/photoreports/page=:page" component={PhotoReports} />
             <Route exact path="/photoreport/:id" component={PhotoReport} />
-            <Route path="/journals" component={Journals} />
-            <Route path="/journal/:id" component={Journal} />
+            <Route path="/Magazine" component={Journals} />
+            <Route path="/Magazine/:id" component={Journal} />
+            <Route exact path="/Publications" component={Articles} />
+            <Route exact path="/Publications/page=:page" component={Articles} />
+            <Route exact path="/Publications/:category" component={Articles} />
+            
+            <Route
+              exact
+              path="/Publications/:category/page=:page"
+              component={Articles}
+            />
+            <Route exact path="/Publications/:category/:id" component={Article} />
+
 
             <Route path="*" component={PageNotFound} />
           </Switch>

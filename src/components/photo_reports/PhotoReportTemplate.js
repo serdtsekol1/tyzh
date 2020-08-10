@@ -12,6 +12,7 @@ import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import Fragment from "../fragments/Fragment";
+import PublicationAbstract from "../common/PublicationAbstract";
 
 import "react-image-gallery/styles/css/image-gallery.css";
 import "../common/css/post.scss";
@@ -41,6 +42,7 @@ function PhotoReportTemplate(props){
         </div>
         )):"";
     return (    
+      <PublicationAbstract publication={photoReport}>
         <div className="container">
             <div className="row">
                 <div className="col-12">
@@ -50,7 +52,7 @@ function PhotoReportTemplate(props){
                
                     <div className="news-date">
                      
-                        <DateAndAuthor date={date} author={photoReport.author? photoReport.author.fullnameua: ""}/>
+                        <DateAndAuthor date={date} author={photoReport.authors? photoReport.authors: ""}/>
                     </div>
                 </div>
                 <div className="d-none d-md-block col-md-2 text-right">
@@ -65,22 +67,22 @@ function PhotoReportTemplate(props){
            
             <ImageGallery className="image-gallery" items={images} />
          
-            <p className="notice-mistake d-none d-md-block">
+            {/* <p className="notice-mistake d-none d-md-block">
             Якщо ви помітили помилку, виділіть необходіний текст і натисніть
             CTRL + ENTER, щоб повідомити про це редакцію.
-          </p>
+          </p> */}
           
           <TagsPanel tags={photoReport.tags? photoReport.tags.split(","):[]} />
          
-          {/* <div class="shared-flex">
-            <p className="quantity-label">
+          <div class="shared-flex">
+            {/* <p className="quantity-label">
               Поділилося: <b>{12} осіб</b>
-            </p>
-            <SocialNetworks color="red" />
-          </div> */}
+            </p> */}
+            <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={photoReport.title} color="red" />
+          </div>
           <SubscriptionBanner />
           <div className="d-block d-md-none">
-            <BannersPanel />
+            <BannersPanel my={true} ria={true} />
           </div>
         <Fragment size="big" showMoreLink="/photoreports">
           <Header size="big" title="Bам також буде цікаво почитати" />
@@ -89,6 +91,7 @@ function PhotoReportTemplate(props){
           </div>
         </Fragment>
         </div>
+        </PublicationAbstract>
     );
 }
 

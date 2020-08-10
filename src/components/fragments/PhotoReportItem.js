@@ -6,7 +6,7 @@ import PhotosQuantityHolder from "./PhotosQuantityHolder";
 function PhotoReportItem(props) {
   let author_name="";
   if (props.reportItem) {
-    author_name = props.reportItem.author? props.reportItem.author.fullnameua.split(" ").reverse().join(" "):"";
+    author_name = props.reportItem.author? props.reportItem.author.fullnameua:"";
   } 
 
   return (

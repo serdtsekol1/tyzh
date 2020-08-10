@@ -45,7 +45,7 @@ function NewsBlockItem(props) {
               ) : (
                 ""
               )}
-            <Link to={`/news/${props.newsItem.id}`}>
+            <Link to={`/News/${props.newsItem.id}`}>
               
               <p className="news-title-medium">{props.newsItem.title}</p>
 

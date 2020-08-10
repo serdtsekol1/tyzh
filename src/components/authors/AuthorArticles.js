@@ -49,7 +49,7 @@ function AuthorArticles(props){
         fetchData();
     },[page]);
     const handlePageClick = (data) => {
-        // history.push(`/news/page=${data.selected+1}`);
+        
         setPage(data.selected+1);
       
 

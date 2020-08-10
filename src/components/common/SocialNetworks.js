@@ -3,9 +3,13 @@ import "./css/social_networks.scss";
 
 function SocialNetworks(props) {
   const isRed = props.color == "red";
+  let shareLinkFb;
+  let shareLinkTwitter;
+  if (props.shareFb) shareLinkFb=`https://www.facebook.com/share.php?u=${props.shareLink}`;
+  if (props.shareTwitter) shareLinkTwitter=`https://twitter.com/intent/tweet?text=${props.shareText}&url=${props.shareLink}`;
   return (
     <div className="social-networks">
-      <a href="https://www.facebook.com/tyzhdenUA/">
+      <a href={shareLinkFb?shareLinkFb:`https://www.facebook.com/tyzhdenUA/`}>
       <img
         src={
           isRed
@@ -25,7 +29,7 @@ function SocialNetworks(props) {
         alt=""
       />
       </a> */}
-      <a href="https://twitter.com/tyzhdenUA">
+      <a href={shareLinkTwitter?shareLinkTwitter:"https://twitter.com/tyzhdenUA"}>
       <img
         src={
           isRed

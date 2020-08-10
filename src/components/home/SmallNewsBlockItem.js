@@ -41,13 +41,13 @@ function SmallNewsBlockItem(props) {
           ""
         )}
 
-        <Link to={`/news/${props.newsItem.id}`}>
+        <Link to={`/News/${props.newsItem.id}`}>
           <p className="news-title">{props.newsItem.title}</p>
         </Link>
       </div>
       <DateAndAuthor
         date={new Date(props.newsItem.created_ts).toLocaleTimeString('uK-UK', options)}
-        author={props.newsItem.author}
+        author={props.newsItem.authors}
       />
     </div>
   );

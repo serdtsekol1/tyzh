@@ -15,6 +15,7 @@ import ReactPaginate from "react-paginate";
 import SkeletonNewsPage from "../loading_skeletons/SkeletonNewsPage";
 
 import "./news.scss";
+import MetaTags from "../common/MetaTagsComponent";
 
 function News({match}){
   const [news, setNews] = useState([]);
@@ -59,7 +60,7 @@ function News({match}){
    <NewsBlock id={news.date.getDate()} news={news.news} /></div>);
 
   const handlePageClick = async (data) => {
-    history.push(`/news/page=${data.selected+1}`);
+    history.push(`/News/page=${data.selected+1}`);
     setPage(data.selected+1);
     match.params.page = data.selected+1;
   };
@@ -80,6 +81,7 @@ function News({match}){
   
     
      <div className="container">
+       <MetaTags/>
      <div className="row" >
        <div className="col-12">
          <div className="row">
@@ -111,7 +113,7 @@ function News({match}){
            <Header title=" Останні статті" size="small" />
            <ArticlesBlock lastArticles={true} quantity={3} noShowMore={true}/>
                <LastJournalBanner/>
-             <BannersPanel/>
+             <BannersPanel yottos={true} ria={true} />
            </div>
          </div>
        </div>

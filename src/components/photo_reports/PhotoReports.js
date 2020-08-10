@@ -81,7 +81,7 @@ function PhotoReports({match}){
             <SubscriptionBanner />
             <div className="banner-mobile-only"></div>
             <div class="d-block d-md-none">
-                <BannersPanel secondBanner={false}/>
+                <BannersPanel ria={true} yottos={true} />
             </div>
             <ReactPaginate
               previousLabel={"Назад"}

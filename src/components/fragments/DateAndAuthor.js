@@ -1,11 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./css/date_and_author.scss";
 function DateAndAuthor(props) {
-  let author_name="";
-  if (props.author) {
-    author_name= props.author;
-    
-  }
+ 
   
   return (
     <div className="date-and-author">
@@ -21,7 +18,8 @@ function DateAndAuthor(props) {
         ""
       )}
       {props.author ? (
-          <p className="author">{author_name}</p>
+        <div>{props.author.map(author=><Link to={`/author/${author.id}`}><p className="author">{author.fullnameua}</p></Link>)}</div>
+          
       ) : (
         ""
       )}

@@ -10,7 +10,7 @@ function Footer() {
     .slice(1, categoriesData.length)
     .map(category => (
       <NavLink
-        to={"/articles/" + category.category_name}
+        to={"/Publications/" + category.category_id}
         className="footer-category"
         key={category.categoty_id}
       >

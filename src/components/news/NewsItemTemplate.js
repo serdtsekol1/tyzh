@@ -36,7 +36,7 @@ function NewsItemTemplate(props) {
   }
   
   return (
-    <PublicationAbstract>
+    <PublicationAbstract publication={props.newsItem}>
     <div className="container">
 
       <div className="row">
@@ -64,24 +64,24 @@ function NewsItemTemplate(props) {
             })}
           </div>:""}
           
-          <p className="notice-mistake d-none d-md-block">
+          {/* <p className="notice-mistake d-none d-md-block">
             Якщо ви помітили помилку, виділіть необходіний текст і натисніть
             CTRL + ENTER, щоб повідомити про це редакцію.
-          </p>
+          </p> */}
           {/* <p className="source-label">
             Джерело: <a href={props.newsItem.source_url}>{props.newsItem.source}</a>
           </p> */}
           <TagsPanel tags={tags} />
-          {/* <div class="shared-flex">
-            <p className="quantity-label">
+          <div class="shared-flex">
+            {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
-            </p>
-            <SocialNetworks color="red" />
-          </div> */}
+            </p> */}
+            <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={props.newsItem.title} color="red" />
+          </div>
           <SubscriptionBanner />
 
           <div className="d-block d-md-none">
-            <BannersPanel />
+            <BannersPanel ria={true} yottos={true} />
           </div>
           <Fragment size="big"  showMoreLink="/news" >
 
@@ -90,8 +90,8 @@ function NewsItemTemplate(props) {
           </Fragment>
         </div>
         <div className="d-none d-md-block col-md-3">
-          {/* <ShareBySocialNetworks quantity={14} /> */}
-          <BannersPanel />
+          <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={props.newsItem.title} quantity={14} />
+          <BannersPanel ria={true}/>
         </div>
       </div>
     </div>

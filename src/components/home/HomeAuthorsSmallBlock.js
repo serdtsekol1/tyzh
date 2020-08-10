@@ -36,7 +36,7 @@ function HomeAuthorsSmallBlock() {
         <div>
       <Header size="small" title="Останні колонки" />
       
-      <Fragment size="medium" showMoreLink="/columns">{authorsComponents.slice(0, 4)}</Fragment>
+      <Fragment size="medium" showMoreLink="/Columns">{authorsComponents.slice(0, 4)}</Fragment>
       </div>
     }
     </div>

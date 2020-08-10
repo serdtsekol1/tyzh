@@ -26,6 +26,9 @@
     color: $grey;
     @include very-small-header;
   }
+  .author{
+    @include link-hover;
+  }
   .date{
     margin-top: 4px; 
   }

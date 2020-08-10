@@ -35,12 +35,24 @@ const Header = props => {
       <NavLink
         key={category.category_id}
         activeStyle={activeStyle}
-        to={`/articles/${category.category_name}/page=1`}
+        to={`/Publications/${category.category_id}/page=1`}
         className="dropdown-item"
       >
        <div style={{'backgroundColor': category.category_color}} className="rubric-color"></div> <p>{category.category_name_short}</p>
       </NavLink>
     ));
+
+  const onScroll = function() {
+    if (document.getElementById("navbar-2")){
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      
+        document.getElementById("navbar-2").style.padding = "0 0 0 0";
+      } else {
+        document.getElementById("navbar-2").style.padding = "60px 0 0 0";
+      }
+  };}
+
+   window.addEventListener('scroll', onScroll);
   return (
     <div>
     <nav className="navbar navbar-expand-xl fixed-top">
@@ -102,7 +114,7 @@ const Header = props => {
                   <NavLink
                     activeStyle={activeStyle}
                     exact
-                    to={"/articles/all-categories/page=1"}
+                    to={"/Publications/page=1"}
                     className="dropdown-item"
                   >
                      <div className="rubric-color"></div>
@@ -116,7 +128,7 @@ const Header = props => {
                 <NavLink
                   activeStyle={activeStyle}
                   exact
-                  to="/news/page=1"
+                  to="/News/page=1"
                   className="nav-link"
                 >
                   Новини
@@ -127,7 +139,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/columns"
+                  to="/Columns"
                   className="nav-link"
                 >
                   Колонки
@@ -145,7 +157,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/journals/2020"
+                  to="/Magazine/2020"
                   className="nav-link"
                 >
                   Журнал
@@ -181,7 +193,7 @@ const Header = props => {
         </div>
       </div>
     </nav>
-    <div className="sticky-top second-nav-nar">
+    <div className="sticky-top second-nav-nar" id="navbar-2">
       <nav className="navbar navbar-expand-sm second-nav">
          <div className="container">
           <div className="navbar-collapse collapse" id="navbar2">
@@ -190,6 +202,9 @@ const Header = props => {
                        <a href="https://ukrainianweek.com/"><p className="uk-week">The Ukrainian Week</p></a>
                   </li>
                   <div className="inline-flex">
+                  <li className="nav-item second-nav-link d-none d-xl-block">
+                      <a className="" href="https://tyzhden.ua/"><p className="subscribe">До старої версії</p></a>
+                  </li>
                   <li className="nav-item second-nav-link ">
                       <a className="" href="https://tyzhden.ua/InfoCenter/Subscription/"><p className="subscribe">Передплата</p></a>
                   </li>

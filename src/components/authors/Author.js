@@ -11,6 +11,7 @@ import AuthorPhotoreports from "./AuthorPhotoreports";
 
 import BannersPanel from '../fragments/BannersPanel';
 import Button from "../common/Button";
+import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
@@ -76,10 +77,16 @@ function Author({match}){
     return (
        
     <div className="container">
+      
       {loading && <SkeletonPublication article={true}/>}
          {!loading &&
       
       <div>
+        <MetaTags title={author.fullnameua} 
+      abstract={author.fullnameua}
+      ct100={true} keywords={author.fullnameua}
+      noImage={true}
+      />
       <div className="row column-header">
         <div className="col-3 col-md-2">
           <div className="column-author-photo-wrap">
@@ -114,7 +121,7 @@ function Author({match}){
                           <AuthorColumns authorId={match.params.id}/>
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel />
+                          <BannersPanel ria={true} yottos={true}/>
                           </div>
                       </div>
                       
@@ -128,7 +135,7 @@ function Author({match}){
 
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel />
+                          <BannersPanel ria={true} yottos={true}/>
                           </div>
                       </div>
                   </Tab>
@@ -142,7 +149,7 @@ function Author({match}){
 
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel />
+                          <BannersPanel ria={true} yottos={true}/>
                           </div>
                       </div>
                   </Tab>
@@ -155,7 +162,7 @@ function Author({match}){
 
                           </div>
                           <div className="col-12 col-md-3 banner-no-margin">
-                          <BannersPanel />
+                          <BannersPanel ria={true} yottos={true}/>
                           </div>
                       </div>
                   </Tab>

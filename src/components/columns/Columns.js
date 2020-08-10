@@ -10,6 +10,7 @@ import AuthorsBlock from "../fragments/AuthorsBlock";
 import BannersPanel from "../fragments/BannersPanel";
 
 import SkeletonNewsPage from "../loading_skeletons/SkeletonNewsPage";
+import MetaTags from "../common/MetaTagsComponent";
 
 function Columns({match}){
     const [columns, setColumns] = useState([]);
@@ -25,8 +26,8 @@ function Columns({match}){
       setLoading(true);
       const fetchData = async (page) => {
         let limit = 12;
-        let apiUrl = `${config.get("apiDomain")}/columns/?limit=${limit}`;
-        if (page)  apiUrl = `${apiUrl}&offset=${(page-1)*limit}`;
+        let apiUrl = `${config.get("apiDomain")}/columns/?limit=${limit}&offset=${(page-1)*limit}`;
+        
   
         await axios.get(apiUrl)
         .then(res =>{ 
@@ -41,13 +42,17 @@ function Columns({match}){
     },[page,match.params.page]);
 
   const handlePageClick = async (data) => {
-    history.push(`/columns/page=${data.selected+1}`);
+    history.push(`/Columns/page=${data.selected+1}`);
     setPage();
     match.params.page = data.selected+1;
   };
 
     return (
         <div className="container">
+          <MetaTags title={"Думки впливових людей, колонки закордонних експертів"} 
+          abstract={"Думки впливових людей, колонки закордонних експертів"}
+          ct100={true} keywords={"Думки впливових людей, колонки закордонних експертів"}
+          />
           <div className="row" style={{ marginTop: 10 }}>
             <div className="col-12">
               {/* <Header  size="small" style={{ fontSize: 32 }} title="Вибрані автори" /> */}
@@ -81,7 +86,7 @@ function Columns({match}){
                 </div>
                
                 <div className="col-12 col-md-3">
-                  <BannersPanel/>
+                  <BannersPanel my={true} yottos={true}/>
                   
                 </div>
               </div>

@@ -23,7 +23,7 @@ function ColumnsBlockItem(props) {
         }
         
         <div className={props.noneImage?"col-12":"col-9 col-md-10"}>
-        <PressItem pressItem = {props.columnItem} type="column"/>
+        <PressItem pressItem = {props.columnItem} type="Columns"/>
         </div>
       </div>
       :""}

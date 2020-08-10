@@ -3,11 +3,18 @@ import { Link } from "react-router-dom";
 import CategoryLink from "./CategoryLink";
 import DateAndAuthor from "./DateAndAuthor";
 import "./css/press_item.scss";
+import categoties from "../common/categories.json";
+
 import PressItem from "./PressItem";
 
 function ArticleBlockItem(props) {
   let style = props.small ? "article-item-small" :"";
-  
+  let category =  categoties.find(
+    category => {
+      return category.category_name == props.articleItem.journal.nameua;
+    }
+  )
+  category = category?category.category_id:null;
   return (
     <div className={`${style} article-block-item`}>
       <div className="row">
@@ -24,7 +31,7 @@ function ArticleBlockItem(props) {
           categoryInfo={props.articleItem} />}
          
         <div className={ props.categorial? "" :"articlesInfo"}>
-          <PressItem pressItem={props.articleItem} type="article"/>
+          <PressItem pressItem={props.articleItem} type={`Publications/${category}`} />
         </div>
         </div>
         <div
@@ -34,7 +41,7 @@ function ArticleBlockItem(props) {
               : "col-12 order-0 col-md-4 order-md-1"
           }
         >
-           <Link to={`/article/${props.articleItem.id}`}>
+           <Link to={`/${category}/${props.articleItem.id}`}>
           <img
             id={props.mainArticle && !props.small? "main-article" : ""}
             className={

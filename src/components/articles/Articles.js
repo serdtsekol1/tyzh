@@ -12,6 +12,7 @@ import Header from "../common/Header";
 import articlesData from "../articlesData.json";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import categoties from "../common/categories.json";
+import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
@@ -23,8 +24,21 @@ function Articles({ match }) {
   const [loading, setLoading] = useState(false);
 
   let history = useHistory();
-  let initialCategory = "all-categories";
-  if (match.params.category) initialCategory = match.params.category;
+  let initialCategory;
+  let initialCatgoryAPI;
+  if (match.params.category) {
+    initialCategory = match.params.category;
+    if (
+      categoties.filter(category =>  category.category_id == initialCategory)
+        .length > 0
+    ){
+      initialCatgoryAPI= categoties.find(
+        category => {
+          return category.category_id == initialCategory;
+        }
+      ).category_name;
+    }
+  }
   let initialPageNumber = 0;
   if (match.params.page) initialPageNumber = match.params.page - 1;
 
@@ -34,10 +48,10 @@ function Articles({ match }) {
     const fetchArticles = async (page) => {
       let limit = 11;
       let apiUrl;   
-      if (initialCategory != "all-categories") 
-        apiUrl = `${config.get("apiDomain")}/publications/list/${initialCategory}/?limit=${limit}&offset=${(page-1)*limit}`;
-      else apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}`;
-      if (page)  apiUrl = `${apiUrl}&offset=${(page-1)*limit}`;
+      if (initialCatgoryAPI) 
+        apiUrl = `${config.get("apiDomain")}/publications/list/${initialCatgoryAPI}/?limit=${limit}&offset=${(page-1)*limit}`;
+      else apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}&offset=${(page-1)*limit}`;
+      
 
       await axios.get(apiUrl)
       .then(res =>{ 
@@ -51,7 +65,7 @@ function Articles({ match }) {
       };
       if (page!=match.params.page) fetchArticles(match.params.page);
       else fetchArticles(page);
-  },[page,match.params.category]);
+  },[page,match.params.page,match.params.category]);
   
   // useEffect (()=>{
   //   setPage(match.params.page);
@@ -59,7 +73,8 @@ function Articles({ match }) {
  
 
   const handlePageClick = async (data) => {
-    history.push(`/articles/${initialCategory}/page=${data.selected+1}`);
+    if (initialCategory) history.push(`/Publications/${initialCategory}/page=${data.selected+1}`);
+    else history.push(`/Publications/page=${data.selected+1}`);
     setPage(data.selected+1);
     match.params.page = data.selected+1;
   };
@@ -68,7 +83,7 @@ function Articles({ match }) {
   let mainArticle = articles.slice(0,1)
   .map(article => (
     <ArticleBlockItem 
-    mainArticle={true} categorial={ match.params.category!="all-categories"?true:false} key={article.id} articleItem={article} />
+    mainArticle={true} categorial={ initialCategory?true:false} key={article.id} articleItem={article} />
   ));
 
 
@@ -76,20 +91,23 @@ function Articles({ match }) {
 
   let pageHeader;
   if (
-    categoties.filter(category => category.category_name == initialCategory)
+    categoties.filter(category => category.category_name == initialCatgoryAPI)
       .length > 0
   ) {
     pageHeader = categoties.find(
-      category => category.category_name == initialCategory
+      category => category.category_name == initialCatgoryAPI
     ).category_name;
   } else {
-    //history.push(`/page-not-found`);
+    pageHeader="Статті";
   }
 
   return (
     <div className="container">
     
-    
+    <MetaTags title={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"} 
+          abstract={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"}
+          ct100={true} keywords={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"}
+          />
       <div className="row" style={{ marginTop: 10 }}>
         <div className="col-12 col-md-9">
         {loading && <div>
@@ -101,7 +119,7 @@ function Articles({ match }) {
           <Header size="small" style={{ fontSize: 32 }} title={pageHeader} />
           
           {mainArticle}
-          <ArticlesBlock categorial ={match.params.category!="all-categories"?true:false} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
+          <ArticlesBlock categorial ={initialCategory?true:false} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
             <div className="pagination-articles">
             <ReactPaginate
               previousLabel={"Назад"}
@@ -125,7 +143,7 @@ function Articles({ match }) {
         <div className="d-none d-md-block col-md-3 ">
           <SmallNewsBlock />
           <LastJournalBanner />
-          <BannersPanel secondBanner={false} />
+          <BannersPanel my={true} ria={true}/>
         </div>
         </div>
       </div>

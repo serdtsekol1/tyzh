@@ -14,7 +14,7 @@ function AuthorsBlock(props){
         <div>
             <Fragment
                 size="big"
-                showMoreLink="/columns"
+                showMoreLink="/Columns"
                 showMoreTitle = "Більше авторів"
                 >
                 <div class="row">

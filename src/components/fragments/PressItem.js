@@ -29,7 +29,7 @@ function PressItem(props){
     </p>
     <DateAndAuthor
     date={date}
-    author={props.pressItem.author? props.pressItem.author.fullnameua: null}
+    author={props.pressItem.authors? props.pressItem.authors: null}
     />
     </div>
     )

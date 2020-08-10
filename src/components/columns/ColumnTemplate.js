@@ -21,7 +21,7 @@ import "./columns.scss";
 
 function ColumnTemplate(props){
     let columnItem = props.columnItem;
-    let author_name = columnItem.author?columnItem.author.fullnameua.split(" ").reverse().join(" "):"";
+    let author_name = columnItem.author?columnItem.author.fullnameua:"";
     let today = new Date();
     let tags = columnItem.tags? columnItem.tags.split(","):[];
     let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
@@ -37,7 +37,7 @@ function ColumnTemplate(props){
     }
 
     return (
-      <PublicationAbstract>
+      <PublicationAbstract publication={columnItem}>
       <div className="container">
       
       {columnItem.author?
@@ -93,36 +93,36 @@ function ColumnTemplate(props){
             })}
           </div>:""}
           
-          <p className="notice-mistake d-none d-md-block">
+          {/* <p className="notice-mistake d-none d-md-block">
             Якщо ви помітили помилку, виділіть необходіний текст і натисніть
             CTRL + ENTER, щоб повідомити про це редакцію.
-          </p>
+          </p> */}
           {/* <p className="source-label">
             Джерело: <a href={columnItem.source_url}>{columnItem.source}</a>
           </p> */}
           <TagsPanel tags={tags} />
-          {/* <div class="shared-flex">
-            <p className="quantity-label">
+          <div class="shared-flex">
+            {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
-            </p>
-            <SocialNetworks color="red" />
-          </div> */}
+            </p> */}
+            <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={columnItem.title} color="red" />
+          </div>
           <SubscriptionBanner />
 
           <div className="d-block d-md-none">
-            <BannersPanel />
+            <BannersPanel my={true} ria={true} />
           </div>
           
 
             <Header size="big" title="Bам також буде цікаво почитати" />
             {columnItem.more?
-              <ColumnsBlock showMoreLink="/columns" columns={columnItem.more} quantity={3} />
+              <ColumnsBlock showMoreLink="/Columns" columns={columnItem.more} quantity={3} />
             :""}
       
         </div>
         <div className="d-none d-md-block col-md-3">
-          {/* <ShareBySocialNetworks quantity={14} /> */}
-          <BannersPanel />
+          <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={columnItem.title} quantity={14} />
+          <BannersPanel ria={true} />
         </div>
       </div>
     </div>

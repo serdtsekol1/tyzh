@@ -4,6 +4,7 @@
 .main-article-image {
   @include image-cover;
   margin-bottom: 72px !important;
+  display: table-cell;
   @include for-phones {
     margin-bottom: 32px !important;
   }
@@ -57,4 +58,10 @@
 .source-label {
   @include big-margin-bottom;
   @include title-link-small;
+}
+
+.image-cover-wrap {
+  width: 100%;
+  position: relative;
+  
 }

@@ -5,17 +5,19 @@ import categoties from "../common/categories.json";
 
 function CategoryLink(props) {
   let category_color="#с0с0с0";
+  let category_id = "";
   if (props.categoryInfo.journal){
-    if (
-      categoties.filter(category => category.category_name == props.categoryInfo.journal.nameua)
-        .length > 0
-    ) {
+    if (categoties.filter(category => category.category_name == props.categoryInfo.journal.nameua) .length > 0) {
       category_color = categoties.find(
         category => {
-        
           return category.category_name == props.categoryInfo.journal.nameua;
         }
       ).category_color;
+      category_id = categoties.find(
+        category => {
+          return category.category_name == props.categoryInfo.journal.nameua;
+        }
+      ).category_id;
     }
   
   }
@@ -23,7 +25,7 @@ function CategoryLink(props) {
   return (
     <div>
       {props.categoryInfo.journal?
-    <NavLink to={props? "/articles/" + props.categoryInfo.journal.nameua: "all-categories"}>
+    <NavLink to={props? "/Publications/" + category_id: "Publications"}>
       <div style={props.style}>
         <div
           className={`${isSolid}`}

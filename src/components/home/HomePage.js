@@ -11,16 +11,16 @@ import BannersPanel from "../fragments/BannersPanel";
 import JournalsFooter from "../fragments/JournalsFooter";
 import Fragment from "../fragments/Fragment";
 import Header from "../common/Header";
+import MetaTags from "../common/MetaTagsComponent";
 
 import Skeleton from "react-loading-skeleton";
-
-
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
 
 
 import articlesData from "../articlesData.json";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
+import DonationBanner from "../fragments/DonationBanner";
 import config from "react-global-configuration";
 
 function HomePage() {
@@ -47,15 +47,16 @@ function HomePage() {
     <ArticleBlockItem 
     mainArticle={true} key={article.id} articleItem={article} />
   ));
-  let articlesComponent = <ArticlesBlock quantity={5}  articles={articles.slice(1,6)}  showMoreLink="/articles" />;
+  let articlesComponent = <ArticlesBlock quantity={5}  articles={articles.slice(1,6)}  showMoreLink="/Publications" />;
 
   return (
     <div className="container">
-    
-      
+    <MetaTags/>
       <div className="row">
         <div className="col-12 order-1 col-md-3 order-md-0">
           <SmallNewsBlock />
+         
+           
         </div>
         <div className="col-12 order-0 col-md-6 order-md-1 ">
         {loading && <SkeletonMainArticle/>}
@@ -68,6 +69,7 @@ function HomePage() {
         </div>
       </div>
       <SubscriptionBanner />
+
       {loading && 
       <p className="skeleton-header"><Skeleton height={30}></Skeleton></p>}
       {!loading &&
@@ -82,12 +84,13 @@ function HomePage() {
         }
         </div>
         <div className="col-12 col-md-3">
-          <BannersPanel secondBanner={true} />
+          <BannersPanel my={true} ria={true} />
         </div>
       </div>
       <Header size="big" title="Авторські колонки" />
       <HomeAuthorsBlock />
-      
+      <DonationBanner />
+
       <PhotoReportBlock />
       <Header size="big" title="Журнал «Український тиждень»"/>
       <JournalsFooter />

@@ -13,6 +13,8 @@ import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
+import PhotosQuantityHolder from "../fragments/PhotosQuantityHolder";
+import MetaTags from "../common/MetaTagsComponent";
 
 import "../common/css/post.scss";
 import articlesData from "../articlesData.json";
@@ -21,26 +23,31 @@ import ArticlesBlock from "../fragments/AtriclesBlock";
 
 function ArticleTemplate(props) {
   let options = {  month: 'long', day: 'numeric' };
-
+  let thisUrl= window.location.href;
   return (
-   <PublicationAbstract>
+   <PublicationAbstract publication={props.article}>
     <div className="container">
         <div className="d-block d-md-none">
         
         </div>
       <p className="big-post-header ">{props.article.title}</p>
      
-        {(props.article.author) ?
+        {(props.article.authors) ?
         ( <div className="category-and-date">
-          <DateAndAuthor date={new Date(props.article.created_ts).toLocaleDateString('uK-UK', options)} author={props.article.author.fullnameua} /> 
+          <DateAndAuthor date={new Date(props.article.created_ts).toLocaleDateString('uK-UK', options)} author={props.article.authors} /> 
           <CategoryLink solid={true} categoryInfo={props.article} />
         </div>)
       : ""}
+     
+      <div className="image-cover-wrap">
       <img
         className="main-article-image"
         src={props.article.image1}
         alt=""
       />
+        {props.article.imageinfo? <PhotosQuantityHolder title={props.article.imageinfo} />:""}
+      </div>
+     
       
       {props.article.content? (
    
@@ -65,30 +72,30 @@ function ArticleTemplate(props) {
               // }
             })}
           </div>
-          <p className="notice-mistake d-none d-md-block">
+          {/* <p className="notice-mistake d-none d-md-block">
             Якщо ви помітили помилку, виділіть необходіний текст і натисніть
             CTRL + ENTER, щоб повідомити про це редакцію.
-          </p>
+          </p> */}
           {props.article.tags?
             <TagsPanel tags={props.article.tags.split(",")} />
           :""}
-          {/* <div class="shared-flex">
-            <p className="quantity-label">
+          <div class="shared-flex">
+            {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
-            </p>
-            <SocialNetworks color="red" />
-          </div> */}
+            </p> */}
+            <SocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} color="red" />
+          </div>
           <SubscriptionBanner />
           <div className="d-block d-md-none">
-            <BannersPanel />
+            <BannersPanel ria={true} yottos={true}/>
           </div>
 
           <Header size="big" title="Bам також буде цікаво почитати" />
-          <ArticlesBlock quantity={3} articles={props.article.more} showMoreLink="/articles" />
+          <ArticlesBlock quantity={3} articles={props.article.more} showMoreLink="/Publications" />
         </div>
         <div className="d-none d-md-block col-md-3">
-          {/* <ShareBySocialNetworks quantity={12} /> */}
-          <BannersPanel />
+          <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} quantity={12} />
+          <BannersPanel ria={true} yottos={true}/>
         </div>
       </div>
     ):""}

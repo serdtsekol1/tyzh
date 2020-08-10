@@ -1,4 +1,6 @@
 import React, { useState, useEffect}  from "react";
+import { useHistory } from "react-router-dom";
+
 import axios from 'axios';
 import config from 'react-global-configuration';
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
@@ -12,6 +14,7 @@ import "../common/css/post.scss";
 function Article({ match }) {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(false);
+  let history = useHistory();
   let articleComponent;
   useEffect (()=>{
     setLoading(true);
@@ -27,7 +30,7 @@ function Article({ match }) {
         
         
         })
-      .catch(err => console.log(err));  
+      .catch(err => history.push('/page-not-found/'));  
       };
       fetchData();
     

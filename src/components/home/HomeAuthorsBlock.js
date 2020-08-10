@@ -25,7 +25,7 @@ function HomeAuthorsBlock() {
     <HomeAuthorsBlockItem size="big" key={column.id} columnItem={column} />
   ));
   return (
-    <Fragment size="big" showMoreLink="/columns">
+    <Fragment size="big" showMoreLink="/Columns">
       <div className="authors-block row">
         <div className="col-12 col-md-6 authors-half-block">
           <div className="col-12 col-md-9 authors-items-wrap">

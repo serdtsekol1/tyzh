@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import ScriptTag from 'react-script-tag';
+import MetaTags from "./MetaTagsComponent";
 
 function PublicationAbstract(props) {
     let twttr;
@@ -10,8 +11,11 @@ function PublicationAbstract(props) {
         twttr.widgets.load(document.getElementById('twitter-timeline'));
         }
     });
+    let image= props.publication.image?props.publication.image:props.publication.image1
   return (
     <div>
+      <MetaTags title={props.publication.title} ct100={true} image={image} abstract={props.publication.abstract} 
+                keywords={props.publication.tags}/>
       <ScriptTag type="text/javascript" src="https://platform.twitter.com/widgets.js" />
 
       {props.children}
