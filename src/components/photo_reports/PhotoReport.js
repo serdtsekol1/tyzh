@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import {useHistory} from "react-router-dom";
 import axios from 'axios';
 import config from "react-global-configuration";
 
@@ -14,7 +15,7 @@ import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 function PhotoReport({match}){
     let [photoReport, setPhotoReport] = useState({});
   const [loading, setLoading] = useState(false);
-
+    let history=useHistory();
     useEffect (()=>{
     setLoading(true);
       
@@ -28,7 +29,7 @@ function PhotoReport({match}){
         setLoading(false);
 
           })
-        .catch(err => console.log(err));  
+        .catch(err =>  history.push("/page-not-found"));  
         };
         fetchData();
       

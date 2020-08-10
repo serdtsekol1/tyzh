@@ -10,7 +10,7 @@ import ColumnTemplate from "./ColumnTemplate";
 
 function Column({match}){
   const [loading, setLoading] = useState(false);
-
+  let history=useHistory();
   let [columnItem, setColumnItem] = useState({});
   useEffect (()=>{
     setLoading(true);
@@ -25,7 +25,7 @@ function Column({match}){
         setLoading(false);
 
         })
-      .catch(err => console.log(err));  
+      .catch(err =>  history.push("/page-not-found"));  
       };
       fetchData();
     

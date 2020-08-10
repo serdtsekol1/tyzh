@@ -61,7 +61,8 @@ function Articles({ match }) {
         
         setLoading(false);
         })
-      .catch(err => console.log(err));  
+      .catch(err => history.push("/page-not-found")
+        );  
       };
       if (page!=match.params.page) fetchArticles(match.params.page);
       else fetchArticles(page);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useHistory} from "react-router-dom";
 import axios from 'axios';
 import config from 'react-global-configuration';
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
@@ -8,7 +9,7 @@ import NewsItemTemplate from "./NewsItemTemplate";
 
 function NewsItem({ match }) {
   const [loading, setLoading] = useState(false);
-
+  let history = useHistory();
   let [newsItem, setNewsItem] = useState({});
   useEffect (()=>{
     setLoading(true);
@@ -23,7 +24,7 @@ function NewsItem({ match }) {
         setLoading(false);
 
         })
-      .catch(err => console.log(err));  
+      .catch(err =>  history.push("/page-not-found"));  
       };
       fetchData();
     

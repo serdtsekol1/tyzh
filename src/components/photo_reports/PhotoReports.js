@@ -39,7 +39,7 @@ function PhotoReports({match}){
 
            
             })
-          .catch(err => console.log(err));  
+          .catch(err =>  history.push("/page-not-found"));  
           };
           if (page!=match.params.page) fetchData(match.params.page);
           else fetchData(page);

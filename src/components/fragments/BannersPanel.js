@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import {Link} from "react-router-dom";
 import ScriptTag from 'react-script-tag';
 import {Helmet} from 'react-helmet';
 import "./css/banners_panel.scss";
@@ -17,10 +18,11 @@ function BannersPanel(props) {
     <div className="banners-panel fragment-big">
       {props.my?
       <div className="image-banner">
+        <Link to="/Publications/Pandemic">
         <img
           src={require("../../images/banners/side_pandemic_1.gif")}
           alt="Баннер"
-        />
+        /></Link>
       </div>
       :""}
       {props.ria?
