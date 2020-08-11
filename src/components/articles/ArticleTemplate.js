@@ -9,7 +9,7 @@ import DateAndAuthor from "../fragments/DateAndAuthor";
 import CategoryLink from "../fragments/CategoryLink";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
 import BannersPanel from "../fragments/BannersPanel";
-import SubscriptionBanner from "../fragments/SubscriptionBanner";
+import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
@@ -85,9 +85,9 @@ function ArticleTemplate(props) {
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} color="red" />
           </div>
-          <SubscriptionBanner />
+          <GorizontalAdBanner yottos={true} />
           <div className="d-block d-md-none">
-            <BannersPanel ria={true} yottos={true}/>
+            <BannersPanel my={true} ria={true}/>
           </div>
 
           <Header size="big" title="Bам також буде цікаво почитати" />
@@ -95,7 +95,7 @@ function ArticleTemplate(props) {
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} quantity={12} />
-          <BannersPanel ria={true} yottos={true}/>
+          <BannersPanel ria={true} my={true}/>
         </div>
       </div>
     ):""}

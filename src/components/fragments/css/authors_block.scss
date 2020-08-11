@@ -19,9 +19,11 @@
 }
 
 .small-author-name {
+  @include link-hover;
   @include title-small;
   color: $grey;
   margin-bottom: $margin-extra-small !important;
+ 
 }
 
 .column-title-big {

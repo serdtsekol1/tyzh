@@ -5,12 +5,13 @@ import ScriptTag from "react-script-tag";
 
 function MetaTagsComponent(props) {
     const [article, setArticle] = useState({});
+    let cannonical = window.location.href.replace("newtest.","").replace(/page=(\d)*/,"").replace("Publications/","")
     return (
         <div className="meta">
            
           <MetaTags>  
 
-            <link rel="canonical" href={`https://tyzhden.ua/`} />
+            <link rel="canonical" href={cannonical} />
             
             <meta id="ctl00_meta1" name="description" content={props.ct100?props.abstract:"Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі"}/>
             <meta id="ctl00_meta2" name="keywords" content={props.keywords?props.keywords:"Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі"} />

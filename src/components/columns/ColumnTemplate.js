@@ -7,7 +7,7 @@ import Parser from "html-react-parser";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
 import BannersPanel from "../fragments/BannersPanel";
-import SubscriptionBanner from "../fragments/SubscriptionBanner";
+import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
@@ -21,7 +21,7 @@ import "./columns.scss";
 
 function ColumnTemplate(props){
     let columnItem = props.columnItem;
-    let author_name = columnItem.author?columnItem.author.fullnameua:"";
+    let author_name = columnItem.author?columnItem.author.fullname2ua:"";
     let today = new Date();
     let tags = columnItem.tags? columnItem.tags.split(","):[];
     let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
@@ -52,6 +52,7 @@ function ColumnTemplate(props){
         <div className="col-9 col-md-10 d-none d-md-block">
           <div className="column-author-info">
            <p className="column-author-name">{author_name}</p>
+          {columnItem.location? <p className="author-location">{columnItem.location}</p>:""}
             <p className="big-post-header column-title ">{columnItem.title}</p>
              <div className="column-date">
                <DateAndAuthor date={date} />
@@ -107,7 +108,7 @@ function ColumnTemplate(props){
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={columnItem.title} color="red" />
           </div>
-          <SubscriptionBanner />
+          <GorizontalAdBanner yottos={true} />
 
           <div className="d-block d-md-none">
             <BannersPanel my={true} ria={true} />

@@ -26,6 +26,8 @@ function Author({match}){
   let [isNews, setIsNews] = useState(false);
   let [isPhotoreports, setIsPhotoreports] = useState(false);
   let [isArticles, setIsArticles] = useState(false);
+  let [isColumns, setIsColumns] = useState(false);
+  let [activeTab, setActiveTab] = useState("columns");
   useEffect (()=>{
     setLoading(true);
 
@@ -40,7 +42,17 @@ function Author({match}){
 
         })
       .catch(err => console.log(err));  
-     
+      apiUrl = `${config.get("apiDomain")}/columns/author/${match.params.id}/?limit=1`;
+      await axios.get(apiUrl)
+        .then(res =>{ 
+         
+          if (res.data.results.length){
+          console.log(res.data.results.length);
+          setIsColumns(true); }
+         
+  
+          })
+        .catch(err => console.log(err));  
       apiUrl = `${config.get("apiDomain")}/galleries/author/${match.params.id}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
@@ -72,8 +84,16 @@ function Author({match}){
       };
        
       fetchData();
-    
+      
+     
   },[match.params.id]);
+  useEffect(()=>{
+    if (isPhotoreports) setActiveTab("photo");
+    if (isArticles) setActiveTab("articles");
+    if (isNews) setActiveTab("news");
+    if (isColumns) setActiveTab("columns");
+  },[isNews,isColumns,isArticles,isPhotoreports])
+    
     return (
        
     <div className="container">
@@ -82,9 +102,9 @@ function Author({match}){
          {!loading &&
       
       <div>
-        <MetaTags title={author.fullnameua} 
-      abstract={author.fullnameua}
-      ct100={true} keywords={author.fullnameua}
+        <MetaTags title={author.fullname2ua} 
+      abstract={author.fullname2ua}
+      ct100={true} keywords={author.fullname2ua}
       noImage={true}
       />
       <div className="row column-header">
@@ -98,34 +118,35 @@ function Author({match}){
         <div className="col-9 col-md-10 d-none d-md-block">
           <div className="author-info-wrap">
            
-            <p className="big-post-header column-title ">{author.fullnameua}</p>
-            <p className="author-info">{author.info?author.info:"На жаль, у нас немає інформації про цього автора"}</p>
-           
+            <p className="big-post-header column-title ">{author.fullname2ua}</p>
+            {/* <p className="author-info">{author.info?author.info:"На жаль, у нас немає інформації про цього автора"}</p>
+            */}
             </div>
          </div>
          <div className="col-9 col-md-10 d-block d-md-none">
           <div className="mobile-column-author-info">
-           <p className="column-author-name">{author.fullnameua}</p>
+           <p className="column-author-name">{author.fullname2ua}</p>
            
          </div>
         </div>
       </div>
       <div className="row">
           <div class="col-12">
-            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                        
-                  <Tab eventKey="profile" title="Колонки">
+            <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example">
+                {isColumns?   
+                  <Tab eventKey="columns" title="Колонки">
                   <div className="row">
                           <div className="col-12 col-md-9">
                         
                           <AuthorColumns authorId={match.params.id}/>
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel ria={true} yottos={true}/>
+                          <BannersPanel my={true} ria={true}/>
                           </div>
                       </div>
                       
                   </Tab>
+                  :""}
                   {isNews?
                   <Tab eventKey="news" title="Новини">
                       <div className="row">
@@ -135,7 +156,7 @@ function Author({match}){
 
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel ria={true} yottos={true}/>
+                          <BannersPanel ria={true} ria={true}/>
                           </div>
                       </div>
                   </Tab>
@@ -149,7 +170,7 @@ function Author({match}){
 
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel ria={true} yottos={true}/>
+                          <BannersPanel ria={true} my={true}/>
                           </div>
                       </div>
                   </Tab>
@@ -162,7 +183,7 @@ function Author({match}){
 
                           </div>
                           <div className="col-12 col-md-3 banner-no-margin">
-                          <BannersPanel ria={true} yottos={true}/>
+                          <BannersPanel ria={true} my={true}/>
                           </div>
                       </div>
                   </Tab>

@@ -32,7 +32,7 @@ function YearsNavBar() {
           activeStyle={isSmall ? activeStylePagination : activeStyle}
           className="year-link"
           key={year * 2}
-          to={`/Magazine/${year}`}
+          to={`/Magazines/${year}`}
         >
           {year}
         </NavLink>
@@ -46,7 +46,7 @@ function YearsNavBar() {
         activeStyle={activeStyle}
         className="dot"
         key={year * 6}
-        to={`/Magazine/${year}`}
+        to={`/Magazines/${year}`}
       >
         {`  ▪  `}
       </NavLink>
@@ -55,7 +55,7 @@ function YearsNavBar() {
   const arrowBack = (
     <NavLink
       className={page !== firstYear ? "arrow-active" : "arrow-disable"}
-      to={`/Magazine/${page == firstYear ? page : page - 1}`}
+      to={`/Magazines/${page == firstYear ? page : page - 1}`}
       onClick={() => {
         if (page !== firstYear)
           setPage(currentPage => (currentPage = currentPage - 1));
@@ -67,7 +67,7 @@ function YearsNavBar() {
   const arrowForward = (
     <NavLink
       className={page !== lastYear ? "arrow-active" : "arrow-disable"}
-      to={`/Magazine/${page == lastYear ? page : page + 1}`}
+      to={`/Magazines/${page == lastYear ? page : page + 1}`}
       onClick={() => {
         if (page !== lastYear)
           setPage(currentPage => (currentPage = currentPage + 1));

@@ -11,7 +11,7 @@ function Journals() {
   let history = useHistory();
   let currentHrefParams = window.location.href.split("/");
   if (currentHrefParams[currentHrefParams.length - 1] == "") {
-    history.push(`/Magazine/2020`);
+    history.push(`/Magazines/2020`);
   }
   return (
     <div>
@@ -21,7 +21,7 @@ function Journals() {
           ct100={true} keywords={"Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн"}
           />
       <YearsNavBar/>
-      <Route path={"/Magazine/:year"} component={JournalsList} />
+      <Route path={"/Magazines/:year"} component={JournalsList} />
     </div>
   );
 }

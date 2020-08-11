@@ -3,8 +3,14 @@ import {Link} from "react-router-dom";
 import "./css/date_and_author.scss";
 function DateAndAuthor(props) {
  
-  
+  let dot=false;
+    if (props.author){
+      if (props.author.length){
+        dot=true;
+    }
+  }
   return (
+    
     <div className="date-and-author">
       <img
         className="clock"
@@ -12,13 +18,13 @@ function DateAndAuthor(props) {
         alt=""
       />
       <p className="date">{props.date}</p>
-      {props.author ? (
+      {dot ? (
         <div className="dot"></div> 
       ) : (
         ""
       )}
       {props.author ? (
-        <div>{props.author.map(author=><Link to={`/author/${author.id}`}><p className="author">{author.fullnameua}</p></Link>)}</div>
+        <div>{props.author.map(author=><Link to={`/Author/${author.id}`}><p className="author">{author.fullname2ua}</p></Link>)}</div>
           
       ) : (
         ""

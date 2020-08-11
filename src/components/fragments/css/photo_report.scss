@@ -65,6 +65,7 @@
 }
 
 .photo-report-author {
+  @include link-hover;
   @include very-small-header;
   text-transform: uppercase;
   font-weight: 600;

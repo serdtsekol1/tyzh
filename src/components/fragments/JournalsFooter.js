@@ -25,7 +25,7 @@ function JournalsFooter() {
  
 
   return (
-    <Fragment size="big" showMoreLink="/Magazine/2020">
+    <Fragment size="big" showMoreLink="/Magazines/2020">
       <div className="row">
         {journalsFooter.map(journal => (
           <div key={journal.id - 1000} className="col-12 col-md-3">

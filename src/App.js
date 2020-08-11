@@ -19,12 +19,19 @@ import PhotoReports from "./components/photo_reports/PhotoReports";
 import PhotoReport from "./components/photo_reports/PhotoReport";
 import ScrollToTop from "./components/common/ScrollToTop";
 import ScriptTag from 'react-script-tag';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 
-
+const history = createBrowserHistory();
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 function App() {
+  ReactGA.initialize('UA-54516992-1');
   return (
-    <Router>
+    <Router history={history}>
       <ScrollToTop/>
       <div className="App">
       
@@ -41,11 +48,11 @@ function App() {
             <Route exact path="/Columns/page=:page" component={Columns} />
 
             <Route exact path="/Columns/:id" component={Column} />
-            <Route exact path="/author/:id" component={Author} />
-            <Route exact path="/photoreports" component={PhotoReports} />
-            <Route exact path="/photoreports/page=:page" component={PhotoReports} />
-            <Route exact path="/photoreport/:id" component={PhotoReport} />
-            <Route path="/Magazine" component={Journals} />
+            <Route exact path="/Author/:id" component={Author} />
+            <Route exact path="/Gallery" component={PhotoReports} />
+            <Route exact path="/Gallery/page=:page" component={PhotoReports} />
+            <Route exact path="/Gallery/:id" component={PhotoReport} />
+            <Route path="/Magazines" component={Journals} />
             <Route path="/Magazine/:id" component={Journal} />
             <Route exact path="/Publications" component={Articles} />
             <Route exact path="/Publications/page=:page" component={Articles} />

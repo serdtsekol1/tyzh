@@ -5,15 +5,13 @@ import PhotosQuantityHolder from "./PhotosQuantityHolder";
 
 function PhotoReportItem(props) {
   let author_name="";
-  if (props.reportItem) {
-    author_name = props.reportItem.author? props.reportItem.author.fullnameua:"";
-  } 
+  
 
   return (
     
     <div className="photo-report-item">
       {props.reportItem? 
-      <Link to={`/photoreport/${props.reportItem.id}`}>
+      <Link to={`/Gallery/${props.reportItem.id}`}>
       <div className="image-cover-wrap">
         <img
           className={ props.main? "main-report-image-cover":"report-image-cover"}
@@ -27,9 +25,10 @@ function PhotoReportItem(props) {
           {props.reportItem.title}
         </p>
         {props.reportItem.author?
-        <p className="photo-report-author ">
-          {author_name}
-        </p>
+          <Link to={`/Author/${props.reportItem.author.id}`}><p className="photo-report-author ">
+            {props.reportItem.author.fullname2ua}
+          </p>
+          </Link>
          : "" }
       </div>
      

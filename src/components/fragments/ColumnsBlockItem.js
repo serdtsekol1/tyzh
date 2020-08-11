@@ -13,7 +13,7 @@ function ColumnsBlockItem(props) {
       <div className="column-item row">
         {props.noneImage?"":
           <div className="col-3 col-md-2">
-          <Link to={`/author/${props.columnItem.author.id}`}><img
+          <Link to={`/Author/${props.columnItem.author.id}`}><img
                 className="author_photo"
                 src={props.columnItem.author.image1url}
                 alt="Портрет"

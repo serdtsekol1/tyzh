@@ -38,7 +38,7 @@ function BannersPanel(props) {
           <ScriptTag type="text/javascript" src="scripts/adriver.core.2.js"/>
       </div>
       :""}
-      {props.adsbygoogle?
+      {props.urknet?
       <div>
         <ScriptTag async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
           <ins class="adsbygoogle"
@@ -57,11 +57,13 @@ function BannersPanel(props) {
           <ScriptTag async defer src="https://cdn.yottos.com/adsbyyottos.js"/>
         </div>
         :""}
-        
+        {props.mixadvert?
         <div>
           <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=3005" async/>
           <div id="image-banner MIXADV_3005" class="MIXADVERT_NET"></div>
         </div>
+        :""}
+       
 
     
 

@@ -28,6 +28,11 @@
     margin-top: 12px !important;
     margin-bottom: 16px !important;
 }
+.author-location {
+    @include very-small-header;
+    margin-top: 12px !important;
+    margin-bottom: 16px !important;
+}
 
 .mobile-column-author-info {
     display: flex;

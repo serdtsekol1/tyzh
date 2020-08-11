@@ -7,7 +7,7 @@ import Parser from "html-react-parser";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
 import BannersPanel from "../fragments/BannersPanel";
-import SubscriptionBanner from "../fragments/SubscriptionBanner";
+import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
@@ -78,10 +78,10 @@ function NewsItemTemplate(props) {
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={props.newsItem.title} color="red" />
           </div>
-          <SubscriptionBanner />
+          <GorizontalAdBanner ukrnet={true} />
 
           <div className="d-block d-md-none">
-            <BannersPanel ria={true} yottos={true} />
+            <BannersPanel ria={true} my={true} />
           </div>
           <Fragment size="big"  showMoreLink="/news" >
 

@@ -9,7 +9,7 @@ import BannersPanel from '../fragments/BannersPanel';
 import ColumnsBlock from "../fragments/ColumsBlock";
 
 import Header from '../common/Header';
-import SubscriptionBanner from '../fragments/SubscriptionBanner';
+import GorizontalAdBanner from '../fragments/GorizontalAdBanner';
 import ArticlesBlock from '../fragments/AtriclesBlock';
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ColumnsBlockItem from "../fragments/ColumnsBlockItem";
@@ -71,7 +71,7 @@ function JournalTemplate(props) {
                             </a>
                             </div>
                             <div className="col-12 col-md-3">
-                            <BannersPanel my={true} yottos={true}/>
+                            <BannersPanel my={true} my={true}/>
                             </div>
                         </div>
                         
@@ -85,7 +85,7 @@ function JournalTemplate(props) {
 
                             </div>
                             <div className="col-12 col-md-3">
-                            <BannersPanel ria={true} yottos={true} />
+                            <BannersPanel ria={true} my={true} />
                             </div>
                         </div>
                     </Tab>
@@ -106,7 +106,7 @@ function JournalTemplate(props) {
                 </Tabs>
                
             </Fragment>
-            <SubscriptionBanner />
+            <GorizontalAdBanner ukrnet={true}/>
             <Header size="big" title="Інші номери"/>
             <JournalsFooter />
             </div>

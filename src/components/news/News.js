@@ -113,7 +113,7 @@ function News({match}){
            <Header title=" Останні статті" size="small" />
            <ArticlesBlock lastArticles={true} quantity={3} noShowMore={true}/>
                <LastJournalBanner/>
-             <BannersPanel yottos={true} ria={true} />
+             <BannersPanel my={true} ria={true} />
            </div>
          </div>
        </div>

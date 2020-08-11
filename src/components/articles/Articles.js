@@ -16,6 +16,7 @@ import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
+import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 
 function Articles({ match }) {
   const [articles, setArticles] = useState([]);
@@ -120,7 +121,9 @@ function Articles({ match }) {
           <Header size="small" style={{ fontSize: 32 }} title={pageHeader} />
           
           {mainArticle}
+         
           <ArticlesBlock categorial ={initialCategory?true:false} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
+          <GorizontalAdBanner ukrnet={true}/>
             <div className="pagination-articles">
             <ReactPaginate
               previousLabel={"Назад"}

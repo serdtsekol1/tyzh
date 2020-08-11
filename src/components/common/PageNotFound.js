@@ -4,7 +4,6 @@ function PageNotFound() {
   return (
     <div className="container">
       <div align="center">
-        <h2>На жаль, не можемо знайти сторінку за цим посиланням</h2>
         <img
           align="center"
           style={{ height: "100%", width:"100%", marginBottom: 50 }}

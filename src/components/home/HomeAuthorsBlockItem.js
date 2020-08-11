@@ -4,7 +4,7 @@ import ShowMoreButton from "../common/ShowMoreButton";
 import "../fragments/css/authors_block.scss";
 
 function HomeAuthorsBlockItem(props) {
-  let author_name =props.columnItem.author.fullnameua;
+  let author_name =props.columnItem.author.fullname2ua;
   return (
     <div className={`author-column-link${"-" + props.size}`}>
       
@@ -27,7 +27,7 @@ function HomeAuthorsBlockItem(props) {
             ""
           ) : (
          
-            <ShowMoreButton title="Більше колонок" to={`/author/${props.columnItem.author.id}`} />
+            <ShowMoreButton title="Більше колонок" to={`/Author/${props.columnItem.author.id}`} />
           )}
         </div>
       </div>

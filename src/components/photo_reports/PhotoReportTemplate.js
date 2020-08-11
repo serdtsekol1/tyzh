@@ -23,6 +23,7 @@ function PhotoReportTemplate(props){
    let today = new Date();
    let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
    let date = "";
+   let authors = photoReport.author? [photoReport.author]:[];
    if (photoReport.created_ts) {
      date = new Date(photoReport.created_ts).toLocaleTimeString('uK-UK', options);
 
@@ -52,7 +53,7 @@ function PhotoReportTemplate(props){
                
                     <div className="news-date">
                      
-                        <DateAndAuthor date={date} author={photoReport.authors? photoReport.authors: ""}/>
+                        <DateAndAuthor date={date} author={authors}/>
                     </div>
                 </div>
                 <div className="d-none d-md-block col-md-2 text-right">
@@ -84,7 +85,7 @@ function PhotoReportTemplate(props){
           <div className="d-block d-md-none">
             <BannersPanel my={true} ria={true} />
           </div>
-        <Fragment size="big" showMoreLink="/photoreports">
+        <Fragment size="big" showMoreLink="/Gallery">
           <Header size="big" title="Bам також буде цікаво почитати" />
           <div className="row">
              {photoReportsComponents}

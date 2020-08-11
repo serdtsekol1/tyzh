@@ -86,7 +86,7 @@ function Columns({match}){
                 </div>
                
                 <div className="col-12 col-md-3">
-                  <BannersPanel my={true} yottos={true}/>
+                  <BannersPanel my={true} my={true}/>
                   
                 </div>
               </div>

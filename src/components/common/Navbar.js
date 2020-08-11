@@ -148,7 +148,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/photoreports"
+                  to="/Gallery"
                   className="nav-link"
                 >
                   Фоторепортаж
@@ -157,7 +157,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/Magazine/2020"
+                  to="/Magazines/2020"
                   className="nav-link"
                 >
                   Журнал
@@ -204,6 +204,9 @@ const Header = props => {
                   <div className="inline-flex">
                   <li className="nav-item second-nav-link d-none d-xl-block">
                       <a className="" href="https://tyzhden.ua/"><p className="subscribe">До старої версії</p></a>
+                  </li>
+                  <li className="nav-item second-nav-link d-none d-xl-block">
+                      <a className="" href="https://tyzhden.ua/InfoCenter/Donate"><p className="subscribe">Підтримати</p></a>
                   </li>
                   <li className="nav-item second-nav-link ">
                       <a className="" href="https://tyzhden.ua/InfoCenter/Subscription/"><p className="subscribe">Передплата</p></a>

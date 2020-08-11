@@ -46,7 +46,7 @@ function PhotoReports({match}){
       },[page,match.params.page]);
   
     const handlePageClick = async (data) => {
-      history.push(`/photoreports/page=${data.selected + 1}`);
+      history.push(`/Gallery/page=${data.selected + 1}`);
       setPage();
       match.params.page = data.selected+1;
     };
@@ -81,7 +81,7 @@ function PhotoReports({match}){
             <SubscriptionBanner />
             <div className="banner-mobile-only"></div>
             <div class="d-block d-md-none">
-                <BannersPanel ria={true} yottos={true} />
+                <BannersPanel ria={true} my={true} />
             </div>
             <ReactPaginate
               previousLabel={"Назад"}

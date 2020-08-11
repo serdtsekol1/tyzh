@@ -30,7 +30,7 @@ function PhotoReportBlock() {
     <PhotoReportItem key={photoReport.id} reportItem={photoReport} />
   ));
   return (
-    <Fragment size="big" showMoreLink="/photoreports">
+    <Fragment size="big" showMoreLink="/Gallery">
       <Header size="big" title="Фоторепортаж" />
       <div class="d-none d-md-block">
        <PhotoReportItem  main={true} reportItem={galleries[0]} />
