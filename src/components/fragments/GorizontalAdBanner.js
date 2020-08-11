@@ -5,7 +5,7 @@ import "./css/banners.scss";
 function GorizontalAdBanner(props) {
   return (
     <div className="d-none d-md-block">
-      {props.urknet?
+      {props.ukrnet?
       <div className="banner subscription-banner">
         <ScriptTag async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
           <ins class="adsbygoogle"
