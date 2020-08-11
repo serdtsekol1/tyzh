@@ -6,7 +6,7 @@ function GorizontalAdBanner(props) {
   return (
     <div className="d-none d-md-block">
       {props.urknet?
-      <div>
+      <div className="banner subscription-banner">
         <ScriptTag async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
           <ins class="adsbygoogle"
               style={ {display:"block", textAlign:"center", paddingBottom: "20px"}}
@@ -18,14 +18,14 @@ function GorizontalAdBanner(props) {
        </div> : 
        "" }
        {props.yottos?
-       <div>
+       <div className="banner subscription-banner">
         <ins class="image-banner adsbyyottos" style={{display:"block"}}
                   data-ad-client="d6512604-0c08-11e8-ae50-002590d97638"></ins> 
           <ScriptTag async defer src="https://cdn.yottos.com/adsbyyottos.js"/>
         </div>
         :""}
         {props.mixadvert?
-        <div>
+        <div className="banner subscription-banner">
           <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=3005" async/>
           <div id="image-banner MIXADV_3005" class="MIXADVERT_NET"></div>
         </div>
