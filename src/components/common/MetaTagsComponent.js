@@ -5,7 +5,7 @@ import ScriptTag from "react-script-tag";
 
 function MetaTagsComponent(props) {
     const [article, setArticle] = useState({});
-    let cannonical = window.location.href.replace("newtest.","").replace(/page=(\d)*/,"").replace("Publications/","")
+    let cannonical = window.location.href.replace("new.","").replace(/page=(\d)*/,"").replace("Publications/","")
     return (
         <div className="meta">
            
