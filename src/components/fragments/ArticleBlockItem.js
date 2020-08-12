@@ -8,6 +8,7 @@ import categoties from "../common/categories.json";
 import PressItem from "./PressItem";
 
 function ArticleBlockItem(props) {
+  let today = new Date();
   let style = props.small ? "article-item-small" :"";
   let category =  categoties.find(
     category => {
@@ -41,7 +42,8 @@ function ArticleBlockItem(props) {
               : "col-12 order-0 col-md-4 order-md-1"
           }
         >
-           <Link to={`/${category}/${props.articleItem.id}`}>
+           {((new Date(props.articleItem.public_ts)<=today))?
+           <Link to={`/Publications/${category}/${props.articleItem.id}`}>
           <img
             id={props.mainArticle && !props.small? "main-article" : ""}
             className={
@@ -54,6 +56,17 @@ function ArticleBlockItem(props) {
             alt="Зображення: стаття"
           />
           </Link>
+        :<img
+        id={props.mainArticle && !props.small? "main-article" : ""}
+        className={
+          props.mainArticle || props.categorial
+            ? "article-block-image"
+            : "article-block-image atricle-image-margin"
+        }
+        
+        src={props.articleItem? props.articleItem.image1: ""}
+        alt="Зображення: стаття"
+      />}
         </div>
       </div>
     </div>

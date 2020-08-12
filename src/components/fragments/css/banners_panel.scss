@@ -6,6 +6,9 @@
   img {
     @include image-cover;
   }
+  
+}
+.image-banner:nth-child(0) {
   @include for-phones {
     margin-top: 0;
   }

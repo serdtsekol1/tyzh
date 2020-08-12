@@ -9,20 +9,20 @@ function HomeAuthorsBlockItem(props) {
     <div className={`author-column-link${"-" + props.size}`}>
       
       {props.columnItem.author? 
-      <Link to={`/Column/${props.columnItem.id}`}>
+     
       <div className="row">
         <div className="col-5">
-          <img
+        <Link to={`/Author/${props.columnItem.author.id}`}><img
             className="author_photo"
             src={props.columnItem.author.image1url}
             alt={`Портрет:${author_name}`}
-          />
+          /></Link>
         </div>
         <div className="col-7">
-        <Link to={`/author/${props.columnItem.author.id}`}><p className="small-author-name">{author_name}</p></Link>
-          <p className={`column-title${"-" + props.size}`}>
+        <Link to={`/Author/${props.columnItem.author.id}`}><p className="small-author-name">{author_name}</p></Link>
+        <Link to={`/Columns/${props.columnItem.id}`}><p className={`column-title${"-" + props.size}`}>
             {props.columnItem.title}
-          </p>
+          </p></Link>
           {props.size === "small" ? (
             ""
           ) : (
@@ -31,7 +31,7 @@ function HomeAuthorsBlockItem(props) {
           )}
         </div>
       </div>
-      </Link>
+     
       :""}
      
     </div>

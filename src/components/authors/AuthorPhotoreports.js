@@ -65,6 +65,7 @@ function AuthorPhotoreports(props){
           <div class="row">{photoReportsComponents}</div>
           
         }
+        {pagesCount-1?
           <div className="pagination-articles">
                   <ReactPaginate
                     previousLabel={"Назад"}
@@ -80,6 +81,7 @@ function AuthorPhotoreports(props){
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}
                   /></div>
+        :""}
      </Fragment>
 }
 export default AuthorPhotoreports;

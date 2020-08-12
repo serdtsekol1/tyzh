@@ -64,7 +64,7 @@ function AuthorColumns(props){
 
           
         }
-          <div className="">
+         {pagesCount-1? <div className="">
                   <ReactPaginate
                     previousLabel={"Назад"}
                     nextLabel={"Далі"}
@@ -79,6 +79,7 @@ function AuthorColumns(props){
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}
                   /></div>
+      :""}
      </Fragment>
 }
 export default AuthorColumns;

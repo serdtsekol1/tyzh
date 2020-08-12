@@ -15,15 +15,22 @@ function PressItem(props){
         date = new Date(props.pressItem.created_ts).toLocaleTimeString('uK-UK', timeOptions);
         date = `Cьогодні, ${date}`;
     }
- 
+    
       
     return (
     <div className="pressInfo">
-    <Link to={`/${props.type}/${props.pressItem.id}`}>
-    <p className="press-title">
-        {props.pressItem.title}
-    </p>
-    </Link>
+    {((new Date(props.pressItem.public_ts))>today)?
+    
+        <p className="press-title press-title-disabled">
+            {props.pressItem.title}
+        </p>
+    :
+        <Link to={`/${props.type}/${props.pressItem.id}`}>
+        <p className="press-title press-title-hover">
+            {props.pressItem.title}
+        </p>
+        </Link>
+    }
     <p className="press-abstract">
     {props.pressItem.abstract}
     </p>

@@ -38,6 +38,9 @@
 
 .body-text {
   margin-bottom: $margin-big;
+  table{
+    width: 100% !important;
+  }
   br {
     line-height: 48px;
     @include for-phones {
@@ -109,6 +112,7 @@
       line-height: 16px;
       height: 40px;
     }
+  
 
     a {
       cursor: pointer;

@@ -28,6 +28,7 @@
 
 .column-title-big {
   @include title-medium;
+  @include link-hover;
   margin-bottom: $margin-more-smaller !important;
   @include for-phones {
     margin-bottom: $margin-extra-small !important;
@@ -36,6 +37,7 @@
 
 .column-title-small {
   @include post-header-small;
+  @include link-hover;
 }
 
 /* COLUMNS PAGE */

@@ -59,8 +59,9 @@ function BannersPanel(props) {
         :""}
         {props.mixadvert?
         <div>
-          <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=3005" async/>
-          <div id="image-banner MIXADV_3005" class="MIXADVERT_NET"></div>
+          <div id="image-bannerMIXADV_7708" class="MIXADVERT_NET"></div>
+          <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=7708" async/>
+         
         </div>
         :""}
        

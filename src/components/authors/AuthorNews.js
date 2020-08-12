@@ -69,6 +69,7 @@ function AuthorNews(props){
         
           
         }
+        {pagesCount-1?
           <div className="pagination-articles">
                   <ReactPaginate
                     previousLabel={"Назад"}
@@ -84,6 +85,7 @@ function AuthorNews(props){
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}
                   /></div>
+        :""}
      </Fragment>
 }
 export default AuthorNews;

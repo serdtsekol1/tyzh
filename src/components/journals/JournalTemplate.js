@@ -106,7 +106,7 @@ function JournalTemplate(props) {
                 </Tabs>
                
             </Fragment>
-            <GorizontalAdBanner ukrnet={true}/>
+            <GorizontalAdBanner mixadvert={true}/>
             <Header size="big" title="Інші номери"/>
             <JournalsFooter />
             </div>

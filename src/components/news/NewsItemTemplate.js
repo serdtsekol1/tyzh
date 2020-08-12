@@ -78,7 +78,7 @@ function NewsItemTemplate(props) {
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={props.newsItem.title} color="red" />
           </div>
-          <GorizontalAdBanner ukrnet={true} />
+          <GorizontalAdBanner mixadvert={true} />
 
           <div className="d-block d-md-none">
             <BannersPanel ria={true} my={true} />

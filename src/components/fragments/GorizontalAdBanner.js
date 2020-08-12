@@ -14,7 +14,7 @@ function GorizontalAdBanner(props) {
               data-ad-format="fluid"
               data-ad-client="ca-pub-7302036088769417"
               data-ad-slot="3102276765"></ins>
-        <ScriptTag type="text/javascript" src="scripts/adsbygoogle.js"/>
+        {/* <ScriptTag type="text/javascript" src="scripts/adsbygoogle.js"/> */}
        </div> : 
        "" }
        {props.yottos?
@@ -24,10 +24,11 @@ function GorizontalAdBanner(props) {
           <ScriptTag async defer src="https://cdn.yottos.com/adsbyyottos.js"/>
         </div>
         :""}
-        {props.mixadvert?
-        <div className="banner subscription-banner">
-          <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=3005" async/>
-          <div id="image-banner MIXADV_3005" class="MIXADVERT_NET"></div>
+         {props.mixadvert?
+        <div>
+          <div id="image-bannerMIXADV_7708" class="MIXADVERT_NET"></div>
+          <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=7708" async/>
+         
         </div>
         :""}
     </div>

@@ -123,7 +123,7 @@ function Articles({ match }) {
           {mainArticle}
          
           <ArticlesBlock categorial ={initialCategory?true:false} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
-          <GorizontalAdBanner ukrnet={true}/>
+          <GorizontalAdBanner mixadvert={true}/>
             <div className="pagination-articles">
             <ReactPaginate
               previousLabel={"Назад"}
