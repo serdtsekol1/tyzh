@@ -17,7 +17,6 @@ function ArticleBlockItem(props) {
     }
   )
   category = category?category.category_id:null;
-  console.log(new Date(props.articleItem.public_ts),today);
   return (
     <div className={`${style} article-block-item`}>
       <div className="row">

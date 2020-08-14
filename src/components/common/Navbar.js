@@ -29,7 +29,7 @@ const Header = props => {
     color: "#ED1B2F"
   };
   const categoriesComponents = categoriesData
-    .slice(1, categoriesData.length)
+    .slice(0, categoriesData.length)
     .map(category => (
        
       <NavLink
@@ -118,7 +118,7 @@ const Header = props => {
                     className="dropdown-item"
                   >
                      <div className="rubric-color"></div>
-                    <p>Усі рубрики</p>
+                    <p>Усі статті</p>
                   </NavLink>
                   {categoriesComponents}
                   <div className="dropdown-decoration"></div>

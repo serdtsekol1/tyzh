@@ -7,7 +7,7 @@ import categoriesData from "./categories.json";
 
 function Footer() {
   const categoriesComponents = categoriesData
-    .slice(1, categoriesData.length)
+    .slice(0, categoriesData.length)
     .map(category => (
       <NavLink
         to={"/Publications/" + category.category_id}
