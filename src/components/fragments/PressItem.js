@@ -7,6 +7,7 @@ import "./css/press_item.scss";
 function PressItem(props){
     /* Used in all press listed items: news list, articles list, columns list */
     const today = new Date();
+    today.setHours(today.getHours() + 3);
     //today.setDate(today.getDate() - 5);
     let options = {  month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
     let timeOptions = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
