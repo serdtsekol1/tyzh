@@ -25,6 +25,7 @@ import config from "react-global-configuration";
 
 function HomePage() {
   const [articles, setArticles] = useState([]);
+  const [mainArticles, setMainArticles] = useState([]);
   const [loading, setLoading] = useState(false);
  
   useEffect (()=>{
@@ -37,17 +38,23 @@ function HomePage() {
         setLoading(false);
       })
       .catch(err => console.log(err));
+      await axios.get(`${config.get("apiDomain")}/publications/type/selected/`)
+      .then(res =>{ 
+        setMainArticles(res.data.results);
+        setLoading(false);
+      })
+      .catch(err => console.log(err));
      
      };
      fetchArticles();
   },[]);
     
-  let mainArticle = articles.slice(0,1)
+  let mainArticle = mainArticles.slice(0,1)
   .map(article => (
     <ArticleBlockItem 
     mainArticle={true} key={article.id} articleItem={article} />
   ));
-  let articlesComponent = <ArticlesBlock quantity={5}  articles={articles.slice(1,6)}  showMoreLink="/Publications" />;
+  let articlesComponent = <ArticlesBlock quantity={5}  articles={articles.slice(0,5)}  showMoreLink="/Publications" />;
 
   return (
     <div className="container">
