@@ -7,7 +7,7 @@ function SmallNewsBlockItem(props) {
   const today = new Date();
   // today.setDate(today.getDate() - 5);
   let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
-  if (new Date(props.newsItem.public_ts).getDate() === today.getDate()) options = {  hour: 'numeric', minute: 'numeric'};
+  if (new Date(props.newsItem.public_ts).getDate() === today.getDate()) options = {  hour: 'numeric', minute: 'numeric', timeZone: 'UTC'};
     
 
   return (
