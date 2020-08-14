@@ -36,12 +36,12 @@ function News({match}){
       else apiUrl = `${config.get("apiDomain")}/news/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
-        let firstNewsDate = new Date(res.data.results[0].created_ts);
-        let lastNewsDate = new Date(res.data.results[res.data.results.length-1].created_ts);
+        let firstNewsDate = new Date(res.data.results[0].public_ts);
+        let lastNewsDate = new Date(res.data.results[res.data.results.length-1].public_ts);
         setNews(getDates(firstNewsDate,lastNewsDate).map(
           date => {
             return {"date" : date, "news" : res.data.results.filter(news => {
-              return new Date(news.created_ts).setHours(0,0,0,0) == date.setHours(0,0,0,0);
+              return new Date(news.public_ts).setHours(0,0,0,0) == date.setHours(0,0,0,0);
             })};
 
           }

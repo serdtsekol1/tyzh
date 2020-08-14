@@ -8,7 +8,7 @@ function JournalItem(props) {
   let journalData = props.journalItem;
   
 
-  let date = new Date(journalData.created_ts).toLocaleDateString('uK-UK', options);
+  let date = new Date(journalData.public_ts).toLocaleDateString('uK-UK', options);
   return (
     <div className="journal">
       <Link to={`/Magazine/${journalData.id}`}>

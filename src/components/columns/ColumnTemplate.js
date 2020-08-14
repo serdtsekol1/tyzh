@@ -26,12 +26,12 @@ function ColumnTemplate(props){
     let tags = columnItem.tags? columnItem.tags.split(","):[];
     let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
     let date = "";
-    if (columnItem.created_ts) {
-      date = new Date(columnItem.created_ts).toLocaleTimeString('uK-UK', options);
+    if (columnItem.public_ts) {
+      date = new Date(columnItem.public_ts).toLocaleTimeString('uK-UK', options);
 
-      if (new Date(columnItem.created_ts).getDate() === today.getDate()) {
+      if (new Date(columnItem.public_ts).getDate() === today.getDate()) {
         options = {  hour: 'numeric', minute: 'numeric'};
-        date = new Date(columnItem.created_ts).toLocaleTimeString('uK-UK', options);
+        date = new Date(columnItem.public_ts).toLocaleTimeString('uK-UK', options);
         date = `Cьогодні, ${date}`;
       }
     }

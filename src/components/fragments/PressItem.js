@@ -10,9 +10,9 @@ function PressItem(props){
     //today.setDate(today.getDate() - 5);
     let options = {  month: 'long', day: 'numeric' };
     let timeOptions = {  hour: 'numeric', minute: 'numeric' };
-    let date = new Date(props.pressItem.created_ts).toLocaleDateString('uK-UK', options);
-    if (new Date(props.pressItem.created_ts).getDate() === today.getDate()) { 
-        date = new Date(props.pressItem.created_ts).toLocaleTimeString('uK-UK', timeOptions);
+    let date = new Date(props.pressItem.public_ts).toLocaleDateString('uK-UK', options);
+    if (new Date(props.pressItem.public_ts).getDate() === today.getDate()) { 
+        date = new Date(props.pressItem.public_ts).toLocaleTimeString('uK-UK', timeOptions);
         date = `Cьогодні, ${date}`;
     }
     

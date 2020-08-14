@@ -7,7 +7,7 @@ function SmallNewsBlockItem(props) {
   const today = new Date();
   // today.setDate(today.getDate() - 5);
   let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
-  if (new Date(props.newsItem.created_ts).getDate() === today.getDate()) options = {  hour: 'numeric', minute: 'numeric'};
+  if (new Date(props.newsItem.public_ts).getDate() === today.getDate()) options = {  hour: 'numeric', minute: 'numeric'};
     
 
   return (
@@ -46,7 +46,7 @@ function SmallNewsBlockItem(props) {
         </Link>
       </div>
       <DateAndAuthor
-        date={new Date(props.newsItem.created_ts).toLocaleTimeString('uK-UK', options)}
+        date={new Date(props.newsItem.public_ts).toLocaleTimeString('uK-UK', options)}
         author={props.newsItem.authors}
       />
     </div>

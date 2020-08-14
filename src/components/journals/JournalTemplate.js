@@ -24,7 +24,7 @@ function JournalTemplate(props) {
     let today = new Date();
     let options = { month: 'long', day: 'numeric'};
     let date = "";
-    date = new Date(journal.created_ts).toLocaleDateString('uK-UK', options);
+    date = new Date(journal.public_ts).toLocaleDateString('uK-UK', options);
     let publicationsComponents=[];
     if (journal.articles){
         publicationsComponents = journal.articles.map(publication => {
