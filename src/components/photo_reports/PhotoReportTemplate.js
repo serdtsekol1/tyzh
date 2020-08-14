@@ -24,12 +24,12 @@ function PhotoReportTemplate(props){
    let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
    let date = "";
    let authors = photoReport.author? [photoReport.author]:[];
-   if (photoReport.public_ts) {
-     date = new Date(photoReport.public_ts).toLocaleTimeString('uK-UK', options);
+   if (photoReport.created_ts) {
+     date = new Date(photoReport.created_ts).toLocaleTimeString('uK-UK', options);
 
-     if (new Date(photoReport.public_ts).getDate() === today.getDate()) {
+     if (new Date(photoReport.created_ts).getDate() === today.getDate()) {
        options = {  hour: 'numeric', minute: 'numeric'};
-       date = new Date(photoReport.public_ts).toLocaleTimeString('uK-UK', options);
+       date = new Date(photoReport.created_ts).toLocaleTimeString('uK-UK', options);
        date = `Cьогодні, ${date}`;
      }
     }
