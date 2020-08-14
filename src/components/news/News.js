@@ -54,7 +54,7 @@ function News({match}){
       if (page!=match.params.page) fetchData(match.params.page);
       else fetchData(page);
   },[page,match.params.page]);
-  let options = {  month: 'long', day: 'numeric' };
+  let options = {  month: 'long', day: 'numeric',  timeZone: 'UTC' };
   const groupedNewsComponents = news.map(news => <div class="news-wrap" id={news.date.getDate()*10}>
     <p class="news-date">{news.date.toLocaleDateString('uK-UK', options)}</p>
    <NewsBlock id={news.date.getDate()} news={news.news} /></div>);

@@ -23,13 +23,13 @@ function NewsItemTemplate(props) {
  
   // today.setDate(today.getDate() - 5);
 
-  let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
+  let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric',  timeZone: 'UTC'};
   let date = "";
   if (props.newsItem.public_ts) {
     date = new Date(props.newsItem.public_ts).toLocaleTimeString('uK-UK', options);
 
     if (new Date(props.newsItem.public_ts).getDate() === today.getDate()) {
-      options = {  hour: 'numeric', minute: 'numeric'};
+      options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
       date = new Date(props.newsItem.public_ts).toLocaleTimeString('uK-UK', options);
       date = `Cьогодні, ${date}`;
     }

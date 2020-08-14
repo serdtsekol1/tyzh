@@ -24,13 +24,13 @@ function ColumnTemplate(props){
     let author_name = columnItem.author?columnItem.author.fullname2ua:"";
     let today = new Date();
     let tags = columnItem.tags? columnItem.tags.split(","):[];
-    let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
+    let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
     let date = "";
     if (columnItem.public_ts) {
       date = new Date(columnItem.public_ts).toLocaleTimeString('uK-UK', options);
 
       if (new Date(columnItem.public_ts).getDate() === today.getDate()) {
-        options = {  hour: 'numeric', minute: 'numeric'};
+        options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
         date = new Date(columnItem.public_ts).toLocaleTimeString('uK-UK', options);
         date = `Cьогодні, ${date}`;
       }

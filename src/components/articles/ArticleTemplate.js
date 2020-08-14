@@ -22,7 +22,7 @@ import articlesData from "../articlesData.json";
 import ArticlesBlock from "../fragments/AtriclesBlock";
 
 function ArticleTemplate(props) {
-  let options = {  month: 'long', day: 'numeric' };
+  let options = {  month: 'long', day: 'numeric',  timeZone: 'UTC'};
   let thisUrl= window.location.href;
   return (
    <PublicationAbstract publication={props.article}>
@@ -34,7 +34,7 @@ function ArticleTemplate(props) {
      
         {(props.article.authors) ?
         ( <div className="category-and-date">
-          <DateAndAuthor date={new Date(props.article.public_ts).toLocaleDateString('uK-UK', options)} author={props.article.authors} /> 
+          <DateAndAuthor date={new Date(props.article.public_ts).toLocaleDateString('uK-GB', options)} author={props.article.authors} /> 
           <CategoryLink solid={true} categoryInfo={props.article} />
         </div>)
       : ""}

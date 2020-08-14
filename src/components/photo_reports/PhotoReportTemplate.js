@@ -21,14 +21,14 @@ import "../common/css/post.scss";
 function PhotoReportTemplate(props){
    let photoReport = props.photoReport;
    let today = new Date();
-   let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric'};
+   let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric',  timeZone: 'UTC'};
    let date = "";
    let authors = photoReport.author? [photoReport.author]:[];
    if (photoReport.created_ts) {
      date = new Date(photoReport.created_ts).toLocaleTimeString('uK-UK', options);
 
      if (new Date(photoReport.created_ts).getDate() === today.getDate()) {
-       options = {  hour: 'numeric', minute: 'numeric'};
+       options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
        date = new Date(photoReport.created_ts).toLocaleTimeString('uK-UK', options);
        date = `Cьогодні, ${date}`;
      }

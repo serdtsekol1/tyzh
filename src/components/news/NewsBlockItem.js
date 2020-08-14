@@ -5,7 +5,7 @@ import "./news_block_item.scss";
 
 function NewsBlockItem(props) {
 
-  let timeOptions = {  hour: 'numeric', minute: 'numeric' };
+  let timeOptions = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC' };
   let date = new Date(props.newsItem.public_ts).toLocaleTimeString('uK-UK', timeOptions);
   return (
     <div className="news-block-item">

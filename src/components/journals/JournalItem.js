@@ -4,7 +4,7 @@ import Button from "../common/Button";
 import { Link } from "react-router-dom";
 
 function JournalItem(props) {
-  let options = {  month: 'long', day: 'numeric' };
+  let options = {  month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
   let journalData = props.journalItem;
   
 

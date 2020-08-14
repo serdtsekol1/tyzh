@@ -8,8 +8,8 @@ function PressItem(props){
     /* Used in all press listed items: news list, articles list, columns list */
     const today = new Date();
     //today.setDate(today.getDate() - 5);
-    let options = {  month: 'long', day: 'numeric' };
-    let timeOptions = {  hour: 'numeric', minute: 'numeric' };
+    let options = {  month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
+    let timeOptions = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
     let date = new Date(props.pressItem.public_ts).toLocaleDateString('uK-UK', options);
     if (new Date(props.pressItem.public_ts).getDate() === today.getDate()) { 
         date = new Date(props.pressItem.public_ts).toLocaleTimeString('uK-UK', timeOptions);

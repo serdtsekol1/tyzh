@@ -22,7 +22,7 @@ import "../common/css/tabs.scss";
 function JournalTemplate(props) {
     let journal = props.journalItem? props.journalItem: {};
     let today = new Date();
-    let options = { month: 'long', day: 'numeric'};
+    let options = { month: 'long', day: 'numeric',  timeZone: 'UTC'};
     let date = "";
     date = new Date(journal.created_ts).toLocaleDateString('uK-UK', options);
     let publicationsComponents=[];
