@@ -1,19 +1,21 @@
 @import "./variables";
 @import "./mixins";
-
+.author-tabs .nav-tabs{
+  @media (max-width: 400px){
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin-bottom: 80px;
+}
+}
 .nav-tabs{
     
     @include for-phones{
       flex-direction: row !important;
       flex-wrap: initial !important;
     }
-    @media (max-width: 400px){
-        overflow: auto;
-        position: absolute;
-        left: 0;
-        width: 100%;
-        margin-bottom: 80px;
-    }
+    
   }
 
   .tab-content > div{

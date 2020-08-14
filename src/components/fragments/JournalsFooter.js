@@ -11,7 +11,7 @@ function JournalsFooter() {
     const fetchJournal= async () => {
       let today = new Date();
       const limit = 4;
-      await axios.get(`${config.get("apiDomain")}/magazines/year/${today.getFullYear()-1}/?limit=${limit}`)
+      await axios.get(`${config.get("apiDomain")}/magazines/year/${today.getFullYear()}/?limit=${limit}`)
       .then(res =>{ 
     
         setJournalsFooter(res.data.results);
