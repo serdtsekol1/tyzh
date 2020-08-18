@@ -1,4 +1,6 @@
 import React, { useState, useEffect} from "react";
+import {Link} from "react-router-dom";
+
 import axios from 'axios';
 import SmallNewsBlock from "./SmallNewsBlock";
 import HomeAuthorsBlock from "./HomeAuthorsBlock";
@@ -80,7 +82,7 @@ function HomePage() {
       {loading && 
       <p className="skeleton-header"><Skeleton height={30}></Skeleton></p>}
       {!loading &&
-        <Header size="big" title="Статті" />
+        <Link to="/Publications"><Header size="big" title="Статті" /></Link>
       }
       <div className="row">
         <div className="col-12 col-md-9">
@@ -94,12 +96,12 @@ function HomePage() {
           <BannersPanel my={true} ria={true} />
         </div>
       </div>
-      <Header size="big" title="Авторські колонки" />
+      <Link to="/Columns"><Header size="big" title="Авторські колонки" /></Link>
       <HomeAuthorsBlock />
       <DonationBanner />
 
       <PhotoReportBlock />
-      <Header size="big" title="Журнал «Український тиждень»"/>
+      <Link to="/Magazines"><Header size="big" title="Журнал «Український тиждень»"/></Link>
       <JournalsFooter />
       
  

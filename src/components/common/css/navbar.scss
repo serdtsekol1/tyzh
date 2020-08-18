@@ -417,7 +417,7 @@
   }
 }
 
-@media (max-height: 660px) {
+@media (max-height: 660px) and (max-width: 1200px) {
   .nav-item{
     padding: 0 0 20px 51px;
   }
