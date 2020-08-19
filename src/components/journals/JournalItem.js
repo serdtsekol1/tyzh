@@ -15,7 +15,7 @@ function JournalItem(props) {
         <img
           className="journal-cover"
           src={journalData.image1}
-          alt={`Український тиждень №${journalData.journal_number}`}
+          alt={`Український тиждень №${journalData.localnum}`}
         />
       </Link>
       <Link to={`/Magazine/${journalData.id}`}><p className="journal-title">Український тиждень</p></Link>

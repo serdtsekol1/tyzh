@@ -41,11 +41,13 @@ function News({match}){
         setNews(getDates(firstNewsDate,lastNewsDate).map(
           date => {
             return {"date" : date, "news" : res.data.results.filter(news => {
-              return new Date(news.public_ts).setHours(0,0,0,0) == date.setHours(0,0,0,0);
+              
+              return new Date(news.public_ts).setHours(1,0,0,0) == date.setHours(1,0,0,0);
             })};
 
           }
         ));
+       
         setPagesCount(Math.floor(res.data.count/limit)+1);
         setLoading(false);
         })
@@ -54,11 +56,11 @@ function News({match}){
       if (page!=match.params.page) fetchData(match.params.page);
       else fetchData(page);
   },[page,match.params.page]);
-  let options = {  month: 'long', day: 'numeric',  timeZone: 'UTC' };
+  let options = {  month: 'long', day: 'numeric' };
   const groupedNewsComponents = news.map(news => <div class="news-wrap" id={news.date.getDate()*10}>
     <p class="news-date">{news.date.toLocaleDateString('uK-UK', options)}</p>
    <NewsBlock id={news.date.getDate()} news={news.news} /></div>);
-
+  console.log(news);
   const handlePageClick = async (data) => {
     history.push(`/News/page=${data.selected+1}`);
     setPage(data.selected+1);
@@ -68,7 +70,8 @@ function News({match}){
   function getDates(startDate, stopDate) {
     let dateArray = new Array();
     let currentDate = startDate;
-    while (currentDate.getDate() >= stopDate.getDate()) {      
+    while (currentDate.getDate() >= stopDate.getDate()) {   
+        console.log(new Date (currentDate));
         dateArray.push(new Date (currentDate));
         currentDate.setDate(currentDate.getDate() - 1);
     }

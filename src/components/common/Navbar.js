@@ -12,12 +12,15 @@ const Header = props => {
   useEffect(()=>{
     
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
-      $('.navbar-collapse').removeClass('show'); }
+      $('.navbar-collapse').removeClass('show'); 
+      
+    }
     );
 
     $('.navbar-toggler, .navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
       
-      $('#red-background').toggleClass('back-show'); }
+      $('#red-background').toggleClass('back-show');
+    }
     );
     
    
