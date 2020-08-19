@@ -1,7 +1,7 @@
 const express = require('express');
 const fetch   = require('node-fetch');
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4999;
 const path = require('path');
 const fs = require('fs')
 
@@ -23,7 +23,164 @@ app.get('/', function(request, response) {
     response.send(result);
   });
 });
+app.get('/Publications/page=:page', function(request, response) {
+  
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
 
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+  
+
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/Publications`);
+    
+
+    response.send(result);
+  });
+} );
+app.get('/Publications/:category', function(request, response) {
+  const category = request.params.category;
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    
+
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/${category}`);
+    
+
+    response.send(result);
+  });
+});
+app.get('/Publications/:category/page=:page', function(request, response) {
+  
+  const category = request.params.category;
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+   
+   
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/${category}`);
+    
+
+    response.send(result);
+  });
+});
+
+app.get('/Columns/page=:page', function(request, response) {
+  
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    
+  
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Думки впливових людей, колонки закордонних експертів");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Думки впливових людей, колонки закордонних експертів");
+    data = data.replace(/\$OG_KEYWORDS/g, "Думки впливових людей, колонки закордонних експертів");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns`);
+    response.send(result);
+  });
+});
+app.get('/Columns', function(request, response) {
+  
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    
+  
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Думки впливових людей, колонки закордонних експертів");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Думки впливових людей, колонки закордонних експертів");
+    data = data.replace(/\$OG_KEYWORDS/g, "Думки впливових людей, колонки закордонних експертів");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns`);
+    response.send(result);
+  });
+});
+app.get('/Gallery', function(request, response) {
+  
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
+    data = data.replace(/\$OG_KEYWORDS/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Gallery`);
+    response.send(result);
+  });
+});
+app.get('/Gallery/page=:page', function(request, response) {
+  
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+   
+   
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
+    data = data.replace(/\$OG_KEYWORDS/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Gallery`);
+    response.send(result);
+  });
+});
+app.get('/News/page=:page', function(request, response) {
+  
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    
+
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, `Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі`);
+    data = data.replace(/\$OG_DESCRIPTION/g, "Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі");
+    data = data.replace(/\$OG_KEYWORDS/g, "Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/News`);
+    response.send(result);
+  });
+});
 app.get('/Publications/:category/:id', function(request, response) {
   const category = request.params.category;
   const id = request.params.id;
@@ -80,7 +237,7 @@ app.get('/News/:id', function(request, response) {
   
   const id = request.params.id;
   let newsInfoJson={};
-
+  
   const filePath = path.resolve(__dirname, './build', 'index.html');
   fetch(`https://new.tyzhden.ua/api/news/${id}`)
     .then(res => res.json())
@@ -204,183 +361,7 @@ app.get('/Publications', function(request, response) {
     response.send(result);
   });
 });
-app.get('/Publications/page=:page', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
 
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-  
-
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/Publications`);
-    
-
-    response.send(result);
-  });
-});
-app.get('/Publications/:category', function(request, response) {
-  const category = request.params.category;
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-    
-
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/${category}`);
-    
-
-    response.send(result);
-  });
-});
-app.get('/Publications/:category/page=:page', function(request, response) {
-  
-  const category = request.params.category;
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-   
-   
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/${category}`);
-    
-
-    response.send(result);
-  });
-});
-
-app.get('/News/page=:page', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-    
-
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, `Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі`);
-    data = data.replace(/\$OG_DESCRIPTION/g, "Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі");
-    data = data.replace(/\$OG_KEYWORDS/g, "Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/News`);
-    response.send(result);
-  });
-});
-app.get('/News', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-    
-
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, `Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі`);
-    data = data.replace(/\$OG_DESCRIPTION/g, "Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі");
-    data = data.replace(/\$OG_KEYWORDS/g, "Новини в Україні, економіка, політика, культура, новини в світі, об'єктивно та ексклюзивно про головні події в Україні та світі");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/News`);
-    response.send(result);
-  });
-});
-app.get('/Columns/page=:page', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-    
-  
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Думки впливових людей, колонки закордонних експертів");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Думки впливових людей, колонки закордонних експертів");
-    data = data.replace(/\$OG_KEYWORDS/g, "Думки впливових людей, колонки закордонних експертів");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns`);
-    response.send(result);
-  });
-});
-app.get('/Columns', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-    
-  
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Думки впливових людей, колонки закордонних експертів");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Думки впливових людей, колонки закордонних експертів");
-    data = data.replace(/\$OG_KEYWORDS/g, "Думки впливових людей, колонки закордонних експертів");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns`);
-    response.send(result);
-  });
-});
-app.get('/Gallery', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-    
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
-    data = data.replace(/\$OG_KEYWORDS/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Gallery`);
-    response.send(result);
-  });
-});
-app.get('/Gallery/page=:page', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-   
-   
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
-    data = data.replace(/\$OG_KEYWORDS/g, "Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Gallery`);
-    response.send(result);
-  });
-});
 app.get('/Magazines', function(request, response) {
   
  
