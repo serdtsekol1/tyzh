@@ -284,7 +284,7 @@ app.get('/Columns/:id', function(request, response) {
     data = data.replace(/\$OG_TITLE/g, columnInfoJson.title);
     data = data.replace(/\$OG_DESCRIPTION/g, columnInfoJson.abstract);
     data = data.replace(/\$OG_KEYWORDS/g, columnInfoJson.tags);
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_IMAGE/g, columnInfoJson.author.image1url);
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
     result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns/${id}`);
    
@@ -354,7 +354,7 @@ app.get('/Magazine/:id', function(request, response) {
   let magazineInfoJson={};
   
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/magazine/${id}`)
+  fetch(`https://new.tyzhden.ua/api/magazines/${id}`)
     .then(res => res.json())
     .then(json => {magazineInfoJson = json;
 
