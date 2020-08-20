@@ -1,7 +1,7 @@
 const express = require('express');
 const fetch   = require('node-fetch');
 const app = express();
-const port = process.env.PORT || 4999;
+const port = process.env.PORT || 6999;
 const path = require('path');
 const fs = require('fs')
 
@@ -20,6 +20,27 @@ app.get('/', function(request, response) {
     data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
     result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/`);
+    response.send(result);
+  });
+});
+app.get('/Publications', function(request, response) {
+  
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+ 
+  
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/Publications`);
+    
+
     response.send(result);
   });
 });
@@ -178,6 +199,44 @@ app.get('/News/page=:page', function(request, response) {
     data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
     result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/News`);
+    response.send(result);
+  });
+});
+app.get('/Magazines', function(request, response) {
+  
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    
+   
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
+    data = data.replace(/\$OG_KEYWORDS/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Magazines`);
+    response.send(result);
+  });
+});
+app.get('/Magazines/:year', function(request, response) {
+  const year = request.params.year;
+ 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    
+   
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
+    data = data.replace(/\$OG_KEYWORDS/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Magazines/${year}`);
     response.send(result);
   });
 });
@@ -340,47 +399,9 @@ app.get('/Author/:id', function(request, response) {
   });
   });
 });
-app.get('/Publications', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
 
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
- 
-  
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/Publications`);
-    
 
-    response.send(result);
-  });
-});
 
-app.get('/Magazines', function(request, response) {
-  
- 
-  const filePath = path.resolve(__dirname, './build', 'index.html');
-
-  // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
-    
-   
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
-    data = data.replace(/\$OG_KEYWORDS/g, "Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Magazines`);
-    response.send(result);
-  });
-});
 
 
 app.use(express.static(path.resolve(__dirname, './build')));
