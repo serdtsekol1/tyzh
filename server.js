@@ -284,6 +284,7 @@ app.get('/Columns/:id', function(request, response) {
     data = data.replace(/\$OG_TITLE/g, columnInfoJson.title);
     data = data.replace(/\$OG_DESCRIPTION/g, columnInfoJson.abstract);
     data = data.replace(/\$OG_KEYWORDS/g, columnInfoJson.tags);
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
     result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns/${id}`);
    
@@ -310,6 +311,8 @@ app.get('/News/:id', function(request, response) {
     data = data.replace(/\$OG_TITLE/g, newsInfoJson.title);
     data = data.replace(/\$OG_DESCRIPTION/g, newsInfoJson.abstract);
     data = data.replace(/\$OG_KEYWORDS/g, newsInfoJson.tags);
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
     result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/News/${id}`);
     
