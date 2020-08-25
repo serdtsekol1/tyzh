@@ -81,9 +81,12 @@
   }
 }
 
+.subsc-button-centered{
+  margin-left: 45%;
+}
 
 .subsc-button{
-  margin-left: 50%;
+  
   @include for-phones{
     margin-left: 0;
     button{

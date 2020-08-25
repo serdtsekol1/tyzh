@@ -66,12 +66,12 @@ function JournalTemplate(props) {
                     <div className="row">
                             <div className="col-12 col-md-9">
                             {publicationsComponents}
-                            <a className="subsc-button" href="https://tyzhden.ua/InfoCenter/Subscription/">
+                            <a className="subsc-button-centered subsc-button" href="https://tyzhden.ua/InfoCenter/Subscription/">
                                 <Button title="Передплата" redButton={true} />
                             </a>
                             </div>
                             <div className="col-12 col-md-3">
-                            <BannersPanel my={true} my={true}/>
+                            <BannersPanel my={true}  admixer_id="admixed-news" admixer={true}/>
                             </div>
                         </div>
                         
@@ -106,7 +106,7 @@ function JournalTemplate(props) {
                 </Tabs>
                
             </Fragment>
-            <GorizontalAdBanner mixadvert={true}/>
+            <GorizontalAdBanner ukrnet={true} mixadvert={true} yottos={true}/>
             <Header size="big" title="Інші номери"/>
             <JournalsFooter />
             </div>

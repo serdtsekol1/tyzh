@@ -108,7 +108,7 @@ function ColumnTemplate(props){
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={columnItem.title} color="red" />
           </div>
-          <GorizontalAdBanner yottos={true} />
+          <GorizontalAdBanner ukrnet={true} mixadvert={true} yottos={true}/>
 
           <div className="d-block d-md-none">
             <BannersPanel my={true} ria={true} />
@@ -123,7 +123,7 @@ function ColumnTemplate(props){
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={columnItem.title} quantity={14} />
-          <BannersPanel ria={true} />
+          <BannersPanel  my={true} admixer_id="admixed-column" admixer={true} ria={true} />
         </div>
       </div>
     </div>

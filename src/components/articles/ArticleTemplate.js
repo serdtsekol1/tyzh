@@ -79,15 +79,16 @@ function ArticleTemplate(props) {
           {props.article.tags?
             <TagsPanel tags={props.article.tags.split(",")} />
           :""}
+         
           <div class="shared-flex">
             {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} color="red" />
           </div>
-          <GorizontalAdBanner yottos={true} />
+          <GorizontalAdBanner ukrnet={true} mixadvert={true} yottos={true}/>
           <div className="d-block d-md-none">
-            <BannersPanel my={true} ria={true} mixadvert={true}/>
+            {/* <BannersPanel admixer_id="admixed-articles-phone" admixer={true} adriver_id="adriver-news-phone" adriver={true} /> */}
           </div>
 
           <Header size="big" title="Bам також буде цікаво почитати" />
@@ -95,7 +96,7 @@ function ArticleTemplate(props) {
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} quantity={12} />
-          <BannersPanel mixadvert={true} my={true}/>
+          <BannersPanel admixer_id="admixed-articles" admixer={true} adriver_id="adriver-news" adriver={true}/>
         </div>
       </div>
     ):""}

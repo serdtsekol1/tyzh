@@ -5,6 +5,7 @@ import config from "react-global-configuration";
 
 import NewsBlock from "./NewsBlock";
 import BannersPanel from "../fragments/BannersPanel";
+import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import ArticlesBlock from "../fragments/AtriclesBlock";
 
@@ -94,6 +95,7 @@ function News({match}){
              <Fragment size={"big"} noShowMore={true}>
                <Header  size="small" style={{ fontSize: 32 }} title="Новини" />
                 {groupedNewsComponents}
+                <GorizontalAdBanner mixadvert={true} />
                 <div className="pagination-articles">
                   <ReactPaginate
                     previousLabel={"Назад"}
@@ -116,7 +118,7 @@ function News({match}){
            <Header title=" Останні статті" size="small" />
            <ArticlesBlock lastArticles={true} quantity={3} noShowMore={true}/>
                <LastJournalBanner/>
-             <BannersPanel my={true} ria={true} />
+             <BannersPanel ria={true} />
            </div>
          </div>
        </div>

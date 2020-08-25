@@ -141,7 +141,7 @@ function Author({match}){
                           <AuthorColumns authorId={match.params.id}/>
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel my={true} mixadvert={true}/>
+                          <BannersPanel my={true} admixer_id="admixed-author-news" admixer={true} ria={true} />
                           </div>
                       </div>
                       
@@ -156,7 +156,7 @@ function Author({match}){
 
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel ria={true} mixadvert={true}/>
+                          <BannersPanel my={true} ria={true} />
                           </div>
                       </div>
                   </Tab>
@@ -170,7 +170,7 @@ function Author({match}){
 
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel ria={true} my={true} mixadvert={true}/>
+                          <BannersPanel my={true}  ria={true} />
                           </div>
                       </div>
                   </Tab>

@@ -7,6 +7,7 @@ import ImageGallery from 'react-image-gallery';
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
 import PhotoReportItem from "../fragments/PhotoReportItem";
 import BannersPanel from "../fragments/BannersPanel";
+import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
@@ -82,8 +83,9 @@ function PhotoReportTemplate(props){
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={photoReport.title} color="red" />
           </div>
           <SubscriptionBanner />
+          <GorizontalAdBanner ukrnet={true} />
           <div className="d-block d-md-none">
-            <BannersPanel my={true} ria={true} />
+            <BannersPanel  admixer_id="admixed-news" admixer={true} ria={true}  />
           </div>
         <Fragment size="big" showMoreLink="/Gallery">
           <Header size="big" title="Bам також буде цікаво почитати" />

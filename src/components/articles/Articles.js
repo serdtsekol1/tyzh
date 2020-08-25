@@ -149,7 +149,7 @@ function Articles({ match }) {
         <div className="d-none d-md-block col-md-3 ">
           <SmallNewsBlock />
           <LastJournalBanner />
-          <BannersPanel my={true} ria={true}/>
+          <BannersPanel admixer_id="admixed-news" admixer={true} ria={true} />
         </div>
         </div>
       </div>

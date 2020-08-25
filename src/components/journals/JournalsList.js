@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import axios from 'axios';
 import JournalItem from "./JournalItem";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
+import DonationBanner from "../fragments/DonationBanner";
 import SpecialEditions from "./SpecialEditions";
 import config from "react-global-configuration";
 import Skeleton from "react-loading-skeleton";
@@ -72,7 +73,7 @@ function JournalsList({ match }) {
           {journalsComponents.slice(8, 16)}
           </div>
            }
-          <SubscriptionBanner style={{ marginBottom: "72px" }} />
+          <DonationBanner style={{ marginBottom: "72px" }} />
           {loading && <Skeleton duration={1} height={800} width={'100%'}/>}
            {!loading && 
             <div className="row journals-list">
