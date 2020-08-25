@@ -9,6 +9,11 @@
     margin-bottom: 80px;
 }
 }
+.author-tabs .tab-content > div{
+  @media (max-width: 400px){
+    margin-top: 60px;
+}
+}
 .nav-tabs{
     
     @include for-phones{
@@ -20,8 +25,9 @@
 
   .tab-content > div{
     @media (max-width: 400px){
-      margin-top: 60px;
+      margin-top: 40px;
   }
+
   }
 
   .nav-tabs .active{

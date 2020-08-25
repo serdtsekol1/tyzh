@@ -162,10 +162,16 @@ function BannersPanel(props) {
         </div>
       :""}
       {props.admixer?
-      <div  className="image-banner" id={`${props.admixer_id}_wrap`}>
+      <div>
+      <div  className="d-none d-md-block image-banner" id={`${props.admixer_id}_wrap`}>
         <div id='admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053' data-sender='admixer'></div>
        
       </div>
+      <div className="d-block d-md-none image-banner">
+      <div id="riainfo_df6a0fef366e4ceafcb5a3af5528a951"></div>
+       <ScriptTag type="text/javascript" src="https://cobrand.ria.com/js/ria_informer.js?riacode=df6a0fef366e4ceafcb5a3af5528a951"/>
+      </div>
+     </div>
       :""}
       {props.adriver?
       <div id={`${props.adriver_id}_wrap`} className="image-banner">

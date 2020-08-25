@@ -10,7 +10,7 @@ function ColumnsBlockItem(props) {
 
     <div>
       {props.columnItem ? 
-      <div className="column-item row">
+      <div className={props.reverse? "flex-row-reverse column-item row":"column-item row"}>
         {props.noneImage?"":
           <div className="col-3 col-md-2">
           <Link to={`/Author/${props.columnItem.author.id}`}><img

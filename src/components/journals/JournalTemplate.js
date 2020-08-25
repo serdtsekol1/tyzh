@@ -29,7 +29,7 @@ function JournalTemplate(props) {
     if (journal.articles){
         publicationsComponents = journal.articles.map(publication => {
             if (publication.journal) return <ArticleBlockItem  key={publication.id} articleItem={publication} />;
-            else return <ColumnsBlockItem  key={publication.id} columnItem={publication} />;
+            else return <ColumnsBlockItem  reverse={true} key={publication.id} columnItem={publication} />;
         });
     }
     return <div className="container">
