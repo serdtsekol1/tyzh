@@ -30,7 +30,8 @@ function ArticleTemplate(props) {
         <div className="d-block d-md-none">
         
         </div>
-      <p className="big-post-header ">{props.article.title}</p>
+      {props.article.type_of_ad? <p className="author-location author-location-no-margin">{props.article.type_of_ad}</p>:""}
+      <h1 className="big-post-header ">{props.article.title}</h1>
      
         {(props.article.authors) ?
         ( <div className="category-and-date">
@@ -64,7 +65,9 @@ function ArticleTemplate(props) {
             .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читай також:/g,'<p class="read-also"><strong>Читайте також:')
-            .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>'), {
+            // .replace(/<\s*p\s*>\s*<\s*strong\s*>([А-яIi ]+)<\s*strong\s*><\s*p\s*>/g,'<p class="mini-header"><strong>$1<strong><p>')
+            
+            , {
               // replace: domNode => {
               //   if (domNode.name === "em") {
               //     return <strong>bar</strong>;

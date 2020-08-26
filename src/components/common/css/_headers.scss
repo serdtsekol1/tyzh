@@ -27,7 +27,7 @@
 }
 
 .big-post-header {
-  margin-top: 32px;
+  margin-top: 24px;
   @include medium-margin-bottom;
   @include post-title-large;
   @include for-phones {
@@ -53,10 +53,16 @@
     
   }
   img{
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
+    max-width: 100%;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @include for-phones{
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 !important;
+    }
   }
   ul {
     margin-bottom: 16px !important;

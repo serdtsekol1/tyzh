@@ -41,7 +41,8 @@ function NewsItemTemplate(props) {
 
       <div className="row">
         <div className="col-12 col-md-9">
-          <p className="big-post-header news-header ">{props.newsItem.title}</p>
+          {props.newsItem.type_of_ad? <p className="author-location author-location-no-margin">{props.newsItem.type_of_ad}</p> :""}
+          <h1 className="big-post-header news-header ">{props.newsItem.title}</h1>
           <div className="news-date">
             <DateAndAuthor date={date} />
           </div>
@@ -55,7 +56,8 @@ function NewsItemTemplate(props) {
             .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читай також:/g,'<p class="read-also"><strong>Читайте також:')
-            .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>'), {
+            // .replace(/<\s*p\s*>\s*<\s*strong\s*>([А-яIi ]+)<\s*strong\s*><\s*p\s*>/g,'<p class="mini-header"><strong>')
+            , {
               // replace: domNode => {
               //   if (domNode.name === "em") {
               //     return <strong>bar</strong>;
