@@ -30,6 +30,7 @@ function ArticleTemplate(props) {
         <div className="d-block d-md-none">
         
         </div>
+      {props.article.location? <p className="author-location author-location-no-margin">{props.article.location}</p>:""}
       {props.article.type_of_ad? <p className="author-location author-location-no-margin">{props.article.type_of_ad}</p>:""}
       <h1 className="big-post-header ">{props.article.title}</h1>
      

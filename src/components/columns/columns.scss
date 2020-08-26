@@ -36,7 +36,12 @@
 .author-location-no-margin{
     margin-top: 0px !important;
     margin-bottom: 0px !important;
+    &:nth-child(3){
+        margin-top: 12px !important;
+    }
 }
+
+
 
 .mobile-column-author-info {
     display: flex;
