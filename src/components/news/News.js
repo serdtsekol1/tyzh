@@ -37,6 +37,7 @@ function News({match}){
       else apiUrl = `${config.get("apiDomain")}/news/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
+        console.log(res.data);
         let firstNewsDate = new Date(res.data.results[0].public_ts);
         let lastNewsDate = new Date(res.data.results[res.data.results.length-1].public_ts);
         setNews(getDates(firstNewsDate,lastNewsDate).map(
@@ -71,8 +72,9 @@ function News({match}){
   function getDates(startDate, stopDate) {
     let dateArray = new Array();
     let currentDate = startDate;
-    while (currentDate.getDate() >= stopDate.getDate()) {   
-        console.log(new Date (currentDate));
+    console.log(currentDate, stopDate);
+    while (currentDate.setHours(1,0,0,0) >= stopDate.setHours(1,0,0,0)) {   
+        
         dateArray.push(new Date (currentDate));
         currentDate.setDate(currentDate.getDate() - 1);
     }
