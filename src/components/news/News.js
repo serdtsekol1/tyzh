@@ -37,7 +37,7 @@ function News({match}){
       else apiUrl = `${config.get("apiDomain")}/news/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
-        console.log(res.data);
+        // console.log(res.data);
         let firstNewsDate = new Date(res.data.results[0].public_ts);
         let lastNewsDate = new Date(res.data.results[res.data.results.length-1].public_ts);
         setNews(getDates(firstNewsDate,lastNewsDate).map(
@@ -62,7 +62,7 @@ function News({match}){
   const groupedNewsComponents = news.map(news => <div class="news-wrap" id={news.date.getDate()*10}>
     <p class="news-date">{news.date.toLocaleDateString('uK-UK', options)}</p>
    <NewsBlock id={news.date.getDate()} news={news.news} /></div>);
-  console.log(news);
+  
   const handlePageClick = async (data) => {
     history.push(`/News/page=${data.selected+1}`);
     setPage(data.selected+1);
@@ -72,7 +72,7 @@ function News({match}){
   function getDates(startDate, stopDate) {
     let dateArray = new Array();
     let currentDate = startDate;
-    console.log(currentDate, stopDate);
+    // console.log(currentDate, stopDate);
     while (currentDate.setHours(1,0,0,0) >= stopDate.setHours(1,0,0,0)) {   
         
         dateArray.push(new Date (currentDate));
