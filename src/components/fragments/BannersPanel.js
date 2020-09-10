@@ -163,7 +163,7 @@ function BannersPanel(props) {
       :""}
       {props.admixer?
       <div>
-      <div  className="d-none d-md-block image-banner" id={`${props.admixer_id}_wrap`}>
+      <div  className="d-none d-lg-block image-banner" id={`${props.admixer_id}_wrap`}>
         <div id='admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053' data-sender='admixer'></div>
        
       </div>
