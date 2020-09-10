@@ -48,3 +48,7 @@
     height: 100%;
     align-items: center;
 }
+
+.red-link{
+    @include red-link-hover;
+}

@@ -58,6 +58,9 @@
 .source-label {
   @include big-margin-bottom;
   @include title-link-small;
+  a{
+    @include red-link-hover;
+  }
 }
 
 .image-cover-wrap {

@@ -56,6 +56,7 @@ function NewsItemTemplate(props) {
             .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читай також:/g,'<p class="read-also"><strong>Читайте також:')
+            .replace(/<\s*p\s*>\s*<\s*b\s*>\s*Читайте також:/g,'<p class="read-also"><b>Читайте також:')
             // .replace(/<\s*p\s*>\s*<\s*strong\s*>([А-яIi ]+)<\s*strong\s*><\s*p\s*>/g,'<p class="mini-header"><strong>')
             , {
               // replace: domNode => {
@@ -70,9 +71,11 @@ function NewsItemTemplate(props) {
             Якщо ви помітили помилку, виділіть необходіний текст і натисніть
             CTRL + ENTER, щоб повідомити про це редакцію.
           </p> */}
-          {/* <p className="source-label">
-            Джерело: <a href={props.newsItem.source_url}>{props.newsItem.source}</a>
-          </p> */}
+          {props.newsItem.source?
+            <p className="source-label">
+              Джерело: <a href={props.newsItem.source.url0}>{props.newsItem.source.nameua}</a>
+            </p>
+          :""}
           <TagsPanel tags={tags} />
           <div class="shared-flex">
             {/* <p className="quantity-label">

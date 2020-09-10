@@ -63,8 +63,8 @@
   }
 }
 @mixin title-link-small {
-  font-family: "UT_Magazine";
-  font-size: 16px;
+  font-family: "UT_Magazine" !important;
+  font-size: 16px !important;
 
   color: $dark-grey;
   @include for-phones {
@@ -102,6 +102,14 @@
   transition-duration: 0.2s;
     &:hover {
       color: $dark-grey;
+      
+    }
+}
+
+@mixin red-link-hover {
+  transition-duration: 0.2s;
+    &:hover {
+      color: $dark-red;
       
     }
 }

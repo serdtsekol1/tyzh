@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import axios from 'axios';
 import config from "react-global-configuration";
 
@@ -51,7 +51,7 @@ function ColumnTemplate(props){
         
         <div className="col-9 col-md-10 d-none d-md-block">
           <div className="column-author-info">
-           <p className="column-author-name">{author_name}</p>
+           <Link to={`/Author/${columnItem.author.id}`}><p className="red-link column-author-name">{author_name}</p></Link>
           {columnItem.location? <p className="author-location">{columnItem.location}</p>:""}
             <p className="big-post-header column-title ">{columnItem.title}</p>
              <div className="column-date">
@@ -77,14 +77,16 @@ function ColumnTemplate(props){
             </div>
           </div>
           <p className="article-block-abstract-big">{columnItem.abstract}</p>
-        
+          
           {columnItem.content?
+        
           <div className="body-text">
             {Parser(columnItem.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<p class="read-also"><strong>Читайте також:')
             .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читай також:/g,'<p class="read-also"><strong>Читайте також:')
+            .replace(/<\s*p\s*>\s*<\s*b\s*>\s*Читайте також:/g,'<p class="read-also"><b>Читайте також:')
             // .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>')
             , {
               // replace: domNode => {

@@ -19,13 +19,13 @@ function CategoryLink(props) {
         }
       ).category_id;
     }
-  
+    
   }
   let isSolid = props.solid?"category-wrap-solid":"category-wrap";
   return (
     <div>
       {props.categoryInfo.journal?
-    <NavLink to={props? "/Publications/" + category_id: "Publications"}>
+    <NavLink to={props.columnsLink? "/Columns" :"/Publications/" + category_id}>
       <div style={props.style}>
         <div
           className={`${isSolid}`}
