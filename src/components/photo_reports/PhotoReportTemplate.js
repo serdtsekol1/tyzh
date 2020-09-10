@@ -83,7 +83,7 @@ function PhotoReportTemplate(props){
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={photoReport.title} color="red" />
           </div>
           <SubscriptionBanner />
-          <GorizontalAdBanner ukrnet={true} />
+          <GorizontalAdBanner ukrnet={true}  />
           <div className="d-block d-md-none">
             <BannersPanel  admixer_id="admixed-news" admixer={true} ria={true}  />
           </div>

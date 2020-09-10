@@ -92,7 +92,7 @@ function ArticleTemplate(props) {
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} color="red" />
           </div>
-          <GorizontalAdBanner ukrnet={true} mixadvert={true} yottos={true}/>
+          <GorizontalAdBanner adpartner={true} ukrnet={true} mixadvert={true} yottos={true}/>
           <div className="d-block d-md-none">
             {/* <BannersPanel admixer_id="admixed-articles-phone" admixer={true} adriver_id="adriver-news-phone" adriver={true} /> */}
           </div>

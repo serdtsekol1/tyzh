@@ -25,6 +25,24 @@ function GorizontalAdBanner(props) {
         ukrnet.appendChild(script);
       
     }
+    const adpartner = document.getElementById("adpartner-jsunit-5987");
+    if (adpartner){
+
+      const script = document.createElement("script");
+      script.id = "#adpartner-body";
+      script.type = "text/javascript";
+      script.charset = "utf-8";
+      script.innerHTML = `
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = "//a4p.adpartner.pro/jsunit?id=5987&ref=" + encodeURIComponent(document.referrer) + "&" + Math.random();
+        head.appendChild(script);
+      `;
+      ukrnet.appendChild(script);
+    }
+    
   },[]);
  
 
@@ -68,6 +86,13 @@ function GorizontalAdBanner(props) {
           </div>
         :""}
         </div>
+        :""}
+        {props.adpartner?
+        <div className="banner subscription-banner">
+          <div id="adpartner-jsunit-5987">
+          
+          </div>
+      </div>
         :""}
          {props.mixadvert?
         <div className="banner subscription-banner">

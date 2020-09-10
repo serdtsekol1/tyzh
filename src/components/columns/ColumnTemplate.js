@@ -111,7 +111,7 @@ function ColumnTemplate(props){
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={columnItem.title} color="red" />
           </div>
-          <GorizontalAdBanner ukrnet={true} mixadvert={true} yottos={true}/>
+          <GorizontalAdBanner ukrnet={true}  adpartner={true} mixadvert={true} yottos={true}/>
 
           <div className="d-block d-md-none">
             <BannersPanel my={true} ria={true} />
