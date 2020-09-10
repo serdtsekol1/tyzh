@@ -74,6 +74,7 @@ function NewsItemTemplate(props) {
           {props.newsItem.source?
             <p className="source-label">
               Джерело: <a href={props.newsItem.source.url0}>{props.newsItem.source.nameua}</a>
+              {props.newsItem.source2? <span><a href={props.newsItem.source2.url0}>, {props.newsItem.source2.nameua}</a></span>:""}
             </p>
           :""}
           <TagsPanel tags={tags} />
