@@ -82,7 +82,7 @@ function BannersPanel(props) {
         script1.type = "text/javascript";
         script1.charset = "utf-8";
         script1.innerHTML = `
-        new adriver("adriver_banner_1535079121", {sid:222384, bt:52, w:255, h:600});
+        new adriver("adriver_banner_1310392264", {sid:222384, bt:52, w:255, h:600});
         `;
         
         adriverItem.appendChild(script1);
@@ -175,7 +175,7 @@ function BannersPanel(props) {
       :""}
       {props.adriver?
       <div id={`${props.adriver_id}_wrap`} className="image-banner">
-         <div id="adriver_banner_1535079121"></div>
+         <div id="adriver_banner_1310392264"></div>
       </div>
       
       :""}
