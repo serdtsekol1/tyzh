@@ -67,15 +67,7 @@ function BannersPanel(props) {
       }
     }
     if (adriverItem){
-      // if (!head.querySelector("#adriver-head")) {
-       
-      //   const script = document.createElement("script");
-      //   script.id = "#adriver-head";
-      //   script.type = "text/javascript";
-        
-      //   script.src = "http://localhost:3000/";
-      //   head.appendChild(script);
-      // }
+ 
       
         const script1 = document.createElement("script");
         script1.id = props.adriver_id;
@@ -174,11 +166,20 @@ function BannersPanel(props) {
      </div>
       :""}
       {props.adriver?
+       <iframe src="https://ad.adriver.ru/cgi-bin/erle.cgi?sid=222384&bt=58&pz=0&w=255&h=255&target=top&rnd=788063543"
+       frameborder={0} vspace={0} hspace={0}
+       width="255" height="255"
+       marginwidth={0} marginheight={0}
+       scrolling="no">
+     </iframe>
+      :""}
+      {props.adriver?
       <div id={`${props.adriver_id}_wrap`} className="image-banner">
+       
          <div id="adriver_banner_1310392264"></div>
       </div>
+        :""}
       
-      :""}
   
        
 
