@@ -56,6 +56,7 @@ function ArticleTemplate(props) {
      
       <div className="row">
         <div className="col-12 col-md-9">
+      <div>{props.article.magazine_id}</div>
           <p className="article-block-abstract-big">
             {props.article.abstract}
           </p>
