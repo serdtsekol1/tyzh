@@ -27,6 +27,15 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+
+### `node server.js`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:4999](http://localhost:4999) to view it in the browser.
+
+First you need to run ### `npm run build`<br />
+This allows to see correct meta tags.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
