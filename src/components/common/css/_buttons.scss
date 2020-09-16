@@ -16,7 +16,7 @@
 .button-default {
   @include button;
   border: 1px solid $red;
-  background-color: $white;
+  background-color: transparent;
   color: $red;
   &:hover {
     background-color: $red;

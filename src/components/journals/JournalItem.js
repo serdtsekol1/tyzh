@@ -11,14 +11,14 @@ function JournalItem(props) {
   let date = new Date(journalData.created_ts).toLocaleDateString('uK-UK', options);
   return (
     <div className="journal">
-      <Link to={`/Magazine/${journalData.id}`}>
+      <Link to={`/Magazine/${journalData.num}`}>
         <img
           className="journal-cover"
           src={journalData.image1}
           alt={`Український тиждень №${journalData.localnum}`}
         />
       </Link>
-      <Link to={`/Magazine/${journalData.id}`}><p className="journal-title">Український тиждень</p></Link>
+      <Link to={`/Magazine/${journalData.num}`}><p className="journal-title">Український тиждень</p></Link>
       <p className="journal-number">{`№ ${journalData.localnum} (${journalData.num})`}</p>
       <p className="journal-period">{date}</p>
       {journalData.isSpecialEdition ? (

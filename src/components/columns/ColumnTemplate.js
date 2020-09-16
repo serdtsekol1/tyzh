@@ -38,6 +38,7 @@ function ColumnTemplate(props){
 
     return (
       <PublicationAbstract publication={columnItem}>
+        
       <div className="container">
       
       {columnItem.author?
@@ -76,6 +77,7 @@ function ColumnTemplate(props){
               <DateAndAuthor date={date} />
             </div>
           </div>
+          
           <p className="article-block-abstract-big">{columnItem.abstract}</p>
           
           {columnItem.content?

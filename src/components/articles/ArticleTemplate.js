@@ -20,10 +20,15 @@ import "../common/css/post.scss";
 import articlesData from "../articlesData.json";
 
 import ArticlesBlock from "../fragments/AtriclesBlock";
+import MagazineMaterial from "../fragments/MagazineMaterial";
 
 function ArticleTemplate(props) {
   let options = {  month: 'long', day: 'numeric',  timeZone: 'UTC'};
   let thisUrl= window.location.href;
+
+
+
+
   return (
    <PublicationAbstract publication={props.article}>
     <div className="container">
@@ -56,7 +61,9 @@ function ArticleTemplate(props) {
      
       <div className="row">
         <div className="col-12 col-md-9">
-      <div>{props.article.magazine_id}</div>
+        {props.article.magazine_id?
+          <MagazineMaterial magazine_id={props.article.magazine_id}/>
+        :""}
           <p className="article-block-abstract-big">
             {props.article.abstract}
           </p>

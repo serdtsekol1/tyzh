@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import SocialNetworks from "./SocialNetworks";
+import useMedia from 'use-media';
 
 import categoriesData from "./categories.json";
 import "./css/navbar.scss";
@@ -8,7 +9,7 @@ import "./css/navbar.scss";
 import $ from "jquery";
 
 const Header = props => {
-  
+  const isNarrow = useMedia({maxWidth: 1200});
   useEffect(()=>{
     
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
@@ -16,18 +17,22 @@ const Header = props => {
       
     }
     );
-
+    
+     
     $('.navbar-toggler, .navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
       
       $('#red-background').toggleClass('back-show');
+      if (isNarrow) {
+        $('#red-background').toggleClass('back-show');
+      }
     }
-    );
-    
    
+    );
+  
 
   
     
-  },[])
+  },[isNarrow])
   const activeStyle = {
     color: "#ED1B2F"
   };
@@ -84,6 +89,8 @@ const Header = props => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+      
+
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
              <div className="inline-flex d-xl-none">
