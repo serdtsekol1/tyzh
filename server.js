@@ -294,8 +294,11 @@ app.get('/Columns/:id', function(request, response) {
   });
 });
 app.get('/News/:id', function(request, response) {
-  
-  const id = request.params.id;
+
+    const jsdom = require("jsdom");
+    const { JSDOM } = jsdom;
+
+    const id = request.params.id;
   let newsInfoJson={};
 
   const filePath = path.resolve(__dirname, './build', 'index.html');
@@ -306,19 +309,21 @@ app.get('/News/:id', function(request, response) {
   // read in the index.html file
   fs.readFile(filePath, 'utf8', function (err,data) {
 
-    let tmp = document.createElement('div');
-    tmp.innerHTML = newsInfoJson.content;
-    let src=[],img = tmp.getElementsByTagName('img');
-    for (let i = 0; i < img.length; i++) {
-        src.push(img[i].src);
-    }
-    let imgSrc = (src[0] && newsInfoJson.photo)?src[0]:'https://tyzhden.ua/main2/images/logo.jpg';
+      let dom = new JSDOM(`<!DOCTYPE html>`);
+      let tmp = dom.window.document.createElement('div');
+      tmp.innerHTML = newsInfoJson.content;
+      let src=[],img = tmp.getElementsByTagName('img');
+      for (let i = 0; i < img.length; i++) {
+          src.push(img[i].src);
+      }
+      newsImage = (src[0] && newsInfoJson.photo)?src[0]:'https://tyzhden.ua/main2/images/logo2.jpg';
+
 
     // replace the special strings with server generated strings
     data = data.replace(/\$OG_TITLE/g, newsInfoJson.title);
     data = data.replace(/\$OG_DESCRIPTION/g, newsInfoJson.abstract);
     data = data.replace(/\$OG_KEYWORDS/g, newsInfoJson.tags);
-    data = data.replace(/\$OG_IMAGE/g, imgSrc);
+    data = data.replace(/\$OG_IMAGE/g, newsImage);
 
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
     result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/News/${id}`);
