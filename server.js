@@ -307,17 +307,14 @@ app.get('/News/:id', function(request, response) {
   fs.readFile(filePath, 'utf8', function (err,data) {
 
 
-      const rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;
-      const newsImage = (!newsInfoJson.photo || (typeof rex.exec( newsInfoJson.content)[0] === 'undefined')) ? 'https://tyzhden.ua/main2/images/logo.jpg' : rex.exec( newsInfoJson.content)[0];
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, newsInfoJson.title);
+    data = data.replace(/\$OG_DESCRIPTION/g, newsInfoJson.abstract);
+    data = data.replace(/\$OG_KEYWORDS/g, newsInfoJson.tags);
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
 
-      // replace the special strings with server generated strings
-      data = data.replace(/\$OG_TITLE/g, newsInfoJson.title);
-      data = data.replace(/\$OG_DESCRIPTION/g, newsInfoJson.abstract);
-      data = data.replace(/\$OG_KEYWORDS/g, newsInfoJson.tags);
-      data = data.replace(/\$OG_IMAGE/g, newsImage );
-
-      data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-      result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/News/${id}`);
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/News/${id}`);
     
 
     response.send(result);
