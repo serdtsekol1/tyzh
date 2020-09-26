@@ -13,14 +13,25 @@ import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import NewsBlock from "./NewsBlock";
 import Fragment from "../fragments/Fragment";
+import MetaTags from "../common/MetaTagsComponent";
 import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 
 import "../common/css/post.scss";
 
+function getImgSrc(content) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = content;
+    var src=[],img = tmp.getElementsByTagName('img');
+    //var src = img.src;
+    for (var i = 0; i < img.length; i++) {
+        src.push(img[i].src);
+    }
+    return src[0];
+}
+
 function NewsItemTemplate(props) {
   let tags = props.newsItem.tags? props.newsItem.tags.split(","):[];
   let today = new Date();
- 
   // today.setDate(today.getDate() - 5);
 
   let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric',  timeZone: 'UTC'};
@@ -38,7 +49,7 @@ function NewsItemTemplate(props) {
   return (
     <PublicationAbstract publication={props.newsItem}>
     <div className="container">
-
+      <MetaTags image={props.newsItem.photo?getImgSrc(props.newsItem.content):''} />
       <div className="row">
         <div className="col-12 col-md-9">
           {props.newsItem.type_of_ad? <p className="author-location author-location-no-margin">{props.newsItem.type_of_ad}</p> :""}
