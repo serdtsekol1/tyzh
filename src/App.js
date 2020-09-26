@@ -57,6 +57,7 @@ function App() {
             <Route exact path="/Publications" component={Articles} />
             <Route exact path="/Publications/page=:page" component={Articles} />
             <Route exact path="/Publications/:category" component={Articles} />
+            <Route exact path="/Tag/:tag" component={Articles} />
             
             <Route
               exact
