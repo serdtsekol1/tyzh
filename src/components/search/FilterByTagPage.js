@@ -10,39 +10,29 @@ import ArticlesTab from "../fragments/ArticlesTab";
 import PhotoreportsTab from "../fragments/PhotoreportsTab";
 
 import BannersPanel from '../fragments/BannersPanel';
-import Button from "../common/Button";
+import Header from "../common/Header";
 import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
 import "../common/css/tabs.scss";
-import "./author.scss";
+import "../authors/author.scss";
 
 
-function Author({match}){
+function FilterByTagPage({match}){
   const [loading, setLoading] = useState(false);
  
-  let [author, setAuthor] = useState({});
   let [isNews, setIsNews] = useState(false);
   let [isPhotoreports, setIsPhotoreports] = useState(false);
   let [isArticles, setIsArticles] = useState(false);
   let [isColumns, setIsColumns] = useState(false);
-  let [activeTab, setActiveTab] = useState("columns");
+  let [activeTab, setActiveTab] = useState("news");
   useEffect (()=>{
     setLoading(true);
 
     const fetchData = async () => {
       
-      let apiUrl = `${config.get("apiDomain")}/authors/page/${match.params.id}`;
-      await axios.get(apiUrl)
-      .then(res =>{ 
-     
-        setAuthor(res.data);
-        
-
-        })
-      .catch(err => console.log(err));  
-      apiUrl = `${config.get("apiDomain")}/columns/author/${match.params.id}/?limit=1`;
+      let apiUrl = `${config.get("apiDomain")}/columns/tags/${match.params.tag}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
          
@@ -53,7 +43,7 @@ function Author({match}){
   
           })
         .catch(err => console.log(err));  
-      apiUrl = `${config.get("apiDomain")}/galleries/author/${match.params.id}/?limit=1`;
+      apiUrl = `${config.get("apiDomain")}/galleries/tags/${match.params.tag}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
          
@@ -62,7 +52,7 @@ function Author({match}){
   
           })
         .catch(err => console.log(err));  
-        apiUrl = `${config.get("apiDomain")}/publications/author/${match.params.id}/?limit=1`;
+        apiUrl = `${config.get("apiDomain")}/publications/tags/${match.params.tag}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
           console.log(res.data.results.length);
@@ -71,7 +61,7 @@ function Author({match}){
   
           })
         .catch(err => console.log(err)); 
-      apiUrl = `${config.get("apiDomain")}/news/author/${match.params.id}/?limit=1`;
+      apiUrl = `${config.get("apiDomain")}/news/tags/${match.params.tag}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
           
@@ -86,12 +76,12 @@ function Author({match}){
       fetchData();
       
      
-  },[match.params.id]);
+  },[match.params.tag]);
   useEffect(()=>{
     if (isPhotoreports) setActiveTab("photo");
+    if (isColumns) setActiveTab("columns");
     if (isArticles) setActiveTab("articles");
     if (isNews) setActiveTab("news");
-    if (isColumns) setActiveTab("columns");
   },[isNews,isColumns,isArticles,isPhotoreports])
     
     return (
@@ -102,57 +92,23 @@ function Author({match}){
          {!loading &&
       
       <div>
-        <MetaTags title={author.fullname2ua} 
-      abstract={author.fullname2ua}
-      ct100={true} keywords={author.fullname2ua}
+        <MetaTags title={match.params.tag} 
+      abstract={match.params.tag}
+      ct100={true} keywords={match.params.tag}
       noImage={true}
       />
-      <div className="row column-header">
-        <div className="col-3 col-md-2">
-          <div className="column-author-photo-wrap">
-            <img className="column-author-photo" 
-            src={author.image1url}/>
-          </div>
-        </div>
-        
-        <div className="col-9 col-md-10 d-none d-md-block">
-          <div className="author-info-wrap">
-           
-            <p className="big-post-header column-title ">{author.fullname2ua}</p>
-            {/* <p className="author-info">{author.info?author.info:"На жаль, у нас немає інформації про цього автора"}</p>
-            */}
-            </div>
-         </div>
-         <div className="col-9 col-md-10 d-block d-md-none">
-          <div className="mobile-column-author-info">
-           <p className="column-author-name">{author.fullname2ua}</p>
-           
-         </div>
-        </div>
-      </div>
+     
+      <Header style={{paddingBottom:24}}title={`Всі матеріали, позначені тегом: ${match.params.tag}`}/>
+      
       <div className="row">
           <div class="col-12 author-tabs">
             <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example">
-                {isColumns?   
-                  <Tab eventKey="columns" title="Колонки">
-                  <div className="row">
-                          <div className="col-12 col-md-9">
-                        
-                          <ColumnsTab authorId={match.params.id}/>
-                          </div>
-                          <div className="col-12 col-md-3">
-                          <BannersPanel my={true} admixer_id="admixed-author-news" admixer={true} ria={true} />
-                          </div>
-                      </div>
-                      
-                  </Tab>
-                  :""}
-                  {isNews?
+                {isNews?
                   <Tab eventKey="news" title="Новини">
                       <div className="row">
                           <div className="col-12 col-md-9">
                               
-                              <NewsTab authorId={match.params.id}/>
+                              <NewsTab tag={match.params.tag}/>
 
                           </div>
                           <div className="col-12 col-md-3">
@@ -166,7 +122,7 @@ function Author({match}){
                       <div className="row">
                           <div className="col-12 col-md-9">
                               
-                              <ArticlesTab authorId={match.params.id}/>
+                              <ArticlesTab tag={match.params.tag}/>
 
                           </div>
                           <div className="col-12 col-md-3">
@@ -175,11 +131,26 @@ function Author({match}){
                       </div>
                   </Tab>
                   :""}
+                {isColumns?   
+                  <Tab eventKey="columns" title="Колонки">
+                  <div className="row">
+                          <div className="col-12 col-md-9">
+                        
+                          <ColumnsTab tag={match.params.tag}/>
+                          </div>
+                          <div className="col-12 col-md-3">
+                          <BannersPanel my={true} admixer_id="admixed-author-news" admixer={true} ria={true} />
+                          </div>
+                      </div>
+                      
+                  </Tab>
+                  :""}
+                 
                   {isPhotoreports?
                   <Tab eventKey="photo" title="Фоторепортажі">
                       <div className="row">
                           <div className="col-12 col-md-9">
-                          <PhotoreportsTab authorId={match.params.id}/>
+                          <PhotoreportsTab tag={match.params.tag}/>
 
                           </div>
                           <div className="col-12 col-md-3 banner-no-margin">
@@ -201,4 +172,4 @@ function Author({match}){
     );
 }
 
-export default Author;
+export default FilterByTagPage;

@@ -69,15 +69,15 @@ function BannersPanel(props) {
     if (adriverItem){
  
       
-        const script1 = document.createElement("script");
-        script1.id = props.adriver_id;
-        script1.type = "text/javascript";
-        script1.charset = "utf-8";
-        script1.innerHTML = `
-        new adriver("adriver_banner_1310392264", {sid:222384, bt:52, w:255, h:600});
-        `;
+        // const script1 = document.createElement("script");
+        // script1.id = props.adriver_id;
+        // script1.type = "text/javascript";
+        // script1.charset = "utf-8";
+        // script1.innerHTML = `
+        // new adriver("adriver_banner_1310392264", {sid:222384, bt:52, w:255, h:600});
+        // `;
         
-        adriverItem.appendChild(script1);
+        // adriverItem.appendChild(script1);
       
     }
     

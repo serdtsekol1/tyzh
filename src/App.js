@@ -17,6 +17,7 @@ import Columns from "./components/columns/Columns";
 import Column from "./components/columns/Column";
 import PhotoReports from "./components/photo_reports/PhotoReports";
 import PhotoReport from "./components/photo_reports/PhotoReport";
+import FilterByTagPage from "./components/search/FilterByTagPage";
 import ScrollToTop from "./components/common/ScrollToTop";
 import ScriptTag from 'react-script-tag';
 import ReactGA from 'react-ga';
@@ -57,7 +58,7 @@ function App() {
             <Route exact path="/Publications" component={Articles} />
             <Route exact path="/Publications/page=:page" component={Articles} />
             <Route exact path="/:category" component={Articles} />
-            <Route exact path="/Tag/:tag" component={Articles} />
+            <Route exact path="/Tag/:tag" component={FilterByTagPage} />
             
             <Route
               exact

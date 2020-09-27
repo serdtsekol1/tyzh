@@ -8,17 +8,17 @@ import $ from "jquery";
 
 import BannersPanel from '../fragments/BannersPanel';
 import Button from "../common/Button";
-import NewsBlock from "../news/NewsBlock";
+import ArticlesBlock from "../fragments/AtriclesBlock";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import Fragment from "../fragments/Fragment";
 
 
 import "../common/css/tabs.scss";
-import "./author.scss";
+import "../authors/author.scss";
 
 
-function AuthorNews(props){
+function ArticlesTab(props){
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [pagesCount, setPagesCount] = useState(0);
@@ -27,20 +27,21 @@ function AuthorNews(props){
     let initialPageNumber = 0;
     // if (match.params.page) initialPageNumber = match.params.page - 1;
  
-    let [authorNews, setAuthorNews] = useState({});
+    let [authorArticles, setAuthorArticles] = useState({});
     useEffect (()=>{
       setLoading(true);
   
       
         
     const fetchData = async ()  => {
-        let limit = 20;
+        let limit = 7;
         let apiUrl;
-        apiUrl = `${config.get("apiDomain")}/news/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.authorId) apiUrl = `${config.get("apiDomain")}/publications/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.tag) apiUrl = `${config.get("apiDomain")}/publications/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
         await axios.get(apiUrl)
         .then(res =>{ 
             console.log(page);
-            setAuthorNews(res.data.results);
+            setAuthorArticles(res.data.results);
             setPagesCount(Math.floor(res.data.count/limit)+1);
             setLoading(false);
             })
@@ -50,10 +51,9 @@ function AuthorNews(props){
         fetchData();
     },[page]);
     const handlePageClick = (data) => {
-     
-        setPage(data.selected+1);
         
-       
+        setPage(data.selected+1);
+      
 
     };
 
@@ -65,12 +65,11 @@ function AuthorNews(props){
         {loading && <SkeletonArticlesBlock  quantity={10} />}
         {!loading &&
        
-          <NewsBlock noTime={true} noneImages={true} noShowMore={true} news = {(Object.keys(authorNews).length === 0)?[]:authorNews}></NewsBlock>
-        
+       <ArticlesBlock noneImages={true} noShowMore={true} articles = {(Object.keys(authorArticles).length === 0)?[]:authorArticles} ></ArticlesBlock>
+       
           
         }
-        {pagesCount-1?
-          <div className="pagination-articles">
+         {pagesCount-1? <div className="pagination">
                   <ReactPaginate
                     previousLabel={"Назад"}
                     nextLabel={"Далі"}
@@ -85,7 +84,7 @@ function AuthorNews(props){
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}
                   /></div>
-        :""}
+      :""}
      </Fragment>
 }
-export default AuthorNews;
+export default ArticlesTab;

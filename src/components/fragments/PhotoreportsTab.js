@@ -8,35 +8,37 @@ import $ from "jquery";
 
 import BannersPanel from '../fragments/BannersPanel';
 import Button from "../common/Button";
-import ColumnsBlock from "../fragments/ColumsBlock";
-
+import PhotoReportItem from "../fragments/PhotoReportItem";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import Fragment from "../fragments/Fragment";
 
 
 import "../common/css/tabs.scss";
-import "./author.scss";
+import "../authors/author.scss";
 
 
-function AuthorColumns(props){
+function PhotoreportsTab(props){
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [pagesCount, setPagesCount] = useState(0);
+    
  
-    let [authorColumns, setAuthorColumns] = useState({});
+    let [authorPhotoreports, setAuthorPhotoreports] = useState({});
     useEffect (()=>{
       setLoading(true);
   
       
         
     const fetchData = async ()  => {
-        let limit = 12;
-        let apiUrl = `${config.get("apiDomain")}/columns/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
+        let limit = 10;
+        let apiUrl;
+        if (props.authorId) apiUrl = `${config.get("apiDomain")}/galleries/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.tag) apiUrl = `${config.get("apiDomain")}/galleries/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
         await axios.get(apiUrl)
         .then(res =>{ 
-            
-            setAuthorColumns(res.data.results);
+          
+            setAuthorPhotoreports(res.data.results);
             setPagesCount(Math.floor(res.data.count/limit)+1);
             setLoading(false);
             })
@@ -48,9 +50,11 @@ function AuthorColumns(props){
     const handlePageClick = (data) => {
        
         setPage(data.selected+1);
-      
 
     };
+    const photoReportsComponents = (Object.keys(authorPhotoreports).length === 0)?"": authorPhotoreports.map(photoReport => (
+      <div class="col-12 col-md-6"><PhotoReportItem key={photoReport.id} reportItem={photoReport} /></div>
+    ));
 
 
         
@@ -60,11 +64,11 @@ function AuthorColumns(props){
         {loading && <SkeletonArticlesBlock  quantity={10} />}
         {!loading &&
        
-       <ColumnsBlock noneImages={true} noShowMore={true} columns = {(Object.keys(authorColumns).length === 0)?[]:authorColumns} ></ColumnsBlock>
-
+          <div class="row">{photoReportsComponents}</div>
           
         }
-         {pagesCount-1? <div className="">
+        {pagesCount-1?
+          <div className="pagination-articles">
                   <ReactPaginate
                     previousLabel={"Назад"}
                     nextLabel={"Далі"}
@@ -79,7 +83,7 @@ function AuthorColumns(props){
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}
                   /></div>
-      :""}
+        :""}
      </Fragment>
 }
-export default AuthorColumns;
+export default PhotoreportsTab;
