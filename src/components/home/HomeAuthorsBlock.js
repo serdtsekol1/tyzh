@@ -5,7 +5,7 @@ import config from "react-global-configuration";
 
 import HomeAuthorsBlockItem from "./HomeAuthorsBlockItem";
 import Fragment from "../fragments/Fragment";
-import columnsData from "../columnData.json";
+
 import "../fragments/css/authors_block.scss";
 
 function HomeAuthorsBlock() {

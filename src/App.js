@@ -38,7 +38,7 @@ function App() {
         <Navbar />
         <div className="main-content">
           <Switch>
-
+            <Route path="/page-not-found" component={PageNotFound} />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/News" component={News} />
             <Route exact path="/News/page=:page" component={News} />
@@ -56,14 +56,15 @@ function App() {
             <Route path="/Magazine/:id" component={Journal} />
             <Route exact path="/Publications" component={Articles} />
             <Route exact path="/Publications/page=:page" component={Articles} />
-            <Route exact path="/Publications/:category" component={Articles} />
+            <Route exact path="/:category" component={Articles} />
+            <Route exact path="/Tag/:tag" component={Articles} />
             
             <Route
               exact
-              path="/Publications/:category/page=:page"
+              path="/:category/page=:page"
               component={Articles}
             />
-            <Route exact path="/Publications/:category/:id" component={Article} />
+            <Route exact path="/:category/:id" component={Article} />
 
 
             <Route path="*" component={PageNotFound} />

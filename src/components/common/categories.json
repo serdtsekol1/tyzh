@@ -46,6 +46,12 @@
     "category_name_short": "Пандемія",
     "category_name":"Пандемія. Герої та антигерої",
     "category_color": "#1E1E1E"
+  },
+  {
+    "category_id": "Election",
+    "category_name_short": "Вибори 2020",
+    "category_name":"Вибори 2020: сила громад проти сили еліт",
+    "category_color": "#D2BF94"
   }
 
 ]

@@ -5,7 +5,7 @@ import SubscriptionBanner from "../fragments/SubscriptionBanner";
 
 import "./news_block_item.scss";
 
-import newsData from "../newsData.json";
+
 
 function NewsBlock(props) {
  

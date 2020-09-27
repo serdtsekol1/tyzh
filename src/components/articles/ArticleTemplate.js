@@ -17,7 +17,7 @@ import PhotosQuantityHolder from "../fragments/PhotosQuantityHolder";
 import MetaTags from "../common/MetaTagsComponent";
 
 import "../common/css/post.scss";
-import articlesData from "../articlesData.json";
+
 
 import ArticlesBlock from "../fragments/AtriclesBlock";
 import MagazineMaterial from "../fragments/MagazineMaterial";

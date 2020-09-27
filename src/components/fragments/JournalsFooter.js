@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import axios from 'axios';
-import journalsData from "../journalData";
+
 import JournalItem from "../journals/JournalItem";
 import Fragment from "./Fragment";
 import config from "react-global-configuration";

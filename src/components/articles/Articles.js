@@ -1,6 +1,6 @@
 import React, { useState, useEffect}  from "react";
 import ReactPaginate from "react-paginate";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import config from "react-global-configuration";
 import axios from 'axios';
 
@@ -9,7 +9,6 @@ import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ArticlesBlock from "../fragments/AtriclesBlock";
 import BannersPanel from "../fragments/BannersPanel";
 import Header from "../common/Header";
-import articlesData from "../articlesData.json";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import categoties from "../common/categories.json";
 import MetaTags from "../common/MetaTagsComponent";
@@ -27,6 +26,7 @@ function Articles({ match }) {
   let history = useHistory();
   let initialCategory;
   let initialCatgoryAPI;
+  
   if (match.params.category) {
     initialCategory = match.params.category;
     if (
@@ -38,6 +38,9 @@ function Articles({ match }) {
           return category.category_id == initialCategory;
         }
       ).category_name;
+    }
+    else{
+      initialCategory="not-a-category";
     }
   }
   let initialPageNumber = 0;
@@ -77,7 +80,7 @@ function Articles({ match }) {
  
 
   const handlePageClick = async (data) => {
-    if (initialCategory) history.push(`/Publications/${initialCategory}/page=${data.selected+1}`);
+    if (initialCategory) history.push(`/${initialCategory}/page=${data.selected+1}`);
     else history.push(`/Publications/page=${data.selected+1}`);
     setPage(data.selected+1);
     match.params.page = data.selected+1;
@@ -106,8 +109,10 @@ function Articles({ match }) {
   }
 
   return (
+    <div>
+    {initialCategory=="not-a-category"?<Redirect to="/page-not-found"/>:
     <div className="container">
-    
+  
     <MetaTags title={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"} 
           abstract={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"}
           ct100={true} keywords={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"}
@@ -152,7 +157,10 @@ function Articles({ match }) {
           <BannersPanel admixer_id="admixed-news" admixer={true} ria={true} />
         </div>
         </div>
+
       </div>
+          }
+          </div>
   
   );
 }

@@ -1,15 +1,15 @@
 import React from "react";
 import AuthorsBlockItem from "./AuthorsBlockItem";
 import Fragment from "../fragments/Fragment";
-import authorsData from "../columnData.json";
+
 
 
 function AuthorsBlock(props){
-    const authorsComponents = authorsData
-    .slice(0, parseInt(props.quantity))
-    .map(author => (
-      <AuthorsBlockItem key={author.id} authorItem={author} />
-    ));
+    // const authorsComponents = authorsData
+    // .slice(0, parseInt(props.quantity))
+    // .map(author => (
+    //   <AuthorsBlockItem key={author.id} authorItem={author} />
+    // ));
     return (
         <div>
             <Fragment
@@ -18,7 +18,7 @@ function AuthorsBlock(props){
                 showMoreTitle = "Більше авторів"
                 >
                 <div class="row">
-                    {authorsComponents}
+                    {/* {authorsComponents} */}
                 </div>
                 {props.children}
             </Fragment>

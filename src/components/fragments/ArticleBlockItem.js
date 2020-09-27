@@ -33,7 +33,7 @@ function ArticleBlockItem(props) {
           categoryInfo={props.articleItem} />}
          
         <div className={ props.categorial? "" :"articlesInfo"}>
-          <PressItem pressItem={props.articleItem} type={`Publications/${category}`} />
+          <PressItem pressItem={props.articleItem} type={`${category}`} />
         </div>
         </div>
         <div
@@ -44,7 +44,7 @@ function ArticleBlockItem(props) {
           }
         >
            {((new Date(props.articleItem.public_ts)<=today))?
-           <Link to={`/Publications/${category}/${props.articleItem.id}`}>
+           <Link to={`/${category}/${props.articleItem.id}`}>
           <img
             id={props.mainArticle && !props.small? "main-article" : ""}
             className={
