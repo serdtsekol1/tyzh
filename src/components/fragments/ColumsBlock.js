@@ -6,7 +6,7 @@ import axios from 'axios';
 import ColumnsBlockItem from "./ColumnsBlockItem.js";
 import Button from "../common/Button";
 import Fragment from "../fragments/Fragment";
-import columnsData from "../columnData.json";
+
 
 function ColumnsBlock(props) {
   const columnsComponents = props.columns

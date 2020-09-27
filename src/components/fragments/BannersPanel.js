@@ -91,7 +91,7 @@ function BannersPanel(props) {
       <div>
       {myRandomNumber==0?
       <div className="image-banner">
-        <Link to="/Publications/Pandemic">
+        <Link to="/Pandemic">
         <img
           src="https://i.tyzhden.ua/content/main_side_pandemic_1.gif"
           alt="Баннер"
@@ -100,7 +100,7 @@ function BannersPanel(props) {
       :""}
       {myRandomNumber==1?
       <div className="image-banner">
-        <Link to="/Publications/Pandemic">
+        <Link to="/Pandemic">
         <img
           src="https://i.tyzhden.ua/content/main_side_pandemic_2.gif"
           alt="Баннер"
@@ -109,7 +109,7 @@ function BannersPanel(props) {
       :""}
       {myRandomNumber==2?
       <div className="image-banner">
-        <Link to="/Publications/Pandemic">
+        <Link to="/Pandemic">
         <img
           src="https://i.tyzhden.ua/content/main_side_pandemic_3.gif"
           alt="Баннер"
@@ -118,7 +118,7 @@ function BannersPanel(props) {
       :""}
       {myRandomNumber==3?
       <div className="image-banner">
-        <Link to="/Publications/Pandemic">
+        <Link to="/Pandemic">
         <img
           src="https://i.tyzhden.ua/content/main_side_pandemic_4.gif"
           alt="Баннер"
@@ -127,7 +127,7 @@ function BannersPanel(props) {
       :""}
       {myRandomNumber==4?
       <div className="image-banner">
-        <Link to="/Publications/Pandemic">
+        <Link to="/Pandemic">
         <img
           src="https://i.tyzhden.ua/content/main_side_pandemic_5.gif"
           alt="Баннер"

@@ -20,7 +20,7 @@ import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
 
 
-import articlesData from "../articlesData.json";
+
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import DonationBanner from "../fragments/DonationBanner";
 import config from "react-global-configuration";

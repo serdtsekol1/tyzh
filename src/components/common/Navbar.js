@@ -43,7 +43,7 @@ const Header = props => {
       <NavLink
         key={category.category_id}
         activeStyle={activeStyle}
-        to={`/Publications/${category.category_id}/page=1`}
+        to={`/${category.category_id}/page=1`}
         className="dropdown-item"
       >
        <div style={{'backgroundColor': category.category_color}} className="rubric-color"></div> <p>{category.category_name_short}</p>

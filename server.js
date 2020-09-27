@@ -65,7 +65,7 @@ app.get('/Publications/page=:page', function(request, response) {
     response.send(result);
   });
 } );
-app.get('/Publications/:category', function(request, response) {
+app.get('/:category', function(request, response) {
   const category = request.params.category;
  
   const filePath = path.resolve(__dirname, './build', 'index.html');
@@ -86,7 +86,7 @@ app.get('/Publications/:category', function(request, response) {
     response.send(result);
   });
 });
-app.get('/Publications/:category/page=:page', function(request, response) {
+app.get('/:category/page=:page', function(request, response) {
   
   const category = request.params.category;
   const filePath = path.resolve(__dirname, './build', 'index.html');
@@ -240,7 +240,7 @@ app.get('/Magazines/:year', function(request, response) {
     response.send(result);
   });
 });
-app.get('/Publications/:category/:id', function(request, response) {
+app.get('/:category/:id', function(request, response) {
   const category = request.params.category;
   const id = request.params.id;
   let articleInfoJson={};
