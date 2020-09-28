@@ -42,7 +42,7 @@
 }
 
 #main-article{
-  height: 420px;
+  // height: 420px;
   @include for-phones{
     height: auto;
   }
