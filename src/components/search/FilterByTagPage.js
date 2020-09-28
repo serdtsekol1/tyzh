@@ -37,7 +37,7 @@ function FilterByTagPage({match}){
         .then(res =>{ 
          
           if (res.data.results.length){
-          console.log(res.data.results.length);
+      
           setIsColumns(true); }
          
   

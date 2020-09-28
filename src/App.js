@@ -41,6 +41,7 @@ function App() {
           <Switch>
             <Route path="/page-not-found" component={PageNotFound} />
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/Tag/:tag" component={FilterByTagPage} />
             <Route exact path="/News" component={News} />
             <Route exact path="/News/page=:page" component={News} />
             <Route exact path="/News/:id" component={NewsItem} />
@@ -58,7 +59,7 @@ function App() {
             <Route exact path="/Publications" component={Articles} />
             <Route exact path="/Publications/page=:page" component={Articles} />
             <Route exact path="/:category" component={Articles} />
-            <Route exact path="/Tag/:tag" component={FilterByTagPage} />
+            
             
             <Route
               exact

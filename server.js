@@ -86,6 +86,31 @@ app.get('/:category', function(request, response) {
     response.send(result);
   });
 });
+app.get('/Tag/:tag', function(request, response) {
+  
+   const tag = request.params.tag;
+  
+  
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+  
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+   
+   
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, `${tag}`);
+    data = data.replace(/\$OG_DESCRIPTION/g, `Усі матеріали за тегом: ${tag}`);
+    data = data.replace(/\$OG_KEYWORDS/g, `Усі матеріали за тегом: ${tag}`);
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    data = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Tag/${tag}`);
+    result = data
+
+    response.send(result);
+
+  });
+});
 app.get('/:category/page=:page', function(request, response) {
   
   const category = request.params.category;
@@ -387,6 +412,7 @@ app.get('/Magazine/:id', function(request, response) {
   });
   });
 });
+
 app.get('/Author/:id', function(request, response) {
   
   const id = request.params.id;

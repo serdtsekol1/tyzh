@@ -40,7 +40,7 @@ function NewsTab(props){
         if (props.tag) apiUrl = `${config.get("apiDomain")}/news/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
         await axios.get(apiUrl)
         .then(res =>{ 
-            console.log(page);
+          
             setAuthorNews(res.data.results);
             setPagesCount(Math.floor(res.data.count/limit)+1);
             setLoading(false);

@@ -24,7 +24,7 @@ function PhotoReport({match}){
         let apiUrl = `${config.get("apiDomain")}/galleries/${match.params.id}`;
         await axios.get(apiUrl)
         .then(res =>{ 
-          console.log(res.data);
+         
           setPhotoReport(res.data);
         setLoading(false);
 

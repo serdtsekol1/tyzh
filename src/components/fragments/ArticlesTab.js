@@ -40,7 +40,7 @@ function ArticlesTab(props){
         if (props.tag) apiUrl = `${config.get("apiDomain")}/publications/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
         await axios.get(apiUrl)
         .then(res =>{ 
-            console.log(page);
+        
             setAuthorArticles(res.data.results);
             setPagesCount(Math.floor(res.data.count/limit)+1);
             setLoading(false);
