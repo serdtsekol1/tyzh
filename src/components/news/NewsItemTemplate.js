@@ -68,7 +68,7 @@ function NewsItemTemplate(props) {
             .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читай також:/g,'<p class="read-also"><strong>Читайте також:')
             .replace(/<\s*p\s*>\s*<\s*b\s*>\s*Читайте також:/g,'<p class="read-also"><b>Читайте також:')
-            .replace("https://new.tyzhden.ua/Publications/","https://new.tyzhden.ua/")
+            .replace("https://new.tyzhden.ua/Publications/","https://tyzhden.ua/")
             // .replace(/<\s*p\s*>\s*<\s*strong\s*>([А-яIi ]+)<\s*strong\s*><\s*p\s*>/g,'<p class="mini-header"><strong>')
             , {
               // replace: domNode => {
