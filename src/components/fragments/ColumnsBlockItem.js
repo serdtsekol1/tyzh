@@ -26,7 +26,7 @@ function ColumnsBlockItem(props) {
         <div className={props.noneImage?"col-12":props.reverse?"col-9 col-md-8":"col-9 col-md-10"}>
         {props.reverse? <CategoryLink columnsLink={true} categoryInfo={{journal:{nameua:"Колонки"}}}/>:""}
           <div className={props.reverse?"articlesInfo":""}>
-            <PressItem pressItem = {props.columnItem} type="Columns"/>
+            <PressItem pressItem = {props.columnItem} type="Columns/50"/>
           </div>
         </div>
       </div>

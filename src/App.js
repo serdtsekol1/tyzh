@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./components/home/HomePage";
 
 import PageNotFound from "./components/common/PageNotFound";
@@ -48,8 +48,9 @@ function App() {
             
             <Route exact path="/Columns" component={Columns} />
             <Route exact path="/Columns/page=:page" component={Columns} />
-
-            <Route exact path="/Columns/:id" component={Column} />
+            
+            <Route exact path="/Columns/50/:id" component={Column} />
+            <Redirect from='/Columns/:id' to='/Columns/50/:id' />
             <Route exact path="/Author/:id" component={Author} />
             <Route exact path="/Gallery" component={PhotoReports} />
             <Route exact path="/Gallery/page=:page" component={PhotoReports} />
@@ -58,14 +59,18 @@ function App() {
             <Route path="/Magazine/:id" component={Journal} />
             <Route exact path="/Publications" component={Articles} />
             <Route exact path="/Publications/page=:page" component={Articles} />
-            <Route exact path="/:category" component={Articles} />
             
+            <Redirect from='/Publications/:category/:id' to='/:category/:id' />
+            <Redirect from='/Publications/:category/page=:page' to='/:category/page=:page' />
+            
+            <Route exact path="/:category" component={Articles} />
             
             <Route
               exact
               path="/:category/page=:page"
               component={Articles}
             />
+            
             <Route exact path="/:category/:id" component={Article} />
 
 

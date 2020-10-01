@@ -225,6 +225,33 @@ app.get('/Gallery/page=:page', function(request, response) {
     response.send(result);
   });
 });
+app.get('/Columns/50/:id', function(request, response) {
+
+  const id = request.params.id;
+  let articleInfoJson={};
+
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+  fetch(`https://new.tyzhden.ua/api/columns/${id}`)
+    .then(res => res.json())
+    .then(json => {columnInfoJson = json;
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    
+   
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, columnInfoJson.title);
+    data = data.replace(/\$OG_DESCRIPTION/g, columnInfoJson.abstract);
+    data = data.replace(/\$OG_KEYWORDS/g, columnInfoJson.tags);
+    data = data.replace(/\$OG_IMAGE/g, columnInfoJson.author.image1url);
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns/50/${id}`);
+   
+
+    response.send(result);
+  });
+  });
+});
 app.get('/Columns/:id', function(request, response) {
 
   const id = request.params.id;
@@ -245,7 +272,7 @@ app.get('/Columns/:id', function(request, response) {
     data = data.replace(/\$OG_KEYWORDS/g, columnInfoJson.tags);
     data = data.replace(/\$OG_IMAGE/g, columnInfoJson.author.image1url);
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns/${id}`);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Columns/50/${id}`);
    
 
     response.send(result);
@@ -394,6 +421,35 @@ app.get('/:category', function(request, response) {
     
 
     response.send(result);
+  });
+});
+
+
+
+app.get('/Publications/:category/:id', function(request, response) {
+  const category = request.params.category;
+  const id = request.params.id;
+  let articleInfoJson={};
+  
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+  fetch(`https://new.tyzhden.ua/api/publications/${id}`)
+    .then(res => res.json())
+    .then(json => {articleInfoJson = json;
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+   
+    
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, articleInfoJson.title);
+    data = data.replace(/\$OG_DESCRIPTION/g, articleInfoJson.abstract);
+    data = data.replace(/\$OG_KEYWORDS/g, articleInfoJson.tags);
+    data = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/${articleInfoJson.journal.persistentname}/${id}`);
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$OG_IMAGE/g, articleInfoJson.image1);
+
+    response.send(result);
+  });
   });
 });
 

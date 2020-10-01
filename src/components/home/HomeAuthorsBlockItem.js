@@ -20,7 +20,7 @@ function HomeAuthorsBlockItem(props) {
         </div>
         <div className="col-7">
         <Link to={`/Author/${props.columnItem.author.id}`}><p className="small-author-name">{author_name}</p></Link>
-        <Link to={`/Columns/${props.columnItem.id}`}><p className={`column-title${"-" + props.size}`}>
+        <Link to={`/Columns/50/${props.columnItem.id}`}><p className={`column-title${"-" + props.size}`}>
             {props.columnItem.title}
           </p></Link>
           {props.size === "small" ? (
