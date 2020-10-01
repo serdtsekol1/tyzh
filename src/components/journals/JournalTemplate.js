@@ -66,7 +66,7 @@ function JournalTemplate(props) {
                     <div className="row">
                             <div className="col-12 col-md-9">
                             {publicationsComponents}
-                            <a className="subsc-button-centered subsc-button" href="https://tyzhden.ua/InfoCenter/Subscription/">
+                            <a className="subsc-button-centered subsc-button" href="https://old.tyzhden.ua/InfoCenter/Subscription/">
                                 <Button title="Передплата" redButton={true} />
                             </a>
                             </div>
@@ -80,7 +80,7 @@ function JournalTemplate(props) {
                         <div className="row">
                             <div className="col-12 col-md-9">
                                 <ArticlesBlock  articles={journal.publications?journal.publications:[]} redButton={true} 
-                                showMoreTitle="Передплата" showMoreHref={"https://tyzhden.ua/InfoCenter/Subscription/"}/>
+                                showMoreTitle="Передплата" showMoreHref={"https://old.tyzhden.ua/InfoCenter/Subscription/"}/>
                               
 
                             </div>
@@ -93,7 +93,7 @@ function JournalTemplate(props) {
                         <div className="row">
                             <div className="col-12 col-md-9">
                             <ColumnsBlock columns={journal.columns?journal.columns:[]} 
-                            showMoreHref={"https://tyzhden.ua/InfoCenter/Subscription/"} showMoreTitle="Передплата" redButton={true}/>
+                            showMoreHref={"https://old.tyzhden.ua/InfoCenter/Subscription/"} showMoreTitle="Передплата" redButton={true}/>
                             
                             </div>
                             <div className="col-12 col-md-3">
