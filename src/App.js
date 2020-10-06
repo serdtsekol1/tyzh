@@ -30,7 +30,7 @@ history.listen(location => {
 });
 
 function App() {
-  ReactGA.initialize('UA-54516992-1');
+  ReactGA.initialize('UA-51335057-1');
   return (
     <Router history={history}>
       <ScrollToTop/>
