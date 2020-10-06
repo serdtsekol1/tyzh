@@ -5,7 +5,7 @@ function DonationBanner(props) {
   return (
     <div className="d-none d-md-block">
       
-      <a href="https://tyzhden.ua/InfoCenter/Donate/">
+      <a href="https://old.tyzhden.ua/InfoCenter/Donate/">
         <img
           style={props.style}
           className="banner subscription-banner"

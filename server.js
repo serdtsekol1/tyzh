@@ -39,7 +39,7 @@ app.get('/Publications', function(request, response) {
     data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
     data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/Publications`);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Publications`);
     
 
     response.send(result);
@@ -60,7 +60,7 @@ app.get('/Publications/page=:page', function(request, response) {
     data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
     data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/Publications`);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Publications`);
     
 
     response.send(result);
@@ -231,7 +231,7 @@ app.get('/Columns/50/:id', function(request, response) {
   let articleInfoJson={};
 
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/columns/${id}`)
+  fetch(`https://tyzhden.ua/api/columns/${id}`)
     .then(res => res.json())
     .then(json => {columnInfoJson = json;
 
@@ -258,7 +258,7 @@ app.get('/Columns/:id', function(request, response) {
   let articleInfoJson={};
 
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/columns/${id}`)
+  fetch(`https://tyzhden.ua/api/columns/${id}`)
     .then(res => res.json())
     .then(json => {columnInfoJson = json;
 
@@ -288,7 +288,7 @@ app.get('/News/:id', function(request, response) {
   let newsInfoJson={};
 
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/news/${id}`)
+  fetch(`https://tyzhden.ua/api/news/${id}`)
     .then(res => res.json())
     .then(json => {newsInfoJson = json;
 
@@ -299,10 +299,12 @@ app.get('/News/:id', function(request, response) {
       let tmp = dom.window.document.createElement('div');
       tmp.innerHTML = newsInfoJson.content;
       let src=[],img = tmp.getElementsByTagName('img');
-      for (let i = 0; i < img.length; i++) {
-          src.push(img[i].src);
+      if(img && img.length > 0) {
+          for (let i = 0; i < img.length; i++) {
+              src.push(img[i].src);
+          }
       }
-      newsImage = (src[0] && newsInfoJson.photo)?src[0]:'https://tyzhden.ua/main2/images/logo2.jpg';
+      newsImage = src[0]?src[0]:'https://tyzhden.ua/main2/images/logo2.jpg';
 
 
     // replace the special strings with server generated strings
@@ -325,7 +327,7 @@ app.get('/Gallery/:id', function(request, response) {
   let galleryInfoJson={};
 
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/galleries/${id}`)
+  fetch(`https://tyzhden.ua/api/galleries/${id}`)
     .then(res => res.json())
     .then(json => {galleryInfoJson = json;
 
@@ -352,7 +354,7 @@ app.get('/Magazine/:id', function(request, response) {
   let magazineInfoJson={};
   
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/magazines/${id}`)
+  fetch(`https://tyzhden.ua/api/magazines/${id}`)
     .then(res => res.json())
     .then(json => {magazineInfoJson = json;
 
@@ -380,7 +382,7 @@ app.get('/Author/:id', function(request, response) {
   let infoJson={};
  
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/authors/page/${id}`)
+  fetch(`https://tyzhden.ua/api/authors/page/${id}`)
     .then(res => res.json())
     .then(json => {infoJson = json;
 
@@ -417,7 +419,7 @@ app.get('/:category', function(request, response) {
     data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
     data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/${category}`);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/${category}`);
     
 
     response.send(result);
@@ -432,7 +434,7 @@ app.get('/Publications/:category/:id', function(request, response) {
   let articleInfoJson={};
   
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/publications/${id}`)
+  fetch(`https://tyzhden.ua/api/publications/${id}`)
     .then(res => res.json())
     .then(json => {articleInfoJson = json;
 
@@ -468,7 +470,7 @@ app.get('/:category/page=:page', function(request, response) {
     data = data.replace(/\$OG_KEYWORDS/g, "Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі");
     data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://new.tyzhden.ua/${category}`);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/${category}`);
     
 
     response.send(result);
@@ -483,7 +485,7 @@ app.get('/:category/:id', function(request, response) {
   let articleInfoJson={};
   
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://new.tyzhden.ua/api/publications/${id}`)
+  fetch(`https://tyzhden.ua/api/publications/${id}`)
     .then(res => res.json())
     .then(json => {articleInfoJson = json;
 

@@ -44,9 +44,9 @@ function Footer() {
             <div className="row d-none d-lg-block">
               <div className="col-12 col-md-12 partners">
                 <p className="copyright">&copy;2007–{thisYear.getFullYear()} Тиждень.ua</p>
-                <a href="https://tyzhden.ua/Virtual/56509" className="advertisers">Рекламодавцям</a>
+                <a href="https://old.tyzhden.ua/Virtual/56509" className="advertisers">Рекламодавцям</a>
                 <p className="separator">|</p>
-                <a  className="rss" href="https://tyzhden.ua/RSS/">
+                <a  className="rss" href="https://old.tyzhden.ua/RSS/">
                   <img
                   src={require("../../images/icons/logo_rss.svg")}
                   alt="rss"
@@ -100,7 +100,7 @@ function Footer() {
         <div className="partners-footer">
           <div className="row">
             <div className="col-2 offset-3 col-md-2 offset-md-4 d-md-none flex justify-content-center">
-              <a href="https://tyzhden.ua/RSS/"><img
+              <a href="https://old.tyzhden.ua/RSS/"><img
                 className="rss partner-image-logo"
                 src={require("../../images/icons/logo_rss.svg")}
                 alt="rss"
@@ -123,7 +123,7 @@ function Footer() {
            
           </div>
           <div className="partners text-center">
-            <a className="advertisers" href="https://tyzhden.ua/Virtual/56509">Рекламодавцям</a>
+            <a className="advertisers" href="https://old.tyzhden.ua/Virtual/56509">Рекламодавцям</a>
             <p className="copyright">&copy;2007–{thisYear.getFullYear()} Тиждень.ua</p>
           </div>
         </div>

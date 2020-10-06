@@ -67,7 +67,7 @@ const Header = props => {
       <div className="container-fluid">
         <div className="container">
           <div className="navbar-custom-wrap">
-          <a href="https://tyzhden.ua/search?q="><img
+          <a href="https://old.tyzhden.ua/search?q="><img
             className="d-block d-xl-none"
             src={require("../../images/icons/search-24px-white.svg")}
           /></a>
@@ -95,20 +95,20 @@ const Header = props => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
              <div className="inline-flex d-xl-none">
                   <li className="nav-item second-nav-link">
-                      <a className="" href="https://tyzhden.ua/Login">
+                      <a className="" href="https://old.tyzhden.ua/Login">
                       <img className="account-icon" src={require("../../images/icons/account-24px.svg")}/>
                         <p className="my-profile">Мій кабінет</p>
                       </a>
 
                   </li>
                   <li className="nav-item second-nav-link ">
-                      <a className="" href="https://tyzhden.ua/InfoCenter/Subscription/"><p className="">Передплата</p></a>
+                      <a className="" href="https://old.tyzhden.ua/InfoCenter/Subscription/"><p className="">Передплата</p></a>
                   </li>
                   <li className="nav-item second-nav-link ">
-                      <a className="" href="https://tyzhden.ua/InfoCenter/Donate/"><p className="">Підтримати</p></a>
+                      <a className="" href="https://old.tyzhden.ua/InfoCenter/Donate/"><p className="">Підтримати</p></a>
                   </li>
                   <li className="nav-item second-nav-link ">
-                      <a className="" href="https://tyzhden.ua/"><p className="">До старої версії</p></a>
+                      <a className="" href="https://old.tyzhden.ua/"><p className="">До старої версії</p></a>
                   </li>
                   
               </div>
@@ -180,7 +180,7 @@ const Header = props => {
                 </NavLink>
               </li>
               <li className="last-nav nav-item">
-                <a href="https://tyzhden.ua/PressReleases/"
+                <a href="https://old.tyzhden.ua/PressReleases/"
                   activeStyle={activeStyle}
                   className="nav-link"
                 >
@@ -190,7 +190,7 @@ const Header = props => {
               
               
             </ul>
-            <a href="https://tyzhden.ua/search?q="><img
+            <a href="https://old.tyzhden.ua/search?q="><img
                 className="search-small"
                 alt=""
                 src={require("../../images/icons/search-24px.svg")}
@@ -219,16 +219,16 @@ const Header = props => {
                   </li>
                   <div className="inline-flex">
                   <li className="nav-item second-nav-link d-none d-xl-block">
-                      <a className="" href="https://tyzhden.ua/"><p className="subscribe">До старої версії</p></a>
+                      <a className="" href="https://old.tyzhden.ua/"><p className="subscribe">До старої версії</p></a>
                   </li>
                   <li className="nav-item second-nav-link d-none d-xl-block">
-                      <a className="" href="https://tyzhden.ua/InfoCenter/Donate"><p className="subscribe">Підтримати</p></a>
+                      <a className="" href="https://old.tyzhden.ua/InfoCenter/Donate"><p className="subscribe">Підтримати</p></a>
                   </li>
                   <li className="nav-item second-nav-link ">
-                      <a className="" href="https://tyzhden.ua/InfoCenter/Subscription/"><p className="subscribe">Передплата</p></a>
+                      <a className="" href="https://old.tyzhden.ua/InfoCenter/Subscription/"><p className="subscribe">Передплата</p></a>
                   </li>
                   <li className="nav-item second-nav-link">
-                      <a className="" href="https://tyzhden.ua/Login"><p className="my-profile">Мій кабінет</p>
+                      <a className="" href="https://old.tyzhden.ua/Login"><p className="my-profile">Мій кабінет</p>
                       <img className="account-icon" src={require("../../images/icons/account-24px.png")}/>
                       </a>
 

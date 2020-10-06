@@ -5,7 +5,7 @@ function SubscriptionBanner(props) {
   return (
     <div className="d-none d-md-block">
       
-      <a href="https://tyzhden.ua/InfoCenter/Subscription/">
+      <a href="https://old.tyzhden.ua/InfoCenter/Subscription/">
         <img
           style={props.style}
           className="banner subscription-banner"
