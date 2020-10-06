@@ -299,10 +299,12 @@ app.get('/News/:id', function(request, response) {
       let tmp = dom.window.document.createElement('div');
       tmp.innerHTML = newsInfoJson.content;
       let src=[],img = tmp.getElementsByTagName('img');
-      for (let i = 0; i < img.length; i++) {
-          src.push(img[i].src);
+      if(img && img.length > 0) {
+          for (let i = 0; i < img.length; i++) {
+              src.push(img[i].src);
+          }
       }
-      newsImage = (src[0] && newsInfoJson.photo)?src[0]:'https://tyzhden.ua/main2/images/logo2.jpg';
+      newsImage = src[0]?src[0]:'https://tyzhden.ua/main2/images/logo2.jpg';
 
 
     // replace the special strings with server generated strings
