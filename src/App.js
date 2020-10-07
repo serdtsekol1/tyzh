@@ -24,17 +24,9 @@ import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory();
-history.listen(location => {
-  // ReactGA.set({ page: location.pathname }); // Update the user's current page
-  // ReactGA.pageview(location.pathname); // Record a pageview for the given page
-    if (window.ga) {
-        window.ga('send', 'pageview', location.pathname);
-    }
-});
 
 function App() {
   //ReactGA.initialize('UA-54516992-1');
-    window.ga('create', 'UA-51335057-1', 'auto');
   return (
     <Router history={history}>
       <ScrollToTop/>
