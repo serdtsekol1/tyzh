@@ -6,6 +6,7 @@ import SmallNewsBlock from "./SmallNewsBlock";
 import HomeAuthorsBlock from "./HomeAuthorsBlock";
 import HomeAuthorsSmallBlock from "./HomeAuthorsSmallBlock";
 import PhotoReportBlock from "./PhotoReportBlock";
+import VideoTranslation from "./VideoTranslation";
 
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ArticlesBlock from "../fragments/AtriclesBlock";
@@ -28,6 +29,7 @@ import config from "react-global-configuration";
 function HomePage() {
   const [articles, setArticles] = useState([]);
   const [mainArticles, setMainArticles] = useState([]);
+  const [videoTranslation, setVideoTranslation] = useState({});
   const [loading, setLoading] = useState(false);
  
   useEffect (()=>{
@@ -46,7 +48,13 @@ function HomePage() {
         setLoading(false);
       })
       .catch(err => console.log(err));
-     
+      await axios.get(`${config.get("apiDomain")}/videos/live/`)
+      .then(res =>{ 
+        console.log(res.data);
+        setVideoTranslation(res.data);
+       
+      })
+      .catch(err => console.log(err));
      };
      fetchArticles();
   },[]);
@@ -68,10 +76,14 @@ function HomePage() {
            
         </div>
         <div className="col-12 order-0 col-md-6 order-md-1 ">
-        {loading && <SkeletonMainArticle/>}
-        {!loading &&
-           <div >{mainArticle}</div>
-        }
+        {Object.keys(videoTranslation).length === 0 && videoTranslation.constructor === Object?
+        <div>
+          {loading && <SkeletonMainArticle/>}
+          {!loading &&
+            <div >{mainArticle}</div>
+          }
+        </div>
+        : <VideoTranslation videoTranslation={videoTranslation} />}
         </div>
         <div className="d-none d-md-block col-md-3 order-md-2">
           <HomeAuthorsSmallBlock/>

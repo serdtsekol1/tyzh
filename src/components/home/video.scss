@@ -1,0 +1,18 @@
+@import "../common/css/variables";
+@import "../common/css/mixins";
+
+.video-translation iframe{
+    width: 100%;
+}
+
+.video-translation-title{
+  
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: 0.02em;
+    @include for-phones {
+        font-size: 20px;
+    }
+}
