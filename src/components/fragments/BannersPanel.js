@@ -75,12 +75,7 @@ function BannersPanel(props) {
         script1.id = props.adriver_id;
         script1.type = "text/javascript";
         script1.charset = "utf-8";
-        script1.innerHTML = `
-       
-
-                new adriver("adriver_banner_2", {sid: 168072, bn: 2, bt: 52});
-
-        `;
+        script1.innerHTML = `new adriver("adriver_banner_2", {sid: 168072, bn: 2, bt: 52});`;
         
         adriverItem.appendChild(script1);
       
