@@ -109,7 +109,7 @@ function NewsItemTemplate(props) {
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={props.newsItem.title} quantity={14} />
-          <BannersPanel admixer_id="admixed-news" admixer={true} ria={true}/>
+          <BannersPanel admixer_id="admixed-news-item" admixer={true} ria={true}/>
         </div>
       </div>
     </div>
