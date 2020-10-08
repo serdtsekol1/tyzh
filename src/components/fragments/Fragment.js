@@ -16,7 +16,7 @@ function Fragment(props) {
             <Button redButton={props.redButton?true:false} title={props.showMoreTitle ? props.showMoreTitle: "Показати більше"} />
           </Link>)
           :
-          (<a class="subsc-button" href={props.showMoreHref}>
+          (<a className="subsc-button" href={props.showMoreHref}>
           <Button redButton={props.redButton?true:false} title={props.showMoreTitle ? props.showMoreTitle: "Показати більше"} />
         </a>)
         }

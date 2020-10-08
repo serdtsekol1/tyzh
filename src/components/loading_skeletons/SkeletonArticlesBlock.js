@@ -26,7 +26,7 @@ const SkeletonArticlesBlock = (props) => {
                       : "col-12 order-1 col-md-8 order-md-0"
                   }
                 >
-                  <div class="skeleton-category-wrap"><Skeleton duration={1} height={34} width={300}/></div>
+                  <div className="skeleton-category-wrap"><Skeleton duration={1} height={34} width={300}/></div>
             
                   <p class ="press-title"><Skeleton duration={1} height={30} width={300}/></p>
                   <p class ="press-abstract"><Skeleton duration={1} height={48} width={`100%`}/></p>

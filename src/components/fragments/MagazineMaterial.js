@@ -41,16 +41,16 @@ function MagazineMaterial(props) {
     <div>
      {loading && <Skeleton height={124} style={{marginBottom: 64}}/>}
         {magazine &&
-            <div class="magazine-material-wrap">
-                <div class="row">
+            <div className="magazine-material-wrap">
+                <div className="row">
                     
-                    <div class="col-12 col-md-8 flex-mobile">
+                    <div className="col-12 col-md-8 flex-mobile">
                     <Link to={`/Magazine/${props.magazine_id}`}>
                         <img src={magazine.image1} className="magazine-image"/>
                     </Link>
                     <div className="magazine-mobile-titles">
-                        <p class="magazine-published">Матеріал друкованого видання</p>
-                        <p class="number">{`№ ${magazine.localnum} (${magazine.num}) від ${date}`}</p>
+                        <p className="magazine-published">Матеріал друкованого видання</p>
+                        <p className="number">{`№ ${magazine.localnum} (${magazine.num}) від ${date}`}</p>
                     </div>
                     </div>
                     <div className="col-12 col-md-4">

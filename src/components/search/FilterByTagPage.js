@@ -101,7 +101,7 @@ function FilterByTagPage({match}){
       <Header style={{paddingBottom:24}}title={`Всі матеріали, позначені тегом: ${match.params.tag}`}/>
       
       <div className="row">
-          <div class="col-12 author-tabs">
+          <div className="col-12 author-tabs">
             <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example">
                 {isNews?
                   <Tab eventKey="news" title="Новини">

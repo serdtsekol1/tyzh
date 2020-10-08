@@ -83,7 +83,7 @@ function YearsNavBar() {
   
 
   return (
-    <div class="jounals-container">
+    <div className="jounals-container">
       <div className="container jounals ">
         <div id="hide"/>
         <Header id="journals-header" title="Журнал «Український тиждень»" size="big" />

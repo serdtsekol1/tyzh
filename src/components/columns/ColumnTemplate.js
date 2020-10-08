@@ -108,7 +108,7 @@ function ColumnTemplate(props){
             Джерело: <a href={columnItem.source_url}>{columnItem.source}</a>
           </p> */}
           <TagsPanel tags={tags} />
-          <div class="shared-flex">
+          <div className="shared-flex">
             {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
             </p> */}

@@ -83,7 +83,7 @@ function PhotoReports({match}){
             
             <SubscriptionBanner />
             <div className="banner-mobile-only"></div>
-            <div class="d-block d-md-none">
+            <div className="d-block d-md-none">
                 <BannersPanel ria={true} my={true} />
             </div>
             <ReactPaginate

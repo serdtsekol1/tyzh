@@ -90,7 +90,7 @@ function NewsItemTemplate(props) {
             </p>
           :""}
           <TagsPanel tags={tags} />
-          <div class="shared-flex">
+          <div className="shared-flex">
             {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
             </p> */}

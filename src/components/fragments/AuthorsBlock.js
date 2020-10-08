@@ -17,7 +17,7 @@ function AuthorsBlock(props){
                 showMoreLink="/Columns"
                 showMoreTitle = "Більше авторів"
                 >
-                <div class="row">
+                <div className="row">
                     {/* {authorsComponents} */}
                 </div>
                 {props.children}

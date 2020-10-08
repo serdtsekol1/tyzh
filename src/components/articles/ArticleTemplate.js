@@ -95,7 +95,7 @@ function ArticleTemplate(props) {
             <TagsPanel tags={props.article.tags.split(",")} />
           :""}
          
-          <div class="shared-flex">
+          <div className="shared-flex">
             {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
             </p> */}

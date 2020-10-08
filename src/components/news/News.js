@@ -59,8 +59,8 @@ function News({match}){
       else fetchData(page);
   },[page,match.params.page]);
   let options = {  month: 'long', day: 'numeric' };
-  const groupedNewsComponents = news.map(news => <div class="news-wrap" id={news.date.getDate()*10}>
-    <p class="news-date">{news.date.toLocaleDateString('uK-UK', options)}</p>
+  const groupedNewsComponents = news.map(news => <div className="news-wrap" id={news.date.getDate()*10}>
+    <p className="news-date">{news.date.toLocaleDateString('uK-UK', options)}</p>
    <NewsBlock id={news.date.getDate()} news={news.news} /></div>);
   
   const handlePageClick = async (data) => {

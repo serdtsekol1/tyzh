@@ -32,7 +32,7 @@ function PhotoReportBlock() {
   return (
     <Fragment size="big" showMoreLink="/Gallery">
       <Header size="big" title="Фоторепортаж" />
-      <div class="d-none d-md-block">
+      <div className="d-none d-md-block">
        <PhotoReportItem  main={true} reportItem={galleries[0]} />
       </div>
 

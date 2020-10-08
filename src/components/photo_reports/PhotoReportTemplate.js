@@ -76,7 +76,7 @@ function PhotoReportTemplate(props){
           
           <TagsPanel tags={photoReport.tags? photoReport.tags.split(","):[]} />
          
-          <div class="shared-flex">
+          <div className="shared-flex">
             {/* <p className="quantity-label">
               Поділилося: <b>{12} осіб</b>
             </p> */}

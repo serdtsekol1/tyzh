@@ -53,7 +53,7 @@ function PhotoreportsTab(props){
 
     };
     const photoReportsComponents = (Object.keys(authorPhotoreports).length === 0)?"": authorPhotoreports.map(photoReport => (
-      <div class="col-12 col-md-6"><PhotoReportItem key={photoReport.id} reportItem={photoReport} /></div>
+      <div className="col-12 col-md-6"><PhotoReportItem key={photoReport.id} reportItem={photoReport} /></div>
     ));
 
 
@@ -64,7 +64,7 @@ function PhotoreportsTab(props){
         {loading && <SkeletonArticlesBlock  quantity={10} />}
         {!loading &&
        
-          <div class="row">{photoReportsComponents}</div>
+          <div className="row">{photoReportsComponents}</div>
           
         }
         {pagesCount-1?

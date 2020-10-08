@@ -66,7 +66,7 @@ function GorizontalAdBanner(props) {
        <div className="banner subscription-banner">
           {randomNumber==0?
           <div>
-            <ins class="image-banner adsbyyottos" style={{display:"block"}}
+            <ins className="image-banner adsbyyottos" style={{display:"block"}}
                       data-ad-client="d6512604-0c08-11e8-ae50-002590d97638"></ins> 
               <ScriptTag async defer src="https://cdn.yottos.com/adsbyyottos.js"/>
           </div>
