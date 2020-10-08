@@ -39,20 +39,20 @@ function HomePage() {
       await axios.get(`${config.get("apiDomain")}/publications/?limit=${limit}`)
       .then(res =>{ 
         setArticles(res.data.results);
-        setLoading(false);
+       
       })
       .catch(err => console.log(err));
       await axios.get(`${config.get("apiDomain")}/publications/type/selected/`)
       .then(res =>{ 
         setMainArticles(res.data.results);
-        setLoading(false);
+        
       })
       .catch(err => console.log(err));
       await axios.get(`${config.get("apiDomain")}/videos/live/`)
       .then(res =>{ 
         console.log(res.data);
         setVideoTranslation(res.data);
-       
+        setLoading(false);
       })
       .catch(err => console.log(err));
      };
@@ -76,19 +76,23 @@ function HomePage() {
            
         </div>
         <div className="col-12 order-0 col-md-6 order-md-1 ">
-        {Object.keys(videoTranslation).length === 0 && videoTranslation.constructor === Object?
-        <div>
+        
           {loading && <SkeletonMainArticle/>}
           {!loading &&
+           <div>
+            {Object.keys(videoTranslation).length === 0 && videoTranslation.constructor === Object?
+              
             <div >{mainArticle}</div>
+            : <VideoTranslation videoTranslation={videoTranslation} />
+            }
+          </div>
           }
         </div>
-        : <VideoTranslation videoTranslation={videoTranslation} />}
-        </div>
+        
         <div className="d-none d-md-block col-md-3 order-md-2">
           <HomeAuthorsSmallBlock/>
         </div>
-      </div>
+    </div>
       <SubscriptionBanner />
 
       {loading && 
