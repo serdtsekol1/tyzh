@@ -86,7 +86,7 @@ function Columns({match}){
                 </div>
                
                 <div className="col-12 col-md-3">
-                  <BannersPanel my={true}  admixer_id="admixed-columns" admixer={true} ria={true} />
+                  <BannersPanel my={true}  admixer_id="admixed-columns" admixer={true} ria={true} adriver={true} adriver_id="adriver-filter"  />
                   
                 </div>
               </div>

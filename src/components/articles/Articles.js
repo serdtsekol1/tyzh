@@ -154,7 +154,7 @@ function Articles({ match }) {
         <div className="d-none d-md-block col-md-3 ">
           <SmallNewsBlock />
           <LastJournalBanner />
-          <BannersPanel admixer_id="admixed-articles" admixer={true} ria={true} />
+          <BannersPanel admixer_id="admixed-articles" admixer={true} ria={true} adriver={true} adriver_id="adriver-filter"  />
         </div>
         </div>
 
