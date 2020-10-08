@@ -20,36 +20,37 @@ function BannersPanel(props) {
     const head = document.querySelector("head");
     
   
-
+    
     if (admixer){
         // import ads script if not yet imported
-      if (!head.querySelector("#admixer-head")) {
-        const script = document.createElement("script");
-        script.id = "admixer-head";
-        script.async = true;
-        script.src = "https://cdn.admixer.net/scripts3/loader2.js";
-        script.setAttribute("data-inv","//inv-nets.admixer.net/");
-        script.setAttribute("data-r","single");
-        script.setAttribute("data-sender","admixer");
-        script.setAttribute("data-bundle","desktop");
-        head.appendChild(script);
-      }
-      
-      // add another script to head element
-      if (!head.querySelector("#admixer-head-2")) {
-      
-        const script = document.createElement("script");
-        script.id = "#admixer-head-2";
-        script.type = "text/javascript";
-        script.charset = "utf-8";
-        script.innerHTML = `
-        (window.globalAmlAds = window.globalAmlAds || []).push(function() {
-          globalAml.defineSlot({z: '57a6d7b3-706f-46d9-bac3-c895f600dd59', ph: 'admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053', i: 'inv-nets', s:'5ddce36f-65eb-4a6c-8099-05579d369625', sender: 'admixer'});
-          globalAml.singleRequest("admixer");});
-        `;
-        head.appendChild(script);
-      }
+    // if (!head.querySelector("#admixer-head")) {
+    //   console.log("head");
+    //   const script = document.createElement("script");
+    //   script.id = "admixer-head";
+    //   script.async = true;
+    //   script.src = "https://cdn.admixer.net/scripts3/loader2.js";
+    //   script.setAttribute("data-inv","//inv-nets.admixer.net/");
+    //   script.setAttribute("data-r","single");
+    //   script.setAttribute("data-sender","admixer");
+    //   script.setAttribute("data-bundle","desktop");
+    //   head.appendChild(script);
+    // }
     
+    // // add another script to head element
+    // if (!head.querySelector("#admixer-head-2")) {
+     
+    //   const script = document.createElement("script");
+    //   script.id = "#admixer-head-2";
+    //   script.type = "text/javascript";
+    //   script.charset = "utf-8";
+    //   script.innerHTML = `
+    //   (window.globalAmlAds = window.globalAmlAds || []).push(function() {
+    //     globalAml.defineSlot({z: '57a6d7b3-706f-46d9-bac3-c895f600dd59', ph: 'admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053', i: 'inv-nets', s:'5ddce36f-65eb-4a6c-8099-05579d369625', sender: 'admixer'});
+    //     globalAml.singleRequest("admixer");});
+    //   `;
+    //   head.appendChild(script);
+    // }
+   
       
       if(!admixer.querySelector(props.admixer_id)) {
        
