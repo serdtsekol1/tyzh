@@ -85,7 +85,7 @@ function PhotoReportTemplate(props){
           <SubscriptionBanner />
           <GorizontalAdBanner ukrnet={true}  />
           <div className="d-block d-md-none">
-            <BannersPanel  admixer_id="admixed-news" admixer={true} ria={true}  />
+            <BannersPanel  admixer_id="admixed-photo-report" admixer={true} ria={true}  />
           </div>
         <Fragment size="big" showMoreLink="/Gallery">
           <Header size="big" title="Bам також буде цікаво почитати" />
