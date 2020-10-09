@@ -117,7 +117,7 @@ function ColumnTemplate(props){
           <GorizontalAdBanner ukrnet={true}  adpartner={true} mixadvert={true} yottos={true}/>
 
           <div className="d-block d-md-none">
-            <BannersPanel my={true} ria={true} />
+            <BannersPanel my={true} ria={true}  adriver_id="adriver-column" adriver={true} />
           </div>
           
 
@@ -129,7 +129,7 @@ function ColumnTemplate(props){
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={columnItem.title} quantity={14} />
-          <BannersPanel  my={true} admixer_id="admixed-column" admixer={true} ria={true} />
+          <BannersPanel  my={true} adriver_id="adriver-column" adriver={true} admixer_id="admixed-column" admixer={true}  ria={true} />
         </div>
       </div>
     </div>

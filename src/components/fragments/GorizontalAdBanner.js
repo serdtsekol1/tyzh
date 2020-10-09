@@ -12,8 +12,10 @@ function GorizontalAdBanner(props) {
 
   useEffect(() => {
     const ukrnet = document.getElementById("ukrnet_wrap");
-   
-    if (ukrnet){
+    const ukrnetScript = document.getElementById("ukrnet_body");
+    
+    
+    if (ukrnetScript){
 
         const script = document.createElement("script");
         script.id = "#ukrnet-body";

@@ -141,7 +141,7 @@ function Author({match}){
                           <ColumnsTab authorId={match.params.id}/>
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel my={true} admixer_id="admixed-author-news" admixer={true} ria={true} adriver={true} adriver_id="adriver-filter"  />
+                          <BannersPanel my={true} />
                           </div>
                       </div>
                       

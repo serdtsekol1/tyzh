@@ -12,6 +12,8 @@ function BannersPanel(props) {
   }
   const [riaRandomNumber, setRiaRandomNumber] = useState(getRandomInt(2));
   const [myRandomNumber, setMyRandomNumber] = useState(getRandomInt(5));
+  const [randomNum,setRandonNum] = useState(Math.random() * 1000000000);
+
     
   
   useEffect(() => {
@@ -19,7 +21,7 @@ function BannersPanel(props) {
     const adriverItem = document.getElementById(`${props.adriver_id}_wrap`);
     const head = document.querySelector("head");
     
-  
+   
     
     if (admixer){
         // import ads script if not yet imported
@@ -70,12 +72,14 @@ function BannersPanel(props) {
     }
     if (adriverItem){
  
-      
+
+        
+        // adriverItem2.appendChild(script2);
         const script1 = document.createElement("script");
         script1.id = props.adriver_id;
         script1.type = "text/javascript";
         script1.charset = "utf-8";
-        script1.innerHTML = `new adriver("adriver_banner_2", {sid: 168072, bn: 2, bt: 52});`;
+        script1.innerHTML = `new adriver("adriver_banner_${randomNum}", {sid:168072, bt:52, bn:3});`;
         
         adriverItem.appendChild(script1);
       
@@ -165,18 +169,11 @@ function BannersPanel(props) {
       </div>
      </div>
       :""}
-      {/* {props.adriver?
-       <iframe src="https://ad.adriver.ru/cgi-bin/erle.cgi?sid=222384&bt=58&pz=0&w=255&h=255&target=top&rnd=788063543"
-       frameborder={0} vspace={0} hspace={0}
-       width="255" height="255"
-       marginwidth={0} marginheight={0}
-       scrolling="no">
-     </iframe>
-      :""} */}
+    
       {props.adriver?
       <div id={`${props.adriver_id}_wrap`} className="image-banner">
        
-       <div id="adriver_banner_2"> </div>
+       <div id={`adriver_banner_${randomNum}`}> </div>
       </div>
         :""}
       

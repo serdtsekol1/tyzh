@@ -84,7 +84,7 @@ function PhotoReports({match}){
             <SubscriptionBanner />
             <div className="banner-mobile-only"></div>
             <div className="d-block d-md-none">
-                <BannersPanel ria={true} my={true} />
+                <BannersPanel adriver={true} adriver_id="adriver-photo-panel" ria={true} my={true} />
             </div>
             <ReactPaginate
               previousLabel={"Назад"}

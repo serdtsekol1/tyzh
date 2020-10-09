@@ -112,7 +112,7 @@ function FilterByTagPage({match}){
 
                           </div>
                           <div className="col-12 col-md-3">
-                          <BannersPanel my={true} ria={true} />
+                          <BannersPanel my={true} ria={true} adriver={true} adriver_id="adriver-filter" />
                           </div>
                       </div>
                   </Tab>
@@ -154,7 +154,7 @@ function FilterByTagPage({match}){
 
                           </div>
                           <div className="col-12 col-md-3 banner-no-margin">
-                          <BannersPanel ria={true} my={true} adriver={true} adriver_id="adriver-filter" />
+                          <BannersPanel ria={true} my={true}  />
                           </div>
                       </div>
                   </Tab>

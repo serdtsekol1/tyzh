@@ -120,7 +120,7 @@ function News({match}){
            <Header title=" Останні статті" size="small" />
            <ArticlesBlock lastArticles={true} quantity={3} noShowMore={true}/>
                <LastJournalBanner/>
-             <BannersPanel ria={true} />
+             <BannersPanel adriver={true} adriver_id="adriver-news-list" ria={true} />
            </div>
          </div>
        </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./css/footer.scss";
 import { NavLink } from "react-router-dom";
 
@@ -6,6 +6,46 @@ import SocialNetworks from "./SocialNetworks";
 import categoriesData from "./categories.json";
 
 function Footer() {
+  const head = document.querySelector("head");
+
+  useEffect(()=>{
+   if (!head.querySelector("#adriver-head")) {
+     
+      const script = document.createElement("script");
+      script.id = "adriver-head";
+      script.async = true;
+      script.src = `${window.location.hostname}/scripts/adriver/adriver.core.2.js`;
+      head.appendChild(script);
+    }
+
+    if (!head.querySelector("#admixer-head")) {
+     
+        const script = document.createElement("script");
+        script.id = "admixer-head";
+        script.async = true;
+        script.src = "https://cdn.admixer.net/scripts3/loader2.js";
+        script.setAttribute("data-inv","//inv-nets.admixer.net/");
+        script.setAttribute("data-r","single");
+        script.setAttribute("data-sender","admixer");
+        script.setAttribute("data-bundle","desktop");
+        head.appendChild(script);
+      }
+      
+      // add another script to head element
+      if (!head.querySelector("#admixer-head-2")) {
+       
+        const script = document.createElement("script");
+        script.id = "#admixer-head-2";
+        script.type = "text/javascript";
+        script.charset = "utf-8";
+        script.innerHTML = `
+        (window.globalAmlAds = window.globalAmlAds || []).push(function() {
+          globalAml.defineSlot({z: '57a6d7b3-706f-46d9-bac3-c895f600dd59', ph: 'admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053', i: 'inv-nets', s:'5ddce36f-65eb-4a6c-8099-05579d369625', sender: 'admixer'});
+          globalAml.singleRequest("admixer");});
+        `;
+        head.appendChild(script);
+      }
+  },[])
   const categoriesComponents = categoriesData
     .slice(0, categoriesData.length)
     .map(category => (

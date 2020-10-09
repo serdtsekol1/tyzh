@@ -71,7 +71,7 @@ function JournalTemplate(props) {
                             </a>
                             </div>
                             <div className="col-12 col-md-3">
-                            <BannersPanel my={true}  admixer_id="admixed-journal1" admixer={true}/>
+                            <BannersPanel my={true}  adriver_id="adriver-journal1" adriver={true} admixer_id="admixed-journal1" admixer={true}/>
                             </div>
                         </div>
                         
@@ -85,7 +85,7 @@ function JournalTemplate(props) {
 
                             </div>
                             <div className="col-12 col-md-3">
-                            <BannersPanel ria={true} my={true} adriver={true} adriver_id="adriver-filter" />
+                            <BannersPanel ria={true} my={true}  />
                             </div>
                         </div>
                     </Tab>
