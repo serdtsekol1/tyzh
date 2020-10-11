@@ -2,7 +2,7 @@ import config from 'react-global-configuration';
 import prod from './prod';
 import dev from './dev';
 
-if (window.location.hostname === 'localhost') {
+if (['localhost','newtest.tyzhden.ua'].indexOf(window.location.hostname) > -1) {
     config.set(prod, {freeze: false});
     config.set(dev, {assign: true});
 } else {
