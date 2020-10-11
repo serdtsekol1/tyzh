@@ -6,6 +6,10 @@
   img {
     @include image-cover;
   }
+  div{
+    width: 255px !important;
+    height: auto !important;
+  }
   
 }
 .image-banner:nth-child(1) {
