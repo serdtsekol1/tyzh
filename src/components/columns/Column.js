@@ -7,6 +7,8 @@ import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
 import ColumnTemplate from "./ColumnTemplate";
 
+import {setCookie, getCookie} from "../../lib/simpleCookieLib"
+
 
 function Column({match}){
   const [loading, setLoading] = useState(false);

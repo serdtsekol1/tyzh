@@ -7,6 +7,8 @@ import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
 import ArticleTemplate from "./ArticleTemplate";
 
+import {setCookie, getCookie} from "../../lib/simpleCookieLib"
+
 
 import "../common/css/post.scss";
 

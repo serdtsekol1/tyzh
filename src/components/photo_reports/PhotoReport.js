@@ -11,6 +11,7 @@ import "../common/css/post.scss";
 
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
+import {setCookie, getCookie} from "../../lib/simpleCookieLib"
 
 function PhotoReport({match}){
     let [photoReport, setPhotoReport] = useState({});
