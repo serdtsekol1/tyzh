@@ -7,6 +7,8 @@ import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
 import ArticleTemplate from "./ArticleTemplate";
 
+import {setCookie, getCookie} from "../../lib/simpleCookieLib"
+
 
 import "../common/css/post.scss";
 
@@ -18,6 +20,18 @@ function Article({ match }) {
   let articleComponent;
   useEffect (()=>{
     setLoading(true);
+
+    const increaseStatCounter = async () => {
+        let path = `/publications/stats/${match.params.id}`;
+        let fullUrl = `${config.get("apiDomain")}${path}`;
+        if(!getCookie(`publications_stats_${match.params.id}`)) {
+            setCookie(`publications_stats_${match.params.id}`, true, 1, fullUrl);
+            await axios.put(fullUrl)
+                .catch(err => console.log(err));
+        }
+    };
+    increaseStatCounter();
+
     const fetchData = async () => {
       
       let apiUrl = `${config.get("apiDomain")}/publications/${match.params.id}`;
