@@ -22,8 +22,8 @@ function Article({ match }) {
     setLoading(true);
 
     const increaseStatCounter = async () => {
-        let path = `/news/publications/${match.params.id}`;
-        let fullUrl = `https://newtest.tyzhden.ua/api${path}`;
+        let path = `/publications/stats/${match.params.id}`;
+        let fullUrl = `${config.get("apiDomain")}${path}`;
         if(!getCookie(`publications_stats_${match.params.id}`)) {
             setCookie(`publications_stats_${match.params.id}`, true, 1, fullUrl);
             await axios.put(fullUrl)
