@@ -1,3 +1,3 @@
 export default {
-    apiDomain: "https://tyzhden.ua/api"
+    apiDomain: "https://newtest.tyzhden.ua/api"
 }

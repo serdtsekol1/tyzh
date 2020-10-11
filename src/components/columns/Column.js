@@ -17,7 +17,7 @@ function Column({match}){
       
     const increaseStatCounter = async () => {
         let path = `/news/columns/${match.params.id}`;
-        let fullUrl = `https://newtest.tyzhden.ua/api${path}`;
+        let fullUrl = `${config.get("apiDomain")}${path}`;
         if(!getCookie(`columns_stats_${match.params.id}`)) {
             setCookie(`columns_stats_${match.params.id}`, true, 1, fullUrl);
             await axios.put(fullUrl)
