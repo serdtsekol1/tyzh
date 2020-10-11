@@ -18,20 +18,31 @@ function PhotoReport({match}){
     let history=useHistory();
     useEffect (()=>{
     setLoading(true);
-      
-      const fetchData = async () => {
-        
-        let apiUrl = `${config.get("apiDomain")}/galleries/${match.params.id}`;
-        await axios.get(apiUrl)
-        .then(res =>{ 
-         
-          setPhotoReport(res.data);
-        setLoading(false);
 
-          })
-        .catch(err =>  history.push("/page-not-found"));  
-        };
-        fetchData();
+    const increaseStatCounter = async () => {
+        let path = `/news/galleries/${match.params.id}`;
+        let fullUrl = `https://newtest.tyzhden.ua/api${path}`;
+        if(!getCookie(`galleries_stats_${match.params.id}`)) {
+            setCookie(`galleries_stats_${match.params.id}`, true, 1, fullUrl);
+            await axios.put(fullUrl)
+                .catch(err => console.log(err));
+        }
+    };
+    increaseStatCounter();
+      
+    const fetchData = async () => {
+
+      let apiUrl = `${config.get("apiDomain")}/galleries/${match.params.id}`;
+      await axios.get(apiUrl)
+      .then(res =>{
+
+        setPhotoReport(res.data);
+      setLoading(false);
+
+        })
+      .catch(err =>  history.push("/page-not-found"));
+      };
+      fetchData();
       
     },[match.params.id]);
     
