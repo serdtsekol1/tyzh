@@ -117,7 +117,7 @@ function ColumnTemplate(props){
           <GorizontalAdBanner ukrnet={true}  adpartner={true} mixadvert={true} yottos={true}/>
 
           <div className="d-block d-md-none">
-            <BannersPanel my={true} ria={true}  adriver_id="adriver-column" adriver={true} />
+            <BannersPanel my={true} ria={true}  />
           </div>
           
 

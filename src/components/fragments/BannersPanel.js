@@ -57,14 +57,11 @@ function BannersPanel(props) {
       if(!admixer.querySelector(props.admixer_id)) {
        
         const script = document.createElement("script");
-        script.id = props.admixer_id;
+        // script.id = props.admixer_id;
         script.type = "text/javascript";
-        script.charset = "utf-8";
-        script.innerHTML = `
-        (window.globalAmlAds = window.globalAmlAds || []).push(function() {
+        script.innerHTML = `(window.globalAmlAds = window.globalAmlAds || []).push(function() {
           globalAml.display('admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053');
-          });
-        `;
+          });`;
         
         admixer.appendChild(script);
        
@@ -73,12 +70,9 @@ function BannersPanel(props) {
     if (adriverItem){
  
 
-        
-        // adriverItem2.appendChild(script2);
+       
         const script1 = document.createElement("script");
-        script1.id = props.adriver_id;
         script1.type = "text/javascript";
-        script1.charset = "utf-8";
         script1.innerHTML = `new adriver("adriver_banner_${randomNum}", {sid:168072, bt:52, bn:3});`;
         
         adriverItem.appendChild(script1);
@@ -158,16 +152,12 @@ function BannersPanel(props) {
         </div>
       :""}
       {props.admixer?
-      <div>
+     
       <div  className="d-none d-lg-block image-banner" id={`${props.admixer_id}_wrap`}>
         <div id='admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053' data-sender='admixer'></div>
        
       </div>
-      <div className="d-block d-md-none image-banner">
-      <div id="riainfo_df6a0fef366e4ceafcb5a3af5528a951"></div>
-       <ScriptTag type="text/javascript" src="https://cobrand.ria.com/js/ria_informer.js?riacode=df6a0fef366e4ceafcb5a3af5528a951"/>
-      </div>
-     </div>
+   
       :""}
     
       {props.adriver?

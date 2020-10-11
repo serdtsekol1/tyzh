@@ -103,7 +103,7 @@ function ArticleTemplate(props) {
           </div>
           <GorizontalAdBanner adpartner={true} ukrnet={true} mixadvert={true} yottos={true}/>
           <div className="d-block d-md-none">
-            {/* <BannersPanel admixer_id="admixed-articles-phone" admixer={true} adriver_id="adriver-news-phone" adriver={true} /> */}
+            <BannersPanel ria={true} />
           </div>
 
           <Header size="big" title="Bам також буде цікаво почитати" />
