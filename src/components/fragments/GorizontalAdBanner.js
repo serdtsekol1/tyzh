@@ -20,7 +20,6 @@ function GorizontalAdBanner(props) {
         const script = document.createElement("script");
         script.id = "#ukrnet-body";
         script.type = "text/javascript";
-        script.charset = "utf-8";
         script.innerHTML = `
         (adsbygoogle = window.adsbygoogle || []).push({});
         `;
@@ -33,7 +32,6 @@ function GorizontalAdBanner(props) {
       const script = document.createElement("script");
       script.id = "#adpartner-body";
       script.type = "text/javascript";
-      script.charset = "utf-8";
       script.innerHTML = `
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -42,7 +40,7 @@ function GorizontalAdBanner(props) {
         script.src = "//a4p.adpartner.pro/jsunit?id=5987&ref=" + encodeURIComponent(document.referrer) + "&" + Math.random();
         head.appendChild(script);
       `;
-      ukrnet.appendChild(script);
+      adpartner.appendChild(script);
     }
     
   },[]);

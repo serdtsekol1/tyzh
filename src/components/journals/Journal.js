@@ -17,7 +17,7 @@ function Journal({match}) {
         let apiUrl = `${config.get("apiDomain")}/magazines/${match.params.id}`;
         await axios.get(apiUrl)
         .then(res =>{ 
-          console.log(res.data);
+          // console.log(res.data);
           setJournalItem(res.data);
           setLoading(false);
 
