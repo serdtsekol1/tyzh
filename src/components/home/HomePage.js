@@ -50,7 +50,7 @@ function HomePage() {
       .catch(err => console.log(err));
       await axios.get(`${config.get("apiDomain")}/videos/live/`)
       .then(res =>{ 
-        console.log(res.data);
+       
         setVideoTranslation(res.data);
         setLoading(false);
       })
