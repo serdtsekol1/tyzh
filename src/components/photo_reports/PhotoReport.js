@@ -22,7 +22,7 @@ function PhotoReport({match}){
 
     const increaseStatCounter = async () => {
         let path = `/news/galleries/${match.params.id}`;
-        let fullUrl = `${config.get("apiDomain")}${path}`;
+        let fullUrl = `https://newtest.tyzhden.ua/api${path}`;
         if(!getCookie(`galleries_stats_${match.params.id}`)) {
             setCookie(`galleries_stats_${match.params.id}`, true, 1, fullUrl);
             await axios.put(fullUrl)
