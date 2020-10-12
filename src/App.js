@@ -59,15 +59,31 @@ function App() {
             <Redirect from='/Publications/:category/:id' to='/:category/:id' />
             <Redirect from='/Publications/:category/page=:page' to='/:category/page=:page' />
             
-            <Route exact path="/:category" component={Articles} />
+            <Route exact path="/Politics" component={Articles} />
+            <Route exact path="/Economics" component={Articles} />
+            <Route exact path="/World" component={Articles} />
+            <Route exact path="/Society" component={Articles} />
+            <Route exact path="/Culture" component={Articles} />
+            <Route exact path="/History" component={Articles} />
+            <Route exact path="/Science" component={Articles} />
+            <Route exact path="/Pandemic" component={Articles} />
+            <Route exact path="/Election" component={Articles} />
+
+            <Route exact path="/Politics/page=:page" component={Articles} />
+            <Route exact path="/Economics/page=:page" component={Articles} />
+            <Route exact path="/World/page=:page" component={Articles} />
+            <Route exact path="/Society/page=:page" component={Articles} />
+            <Route exact path="/Culture/page=:page" component={Articles} />
+            <Route exact path="/History/page=:page" component={Articles} />
+            <Route exact path="/Science/page=:page" component={Articles} />
+            <Route exact path="/Pandemic/page=:page" component={Articles} />
+            <Route exact path="/Election/page=:page" component={Articles} />
             
-            <Route
-              exact
-              path="/:category/page=:page"
-              component={Articles}
-            />
+            <Route exact path="/:category/:id" component={Article}/>
+
             
-            <Route exact path="/:category/:id" component={Article} />
+
+            
 
 
             <Route path="*" component={PageNotFound} />
