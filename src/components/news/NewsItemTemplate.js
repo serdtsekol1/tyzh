@@ -29,23 +29,34 @@ function getImgSrc(content) {
     return src[0];
 }
 
+
+function getDate(public_ts){
+  let today = new Date();
+  let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric',  timeZone: 'UTC'};
+  let date = "";
+  if (public_ts) {
+    date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
+
+    if (new Date(public_ts).getDate() === today.getDate()) {
+      options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
+      date = `Cьогодні, ${date}`;
+    }
+ 
+  if (new Date(public_ts).getYear() < today.getYear()) {
+      options = { year:'numeric',hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
+    }
+  }
+  return date;
+}
+
+
 function NewsItemTemplate(props) {
   let tags = props.newsItem.tags? props.newsItem.tags.split(","):[];
   let today = new Date();
   // today.setDate(today.getDate() - 5);
 
-  let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric',  timeZone: 'UTC'};
-  let date = "";
-  if (props.newsItem.public_ts) {
-    date = new Date(props.newsItem.public_ts).toLocaleTimeString('uK-UK', options);
-
-    if (new Date(props.newsItem.public_ts).getDate() === today.getDate()) {
-      options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
-      date = new Date(props.newsItem.public_ts).toLocaleTimeString('uK-UK', options);
-      date = `Cьогодні, ${date}`;
-    }
-  }
-  
   return (
     <PublicationAbstract publication={props.newsItem}>
     <div className="container">
@@ -55,7 +66,7 @@ function NewsItemTemplate(props) {
           {props.newsItem.type_of_ad? <p className="author-location author-location-no-margin">{props.newsItem.type_of_ad}</p> :""}
           <h1 className="big-post-header news-header ">{props.newsItem.title}</h1>
           <div className="news-date">
-            <DateAndAuthor date={date} />
+            <DateAndAuthor date={getDate(props.newsItem.public_ts)} />
           </div>
         </div>
         <div className="col-12 col-md-9">

@@ -19,12 +19,24 @@ import "./journalItem.scss";
 import "../common/css/tabs.scss";
 
 
+
+function getDate(public_ts){
+    const today = new Date();
+    let options = { month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
+    let date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+    if (new Date(public_ts).getYear() < today.getYear()) {
+        options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+        date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+      }
+    return date;
+  }
+
+
 function JournalTemplate(props) {
     let journal = props.journalItem? props.journalItem: {};
-    let today = new Date();
-    let options = { month: 'long', day: 'numeric',  timeZone: 'UTC'};
+    
     let date = "";
-    date = new Date(journal.created_ts).toLocaleDateString('uK-UK', options);
+    date = getDate(journal.created_ts);
     let publicationsComponents=[];
     if (journal.articles){
         publicationsComponents = journal.articles.map(publication => {

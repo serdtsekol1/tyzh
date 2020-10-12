@@ -18,6 +18,19 @@ import SkeletonNewsPage from "../loading_skeletons/SkeletonNewsPage";
 import "./news.scss";
 import MetaTags from "../common/MetaTagsComponent";
 
+
+function getDate(public_ts){
+  const today = new Date();
+  let options = { month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
+  let date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+  if (new Date(public_ts).getYear() < today.getYear()) {
+      options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+    }
+  return date;
+}
+
+
 function News({match}){
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(match.params.page);
@@ -37,7 +50,7 @@ function News({match}){
       else apiUrl = `${config.get("apiDomain")}/news/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
-        // console.log(res.data);
+        
         let firstNewsDate = new Date(res.data.results[0].public_ts);
         let lastNewsDate = new Date(res.data.results[res.data.results.length-1].public_ts);
         setNews(getDates(firstNewsDate,lastNewsDate).map(
@@ -58,9 +71,9 @@ function News({match}){
       if (page!=match.params.page) fetchData(match.params.page);
       else fetchData(page);
   },[page,match.params.page]);
-  let options = {  month: 'long', day: 'numeric' };
+
   const groupedNewsComponents = news.map(news => <div className="news-wrap" id={news.date.getDate()*10}>
-    <p className="news-date">{news.date.toLocaleDateString('uK-UK', options)}</p>
+    <p className="news-date">{getDate(news.date)}</p>
    <NewsBlock id={news.date.getDate()} news={news.news} /></div>);
   
   const handlePageClick = async (data) => {
@@ -72,7 +85,7 @@ function News({match}){
   function getDates(startDate, stopDate) {
     let dateArray = new Array();
     let currentDate = startDate;
-    // console.log(currentDate, stopDate);
+    
     while (currentDate.setHours(1,0,0,0) >= stopDate.setHours(1,0,0,0)) {   
         
         dateArray.push(new Date (currentDate));

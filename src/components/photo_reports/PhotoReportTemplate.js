@@ -19,21 +19,35 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "../common/css/post.scss";
 
 
+
+function getDate(public_ts){
+  let today = new Date();
+  let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric',  timeZone: 'UTC'};
+  let date = "";
+  if (public_ts) {
+    date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
+
+    if (new Date(public_ts).getDate() === today.getDate()) {
+      options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
+      date = `Cьогодні, ${date}`;
+    }
+ 
+  if (new Date(public_ts).getYear() < today.getYear()) {
+      options = { year:'numeric',hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
+    }
+  }
+  return date;
+}
+
+
 function PhotoReportTemplate(props){
    let photoReport = props.photoReport;
-   let today = new Date();
-   let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric',  timeZone: 'UTC'};
-   let date = "";
+  
    let authors = photoReport.author? [photoReport.author]:[];
-   if (photoReport.created_ts) {
-     date = new Date(photoReport.created_ts).toLocaleTimeString('uK-UK', options);
-
-     if (new Date(photoReport.created_ts).getDate() === today.getDate()) {
-       options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
-       date = new Date(photoReport.created_ts).toLocaleTimeString('uK-UK', options);
-       date = `Cьогодні, ${date}`;
-     }
-    }
+ 
+  
     
     const images = photoReport.items? photoReport.items.map(image => {
         return {"original": image.image,
@@ -54,7 +68,7 @@ function PhotoReportTemplate(props){
                
                     <div className="news-date">
                      
-                        <DateAndAuthor date={date} author={authors}/>
+                        <DateAndAuthor date={getDate(photoReport.created_ts)} author={authors}/>
                     </div>
                 </div>
                 <div className="d-none d-md-block col-md-2 text-right">

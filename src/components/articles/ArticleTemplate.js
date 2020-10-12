@@ -22,11 +22,21 @@ import "../common/css/post.scss";
 import ArticlesBlock from "../fragments/AtriclesBlock";
 import MagazineMaterial from "../fragments/MagazineMaterial";
 
+
+function getDate(public_ts){
+  const today = new Date();
+  let options = { month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
+  let date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+  if (new Date(public_ts).getYear() < today.getYear()) {
+      options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+    }
+  return date;
+}
+
+
 function ArticleTemplate(props) {
-  let options = {  month: 'long', day: 'numeric',  timeZone: 'UTC'};
   let thisUrl= window.location.href;
-
-
 
 
   return (
@@ -41,7 +51,7 @@ function ArticleTemplate(props) {
      
         {(props.article.authors) ?
         ( <div className="category-and-date">
-          <DateAndAuthor date={new Date(props.article.public_ts).toLocaleDateString('uK-GB', options)} author={props.article.authors} /> 
+          <DateAndAuthor date={getDate(props.article.public_ts)} author={props.article.authors} /> 
           <CategoryLink solid={true} categoryInfo={props.article} />
         </div>)
       : ""}

@@ -4,19 +4,31 @@ import DateAndAuthor from "./DateAndAuthor";
 import "./css/press_item.scss";
 
 
-function PressItem(props){
-    /* Used in all press listed items: news list, articles list, columns list */
+
+function getDate(public_ts){
     const today = new Date();
     today.setHours(today.getHours() + 3);
-    //today.setDate(today.getDate() - 5);
     let options = {  month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
     let timeOptions = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
-    let date = new Date(props.pressItem.public_ts).toLocaleDateString('uK-UK', options);
-    if (new Date(props.pressItem.public_ts).getDate() === today.getDate()) { 
-        date = new Date(props.pressItem.public_ts).toLocaleTimeString('uK-UK', timeOptions);
+    let date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+    if (new Date(public_ts).getDate() === today.getDate()) { 
+        date = new Date(public_ts).toLocaleTimeString('uK-UK', timeOptions);
         date = `Cьогодні, ${date}`;
     }
+    if (new Date(public_ts).getYear() < today.getYear()) {
+        options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+        date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+      }
+
+
+    return date;
+  }
+
+function PressItem(props){
+    /* Used in all press listed items: news list, articles list, columns list */
     
+    const today = new Date();
+    today.setHours(today.getHours() + 3);
       
     return (
     <div className="pressInfo">
@@ -36,7 +48,7 @@ function PressItem(props){
     {props.pressItem.abstract}
     </p>
     <DateAndAuthor
-    date={date}
+    date={getDate(props.pressItem.public_ts)}
     author={props.pressItem.authors? props.pressItem.authors: (props.pressItem.author?[props.pressItem.author]:null)}
     />
     </div>

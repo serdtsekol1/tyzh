@@ -9,12 +9,25 @@ import Skeleton from "react-loading-skeleton";
 
 import './css/magazine_material.scss';
 
+
+function getDate(public_ts){
+    const today = new Date();
+    let options = { month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
+    let date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+    if (new Date(public_ts).getYear() < today.getYear()) {
+        options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+        date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+      }
+    return date;
+  }
+
+
 function MagazineMaterial(props) {
     const [magazine, setMagazine] = useState(null);
     const [loading, setLoading] = useState(false);
-    let history = useHistory();
-    let options = { month: 'long', day: 'numeric',  timeZone: 'UTC'};
     let date = "";
+    let history = useHistory();
+   
    
     useEffect (()=>{
         setLoading(true);
@@ -35,8 +48,7 @@ function MagazineMaterial(props) {
           fetchData();
         
       },[props.magazine_id]);
-      if (magazine)
-      date = new Date(magazine.created_ts).toLocaleDateString('uK-UK', options);
+      if (magazine) date = getDate(magazine.created_ts);
     return(
     <div>
      {loading && <Skeleton height={124} style={{marginBottom: 64}}/>}

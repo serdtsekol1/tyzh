@@ -19,22 +19,32 @@ import "./columns.scss";
 
 
 
+function getDate(public_ts){
+  let today = new Date();
+  let options = { month: 'long', day: 'numeric', timeZone: 'UTC'};
+  let date = "";
+  if (public_ts) {
+    date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+
+    if (new Date(public_ts).getDate() === today.getDate()) {
+      options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
+      date = `Cьогодні, ${date}`;
+    }
+    if (new Date(public_ts).getYear() < today.getYear()) {
+      options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+    }
+  }
+  return date;
+}
+
 function ColumnTemplate(props){
     let columnItem = props.columnItem;
     let author_name = columnItem.author?columnItem.author.fullname2ua:"";
-    let today = new Date();
+    
     let tags = columnItem.tags? columnItem.tags.split(","):[];
-    let options = {  hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
-    let date = "";
-    if (columnItem.public_ts) {
-      date = new Date(columnItem.public_ts).toLocaleTimeString('uK-UK', options);
-
-      if (new Date(columnItem.public_ts).getDate() === today.getDate()) {
-        options = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
-        date = new Date(columnItem.public_ts).toLocaleTimeString('uK-UK', options);
-        date = `Cьогодні, ${date}`;
-      }
-    }
+   
 
     return (
       <PublicationAbstract publication={columnItem}>
@@ -56,7 +66,7 @@ function ColumnTemplate(props){
           {columnItem.location? <p className="author-location">{columnItem.location}</p>:""}
             <p className="big-post-header column-title ">{columnItem.title}</p>
              <div className="column-date">
-               <DateAndAuthor date={date} />
+               <DateAndAuthor date={getDate(columnItem.public_ts)} />
             </div>
             </div>
          </div>
@@ -74,7 +84,7 @@ function ColumnTemplate(props){
           <div className="column-mobile d-block d-md-none">
             <p className="big-post-header news-header  ">{columnItem.title}</p>
             <div className="news-date">
-              <DateAndAuthor date={date} />
+              <DateAndAuthor date={getDate(columnItem.public_ts)} />
             </div>
           </div>
           

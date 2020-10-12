@@ -3,12 +3,23 @@ import "./journalItem.scss";
 import Button from "../common/Button";
 import { Link } from "react-router-dom";
 
-function JournalItem(props) {
-  let options = {  month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
-  let journalData = props.journalItem;
-  
 
-  let date = new Date(journalData.created_ts).toLocaleDateString('uK-UK', options);
+function getDate(public_ts){
+  const today = new Date();
+  let options = { month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
+  let date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+  if (new Date(public_ts).getYear() < today.getYear()) {
+      options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+      date = new Date(public_ts).toLocaleDateString('uK-UK', options);
+    }
+  return date;
+}
+
+
+function JournalItem(props) {
+  
+  let journalData = props.journalItem;
+  let date = getDate(journalData.created_ts);
   return (
     <div className="journal">
       <Link to={`/Magazine/${journalData.num}`}>
