@@ -103,7 +103,7 @@ function ArticleTemplate(props) {
           </div>
           <GorizontalAdBanner adpartner={true} ukrnet={true} mixadvert={true} yottos={true}/>
           <div className="d-block d-md-none">
-            <BannersPanel ria={true} />
+            {/* <BannersPanel ria={true} /> */}
           </div>
 
           <Header size="big" title="Bам також буде цікаво почитати" />
@@ -111,7 +111,7 @@ function ArticleTemplate(props) {
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} quantity={12} />
-          <BannersPanel admixer_id="admixed-article" admixer={true} adriver_id="adriver-article" adriver={true}/>
+          <BannersPanel moxTV={true} moxTV_id="moxTV_article" admixer_id="admixed-article" admixer={true} adriver_id="adriver-article" adriver={true}/>
         </div>
       </div>
     ):""}

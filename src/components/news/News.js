@@ -97,7 +97,7 @@ function News({match}){
              <Fragment size={"big"} noShowMore={true}>
                <Header  size="small" style={{ fontSize: 32 }} title="Новини" />
                 {groupedNewsComponents}
-                <GorizontalAdBanner mixadvert={true} />
+                <GorizontalAdBanner  mox={true} mixadvert={true} />
                 <div className="pagination-articles">
                   <ReactPaginate
                     previousLabel={"Назад"}
@@ -120,7 +120,7 @@ function News({match}){
            <Header title=" Останні статті" size="small" />
            <ArticlesBlock lastArticles={true} quantity={3} noShowMore={true}/>
                <LastJournalBanner/>
-             <BannersPanel adriver={true} adriver_id="adriver-news-list" ria={true} />
+             <BannersPanel  moxTV={true} moxTV_id="moxTV_newsitem" adriver={true} adriver_id="adriver-news-list" ria={true} />
            </div>
          </div>
        </div>

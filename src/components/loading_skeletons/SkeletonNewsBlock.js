@@ -20,7 +20,7 @@ const SkeletonNewsBlock = (props) => {
           {Array(props.quantity)
             .fill()
             .map((item, index) => (
-              <SkeletonPressItem small="true"/>
+              <SkeletonPressItem key={index} small="true"/>
             ))}
             </ul>
             <Skeleton height={40}/>

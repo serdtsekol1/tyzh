@@ -10,7 +10,16 @@
     width: 255px !important;
     height: auto !important;
   }
-  
+  a > img{
+    width: 255px !important;
+    height: auto !important;
+  }
+
+}
+
+#google_image_div{
+  width: 255px !important;
+  height: auto !important;  
 }
 .image-banner:nth-child(1) {
   margin-top: 0 !important;
@@ -18,3 +27,4 @@
     margin-top: 0;
   }
 }
+

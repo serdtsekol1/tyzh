@@ -22,7 +22,7 @@ function LastJournalBanner() {
   },[]);
 
   
-  const journalComponent =  journals.map( journal => <JournalItem journalItem={journal}/>);
+  const journalComponent =  journals.map( journal => <JournalItem key={journal.id} journalItem={journal}/>);
 
 
  

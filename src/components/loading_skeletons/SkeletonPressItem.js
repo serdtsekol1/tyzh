@@ -16,7 +16,7 @@ const SkeletonPressItem = (props) => {
       <section>
         <div className="skeleton-press-info">
         
-        <p class ="press-title"><Skeleton height={props.small? 65 : 70} width={`100%`}/></p>
+        <p className ="press-title"><Skeleton height={props.small? 65 : 70} width={`100%`}/></p>
         <p><Skeleton  height={24} width={`100%`}/></p>
         </div>
       </section>

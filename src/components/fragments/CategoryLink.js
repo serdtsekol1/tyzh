@@ -7,15 +7,15 @@ function CategoryLink(props) {
   let category_color="#с0с0с0";
   let category_id = "";
   if (props.categoryInfo.journal){
-    if (categoties.filter(category => category.category_name == props.categoryInfo.journal.nameua) .length > 0) {
+    if (categoties.filter(category => category.category_name === props.categoryInfo.journal.nameua) .length > 0) {
       category_color = categoties.find(
         category => {
-          return category.category_name == props.categoryInfo.journal.nameua;
+          return category.category_name === props.categoryInfo.journal.nameua;
         }
       ).category_color;
       category_id = categoties.find(
         category => {
-          return category.category_name == props.categoryInfo.journal.nameua;
+          return category.category_name === props.categoryInfo.journal.nameua;
         }
       ).category_id;
     }

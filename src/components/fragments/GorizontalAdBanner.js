@@ -12,7 +12,7 @@ function GorizontalAdBanner(props) {
 
   useEffect(() => {
     const ukrnet = document.getElementById("ukrnet_wrap");
-    const ukrnetScript = document.getElementById("ukrnet_body");
+   
     
     
     if (ukrnet){
@@ -42,6 +42,25 @@ function GorizontalAdBanner(props) {
       `;
       adpartner.appendChild(script);
     }
+    const mox = document.getElementById("mox-big");
+    if (mox){
+
+      const script4 = document.createElement("script");
+    
+      script4.type = "text/javascript";
+      script4.innerHTML = `
+      (function(window, document, undefined) {
+        var script_tag = document.createElement('script');
+        script_tag.src = 'https://ad.mox.tv/mox/mwayss_invocation.min.js?pzoneid=4914&height=480&width=640&tld=tyzhden.ua&ctype=div';
+        var container = document.querySelectorAll('[data-id=_mwayss-1e3b9c08c427b60fbeb6b15d36b5b81e]')[0];    
+        container.setAttribute('id', (container.getAttribute('data-id')+(new Date()).getTime()));
+        container.removeAttribute('data-id');
+        container.parentNode.insertBefore(script_tag, container);
+    })(window, document);
+      `;
+      mox.appendChild(script4);
+    }
+
     
   },[]);
  
@@ -100,6 +119,11 @@ function GorizontalAdBanner(props) {
           <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=7708" async/>
          
         </div>
+        :""}
+        {props.mox?
+        <div className="mox-big" className="banner subscription-banner">
+        <div data-id='_mwayss-1e3b9c08c427b60fbeb6b15d36b5b81e'></div></div>
+      
         :""}
     </div>
   );

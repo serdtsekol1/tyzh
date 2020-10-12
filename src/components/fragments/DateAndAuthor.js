@@ -24,7 +24,7 @@ function DateAndAuthor(props) {
         ""
       )}
       {props.author ? (
-        <div>{props.author.map(author=><Link to={`/Author/${author.id}`}><p className="author">{author.fullname2ua}</p></Link>)}</div>
+        <div>{props.author.map(author=><Link key={author.id} to={`/Author/${author.id}`}><p key={author.id*34} className="author">{author.fullname2ua}</p></Link>)}</div>
           
       ) : (
         ""
