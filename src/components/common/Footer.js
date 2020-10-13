@@ -9,8 +9,6 @@ function Footer() {
   const head = document.querySelector("head");
 
   useEffect(()=>{
-
-    
      
       const script1 = document.createElement("script");
       script1.async = true;
@@ -21,16 +19,6 @@ function Footer() {
       script1.setAttribute("data-sender","admixer");
       script1.setAttribute("data-bundle","desktop");
       head.appendChild(script1);
-           
-      // add another script to head element
-     
-      const script2 = document.createElement("script");
-      
-      script2.type = "text/javascript";
-      script2.innerHTML = `(window.globalAmlAds = window.globalAmlAds || []).push(function() {
-        globalAml.defineSlot({z: '57a6d7b3-706f-46d9-bac3-c895f600dd59', ph: 'admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053', i: 'inv-nets', s:'5ddce36f-65eb-4a6c-8099-05579d369625', sender: 'admixer'});
-        globalAml.singleRequest("admixer");});`;
-      head.appendChild(script2);
       
   },[])
   const categoriesComponents = categoriesData
