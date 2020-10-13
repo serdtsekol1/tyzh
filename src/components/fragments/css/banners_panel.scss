@@ -6,14 +6,7 @@
   img {
     @include image-cover;
   }
-  div{
-    width: 255px !important;
-    height: auto !important;
-  }
-  a > img{
-    width: 255px !important;
-    height: auto !important;
-  }
+ 
 
 }
 
