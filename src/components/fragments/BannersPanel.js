@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import ScriptTag from 'react-script-tag';
 import {Helmet} from 'react-helmet';
 import "./css/banners_panel.scss";
@@ -8,23 +8,31 @@ import MoxTV from "./MoxTV";
 
 
 function BannersPanel(props) {
-  
+  const location = useLocation();
   function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
   const [riaRandomNumber, setRiaRandomNumber] = useState(getRandomInt(2));
   const [myRandomNumber, setMyRandomNumber] = useState(getRandomInt(5));
   const [randomNum,setRandonNum] = useState(getRandomInt(1000000000));
-
-    
   
   useEffect(() => {
+
     const admixer = document.getElementById(`${props.admixer_id}_wrap`);
     const adriverItem = document.getElementById(`${props.adriver_id}_wrap`);
     
     
     
-    if (admixer){
+    if (admixer && (admixer.firstElementChild.childNodes.length === 0)) {
+        const head = document.querySelector("head");
+
+        const script2 = document.createElement("script");
+
+        script2.type = "text/javascript";
+        script2.innerHTML = `(window.globalAmlAds = window.globalAmlAds || []).push(function() {
+        globalAml.defineSlot({z: '57a6d7b3-706f-46d9-bac3-c895f600dd59', ph: 'admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053', i: 'inv-nets', s:'5ddce36f-65eb-4a6c-8099-05579d369625', sender: 'admixer'});
+        globalAml.singleRequest("admixer");});`;
+        head.appendChild(script2);
    
       
       if(!admixer.querySelector(props.admixer_id)) {
@@ -41,8 +49,6 @@ function BannersPanel(props) {
       }
     }
     if (adriverItem){
- 
-
        
         const script1 = document.createElement("script");
         script1.type = "text/javascript";
