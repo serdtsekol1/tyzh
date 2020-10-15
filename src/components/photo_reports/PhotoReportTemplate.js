@@ -68,7 +68,7 @@ function PhotoReportTemplate(props){
                
                     <div className="news-date">
                      
-                        <DateAndAuthor date={getDate(photoReport.created_ts)} author={authors}/>
+                        <DateAndAuthor date={getDate(photoReport.public_ts)} author={authors}/>
                     </div>
                 </div>
                 <div className="d-none d-md-block col-md-2 text-right">
