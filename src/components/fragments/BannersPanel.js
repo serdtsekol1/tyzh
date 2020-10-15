@@ -138,19 +138,26 @@ function BannersPanel(props) {
        
        <div id={`adriver_banner_${randomNum}`}> </div>
       </div>
+      :""}
+
+      {props.rubric==="Культура"?
+        <a href="https://kcw.com.ua/">
+          <img className="image-banner"
+           src={require("../../images/banners/zhovten.gif")}/>
+        </a>
+      :""}
+
+      {props.moxTV?
+        <MoxTV moxTV_id={props.moxTV_id}/>
         :""}
       {props.admixer?
-     
-     <div  className="d-none d-lg-block image-banner" id={`${props.admixer_id}_wrap`}>
-       <div id='admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053' data-sender='admixer'></div>
-      
-     </div>
+      <div  className="d-none d-lg-block image-banner" id={`${props.admixer_id}_wrap`}>
+        <div id='admixer_57a6d7b3706f46d9bac3c895f600dd59_zone_8436_sect_2199_site_2053' data-sender='admixer'></div>
+      </div>
   
-     :""}
-     
-     {props.moxTV?
-      <MoxTV moxTV_id={props.moxTV_id}/>
       :""}
+     
+     
      
      
      

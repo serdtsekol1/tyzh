@@ -121,7 +121,7 @@ function ArticleTemplate(props) {
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} quantity={12} />
-          <BannersPanel moxTV={true} moxTV_id="moxTV_article" admixer_id="admixed-article" admixer={true} adriver_id="adriver-article" adriver={true}/>
+          <BannersPanel rubric={props.article.journal.nameua} moxTV={true} moxTV_id="moxTV_article" admixer_id="admixed-article" admixer={true} adriver_id="adriver-article" adriver={true}/>
         </div>
       </div>
     ):""}
