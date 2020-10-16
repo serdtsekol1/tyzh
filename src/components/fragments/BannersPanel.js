@@ -149,7 +149,7 @@ function BannersPanel(props) {
       {props.news?
         <a href="http://meetdocsfestival.com/">
           <img className="image-banner"
-           src={require("../../images/banners/zhovten.gif")}/>
+           src={require("../../images/banners/meet_docs.png")}/>
         </a>
       :""}
       

@@ -133,7 +133,7 @@ function News({match}){
            <Header title=" Останні статті" size="small" />
            <ArticlesBlock lastArticles={true} quantity={3} noShowMore={true}/>
                <LastJournalBanner/>
-             <BannersPanel  moxTV={true} moxTV_id="moxTV_newsitem" adriver={true} adriver_id="adriver-news-list" ria={true} />
+             <BannersPanel news={true} moxTV={true} moxTV_id="moxTV_newsitem" adriver={true} adriver_id="adriver-news-list" ria={true} />
            </div>
          </div>
        </div>
