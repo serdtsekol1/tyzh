@@ -126,7 +126,6 @@ function BannersPanel(props) {
        <div>
          <div className="image-banner" id="riainfo_df6a0fef366e4ceafcb5a3af5528a951"></div>
           <ScriptTag type="text/javascript" src="https://cobrand.ria.com/js/ria_informer.js?riacode=df6a0fef366e4ceafcb5a3af5528a951"/>
-
         </div>
         :""}
         </div>

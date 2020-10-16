@@ -85,10 +85,17 @@ function GorizontalAdBanner(props) {
        <div className="banner subscription-banner">
           {randomNumber==0?
           <div>
-            <ins className="image-banner adsbyyottos" style={{display:"block"}}
+            {/* <ins className="image-banner adsbyyottos" style={{display:"block"}}
                       data-ad-client="d6512604-0c08-11e8-ae50-002590d97638"></ins> 
-              <ScriptTag async defer src="https://cdn.yottos.com/adsbyyottos.js"/>
+              <ScriptTag async defer src="https://cdn.yottos.com/adsbyyottos.js"/> */}
+            {props.adpartner?
+              <div className="banner subscription-banner">
+                <div id="adpartner-jsunit-5987">
+                </div>
+            </div>
+            :""}
           </div>
+          
         :""}
         {randomNumber==1?
           <div>
@@ -106,13 +113,7 @@ function GorizontalAdBanner(props) {
         :""}
         </div>
         :""}
-        {props.adpartner?
-        <div className="banner subscription-banner">
-          <div id="adpartner-jsunit-5987">
-          
-          </div>
-      </div>
-        :""}
+       
          {props.mixadvert?
         <div className="banner subscription-banner">
           <div id="MIXADV_7708" className="MIXADVERT_NET"></div>
