@@ -146,6 +146,13 @@ function BannersPanel(props) {
            src={require("../../images/banners/zhovten.gif")}/>
         </a>
       :""}
+      {props.news?
+        <a href="http://meetdocsfestival.com/">
+          <img className="image-banner"
+           src={require("../../images/banners/zhovten.gif")}/>
+        </a>
+      :""}
+      
 
       {props.moxTV?
         <MoxTV moxTV_id={props.moxTV_id}/>
@@ -157,20 +164,7 @@ function BannersPanel(props) {
   
       :""}
      
-     
-     
-     
-     
-      
-  
-       
 
-    
-
-     
-     
-
-     
     </div>
   );
 }
