@@ -60,9 +60,9 @@ function JournalTemplate(props) {
                     <p className="big-journal-title">Журнал «Український тиждень»</p>
                     <p className="big-journal-number">{`№ ${journal.localnum} (${journal.num})`}</p>
                     <p className="big-journal-date"> від {date}</p>
-                    <Link to="/">
+                    <a href="https://old.tyzhden.ua/InfoCenter/Subscription/">
                         <Button title="Передплата" redButton={true}/>
-                    </Link>
+                    </a>
                     </div>
                     
                 </div>
