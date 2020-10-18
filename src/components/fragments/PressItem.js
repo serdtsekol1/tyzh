@@ -32,17 +32,19 @@ function PressItem(props){
       
     return (
     <div className="pressInfo">
-    {((new Date(props.pressItem.public_ts))>today)?
+    {((new Date(props.pressItem.public_ts) )>today)?
     
         <p className="press-title press-title-disabled">
             {props.pressItem.title}
         </p>
     :
+      (props.type != "pressreleases") ?
         <Link to={`/${props.type}/${props.pressItem.id}`}>
-        <p className="press-title press-title-hover">
-            {props.pressItem.title}
-        </p>
-        </Link>
+            <p className="press-title press-title-hover">
+                {props.pressItem.title}
+            </p>
+        </Link> :
+        <a class="press-title press-title-hover" href={`https://old.tyzhden.ua/PressReleases/${props.pressItem.id}`}>{props.pressItem.title}</a>
     }
     <p className="press-abstract">
     {props.pressItem.abstract}

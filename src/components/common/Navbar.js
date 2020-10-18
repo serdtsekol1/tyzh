@@ -180,12 +180,12 @@ const Header = props => {
                 </NavLink>
               </li>
               <li className="last-nav nav-item">
-                <a href="https://old.tyzhden.ua/PressReleases/"
+                <NavLink to="/PressReleases/page=1"
                   activeStyle={activeStyle}
                   className="nav-link"
                 >
                   Прес-релізи
-                </a>
+                </NavLink>
               </li>
               
               

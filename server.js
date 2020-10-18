@@ -821,7 +821,48 @@ app.get('/Election/page:=page', function(request, response) {
   });
 });
 
+app.get('/PressReleases', function(request, response) {
 
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+
+
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_KEYWORDS/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/PressReleases`);
+
+
+    response.send(result);
+  });
+});
+
+app.get('/PressReleases/page=:page', function(request, response) {
+
+
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+
+
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_KEYWORDS/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/PressReleases`);
+
+
+    response.send(result);
+  });
+});
 
 app.get('/:category/:id', function(request, response) {
   const category = request.params.category;
@@ -849,9 +890,6 @@ app.get('/:category/:id', function(request, response) {
   });
   });
 });
-
-
-
 
 
 app.use(express.static(path.resolve(__dirname, './build')));
