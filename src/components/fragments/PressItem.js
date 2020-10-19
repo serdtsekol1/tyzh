@@ -44,7 +44,11 @@ function PressItem(props){
                 {props.pressItem.title}
             </p>
         </Link> :
-        <a class="press-title press-title-hover" href={`https://old.tyzhden.ua/PressReleases/${props.pressItem.id}`}>{props.pressItem.title}</a>
+        <Link to={`/PressReleases/${props.pressItem.id}`}>
+            <p className="press-title press-title-hover">
+              {props.pressItem.title}
+            </p>
+        </Link>
     }
     <p className="press-abstract">
     {props.pressItem.abstract}

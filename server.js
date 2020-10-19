@@ -855,7 +855,7 @@ app.get('/PressReleases/page=:page', function(request, response) {
     data = data.replace(/\$OG_TITLE/g, "Прес-релізи - Український тиждень");
     data = data.replace(/\$OG_DESCRIPTION/g, "Прес-релізи - Український тиждень");
     data = data.replace(/\$OG_KEYWORDS/g, "Прес-релізи - Український тиждень");
-    data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_IMAGE/g, 'http://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
     result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/PressReleases`);
 
@@ -864,11 +864,30 @@ app.get('/PressReleases/page=:page', function(request, response) {
   });
 });
 
+
+app.get('/PressReleases/:id', function(request, response) {
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+  const id = request.params.id;
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+
+
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_KEYWORDS/g, "Прес-релізи - Український тиждень");
+    data = data.replace(/\$OG_IMAGE/g, 'http://tyzhden.ua/main2/images/logo.jpg');
+    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/PressReleases/${id}`);
+    response.send(result);
+  });
+});
+
 app.get('/:category/:id', function(request, response) {
   const category = request.params.category;
   const id = request.params.id;
   let articleInfoJson={};
-  
+
   const filePath = path.resolve(__dirname, './build', 'index.html');
   fetch(`https://tyzhden.ua/api/publications/${id}`)
     .then(res => res.json())
@@ -876,8 +895,8 @@ app.get('/:category/:id', function(request, response) {
 
   // read in the index.html file
   fs.readFile(filePath, 'utf8', function (err,data) {
-   
-    
+
+
     // replace the special strings with server generated strings
     data = data.replace(/\$OG_TITLE/g, articleInfoJson.title);
     data = data.replace(/\$OG_DESCRIPTION/g, articleInfoJson.abstract);

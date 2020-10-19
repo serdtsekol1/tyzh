@@ -23,7 +23,7 @@ function PressreleaseBlockItem(props) {
         {props.pressreleaseItem.image1 ?
           <div className={props.mainPressrelease ? "col-12 order-0" : "col-12 order-0 col-md-4 order-md-1"}>
             {((new Date(props.pressreleaseItem.public_ts)<=today))?
-              <a href={`https://old.tyzhden.ua/PressReleases/${props.pressreleaseItem.id}`}>
+              <Link to={`/PressReleases/${props.pressreleaseItem.id}`}>
                 <img
                   id=""
                   className="article-block-image atricle-image-margin"
@@ -31,7 +31,7 @@ function PressreleaseBlockItem(props) {
                   src={props.pressreleaseItem? props.pressreleaseItem.image1: ""}
                   alt="Зображення: стаття"
                 />
-              </a>
+              </Link>
               :<img
                 id=""
                 className="article-block-image atricle-image-margin"
