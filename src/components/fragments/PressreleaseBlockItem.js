@@ -20,27 +20,6 @@ function PressreleaseBlockItem(props) {
             <PressItem pressItem={props.pressreleaseItem} type={`pressreleases`} />
           </div>
         </div>
-        {props.pressreleaseItem.image1 ?
-          <div className={props.mainPressrelease ? "col-12 order-0" : "col-12 order-0 col-md-4 order-md-1"}>
-            {((new Date(props.pressreleaseItem.public_ts)<=today))?
-              <Link to={`/PressReleases/${props.pressreleaseItem.id}`}>
-                <img
-                  id=""
-                  className="article-block-image atricle-image-margin"
-
-                  src={props.pressreleaseItem? props.pressreleaseItem.image1: ""}
-                  alt="Зображення: стаття"
-                />
-              </Link>
-              :<img
-                id=""
-                className="article-block-image atricle-image-margin"
-
-                src={props.pressreleaseItem? props.pressreleaseItem.image1: ""}
-                alt="Зображення: стаття"
-              />}
-          </div>
-          : ""}
       </div>
     </div>
   );
