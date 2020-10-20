@@ -42,7 +42,7 @@ function Pressrelease({ match }) {
 
   return (
     <div>
-      {/*{loading && <SkeletonPublication article={true}/>}*/}
+      {loading && <SkeletonPublication article={true}/>}
       {!loading &&
       <div>{pressreleaseComponent}</div>
       }
