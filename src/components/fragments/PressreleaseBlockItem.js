@@ -16,7 +16,7 @@ function PressreleaseBlockItem(props) {
       <div className="row">
         <div className={(props.mainPressrelease || !props.pressreleaseItem.image1) ? "col-12 order-1" : "col-12 order-1 col-md-8 order-md-0"}>
          
-          <div className="articlesInfo">
+          <div className="pressreleasesInfo">
             <PressItem pressItem={props.pressreleaseItem} type={`pressreleases`} />
           </div>
         </div>
