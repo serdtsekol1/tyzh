@@ -7,6 +7,8 @@ import Parser from "html-react-parser";
 import Fragment from "../fragments/Fragment";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
+import BannersPanel from "../fragments/BannersPanel";
+import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
@@ -107,6 +109,7 @@ function PressreleaseTemplate(props) {
             </p> */}
                 <SocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.pressrelease.title} color="red" />
               </div>
+              <GorizontalAdBanner adpartner={true} ukrnet={true} mixadvert={true} yottos={true}/>
               <div className="d-block d-md-none">
                 {/* <BannersPanel ria={true} /> */}
               </div>
@@ -116,6 +119,7 @@ function PressreleaseTemplate(props) {
             </div>
             <div className="d-none d-md-block col-md-3">
               <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.pressrelease.title} quantity={12} />
+              <BannersPanel moxTV={true} moxTV_id="moxTV_pressrelease" admixer_id="admixed-article" admixer={true} />
             </div>
           </div>
         ):""}
