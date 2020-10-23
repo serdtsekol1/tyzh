@@ -58,6 +58,16 @@
   }
 }
 
+
+.pressreleasesInfo {
+  padding-left: $padding-extra-small;
+
+  @include for-phones {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
 .article-block-item {
   margin-bottom: 32px;
 }
