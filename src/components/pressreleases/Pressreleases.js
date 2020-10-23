@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import PressreleaseBlockItem from "../fragments/PressreleaseBlockItem";
 import PressreleasesBlock from "../fragments/PressreleasesBlock";
+import BannersPanel from "../fragments/BannersPanel";
 import Header from "../common/Header";
 import MetaTags from "../common/MetaTagsComponent";
 
@@ -96,6 +97,11 @@ function Pressreleases({match}) {
               </PressreleasesBlock>
             </div>
             }
+          </div>
+
+
+          <div className="d-none d-md-block col-md-3 ">
+            <BannersPanel admixer_id="admixed-articles" admixer={true} ria={true} adriver_id="adriver-articles"  />
           </div>
         </div>
 
