@@ -23,7 +23,7 @@ function Pressrelease({ match }) {
 
     const fetchData = async () => {
 
-      let apiUrl = `https://newtest.tyzhden.ua/api/pressreleases/${match.params.id}`;
+      let apiUrl = `https://tyzhden.ua/api/pressreleases/${match.params.id}`;
       await axios.get(apiUrl)
         .then(res =>{
 
