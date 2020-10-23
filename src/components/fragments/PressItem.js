@@ -32,16 +32,22 @@ function PressItem(props){
       
     return (
     <div className="pressInfo">
-    {((new Date(props.pressItem.public_ts))>today)?
+    {((new Date(props.pressItem.public_ts) )>today)?
     
         <p className="press-title press-title-disabled">
             {props.pressItem.title}
         </p>
     :
+      (props.type != "pressreleases") ?
         <Link to={`/${props.type}/${props.pressItem.id}`}>
-        <p className="press-title press-title-hover">
-            {props.pressItem.title}
-        </p>
+            <p className="press-title press-title-hover">
+                {props.pressItem.title}
+            </p>
+        </Link> :
+        <Link to={`/PressReleases/${props.pressItem.id}`}>
+            <p className="press-title press-title-hover">
+              {props.pressItem.title}
+            </p>
         </Link>
     }
     <p className="press-abstract">

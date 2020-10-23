@@ -7,9 +7,11 @@ import PageNotFound from "./components/common/PageNotFound";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Articles from "./components/articles/Articles";
+import Pressreleases from "./components/pressreleases/Pressreleases";
 import Journals from "./components/journals/Journals";
 import Journal from "./components/journals/Journal";
 import Article from "./components/articles/Article";
+import Pressrelease from "./components/pressreleases/Pressrelease";
 import Author from "./components/authors/Author";
 import News from "./components/news/News";
 import NewsItem from "./components/news/NewsItem";
@@ -55,7 +57,10 @@ function App() {
             <Route path="/Magazine/:id" component={Journal} />
             <Route exact path="/Publications" component={Articles} />
             <Route exact path="/Publications/page=:page" component={Articles} />
-            
+            <Route exact path="/PressReleases" component={Pressreleases} />
+            <Route exact path="/PressReleases/page=:page" component={Pressreleases} />
+            <Route exact path="/PressReleases/:id" component={Pressrelease} />
+
             <Redirect from='/Publications/:category/:id' to='/:category/:id' />
             <Redirect from='/Publications/:category/page=:page' to='/:category/page=:page' />
             
@@ -80,11 +85,6 @@ function App() {
             <Route exact path="/Election/page=:page" component={Articles} />
             
             <Route exact path="/:category/:id" component={Article}/>
-
-            
-
-            
-
 
             <Route path="*" component={PageNotFound} />
           </Switch>
