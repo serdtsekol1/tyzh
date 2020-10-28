@@ -1,4 +1,4 @@
-/*! adriver.core.2 v2.3.11 */
+/*! adriver.core.2 v2.3.12 */
 function adriver(ph, prm, defer, nocall){
 	var my = this, p = ph;
 	if(this instanceof adriver){
@@ -59,9 +59,9 @@ adriver.extend = function(){
 };
 
 adriver.extend(adriver, {
-	version: '2.3.10',
+	version: '2.3.12',
 
-	defaults: {tail256: escape(document.referrer || 'unknown')},
+	defaults: {tail256: encodeURIComponent(document.referrer || 'unknown')},
 	items: {},
 	options: {},
 	plugins: {},
@@ -76,6 +76,7 @@ adriver.extend(adriver, {
 				s = document.createElement('script');
 			s.setAttribute('type', 'text/javascript');
 			s.setAttribute('charset', 'windows-1251');
+			s.setAttribute("referrerpolicy","no-referrer-when-downgrade");
 			s.setAttribute('src', req.split('![rnd]').join(Math.round(Math.random()*9999999)));
 			s.onreadystatechange = function(){if(/loaded|complete/.test(this.readyState)){head.removeChild(s);s.onload = null;}};
 			s.onload = function(){head.removeChild(s);};
