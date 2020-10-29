@@ -304,7 +304,7 @@ app.get('/News/:id', function(request, response) {
               src.push(img[i].src);
           }
       }
-      newsImage = src[0]?src[0]:'https://tyzhden.ua/main2/images/logo2.jpg';
+      newsImage = src[0]?src[0]:'/main2/images/logo2.jpg';
 
 
     // replace the special strings with server generated strings
@@ -868,19 +868,26 @@ app.get('/PressReleases/page=:page', function(request, response) {
 app.get('/PressReleases/:id', function(request, response) {
   const filePath = path.resolve(__dirname, './build', 'index.html');
   const id = request.params.id;
+  let pressreleasesInfoJson={};
   // read in the index.html file
-  fs.readFile(filePath, 'utf8', function (err,data) {
+  fetch(`https://tyzhden.ua/api/pressreleases/${id}`)
+    .then(res => res.json())
+    .then(json => {
+      pressreleasesInfoJson = json;
+
+      fs.readFile(filePath, 'utf8', function (err, data) {
 
 
-    // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, "Прес-релізи - Український тиждень");
-    data = data.replace(/\$OG_DESCRIPTION/g, "Прес-релізи - Український тиждень");
-    data = data.replace(/\$OG_KEYWORDS/g, "Прес-релізи - Український тиждень");
-    data = data.replace(/\$OG_IMAGE/g, 'http://tyzhden.ua/main2/images/logo.jpg');
-    data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/PressReleases/${id}`);
-    response.send(result);
-  });
+        // replace the special strings with server generated strings
+        data = data.replace(/\$OG_TITLE/g, pressreleasesInfoJson.title);
+        data = data.replace(/\$OG_DESCRIPTION/g, pressreleasesInfoJson.abstract);
+        data = data.replace(/\$OG_KEYWORDS/g, pressreleasesInfoJson.tags);
+        data = data.replace(/\$OG_IMAGE/g, pressreleasesInfoJson.image1);
+        data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+        result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/PressReleases/${id}`);
+        response.send(result);
+      });
+    });
 });
 
 app.get('/:category/:id', function(request, response) {
