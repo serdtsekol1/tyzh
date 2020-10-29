@@ -19,7 +19,7 @@ function getDate(public_ts){
 function JournalItem(props) {
   
   let journalData = props.journalItem;
-  let date = getDate(journalData.created_ts);
+  let date = getDate(journalData.public_ts);
   return (
     <div className="journal">
       <Link to={`/Magazine/${journalData.num}`}>

@@ -36,7 +36,7 @@ function JournalTemplate(props) {
     let journal = props.journalItem? props.journalItem: {};
     
     let date = "";
-    date = getDate(journal.created_ts);
+    date = getDate(journal.public_ts);
     let publicationsComponents=[];
     if (journal.articles){
         publicationsComponents = journal.articles.map(publication => {
