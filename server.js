@@ -354,7 +354,7 @@ app.get('/Magazine/:id', function(request, response) {
   let magazineInfoJson={};
   
   const filePath = path.resolve(__dirname, './build', 'index.html');
-  fetch(`https://tyzhden.ua/api/magazines/${id}`)
+  fetch(`https://tyzhden.ua/api/magazines/short/${id}`)
     .then(res => res.json())
     .then(json => {magazineInfoJson = json;
 
@@ -368,7 +368,7 @@ app.get('/Magazine/:id', function(request, response) {
     data = data.replace(/\$OG_KEYWORDS/g, `Український тиждень № ${magazineInfoJson.localnum} (${magazineInfoJson.num})`);
     data = data.replace(/\$OG_IMAGE/g, magazineInfoJson.image1);
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
-    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Gallery/${id}`);
+    result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Magazine/${id}`);
     
 
     response.send(result);
