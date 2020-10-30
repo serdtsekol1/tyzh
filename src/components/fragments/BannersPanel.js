@@ -139,19 +139,6 @@ function BannersPanel(props) {
       </div>
       :""}
       
-      {props.news?
-        <a href="http://meetdocsfestival.com/">
-          <img className="image-banner"
-           src={require("../../images/banners/meet_docs.png")}/>
-        </a>
-      :""}
-      {props.news?
-        <a href="https://youtu.be/opjM1COBTGE">
-          <img className="image-banner"
-               src={require("../../images/banners/Atlantis-300x250-tygden.png")}/>
-        </a>
-        :""}
-      
 
       {props.moxTV?
         <MoxTV moxTV_id={props.moxTV_id}/>
