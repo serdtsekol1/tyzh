@@ -138,13 +138,7 @@ function BannersPanel(props) {
        <div id={`adriver_banner_${randomNum}`}> </div>
       </div>
       :""}
-
-      {props.rubric==="Культура"?
-        <a href="https://kcw.com.ua/">
-          <img className="image-banner"
-           src={require("../../images/banners/zhovten.gif")}/>
-        </a>
-      :""}
+      
       {props.news?
         <a href="http://meetdocsfestival.com/">
           <img className="image-banner"
