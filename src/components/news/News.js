@@ -21,10 +21,10 @@ import MetaTags from "../common/MetaTagsComponent";
 
 function getDate(public_ts){
   const today = new Date();
-  let options = { month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
+  let options = { month: 'long', day: 'numeric' ,  timeZone: 'Europe/Kiev'};
   let date = new Date(public_ts).toLocaleDateString('uK-UK', options);
   if (new Date(public_ts).getYear() < today.getYear()) {
-      options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+      options = {  year:'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Kiev'};
       date = new Date(public_ts).toLocaleDateString('uK-UK', options);
     }
   return date;
