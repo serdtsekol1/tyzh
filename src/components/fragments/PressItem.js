@@ -11,7 +11,7 @@ function getDate(public_ts){
     let options = {  month: 'long', day: 'numeric' ,  timeZone: 'UTC'};
     let timeOptions = {  hour: 'numeric', minute: 'numeric',  timeZone: 'UTC'};
     let date = new Date(public_ts).toLocaleDateString('uK-UK', options);
-    if (new Date(public_ts).getDate() === today.getDate()) { 
+    if (new Date(public_ts).getDate() === today.getDate() && new Date(public_ts).getMonth() === today.getMonth() && new Date(public_ts).getFullYear() === today.getFullYear()) {
         date = new Date(public_ts).toLocaleTimeString('uK-UK', timeOptions);
         date = `Cьогодні, ${date}`;
     }
