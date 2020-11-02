@@ -116,7 +116,7 @@ function Articles({ match }) {
           {mainArticle}
          
           <ArticlesBlock categorial ={initialCategoryAPI?true:false} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
-          <GorizontalAdBanner mixadvert={true}/>
+          <GorizontalAdBanner mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
             <div className="pagination-articles">
             <ReactPaginate
               previousLabel={"Назад"}

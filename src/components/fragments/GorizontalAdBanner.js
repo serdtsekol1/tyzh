@@ -148,15 +148,25 @@ function GorizontalAdBanner(props) {
         :""}
         </div>
         :""}
-       
-         {props.mixadvert?
+
+        {props.randomBoolean ?
+          <div className="banner subscription-banner">
+            <div id="MIXADV_7708" className="MIXADVERT_NET"></div>
+            <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=7708" async/>
+          </div> :
+          <div className="banner subscription-banner">
+            <div id="r22149" className="r22149"></div>
+          </div>
+        }
+
+        {props.mixadvert && !props.redTram ?
           <div className="banner subscription-banner">
             <div id="MIXADV_7708" className="MIXADVERT_NET"></div>
             <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=7708" async/>
           </div>
         :""}
 
-        {props.redTram?
+        {props.redTram && !props.mixadvert ?
           <div className="banner subscription-banner">
             <div id="r22149" className="r22149"></div>
           </div>
