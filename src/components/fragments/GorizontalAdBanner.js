@@ -60,7 +60,42 @@ function GorizontalAdBanner(props) {
       `;
       mox.appendChild(script4);
     }
+    const redTram = document.getElementById("r22149");
+    if (redTram){
 
+      const script5 = document.createElement("script");
+      script5.id = "#adpartner-body";
+      script5.type = "text/javascript";
+      script5.innerHTML = `
+        (function() {
+        var tag = (function() {
+                var informers = document.getElementsByClassName('r22149'),
+                    len = informers.length;
+                return len ? informers[len - 1] : null;
+            })(),
+            idn = (function() {
+                var i, num, idn = '', chars = "abcdefghiklmnopqrstuvwxyz",
+                    len = Math.floor((Math.random() * 2) + 4);
+                for (i = 0; i < len; i++) {
+                    num = Math.floor(Math.random() * chars.length);
+                    idn += chars.substring(num, num + 1);
+                }
+                return idn;
+            })();
+          var container = document.createElement('div');
+              container.id = idn;
+              container.innerHTML = 'загрузка...';
+          tag.appendChild(container);
+          var script = document.createElement('script');
+              script.className = 's22149';
+              script.src = 'https://goods.redtram.com/j/22149.js';
+              script.charset = 'utf-8';
+              script.dataset.idn = idn;
+          tag.parentNode.insertBefore(script, tag);
+        })();
+      `;
+      redTram.appendChild(script5);
+    }
     
   },[]);
  
@@ -115,16 +150,21 @@ function GorizontalAdBanner(props) {
         :""}
        
          {props.mixadvert?
-        <div className="banner subscription-banner">
-          <div id="MIXADV_7708" className="MIXADVERT_NET"></div>
-          <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=7708" async/>
-         
-        </div>
+          <div className="banner subscription-banner">
+            <div id="MIXADV_7708" className="MIXADVERT_NET"></div>
+            <ScriptTag type="text/javascript" src="https://m.mixadvert.com/show/?id=7708" async/>
+          </div>
         :""}
+
+        {props.redTram?
+          <div className="banner subscription-banner">
+            <div id="r22149" className="r22149"></div>
+          </div>
+        :""}
+
         {props.mox?
-        <div className="mox-big" className="banner subscription-banner">
-        <div data-id='_mwayss-1e3b9c08c427b60fbeb6b15d36b5b81e'></div></div>
-      
+          <div className="mox-big" className="banner subscription-banner">
+          <div data-id='_mwayss-1e3b9c08c427b60fbeb6b15d36b5b81e'></div></div>
         :""}
     </div>
   );
