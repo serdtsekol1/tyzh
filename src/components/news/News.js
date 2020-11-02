@@ -110,7 +110,7 @@ function News({match}){
              <Fragment size={"big"} noShowMore={true}>
                <Header  size="small" style={{ fontSize: 32 }} title="Новини" />
                 {groupedNewsComponents}
-                <GorizontalAdBanner  mox={true} mixadvert={true} />
+                <GorizontalAdBanner  mox={true} mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)} />
                 <div className="pagination-articles">
                   <ReactPaginate
                     previousLabel={"Назад"}
