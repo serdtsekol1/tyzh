@@ -800,7 +800,7 @@ app.get('/Pandemic/page=:page', function(request, response) {
 });
 
 
-app.get('/Election/page:=page', function(request, response) {
+app.get('/Election/page=:page', function(request, response) {
  
   const filePath = path.resolve(__dirname, './build', 'index.html');
 
