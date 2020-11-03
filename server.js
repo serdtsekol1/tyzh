@@ -404,6 +404,34 @@ app.get('/Author/:id', function(request, response) {
   });
 });
 
+app.get('/Author/:id/:tab', function(request, response) {
+
+  const id = request.params.id;
+  let infoJson={};
+
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+  fetch(`https://tyzhden.ua/api/authors/page/${id}`)
+    .then(res => res.json())
+    .then(json => {infoJson = json;
+
+      // read in the index.html file
+      fs.readFile(filePath, 'utf8', function (err,data) {
+
+
+        // replace the special strings with server generated strings
+        data = data.replace(/\$OG_TITLE/g, infoJson.fullname2ua);
+        data = data.replace(/\$OG_DESCRIPTION/g, infoJson.fullname2ua);
+        data = data.replace(/\$OG_KEYWORDS/g, infoJson.fullname2ua);
+        data = data.replace(/\$OG_IMAGE/g, infoJson.image1url);
+        data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+        result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Author/${id}`);
+
+
+        response.send(result);
+      });
+    });
+});
+
 app.get('/Politics', function(request, response) {
   
  

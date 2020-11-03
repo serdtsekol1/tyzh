@@ -50,6 +50,7 @@ function App() {
             <Route exact path="/Columns/50/:id" component={Column} />
             <Redirect from='/Columns/:id' to='/Columns/50/:id' />
             <Route exact path="/Author/:id" component={Author} />
+            <Route exact path="/Author/:id/:tab" component={Author} />
             <Route exact path="/Gallery" component={PhotoReports} />
             <Route exact path="/Gallery/page=:page" component={PhotoReports} />
             <Route exact path="/Gallery/:id" component={PhotoReport} />

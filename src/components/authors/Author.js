@@ -21,6 +21,28 @@ import "./author.scss";
 
 function Author({match}){
   const [loading, setLoading] = useState(false);
+  let history = useHistory()
+
+  const hanldleChange = (eventKey) => {
+    console.log("DODODO");
+    switch (eventKey) {
+      case "news":
+        history.push(`/Author/${match.params.id}/News`);
+        break;
+      case "articles":
+        history.push(`/Author/${match.params.id}/Publications`);
+        break;
+      case "photo":
+        history.push(`/Author/${match.params.id}/Gallery`);
+        break;
+      case "columns":
+        history.push(`/Author/${match.params.id}/Column`);
+        break;
+      default:
+        history.push(`/Author/${match.params.id}`);
+        break;
+    }
+  };
  
   let [author, setAuthor] = useState({});
   let [isNews, setIsNews] = useState(false);
@@ -88,11 +110,23 @@ function Author({match}){
      
   },[match.params.id]);
   useEffect(()=>{
-    if (isPhotoreports) setActiveTab("photo");
-    if (isArticles) setActiveTab("articles");
-    if (isNews) setActiveTab("news");
-    if (isColumns) setActiveTab("columns");
-  },[isNews,isColumns,isArticles,isPhotoreports])
+    switch (match.params.tab) {
+      case "Publications":
+        if(isArticles) setActiveTab("articles");
+        break;
+      case "News":
+        if (isNews) setActiveTab("news");
+        break;
+      case "Gallery":
+        if (isPhotoreports) setActiveTab("photo");
+        break;
+      case "Column":
+        if (isColumns) setActiveTab("columns");
+        break;
+      default:
+        break;
+    }
+  },[isNews,isColumns,isArticles,isPhotoreports,match.params.tab]);
     
     return (
        
@@ -132,7 +166,7 @@ function Author({match}){
       </div>
       <div className="row">
           <div classname="col-12 author-tabs">
-            <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example">
+            <Tabs defaultActiveKey={activeTab} onChange={hanldleChange} id="uncontrolled-tab-example">
                 {isColumns?   
                   <Tab eventKey="columns" title="Колонки">
                   <div className="row">
