@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { Tabs, Tab } from 'react-bootstrap';
 import axios from 'axios';
 import config from "react-global-configuration";
@@ -21,28 +21,8 @@ import "./author.scss";
 
 function Author({match}){
   const [loading, setLoading] = useState(false);
-  let history = useHistory()
-
-  const hanldleChange = (eventKey) => {
-    console.log("DODODO");
-    switch (eventKey) {
-      case "news":
-        history.push(`/Author/${match.params.id}/News`);
-        break;
-      case "articles":
-        history.push(`/Author/${match.params.id}/Publications`);
-        break;
-      case "photo":
-        history.push(`/Author/${match.params.id}/Gallery`);
-        break;
-      case "columns":
-        history.push(`/Author/${match.params.id}/Column`);
-        break;
-      default:
-        history.push(`/Author/${match.params.id}`);
-        break;
-    }
-  };
+  let history = useHistory();
+  console.log(history.push);
  
   let [author, setAuthor] = useState({});
   let [isNews, setIsNews] = useState(false);
@@ -124,9 +104,31 @@ function Author({match}){
         if (isColumns) setActiveTab("columns");
         break;
       default:
+        history.push(`/Author/${match.params.id}`);
         break;
     }
   },[isNews,isColumns,isArticles,isPhotoreports,match.params.tab]);
+
+  function hanldleChange(key){
+    console.log(key);
+    switch (key) {
+      case "news":
+        history.push(`/Author/${match.params.id}/News`);
+        break;
+      case "articles":
+        history.push(`/Author/${match.params.id}/Publications`);
+        break;
+      case "photo":
+        history.push(`/Author/${match.params.id}/Gallery`);
+        break;
+      case "columns":
+        history.push(`/Author/${match.params.id}/Column`);
+        break;
+      default:
+        history.push(`/Author/${match.params.id}`);
+        break;
+    }
+  };
     
     return (
        
@@ -141,94 +143,90 @@ function Author({match}){
       ct100={true} keywords={author.fullname2ua}
       noImage={true}
       />
-      <div className="row column-header">
-        <div className="col-3 col-md-2">
-          <div className="column-author-photo-wrap">
-            <img className="column-author-photo" 
-            src={author.image1url}/>
+        <div className="row column-header">
+          <div className="col-3 col-md-2">
+            <div className="column-author-photo-wrap">
+              <img className="column-author-photo"
+              src={author.image1url}/>
+            </div>
+          </div>
+
+          <div className="col-9 col-md-10 d-none d-md-block">
+            <div className="author-info-wrap">
+
+              <p className="big-post-header column-title ">{author.fullname2ua}</p>
+              {/* <p className="author-info">{author.info?author.info:"На жаль, у нас немає інформації про цього автора"}</p>
+              */}
+              </div>
+           </div>
+           <div className="col-9 col-md-10 d-block d-md-none">
+            <div className="mobile-column-author-info">
+             <p className="column-author-name">{author.fullname2ua}</p>
+
+           </div>
           </div>
         </div>
-        
-        <div className="col-9 col-md-10 d-none d-md-block">
-          <div className="author-info-wrap">
-           
-            <p className="big-post-header column-title ">{author.fullname2ua}</p>
-            {/* <p className="author-info">{author.info?author.info:"На жаль, у нас немає інформації про цього автора"}</p>
-            */}
+        <div className="row">
+            <div classname="col-12 author-tabs">
+              <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example" onSelect={hanldleChange}>
+                  {isColumns?
+                    <Tab eventKey="columns" title="Колонки">
+                    <div className="row">
+                            <div className="col-12 col-md-9">
+
+                            <ColumnsTab authorId={match.params.id}/>
+                            </div>
+                            <div className="col-12 col-md-3">
+                            <BannersPanel my={true} />
+                            </div>
+                        </div>
+
+                    </Tab>
+                    :""}
+                    {isNews?
+                    <Tab eventKey="news" title="Новини">
+                        <div className="row">
+                            <div className="col-12 col-md-9">
+
+                                <NewsTab authorId={match.params.id}/>
+
+                            </div>
+                            <div className="col-12 col-md-3">
+                            <BannersPanel my={true} ria={true} />
+                            </div>
+                        </div>
+                    </Tab>
+                    :""}
+                    {isArticles?
+                    <Tab eventKey="articles" title="Статті">
+                        <div className="row">
+                            <div className="col-12 col-md-9">
+
+                                <ArticlesTab authorId={match.params.id}/>
+
+                            </div>
+                            <div className="col-12 col-md-3">
+                            <BannersPanel my={true}  ria={true} />
+                            </div>
+                        </div>
+                    </Tab>
+                    :""}
+                    {isPhotoreports?
+                    <Tab eventKey="photo" title="Фоторепортажі">
+                        <div className="row">
+                            <div className="col-12 col-md-9">
+                            <PhotoreportsTab authorId={match.params.id}/>
+
+                            </div>
+                            <div className="col-12 col-md-3 banner-no-margin">
+                            <BannersPanel ria={true} my={true}/>
+                            </div>
+                        </div>
+                    </Tab>
+                    :""}
+                </Tabs>
             </div>
-         </div>
-         <div className="col-9 col-md-10 d-block d-md-none">
-          <div className="mobile-column-author-info">
-           <p className="column-author-name">{author.fullname2ua}</p>
-           
-         </div>
         </div>
-      </div>
-      <div className="row">
-          <div classname="col-12 author-tabs">
-            <Tabs defaultActiveKey={activeTab} onChange={hanldleChange} id="uncontrolled-tab-example">
-                {isColumns?   
-                  <Tab eventKey="columns" title="Колонки">
-                  <div className="row">
-                          <div className="col-12 col-md-9">
-                        
-                          <ColumnsTab authorId={match.params.id}/>
-                          </div>
-                          <div className="col-12 col-md-3">
-                          <BannersPanel my={true} />
-                          </div>
-                      </div>
-                      
-                  </Tab>
-                  :""}
-                  {isNews?
-                  <Tab eventKey="news" title="Новини">
-                      <div className="row">
-                          <div className="col-12 col-md-9">
-                              
-                              <NewsTab authorId={match.params.id}/>
-
-                          </div>
-                          <div className="col-12 col-md-3">
-                          <BannersPanel my={true} ria={true} />
-                          </div>
-                      </div>
-                  </Tab>
-                  :""}
-                  {isArticles?
-                  <Tab eventKey="articles" title="Статті">
-                      <div className="row">
-                          <div className="col-12 col-md-9">
-                              
-                              <ArticlesTab authorId={match.params.id}/>
-
-                          </div>
-                          <div className="col-12 col-md-3">
-                          <BannersPanel my={true}  ria={true} />
-                          </div>
-                      </div>
-                  </Tab>
-                  :""}
-                  {isPhotoreports?
-                  <Tab eventKey="photo" title="Фоторепортажі">
-                      <div className="row">
-                          <div className="col-12 col-md-9">
-                          <PhotoreportsTab authorId={match.params.id}/>
-
-                          </div>
-                          <div className="col-12 col-md-3 banner-no-margin">
-                          <BannersPanel ria={true} my={true}/>
-                          </div>
-                      </div>
-                  </Tab>
-                  :""}
-                
-                  
-              
-              </Tabs>
-                    </div>
-                   
-             </div>
       </div>
       }
     </div>
