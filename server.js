@@ -3,7 +3,23 @@ const fetch   = require('node-fetch');
 const app = express();
 const port = process.env.PORT || 4999;  
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
+function quoteattr(s, preserveCR) {
+  preserveCR = preserveCR ? '&#13;' : '\n';
+  return ('' + s) /* Forces the conversion to string. */
+    .replace(/&/g, '&amp;') /* This MUST be the 1st replacement. */
+    .replace(/'/g, '&apos;') /* The 4 other predefined entities, required. */
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    /*
+    You may add other replacements here for HTML only
+    (but it's not necessary).
+    Or for XML, only if the named entities are defined in its DTD.
+    */
+    .replace(/\r\n/g, preserveCR) /* Must be before the next replacement. */
+    .replace(/[\r\n]/g, preserveCR);
+}
 
 app.get('/', function(request, response) {
  
@@ -308,8 +324,8 @@ app.get('/News/:id', function(request, response) {
 
 
     // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g, newsInfoJson.title);
-    data = data.replace(/\$OG_DESCRIPTION/g, newsInfoJson.abstract);
+    data = data.replace(/\$OG_TITLE/g, quoteattr(newsInfoJson.title));
+    data = data.replace(/\$OG_DESCRIPTION/g, quoteattr(newsInfoJson.abstract));
     data = data.replace(/\$OG_KEYWORDS/g, newsInfoJson.tags);
     data = data.replace(/\$OG_IMAGE/g, newsImage);
 
