@@ -22,7 +22,6 @@ import "./author.scss";
 function Author({match}){
   const [loading, setLoading] = useState(false);
   let history = useHistory();
-  console.log(history.push);
  
   let [author, setAuthor] = useState({});
   let [isNews, setIsNews] = useState(false);
@@ -110,7 +109,6 @@ function Author({match}){
   },[isNews,isColumns,isArticles,isPhotoreports,match.params.tab]);
 
   function hanldleChange(key){
-    console.log(key);
     switch (key) {
       case "news":
         history.push(`/Author/${match.params.id}/News`);
