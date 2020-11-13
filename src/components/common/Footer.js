@@ -61,7 +61,7 @@ function Footer() {
                 <p className="copyright">&copy;2007–{thisYear.getFullYear()} Тиждень.ua</p>
                 <a href="https://old.tyzhden.ua/Virtual/56509" className="advertisers">Рекламодавцям</a>
                 <p className="separator">|</p>
-                <a  className="rss" href="https://old.tyzhden.ua/RSS/">
+                <a  className="rss" href="https://tyzhden.ua/RSS/All/">
                   <img
                   src={require("../../images/icons/logo_rss.svg")}
                   alt="rss"
