@@ -66,11 +66,11 @@ function GorizontalAdBanner(props) {
  
 
   return (
-    <div className="d-none d-md-block">
+    <div className="d-md-block">
       {props.ukrnet?
       <div id="ukrnet_wrap" className="banner subscription-banner">
         <ScriptTag async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
-        <ins className="adsbygoogle"
+         <ins className="adsbygoogle"
             style={{display:"block", textAlign:"center", paddingBottom: "20px"}}
             data-ad-layout="in-article"
             data-ad-format="fluid"
