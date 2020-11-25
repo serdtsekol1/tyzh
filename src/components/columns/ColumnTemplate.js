@@ -14,6 +14,7 @@ import Header from "../common/Header";
 import Fragment from "../fragments/Fragment";
 import ColumnsBlock from "../fragments/ColumsBlock";
 import PublicationAbstract from "../common/PublicationAbstract";
+import MagazineMaterial from "../fragments/MagazineMaterial";
 
 import "./columns.scss";
 
@@ -87,7 +88,11 @@ function ColumnTemplate(props){
               <DateAndAuthor date={getDate(columnItem.public_ts)} />
             </div>
           </div>
-          
+
+          {columnItem.magazine_id?
+            <MagazineMaterial magazine_id={columnItem.magazine_id}/>
+            :""}
+
           <p className="article-block-abstract-big">{columnItem.abstract}</p>
           
           {columnItem.content?
