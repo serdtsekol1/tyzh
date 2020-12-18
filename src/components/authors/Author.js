@@ -180,7 +180,7 @@ function Author({match}){
           </div>
         </div>
         <div className="row">
-            <div classname="col-12 author-tabs">
+            <div className="col-12 author-tabs">
               <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example" onSelect={hanldleChange}>
                   {isColumns?
                     <Tab eventKey="columns" title="Колонки">
