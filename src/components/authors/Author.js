@@ -88,7 +88,22 @@ function Author({match}){
       
      
   },[match.params.id]);
+
   useEffect(()=>{
+
+    if(isArticles) {
+      setActiveTab("articles")
+    }
+    if(isNews) {
+      setActiveTab("news")
+    }
+    if(isPhotoreports) {
+      setActiveTab("photo")
+    }
+    if(isColumns) {
+      setActiveTab("columns")
+    }
+
     switch (match.params.tab) {
       case "Publications":
         if(isArticles) setActiveTab("articles");
@@ -165,7 +180,7 @@ function Author({match}){
           </div>
         </div>
         <div className="row">
-            <div classname="col-12 author-tabs">
+            <div className="col-12 author-tabs">
               <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example" onSelect={hanldleChange}>
                   {isColumns?
                     <Tab eventKey="columns" title="Колонки">
