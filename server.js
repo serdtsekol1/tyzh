@@ -928,6 +928,7 @@ app.get('/PressReleases/:id', function(request, response) {
         data = data.replace(/\$OG_KEYWORDS/g, pressreleasesInfoJson.tags);
         data = data.replace(/\$OG_IMAGE/g, pressreleasesInfoJson.image1);
         data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+        data = data.replace(/\$PR_BODY_TEXT/g,pressreleasesInfoJson.content )
         result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/PressReleases/${id}`);
         response.send(result);
       });
