@@ -140,18 +140,6 @@ const Header = props => {
                   <div className="dropdown-decoration"></div>
                 </div>
               </li>
-              <li className="nav-item active">
-                <NavLink
-                  activeStyle={activeStyle}
-                  exact
-                  to="/News/page=1"
-                  className="nav-link"
-                >
-                  Новини
-                </NavLink>
-              </li>
-
-              
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}

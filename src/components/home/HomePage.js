@@ -2,7 +2,6 @@ import React, { useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
 import axios from 'axios';
-import SmallNewsBlock from "./SmallNewsBlock";
 import HomeAuthorsBlock from "./HomeAuthorsBlock";
 import HomeAuthorsSmallBlock from "./HomeAuthorsSmallBlock";
 import PhotoReportBlock from "./PhotoReportBlock";
@@ -70,12 +69,7 @@ function HomePage() {
     <div className="container">
     <MetaTags/>
       <div className="row">
-        <div className="col-12 order-1 col-md-6 col-xl-3 order-md-1 order-xl-0">
-          <SmallNewsBlock />
-         
-           
-        </div>
-        <div className="col-12 order-0 col-md-12 col-xl-6 order-md-0 order-xl-1 ">
+        <div className="col-12 col-lg-9">
         
           {loading && <SkeletonMainArticle/>}
           {!loading &&
@@ -89,7 +83,7 @@ function HomePage() {
           }
         </div>
         
-        <div className="d-none d-md-block col-md-6 col-xl-3 order-md-2 order-xl-2">
+        <div className="d-none d-lg-block col-lg-3 col-xl-3">
           <HomeAuthorsSmallBlock/>
         </div>
     </div>
