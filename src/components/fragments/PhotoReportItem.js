@@ -11,6 +11,7 @@ function PhotoReportItem(props) {
     
     <div className="photo-report-item">
       {props.reportItem? 
+        <div>
       <Link to={`/Gallery/${props.reportItem.id}`}>
       <div className="image-cover-wrap">
         <img
@@ -20,10 +21,13 @@ function PhotoReportItem(props) {
         />
         <PhotosQuantityHolder quantity={props.reportItem.count} />
       </div>
+      </Link>
       <div>
+      <Link to={`/Gallery/${props.reportItem.id}`}>
         <p className="photo-report-title ">
           {props.reportItem.title}
         </p>
+      </Link>
         {props.reportItem.author?
           <Link to={`/Author/${props.reportItem.author.id}`}><p className="photo-report-author ">
             {props.reportItem.author.fullname2ua}
@@ -32,7 +36,7 @@ function PhotoReportItem(props) {
          : "" }
       </div>
      
-      </Link>
+        </div>
     :""}
     </div>
   );

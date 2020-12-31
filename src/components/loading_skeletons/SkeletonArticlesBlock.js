@@ -17,7 +17,7 @@ const SkeletonArticlesBlock = (props) => {
           {Array(props.quantity)
             .fill()
             .map((item, index) => (
-              <div className={`${style} article-block-item`}>
+              <div key={index} className={`${style} article-block-item`}>
               <div className="row">
                 <div
                   className={

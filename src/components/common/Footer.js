@@ -27,7 +27,7 @@ function Footer() {
       <NavLink
         to={"/" + category.category_id}
         className="footer-category"
-        key={category.categoty_id}
+        key={category.category_id}
       >
         {category.category_name_short}
       </NavLink>
