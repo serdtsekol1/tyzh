@@ -11,7 +11,7 @@ function JournalsFooter() {
     const fetchJournal= async () => {
       let today = new Date();
       const limit = 4;
-      await axios.get(`${config.get("apiDomain")}/magazines/year/${today.getFullYear()}/?limit=${limit}`)
+      await axios.get(`${config.get("apiDomain")}/magazines/?limit=${limit}`)
       .then(res =>{ 
     
         setJournalsFooter(res.data.results);
@@ -25,7 +25,7 @@ function JournalsFooter() {
  
 
   return (
-    <Fragment size="big" showMoreLink="/Magazines/2020">
+    <Fragment size="big" showMoreLink="/Magazines/">
       <div className="row">
         {journalsFooter.map(journal => (
           <div key={journal.id - 1000} className="col-12 col-md-3">
