@@ -136,9 +136,7 @@ function Articles({ match }) {
           </div>
            }
         </div>
-       
-        <div className="d-none d-md-block col-md-3 ">
-          <SmallNewsBlock />
+        <div className="d-none d-md-block col-md-3">
           <LastJournalBanner />
           <BannersPanel rubric={initialCategoryAPI} admixer_id="admixed-articles" admixer={true} adriver={true} adriver_id="adriver-articles"  />
         </div>
