@@ -93,7 +93,7 @@ function Footer() {
                   src={require("../../images/icons/location-24px.svg")}
                   alt="Місцезнаходження"
                 />
-                <p>01030, м.Київ, а/с 212</p>
+                <p>01054, м.Київ, а/с 268</p>
               </div>
               <div className="contact">
                 <img
