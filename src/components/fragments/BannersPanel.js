@@ -139,13 +139,6 @@ function BannersPanel(props) {
       </div>
       :""}
 
-      {props.adriver?
-        <a href="https://nbff.com.ua/">
-          <img className="image-banner"
-           src={require("../../images/banners/BF-300x250.gif")}/>
-        </a>
-      :""}
-
       {props.moxTV?
         <MoxTV moxTV_id={props.moxTV_id}/>
         :""}
