@@ -39,11 +39,9 @@ function MagazineMaterial(props) {
           
             setMagazine(res.data);
             setLoading(false);
-    
-            
             
             })
-          .catch(err => history.push('/page-not-found/'));  
+          .catch(err => console.log(err));
           };
           fetchData();
         
