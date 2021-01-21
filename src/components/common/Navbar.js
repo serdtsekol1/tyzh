@@ -36,6 +36,8 @@ const Header = props => {
   const activeStyle = {
     color: "#ED1B2F"
   };
+  const year = new Date().getFullYear();
+  const magazineYear = `Magazines/${year}`;
   const categoriesComponents = categoriesData
     .slice(0, categoriesData.length)
     .map(category => (
@@ -161,7 +163,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/Magazines/2020"
+                  to={magazineYear}
                   className="nav-link"
                 >
                   Журнал

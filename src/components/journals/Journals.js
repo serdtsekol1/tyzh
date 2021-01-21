@@ -11,7 +11,8 @@ function Journals() {
   let history = useHistory();
   let currentHrefParams = window.location.href.split("/");
   if (currentHrefParams[currentHrefParams.length - 1] == "") {
-    history.push(`/Magazines/2020`);
+    const year = new Date().getFullYear();
+    history.push(`/Magazines/${year}`);
   }
   return (
     <div>
