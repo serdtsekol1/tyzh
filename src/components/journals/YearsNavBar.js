@@ -7,7 +7,7 @@ import "./journals.scss";
 
 function YearsNavBar() {
   const firstYear = 2007;
-  const lastYear = 2020;
+  const lastYear = new Date().getFullYear();
   const [page, setPage] = useState(lastYear);
   const activeStyle = {
     color: "#ED1B2F",
