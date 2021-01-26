@@ -115,19 +115,11 @@ function BannersPanel(props) {
       </div>
       :""}
       {props.ria?
-       <div>
-         {riaRandomNumber==0?
-       <div>
-        <div className="image-banner" id="riainfo_612a42a8d345f0bd8b57a05e98f987f5"></div>
-          <ScriptTag type="text/javascript" src="https://cobrand.ria.com/js/ria_informer.js?riacode=612a42a8d345f0bd8b57a05e98f987f5" />
-        </div>
-        :""}
-         {riaRandomNumber==1?
-       <div>
-         <div className="image-banner" id="riainfo_df6a0fef366e4ceafcb5a3af5528a951"></div>
-          <ScriptTag type="text/javascript" src="https://cobrand.ria.com/js/ria_informer.js?riacode=df6a0fef366e4ceafcb5a3af5528a951"/>
-        </div>
-        :""}
+        <div>
+          <div>
+             <iframe id="612a42a8d345f0bd8b57a05e98f987f5" src="//affiliate.ria.com/service/state-informer?key=612a42a8d345f0bd8b57a05e98f987f5" width="100%" height="600px" frameborder="0" scrolling="no"></iframe>
+             <ScriptTag type="text/javascript" src="https://affiliate.ria.com/js/ria_informer_iframe.js" />
+          </div>
         </div>
       :""}
      

@@ -132,18 +132,10 @@ function GorizontalAdBanner(props) {
           </div>
           
         :""}
-        {randomNumber==1?
+        {randomNumber!=0?
           <div>
-           <div id="riainfo_3237491e3525b678833f071e7085c914"></div>
-            <ScriptTag type="text/javascript" src="https://cobrand.ria.com/js/ria_informer.js?riacode=3237491e3525b678833f071e7085c914"/>
-
-          </div>
-        :""}
-         {randomNumber==2?
-          <div>
-            <div id="riainfo_6489cdc5bd56e72056e105adc334e2bd"></div>
-            <ScriptTag type="text/javascript" src="https://cobrand.ria.com/js/ria_informer.js?riacode=6489cdc5bd56e72056e105adc334e2bd"/>
-
+            <iframe id="3237491e3525b678833f071e7085c914" src="//affiliate.ria.com/service/state-informer?key=3237491e3525b678833f071e7085c914" width="100%" height="182px" frameborder="0" scrolling="no"></iframe>
+            <ScriptTag type="text/javascript" src="https://affiliate.ria.com/js/ria_informer_iframe.js"/>
           </div>
         :""}
         </div>
