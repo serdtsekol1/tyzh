@@ -109,7 +109,7 @@ function PressreleaseTemplate(props) {
             </p> */}
                 <SocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.pressrelease.title} color="red" />
               </div>
-              <GorizontalAdBanner adpartner={true} ukrnet={true} mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)} yottos={true}/>
+              <GorizontalAdBanner adpartner={true} mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)} yottos={true}/>
               <div className="d-block d-md-none">
                 {/* <BannersPanel ria={true} /> */}
               </div>

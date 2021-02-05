@@ -11,21 +11,6 @@ function GorizontalAdBanner(props) {
   const [randomNumber, setRandomNumber] = useState(getRandomInt(3));
 
   useEffect(() => {
-    const ukrnet = document.getElementById("ukrnet_wrap");
-   
-    
-    
-    if (ukrnet){
-
-        const script = document.createElement("script");
-        script.id = "#ukrnet-body";
-        script.type = "text/javascript";
-        script.innerHTML = `
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        `;
-        ukrnet.appendChild(script);
-      
-    }
     const adpartner = document.getElementById("adpartner-jsunit-5987");
     if (adpartner){
 
@@ -102,19 +87,6 @@ function GorizontalAdBanner(props) {
 
   return (
     <div className="d-md-block">
-      {props.ukrnet?
-      <div id="ukrnet_wrap" className="banner subscription-banner">
-        <ScriptTag async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
-         <ins className="adsbygoogle"
-            style={{display:"block", textAlign:"center", paddingBottom: "20px"}}
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-7302036088769417"
-            data-ad-slot="3102276765"></ins>
-        
-
-       </div> : 
-       "" }
        {props.yottos?
        
        <div className="banner subscription-banner">

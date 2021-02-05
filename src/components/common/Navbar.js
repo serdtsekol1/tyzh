@@ -37,7 +37,7 @@ const Header = props => {
     color: "#ED1B2F"
   };
   const year = new Date().getFullYear();
-  const magazineYear = `Magazines/${year}`;
+  const magazineYear = `/Magazines/${year}`;
   const categoriesComponents = categoriesData
     .slice(0, categoriesData.length)
     .map(category => (
