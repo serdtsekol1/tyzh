@@ -111,7 +111,7 @@ function ArticleTemplate(props) {
             </p> */}
             <SocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} color="red" />
           </div>
-          <GorizontalAdBanner adpartner={true} ukrnet={true} mixadvert={true} yottos={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
+          <GorizontalAdBanner adpartner={true} mixadvert={true} yottos={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
           <div className="d-block d-md-none">
             {/* <BannersPanel ria={true} /> */}
           </div>

@@ -118,7 +118,7 @@ function JournalTemplate(props) {
                 </Tabs>
                
             </Fragment>
-            <GorizontalAdBanner ukrnet={true} mixadvert={true} yottos={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
+            <GorizontalAdBanner mixadvert={true} yottos={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
             <Header size="big" title="Інші номери"/>
             <JournalsFooter />
             </div>
