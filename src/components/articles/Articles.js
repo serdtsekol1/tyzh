@@ -138,7 +138,7 @@ function Articles({ match }) {
         </div>
         <div className="d-none d-md-block col-md-3">
           <LastJournalBanner />
-          <BannersPanel rubric={initialCategoryAPI} admixer_id="admixed-articles" admixer={true} adriver={true} adriver_id="adriver-articles"  />
+          <BannersPanel rubric={initialCategoryAPI} admixer_id="admixed-articles" custom_banner={true} admixer={true} adriver={true} adriver_id="adriver-articles"  />
         </div>
         </div>
 
