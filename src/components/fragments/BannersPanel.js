@@ -20,7 +20,6 @@ function BannersPanel(props) {
   useEffect(() => {
 
     const admixer = document.getElementById(`${props.admixer_id}_wrap`);
-    const adriverItem = document.getElementById(`${props.adriver_id}_wrap`);
 
     if (admixer && (admixer.firstElementChild.childNodes.length === 0)) {
         const head = document.querySelector("head");
@@ -116,12 +115,6 @@ function BannersPanel(props) {
         <a href="https://bit.ly/2YFK3Uy">
           <img className="image-banner" src={require("../../images/banners/FE-300x250.jpg")}/>
         </a>
-      :""}
-
-      {props.adriver?
-      <div id={`${props.adriver_id}_wrap`} className="image-banner">
-        <iframe src={`https://ad.adriver.ru/cgi-bin/erle.cgi?sid=168072&bt=40&pz=1&w=300&h=250&target=top&rnd=${myRandomNumber}`} frameborder='0' vspace='0' hspace='0' width="300" height="250" marginwidth='0' marginheight='0' scrolling='no' referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
       :""}
 
       {props.moxTV?
