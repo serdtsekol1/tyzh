@@ -40,7 +40,7 @@ function getCategory(url){
 
 
 
-function Articles({ match }) {
+function Articles({ match, location }) {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(match.params.page);
   const [pagesCount, setPagesCount] = useState(0);
