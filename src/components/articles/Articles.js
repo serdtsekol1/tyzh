@@ -78,7 +78,7 @@ function Articles({ match }) {
   
 
   const handlePageClick = async (data) => {
-    if (initialCategory) history.push(`/${initialCategory}/page=${data.selected+1}`);
+    if (initialCategory) history.push(`/${initialCategory}/page=${data.selected+1}${location.search}`);
     else history.push(`/Publications/page=${data.selected+1}`);
     setPage(data.selected+1);
     match.params.page = data.selected+1;
