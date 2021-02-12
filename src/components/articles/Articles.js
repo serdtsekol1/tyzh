@@ -40,7 +40,7 @@ function getCategory(url){
 
 
 
-function Articles({ match }) {
+function Articles({ match, location }) {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(match.params.page);
   const [pagesCount, setPagesCount] = useState(0);
@@ -78,7 +78,7 @@ function Articles({ match }) {
   
 
   const handlePageClick = async (data) => {
-    if (initialCategory) history.push(`/${initialCategory}/page=${data.selected+1}`);
+    if (initialCategory) history.push(`/${initialCategory}/page=${data.selected+1}${location.search}`);
     else history.push(`/Publications/page=${data.selected+1}`);
     setPage(data.selected+1);
     match.params.page = data.selected+1;
