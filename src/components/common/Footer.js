@@ -104,6 +104,13 @@ function Footer() {
               </div>
               <div className="contact">
                 <img
+                  src={require("../../images/icons/mail-24px.svg")}
+                  alt="@email"
+                />
+                <p>reklama@tyzhden.ua</p>
+              </div>
+              <div className="contact">
+                <img
                   src={require("../../images/icons/phone-24px.svg")}
                   alt="Телефон"
                 />
