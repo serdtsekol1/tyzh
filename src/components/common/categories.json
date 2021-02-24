@@ -1,4 +1,10 @@
 [
+{
+    "category_id": "BusinessAndState",
+    "category_name_short": "Бізнес і держава",
+    "category_name": "Бізнес і держава",
+    "category_color": "#4A148C"
+  },
   {
     "category_id": "Politics",
     "category_name_short": "Політика",

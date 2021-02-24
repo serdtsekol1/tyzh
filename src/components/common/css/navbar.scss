@@ -39,7 +39,6 @@
   transition-duration: 0.5s;
 }
 .dropdown-menu {
-
   margin-top: 11px !important;
   padding: 24px 50px 9px 24px !important;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
@@ -52,8 +51,8 @@
     box-shadow: none;
     border: 1px solid  $light-grey !important;
     margin-top: -12px !important;
-    margin-left: -51px !important;
-    padding: 32px 0px 0px 51px !important;
+    margin-left: -40px !important;
+    padding: 32px 0px 0px 20px !important;
     background-color: $red !important;
     z-index: 2;
 
@@ -85,7 +84,6 @@
     text-transform: uppercase;
     color: $grey !important;
   }
- 
 
   p:hover {
     color: $red !important;
@@ -119,7 +117,7 @@
 .dropdown-decoration{
   position: absolute;
   // top: 364px;
-  top: 401px;
+  top: 425px;
   width: 75%;
   height: 4px;
   z-index: 1000;
@@ -329,12 +327,19 @@
     // margin-left: 60px !important;
     // justify-content: space-between;
     width: 100% !important;
-}
+  }
 }
 
 @media (max-width: 1200px) {
- 
+ .dropdown-menu {
+   &.show {
+    display: flex !important;
+    flex-wrap: wrap;
+    }
+  }
   .dropdown-item {
+    width: 50% !important;
+
     &:hover {
       color: $white !important;
     }
@@ -373,8 +378,6 @@
   .nav-link p {
     color: $white !important;
     padding: 0 !important;
-    
-
   }
   .articles-nav::after {
     background-image: url("../../../images/icons/arrow_down_white.svg");
@@ -413,13 +416,12 @@
     margin-bottom: $margin-big;
   }
   .navbar-nav {
-    
     padding-top: 27px;
   }
 }
 
 @media (max-height: 660px) and (max-width: 1200px) {
   .nav-item{
-    padding: 0 0 20px 51px;
+    padding: 0 0 20px 40px;
   }
 }
