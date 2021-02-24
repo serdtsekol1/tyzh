@@ -12,7 +12,7 @@ const SkeletonPublication = (props) => {
     return (
         <div className="container">
       <Fragment size="big" noShowMore={true}>
-        <p class ="big-post-header "><Skeleton duration={1} height={62} width={'100%'}/></p>
+        <p className="big-post-header"><Skeleton duration={1} height={62} width={'100%'}/></p>
         {props.article ?
         <div>
             <Skeleton className="category-and-date" height={42} width={`100%`}/>

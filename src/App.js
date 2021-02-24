@@ -64,7 +64,7 @@ function App() {
 
             <Redirect from='/Publications/:category/:id' to='/:category/:id' />
             <Redirect from='/Publications/:category/page=:page' to='/:category/page=:page' />
-            
+            <Route exact path="/BusinessAndState" component={Articles} />
             <Route exact path="/Politics" component={Articles} />
             <Route exact path="/Economics" component={Articles} />
             <Route exact path="/World" component={Articles} />
@@ -75,6 +75,7 @@ function App() {
             <Route exact path="/Pandemic" component={Articles} />
             <Route exact path="/Election" component={Articles} />
 
+            <Route exact path="/BusinessAndState/page=:page" component={Articles} />
             <Route exact path="/Politics/page=:page" component={Articles} />
             <Route exact path="/Economics/page=:page" component={Articles} />
             <Route exact path="/World/page=:page" component={Articles} />
