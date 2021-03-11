@@ -15,8 +15,9 @@ function BannersPanel(props) {
   const [riaRandomNumber, setRiaRandomNumber] = useState(getRandomInt(2));
   const [myRandomNumber, setMyRandomNumber] = useState(getRandomInt(5));
   const [randomNum,setRandonNum] = useState(getRandomInt(1000000000));
-  const custom_banner = false;
+  // const custom_banner = false;
   // const custom_banner = (props.custom_banner && ["Політика", "Культура"].includes(props.rubric));
+  const custom_banner = (props.custom_banner && ["Культура"].includes(props.rubric));
 
   useEffect(() => {
 
@@ -112,8 +113,8 @@ function BannersPanel(props) {
         </div>
       :""}
       {custom_banner?
-        <a href="https://bit.ly/2YFK3Uy">
-          <img className="image-banner" src={require("../../images/banners/FE-300x250.jpg")}/>
+        <a href="https://opera.com.ua/afisha/gala-italia?spectators=spectators">
+          <img className="image-banner" src={require("../../images/banners/Gala_Italia_300x250.jpg")}/>
         </a>
       :""}
 
