@@ -1,10 +1,7 @@
-import React, { useState, useEffect}  from "react";
-import axios from 'axios';
-import config from 'react-global-configuration';
+import React from "react";
 
 import PublicationAbstract from "../common/PublicationAbstract";
 import Parser from "html-react-parser";
-import Fragment from "../fragments/Fragment";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import CategoryLink from "../fragments/CategoryLink";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
@@ -14,7 +11,6 @@ import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import PhotosQuantityHolder from "../fragments/PhotosQuantityHolder";
-import MetaTags from "../common/MetaTagsComponent";
 
 import "../common/css/post.scss";
 
@@ -43,19 +39,19 @@ function ArticleTemplate(props) {
    <PublicationAbstract publication={props.article}>
     <div className="container">
         <div className="d-block d-md-none">
-        
+
         </div>
       {props.article.location? <p className="author-location author-location-no-margin">{props.article.location}</p>:""}
       {props.article.type_of_ad? <p className="author-location author-location-no-margin">{props.article.type_of_ad}</p>:""}
       <h1 className="big-post-header ">{props.article.title}</h1>
-     
+
         {(props.article.authors) ?
         ( <div className="category-and-date">
           <DateAndAuthor date={getDate(props.article.public_ts)} author={props.article.authors} /> 
           <CategoryLink solid={true} categoryInfo={props.article} />
         </div>)
       : ""}
-     
+
       <div className="image-cover-wrap">
       <img
         className="main-article-image"
@@ -64,11 +60,9 @@ function ArticleTemplate(props) {
       />
         {props.article.imageinfo? <PhotosQuantityHolder title={props.article.imageinfo} />:""}
       </div>
-     
-      
+
       {props.article.content? (
-   
-     
+
       <div className="row">
         <div className="col-12 col-md-9">
         {props.article.magazine_id?
@@ -79,7 +73,7 @@ function ArticleTemplate(props) {
           </p>
           {/* {props.article.content? <p>{props.article.content}</p>:""} */}
           <div className="body-text">
-          
+
             {Parser(props.article.content.replace(/<p>&nbsp;<\/p>/g,"").replace(/<br \/>/g,"")
             .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<p class="read-also"><strong>Читайте також:')
             .replace(/<\s*li\s*>\s*<\s*strong\s*>\s*Читайте також:/g,'<li class="read-also"><strong>Читайте також:')
@@ -88,7 +82,7 @@ function ArticleTemplate(props) {
             .replace(/<\s*p\s*>\s*<\s*b\s*>\s*Читайте також:/g,'<p class="read-also"><b>Читайте також:')
             .replace("https://new.tyzhden.ua/Publications/","https://tyzhden.ua/")
             // .replace(/<\s*p\s*>\s*<\s*strong\s*>([А-яIi ]+)<\s*strong\s*><\s*p\s*>/g,'<p class="mini-header"><strong>$1<strong><p>')
-            
+
             , {
               // replace: domNode => {
               //   if (domNode.name === "em") {
@@ -104,7 +98,7 @@ function ArticleTemplate(props) {
           {props.article.tags?
             <TagsPanel tags={props.article.tags.split(",")} />
           :""}
-         
+
           <div className="shared-flex">
             {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
@@ -127,7 +121,7 @@ function ArticleTemplate(props) {
     ):""}
      </div>
      </PublicationAbstract>
-    
+
   );
 }
 

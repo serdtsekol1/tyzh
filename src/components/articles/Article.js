@@ -33,24 +33,19 @@ function Article({ match }) {
     increaseStatCounter();
 
     const fetchData = async () => {
-      
       let apiUrl = `${config.get("apiDomain")}/publications/${match.params.id}`;
       await axios.get(apiUrl)
       .then(res =>{ 
-      
+
         setArticle(res.data);
         setLoading(false);
 
-        
-        
         })
       .catch(err => history.push('/page-not-found/'));  
       };
       fetchData();
-    
-  },[match.params.id]);
+  }, [match.params.id, history]);
   articleComponent = <ArticleTemplate article={article}/>;
-  
   return (
     <div>
     {loading && <SkeletonPublication article={true}/>}
