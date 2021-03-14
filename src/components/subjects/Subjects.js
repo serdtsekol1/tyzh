@@ -11,11 +11,10 @@ import PhotoReportItem from "../fragments/PhotoReportItem";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import Fragment from "../fragments/Fragment";
 import BannersPanel from "../fragments/BannersPanel";
-import MetaTags from "../common/MetaTagsComponent";
 
 
-function PhotoReports({match}){
-    const [galleries, setGalleries] = useState([]);
+function Subjects({match}){
+    const [subjects, setSubjects] = useState([]);
     const [page, setPage] = useState(match.params.page);
     const [pagesCount, setPagesCount] = useState(0);
     const [loading, setLoading] = useState(false);
@@ -28,12 +27,12 @@ function PhotoReports({match}){
 
         const fetchData = async (page) => {
           let limit = 13;
-          let apiUrl = `${config.get("apiDomain")}/galleries/?limit=${limit}`;
+          let apiUrl = `${config.get("apiDomain")}/subjects/?limit=${limit}`;
           if (page)  apiUrl = `${apiUrl}&offset=${(page-1)*limit}`;
 
           await axios.get(apiUrl)
           .then(res =>{ 
-            setGalleries(res.data.results);
+            setSubjects(res.data.results);
             setPagesCount(Math.floor(res.data.count/limit)+1);
             setLoading(false);
 
@@ -45,16 +44,15 @@ function PhotoReports({match}){
       }, [page, match.params.page, history]);
 
     const handlePageClick = async (data) => {
-      history.push(`/Gallery/page=${data.selected + 1}`);
+      history.push(`/Subject/page=${data.selected + 1}`);
       setPage();
       match.params.page = data.selected+1;
     };
-
-    const link = "Gallery";
-    const firstPhotoReportsComponent = galleries.map(photoReport => (
+    const link = "Subject";
+    const firstPhotoReportsComponent = subjects.map(photoReport => (
         <PhotoReportItem key={photoReport.id} main={true} reportItem={photoReport} link={link} />
       ))[0];
-    const photoReportsComponents = galleries.slice(1,13).map(photoReport => (
+    const photoReportsComponents = subjects.slice(1,13).map(photoReport => (
         <div className="col-12 col-md-6" key={photoReport.id+100}>
             <PhotoReportItem key={photoReport.id} reportItem={photoReport} link={link} />
         </div>
@@ -62,20 +60,15 @@ function PhotoReports({match}){
 
     return (
         <div className="container">
-            <MetaTags title="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото" 
-            ct100={true} keywords="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"
-            abstract="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"/>
-            <Header title="Фоторепортаж"/>
+            <Header title="Спецтеми"/>
             <Fragment size="big" noShowMore={true}> 
             <div className="row">
                 <div className="col-12">
                 {loading && <Skeleton duration={1} height={1800} width={'100%'}/>}
-                {!loading && 
-                    <div className="">{firstPhotoReportsComponent}</div>
-                }
+                {!loading && <div className="">{firstPhotoReportsComponent}</div>}
                 </div>
-             {photoReportsComponents}</div>
-
+                {photoReportsComponents}
+            </div>
             <SubscriptionBanner />
             <div className="banner-mobile-only"></div>
             <div className="d-block d-md-none">
@@ -100,4 +93,4 @@ function PhotoReports({match}){
     );
 }
 
-export default PhotoReports;
+export default Subjects;

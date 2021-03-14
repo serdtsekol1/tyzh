@@ -17,6 +17,7 @@ import NewsItem from "./components/news/NewsItem";
 import Columns from "./components/columns/Columns";
 import Column from "./components/columns/Column";
 import Subject from "./components/subjects/Subject";
+import Subjects from "./components/subjects/Subjects";
 import PhotoReports from "./components/photo_reports/PhotoReports";
 import PhotoReport from "./components/photo_reports/PhotoReport";
 import FilterByTagPage from "./components/search/FilterByTagPage";
@@ -51,6 +52,7 @@ function App() {
             <Route exact path="/Gallery/:id" component={PhotoReport} />
             <Route path="/Magazines" component={Journals} />
             <Route path="/Magazine/:id" component={Journal} />
+            <Route exact path="/Subject/page=:page" component={Subjects} />
             <Route exact path="/Subject/:id" component={Subject} />
             <Route exact path="/PressReleases/page=:page" component={Pressreleases} />
             <Route exact path="/PressReleases/:id" component={Pressrelease} />
