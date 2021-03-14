@@ -52,6 +52,7 @@ function App() {
             <Route exact path="/Gallery/:id" component={PhotoReport} />
             <Route path="/Magazines" component={Journals} />
             <Route path="/Magazine/:id" component={Journal} />
+            <Route exact path="/Subject" component={Subjects} />
             <Route exact path="/Subject/page=:page" component={Subjects} />
             <Route exact path="/Subject/:id" component={Subject} />
             <Route exact path="/PressReleases/page=:page" component={Pressreleases} />

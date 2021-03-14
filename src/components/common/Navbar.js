@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import SocialNetworks from "./SocialNetworks";
 import useMedia from 'use-media';
@@ -11,28 +11,19 @@ import $ from "jquery";
 const Header = props => {
   const isNarrow = useMedia({maxWidth: 1200});
   useEffect(()=>{
-    
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
       $('.navbar-collapse').removeClass('show'); 
-      
     }
     );
-    
-     
     $('.navbar-toggler, .navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
-      
       $('#red-background').toggleClass('back-show');
       if (isNarrow) {
         $('#red-background').toggleClass('back-show');
       }
     }
-   
     );
-  
 
-  
-    
-  },[isNarrow])
+  }, [isNarrow])
   const activeStyle = {
     color: "#ED1B2F"
   };
@@ -41,7 +32,6 @@ const Header = props => {
   const categoriesComponents = categoriesData
     .slice(0, categoriesData.length)
     .map(category => (
-       
       <NavLink
         key={category.category_id}
         activeStyle={activeStyle}
@@ -55,7 +45,6 @@ const Header = props => {
   const onScroll = function() {
     if (document.getElementById("navbar-2")){
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-      
         document.getElementById("navbar-2").style.padding = "0 0 0 0";
       } else {
         document.getElementById("navbar-2").style.padding = "60px 0 0 0";
@@ -72,6 +61,7 @@ const Header = props => {
           <a href="https://old.tyzhden.ua/search?q="><img
             className="d-block d-xl-none"
             src={require("../../images/icons/search-24px-white.svg")}
+            alt="Іконка пошуку"
           /></a>
           <NavLink to="/" className="navbar-brand">
             <img
@@ -91,14 +81,12 @@ const Header = props => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-      
-
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
              <div className="inline-flex d-xl-none">
                   <li className="nav-item second-nav-link">
                       <a className="" href="https://old.tyzhden.ua/Login">
-                      <img className="account-icon" src={require("../../images/icons/account-24px.svg")}/>
+                      <img className="account-icon" src={require("../../images/icons/account-24px.svg")} alt="Іконка людини"/>
                         <p className="my-profile">Мій кабінет</p>
                       </a>
 
@@ -112,7 +100,6 @@ const Header = props => {
                   <li className="nav-item second-nav-link ">
                       <a className="" href="https://old.tyzhden.ua/"><p className="">До старої версії</p></a>
                   </li>
-                  
               </div>
             <ul className="navbar-nav">
             <li className="nav-item first-nav dropdown">
@@ -128,7 +115,6 @@ const Header = props => {
                   <p className="articles-nav">Статті</p>
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                 
                   <NavLink
                     activeStyle={activeStyle}
                     exact
@@ -141,6 +127,15 @@ const Header = props => {
                   {categoriesComponents}
                   <div className="dropdown-decoration"></div>
                 </div>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeStyle={activeStyle}
+                  to="/Subject"
+                  className="nav-link"
+                >
+                  Спецтеми
+                </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
