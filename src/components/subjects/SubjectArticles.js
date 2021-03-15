@@ -11,7 +11,6 @@ import ColumnsBlockItem from "../fragments/ColumnsBlockItem";
 import Fragment from "../fragments/Fragment";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
-import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
 
 
 function SubjectArticles({match}) {

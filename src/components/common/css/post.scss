@@ -3,8 +3,15 @@
 
 .main-article-image {
   @include image-cover;
+
+  &.subject-image {
+    max-width: 1920px;
+    margin: auto;
+  }
+
   margin-bottom: 72px !important;
   display: table-cell;
+
   @include for-phones {
     margin-bottom: 32px !important;
   }
