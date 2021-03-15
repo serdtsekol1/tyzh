@@ -1,7 +1,5 @@
 import React from "react";
 
-// import PublicationAbstract from "../common/PublicationAbstract";
-
 import "../common/css/post.scss";
 
 
@@ -18,9 +16,6 @@ function SubjectTemplate(props) {
           src={props.subject.image1}
           alt="Картинка: {props.subject.title}"
         />
-      </div>
-      <div className="container">
-        <div>Зміст</div>
       </div>
     </div>
   );

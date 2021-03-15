@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import { Tabs, Tab } from 'react-bootstrap';
 
 import Button from "../common/Button";
@@ -34,11 +33,10 @@ function getDate(public_ts){
 
 function JournalTemplate(props) {
     let journal = props.journalItem? props.journalItem: {};
-    
     let date = "";
     date = getDate(journal.public_ts);
-    let publicationsComponents=[];
-    if (journal.articles){
+    let publicationsComponents = [];
+    if (journal.articles) {
         publicationsComponents = journal.articles.map(publication => {
             if (publication.journal) return <ArticleBlockItem  key={publication.id} articleItem={publication} />;
             else return <ColumnsBlockItem  reverse={true} key={publication.id} columnItem={publication} />;
@@ -52,7 +50,7 @@ function JournalTemplate(props) {
           />
         <div className="row journal-header-wrap">
             <div className="col-12 col-md-4">
-                <img className="journal-big-cover" src={journal.image1}/>
+                <img className="journal-big-cover" src={journal.image1} alt="" />
             </div>
             <div className="col-12 col-md-8">
                 <div className="journal-info-wrap">
@@ -64,16 +62,13 @@ function JournalTemplate(props) {
                         <Button title="Передплата" redButton={true}/>
                     </a>
                     </div>
-                    
                 </div>
             </div>
         </div>
         <div className="row">
             <div className="col-12 journal-page">
             <Fragment size="big" noShowMore={true}>
-                
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                        
                     <Tab eventKey="profile" title="Зміст">
                     <div className="row">
                             <div className="col-12 col-md-9">
@@ -86,14 +81,12 @@ function JournalTemplate(props) {
                             <BannersPanel my={true}  adriver_id="adriver-journal1" adriver={true} admixer_id="admixed-journal1" admixer={true}/>
                             </div>
                         </div>
-                        
                     </Tab>
                     <Tab eventKey="articles" title="Статті">
                         <div className="row">
                             <div className="col-12 col-md-9">
-                                <ArticlesBlock  articles={journal.publications?journal.publications:[]} redButton={true} 
+                                <ArticlesBlock  articles={journal.publications?journal.publications:[]} redButton={true}
                                 showMoreTitle="Передплата" showMoreHref={"https://old.tyzhden.ua/InfoCenter/Subscription/"}/>
-                              
 
                             </div>
                             <div className="col-12 col-md-3">
@@ -106,17 +99,13 @@ function JournalTemplate(props) {
                             <div className="col-12 col-md-9">
                             <ColumnsBlock columns={journal.columns?journal.columns:[]} 
                             showMoreHref={"https://old.tyzhden.ua/InfoCenter/Subscription/"} showMoreTitle="Передплата" redButton={true}/>
-                            
                             </div>
                             <div className="col-12 col-md-3">
                             <BannersPanel my={true} ria={true} />
                             </div>
                         </div>
                     </Tab>
-                    
-                
                 </Tabs>
-               
             </Fragment>
             <GorizontalAdBanner mixadvert={true} yottos={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
             <Header size="big" title="Інші номери"/>

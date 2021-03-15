@@ -61,7 +61,7 @@ function Subjects({match}){
     return (
         <div className="container">
             <Header title="Спецтеми"/>
-            <Fragment size="big" noShowMore={true}> 
+            <Fragment size="big" noShowMore={true}>
             <div className="row">
                 <div className="col-12">
                 {loading && <Skeleton duration={1} height={1800} width={'100%'}/>}
@@ -80,7 +80,7 @@ function Subjects({match}){
               breakLabel={"..."}
               breakClassName={"break-me"}
               initialPage={initialPageNumber}
-              pageCount={100}
+              pageCount={pagesCount}
               marginPagesDisplayed={1}
               pageRangeDisplayed={3}
               onPageChange={handlePageClick}

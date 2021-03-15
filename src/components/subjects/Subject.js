@@ -6,7 +6,7 @@ import config from 'react-global-configuration';
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
 import SubjectTemplate from "./SubjectTemplate";
-
+import SubjectArticles from "./SubjectArticles";
 
 import "../common/css/post.scss";
 
@@ -36,11 +36,13 @@ function Subject({ match }) {
   }, [match.params.id, history]);
 
   subjectComponent = <SubjectTemplate subject={subject}/>;
+  const subjectArticlesComponent = <SubjectArticles match={match} />;
 
   return (
     <div>
     {loading && <SkeletonPublication article={true}/>}
     {!loading && <div>{subjectComponent}</div>}
+    {!loading && <div>{subjectArticlesComponent}</div>}
     </div>
   );
 }

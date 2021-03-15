@@ -87,7 +87,7 @@ function PhotoReports({match}){
               breakLabel={"..."}
               breakClassName={"break-me"}
               initialPage={initialPageNumber}
-              pageCount={100}
+              pageCount={pagesCount}
               marginPagesDisplayed={1}
               pageRangeDisplayed={3}
               onPageChange={handlePageClick}
