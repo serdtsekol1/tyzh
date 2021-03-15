@@ -1,7 +1,5 @@
-import React, { useState, useEffect} from "react";
-import { useHistory, Link } from "react-router-dom";
-import axios from 'axios';
-import config from "react-global-configuration";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import Parser from "html-react-parser";
 import DateAndAuthor from "../fragments/DateAndAuthor";
@@ -11,7 +9,6 @@ import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
-import Fragment from "../fragments/Fragment";
 import ColumnsBlock from "../fragments/ColumsBlock";
 import PublicationAbstract from "../common/PublicationAbstract";
 import MagazineMaterial from "../fragments/MagazineMaterial";
@@ -150,7 +147,6 @@ function ColumnTemplate(props){
     </div>
     </PublicationAbstract>
       );
-    
 }
 
 export default ColumnTemplate;

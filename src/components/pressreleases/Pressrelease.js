@@ -2,12 +2,9 @@ import React, { useState, useEffect}  from "react";
 import { useHistory } from "react-router-dom";
 
 import axios from 'axios';
-import config from 'react-global-configuration';
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
 import PressreleaseTemplate from "./PressreleaseTemplate";
-
-import {setCookie, getCookie} from "../../lib/simpleCookieLib"
 
 
 import "../common/css/post.scss";
@@ -37,7 +34,7 @@ function Pressrelease({ match }) {
     };
     fetchData();
 
-  },[match.params.id]);
+  }, [match.params.id, history]);
   pressreleaseComponent = <PressreleaseTemplate pressrelease={pressrelease}/>;
 
   return (

@@ -11,7 +11,7 @@ function PressreleasesBlock(props) {
   const [loading, setLoading] = useState(false);
   const [pressreleases, setPressReleases] = useState([]);
   let pressreleasesComponents = "";
-  
+
   useEffect (()=>{
     setLoading(true);
     const fetchPressReleases = async () => {
@@ -25,7 +25,7 @@ function PressreleasesBlock(props) {
       .catch(err => console.log(err));  
       };
       fetchPressReleases();
-  },[]);
+  }, [props.quantity]);
   // if (props.lastArticles){
   //   pressreleasesComponents = pressreleases.map(pressrelease => (
   //     <PressreleaseBlockItem small={true} mainArticle ={true} key={pressrelease.id} pressreleaseItem={pressrelease} />

@@ -1,10 +1,7 @@
-import React, { useState, useEffect}  from "react";
-import axios from 'axios';
-import config from 'react-global-configuration';
+import React  from "react";
 
 import PublicationAbstract from "../common/PublicationAbstract";
 import Parser from "html-react-parser";
-import Fragment from "../fragments/Fragment";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
 import BannersPanel from "../fragments/BannersPanel";
@@ -13,7 +10,6 @@ import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import PhotosQuantityHolder from "../fragments/PhotosQuantityHolder";
-import MetaTags from "../common/MetaTagsComponent";
 
 import "../common/css/post.scss";
 

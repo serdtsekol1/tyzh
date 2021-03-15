@@ -1,10 +1,7 @@
-import React, { useState, useEffect} from "react";
-import config from "react-global-configuration";
-import axios from 'axios';
+import React from "react";
 
 
 import ColumnsBlockItem from "./ColumnsBlockItem.js";
-import Button from "../common/Button";
 import Fragment from "../fragments/Fragment";
 
 

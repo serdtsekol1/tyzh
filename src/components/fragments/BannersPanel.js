@@ -1,7 +1,6 @@
 import React, {useEffect,useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import ScriptTag from 'react-script-tag';
-import {Helmet} from 'react-helmet';
 import "./css/banners_panel.scss";
 import MoxTV from "./MoxTV";
 
