@@ -3,6 +3,8 @@
 
 .image-banner {
   margin-bottom: $margin-big;
+  width: 100%;
+
   img {
     @include image-cover;
   }
