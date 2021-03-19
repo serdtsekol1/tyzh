@@ -30,7 +30,7 @@ app.get('/', function(request, response) {
 
     // replace the special strings with server generated strings
     data = data.replace(/\$OG_TITLE/g, `Аналітика, безпека, економіка, міжнародна політика, культура. Зміст має значення!`);
-    data = data.replace(/\$OG_DESCRIPTION/g, 'Сайт журналу "Український тиждень".  Формуємо порядок денний разом');
+    data = data.replace(/\$OG_DESCRIPTION/g, 'Сайт журналу &laquo;Український тиждень&raquo;.  Формуємо порядок денний разом');
     data = data.replace(/\$OG_KEYWORDS/g, `Аналітика, безпека, економіка, міжнародна політика, культура`);
     data = data.replace(/\$OG_IMAGE/g, 'https://tyzhden.ua/main2/images/logo.jpg');
     data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
@@ -925,6 +925,30 @@ app.get('/Subject/page=:page', function(request, response) {
 
 
 app.get('/Subject/:id', function(request, response) {
+  const filePath = path.resolve(__dirname, './build', 'index.html');
+  const id = request.params.id;
+  // read in the index.html file
+  fetch(`https://tyzhden.ua/api/subjects/${id}/`)
+    .then(res => res.json())
+    .then(json => {
+      const item = json;
+
+      fs.readFile(filePath, 'utf8', function (err, data) {
+
+        // replace the special strings with server generated strings
+        data = data.replace(/\$OG_TITLE/g, item.title);
+        data = data.replace(/\$OG_DESCRIPTION/g, "Аналітика, оцінки, прогнози");
+        data = data.replace(/\$OG_KEYWORDS/g, item.tags);
+        data = data.replace(/\$OG_IMAGE/g, item.image1);
+        data = data.replace(/\$OG_URL/g, request.protocol + '://' + request.get('host') + request.originalUrl);
+        const result = data.replace(/\$CANONICAL/g, `https://tyzhden.ua/Subject/${id}`);
+        response.send(result);
+      });
+    });
+});
+
+
+app.get('/Subject/:id/page=:page', function(request, response) {
   const filePath = path.resolve(__dirname, './build', 'index.html');
   const id = request.params.id;
   // read in the index.html file
