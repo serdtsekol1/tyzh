@@ -4,22 +4,21 @@ import "./css/photo_report.scss";
 import PhotosQuantityHolder from "./PhotosQuantityHolder";
 
 function PhotoReportItem(props) {
-  let author_name="";
-  
 
   return (
-    
     <div className="photo-report-item">
-      {props.reportItem? 
+      {props.reportItem?
         <div>
-      <Link to={`/Gallery/${props.reportItem.id}`}>
+      <Link to={`/${props.link}/${props.reportItem.id}`}>
       <div className="image-cover-wrap">
         <img
           className={ props.main? "main-report-image-cover":"report-image-cover"}
           src={props.reportItem.image1}
           alt={`Зображення:${props.reportItem.title}`}
         />
+      {props.link === "Gallery" ?
         <PhotosQuantityHolder quantity={props.reportItem.count} />
+         : "" }
       </div>
       </Link>
       <div>
@@ -35,7 +34,6 @@ function PhotoReportItem(props) {
           </Link>
          : "" }
       </div>
-     
         </div>
     :""}
     </div>

@@ -1,6 +1,4 @@
 import React from "react";
-import { useState, useEffect } from 'react';
-import ScriptTag from 'react-script-tag';
 import PublicationAbstract from "../common/PublicationAbstract";
 
 import Parser from "html-react-parser";
@@ -14,7 +12,6 @@ import Header from "../common/Header";
 import NewsBlock from "./NewsBlock";
 import Fragment from "../fragments/Fragment";
 import MetaTags from "../common/MetaTagsComponent";
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 
 import "../common/css/post.scss";
 
@@ -54,7 +51,7 @@ function getDate(public_ts){
 
 function NewsItemTemplate(props) {
   let tags = props.newsItem.tags? props.newsItem.tags.split(","):[];
-  let today = new Date();
+  // let today = new Date();
   // today.setDate(today.getDate() - 5);
 
   return (

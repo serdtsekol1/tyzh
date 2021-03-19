@@ -5,9 +5,6 @@ import App from "./App";
 import "./config";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
-import $ from "jquery";
-import Popper from "popper.js";
-import config from "react-global-configuration";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

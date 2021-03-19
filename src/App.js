@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./components/home/HomePage";
 
@@ -17,23 +16,22 @@ import News from "./components/news/News";
 import NewsItem from "./components/news/NewsItem";
 import Columns from "./components/columns/Columns";
 import Column from "./components/columns/Column";
+import Subject from "./components/subjects/Subject";
+import Subjects from "./components/subjects/Subjects";
 import PhotoReports from "./components/photo_reports/PhotoReports";
 import PhotoReport from "./components/photo_reports/PhotoReport";
 import FilterByTagPage from "./components/search/FilterByTagPage";
 import ScrollToTop from "./components/common/ScrollToTop";
-import ScriptTag from 'react-script-tag';
-import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory();
 
 function App() {
-  //ReactGA.initialize('UA-54516992-1');
   return (
     <Router history={history}>
       <ScrollToTop/>
       <div className="App">
-      
+
         <Navbar />
         <div className="main-content">
           <Switch>
@@ -43,10 +41,8 @@ function App() {
             <Route exact path="/News" component={News} />
             <Route exact path="/News/page=:page" component={News} />
             <Route exact path="/News/:id" component={NewsItem} />
-            
             <Route exact path="/Columns" component={Columns} />
             <Route exact path="/Columns/page=:page" component={Columns} />
-            
             <Route exact path="/Columns/50/:id" component={Column} />
             <Redirect from='/Columns/:id' to='/Columns/50/:id' />
             <Route exact path="/Author/:id" component={Author} />
@@ -56,12 +52,17 @@ function App() {
             <Route exact path="/Gallery/:id" component={PhotoReport} />
             <Route path="/Magazines" component={Journals} />
             <Route path="/Magazine/:id" component={Journal} />
+            <Route exact path="/Subject" component={Subjects} />
+            <Route exact path="/Subject/page=:page" component={Subjects} />
+            <Route exact path="/Subject/:id" component={Subject} />
+            <Route exact path="/Subject/:id/page=:page" component={Subject} />
+            <Route exact path="/PressReleases/page=:page" component={Pressreleases} />
+            <Route exact path="/PressReleases/:id" component={Pressrelease} />
             <Route exact path="/Publications" component={Articles} />
             <Route exact path="/Publications/page=:page" component={Articles} />
             <Route exact path="/PressReleases" component={Pressreleases} />
             <Route exact path="/PressReleases/page=:page" component={Pressreleases} />
             <Route exact path="/PressReleases/:id" component={Pressrelease} />
-
             <Redirect from='/Publications/:category/:id' to='/:category/:id' />
             <Redirect from='/Publications/:category/page=:page' to='/:category/page=:page' />
             <Route exact path="/BusinessAndState" component={Articles} />
@@ -85,7 +86,7 @@ function App() {
             <Route exact path="/Science/page=:page" component={Articles} />
             <Route exact path="/Pandemic/page=:page" component={Articles} />
             <Route exact path="/Election/page=:page" component={Articles} />
-            
+
             <Route exact path="/:category/:id" component={Article}/>
 
             <Route path="*" component={PageNotFound} />

@@ -24,16 +24,17 @@ function PhotoReportBlock() {
       .catch(err => console.log(err));
      };
      fetchData();
-  },[]);
+  }, []);
 
+  const link = "Gallery";
   const photoReportsComponents = galleries.slice(1,4).map(photoReport => (
-    <PhotoReportItem key={photoReport.id} reportItem={photoReport} />
+    <PhotoReportItem key={photoReport.id} reportItem={photoReport} link={link} />
   ));
   return (
     <Fragment size="big" showMoreLink="/Gallery">
       <Header size="big" title="Фоторепортаж" />
       <div className="d-none d-md-block">
-       <PhotoReportItem  main={true} reportItem={galleries[0]} />
+       <PhotoReportItem  main={true} reportItem={galleries[0]} link={link} />
       </div>
 
       <div className="row small-photo-reports-wrap">

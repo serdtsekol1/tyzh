@@ -52,9 +52,10 @@ function PhotoReportTemplate(props){
     const images = photoReport.items? photoReport.items.map(image => {
         return {"original": image.image,
         "thumbnail": image.preview}}):[];
+    const link = "Gallery";
     const photoReportsComponents = photoReport.more? photoReport.more.map(photoReport => (
         <div className="col-12 col-md-6" key={photoReport.id+100}>
-            <PhotoReportItem key={photoReport.id} reportItem={photoReport}/>
+            <PhotoReportItem key={photoReport.id} reportItem={photoReport} link={link} />
         </div>
         )):"";
     return (    

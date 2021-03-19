@@ -13,7 +13,7 @@ function Journal({match}) {
       setLoading(true);
 
       const fetchData = async () => {
-        
+
         let apiUrl = `${config.get("apiDomain")}/magazines/${match.params.id}`;
         await axios.get(apiUrl)
         .then(res =>{ 
@@ -22,10 +22,10 @@ function Journal({match}) {
           setLoading(false);
 
           })
-        .catch(err => console.log(err));  
+        .catch(err => console.log(err));
         };
         fetchData();
-      
+
     },[match.params.id]);
     return (
     <div>

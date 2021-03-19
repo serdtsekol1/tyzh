@@ -1,14 +1,12 @@
-import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import NewsBlockItem from "./NewsBlockItem";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 
 import "./news_block_item.scss";
 
 
-
 function NewsBlock(props) {
- 
+
   const newsComponents = props.news? props.news.map(news => <NewsBlockItem noTime={props.noTime} key={news.id} newsItem={news} />):"";
   return <div>
     {newsComponents.length>9 ?
