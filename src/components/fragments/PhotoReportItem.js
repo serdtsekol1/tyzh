@@ -22,7 +22,7 @@ function PhotoReportItem(props) {
       </div>
       </Link>
       <div>
-      <Link to={`/Gallery/${props.reportItem.id}`}>
+      <Link to={`/${props.link}/${props.reportItem.id}`}>
         <p className="photo-report-title ">
           {props.reportItem.title}
         </p>
