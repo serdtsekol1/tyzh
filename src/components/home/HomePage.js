@@ -13,7 +13,6 @@ import ArticlesBlock from "../fragments/AtriclesBlock";
 import BannersPanel from "../fragments/BannersPanel";
 import JournalsFooter from "../fragments/JournalsFooter";
 import Header from "../common/Header";
-import MetaTags from "../common/MetaTagsComponent";
 
 import Skeleton from "react-loading-skeleton";
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
@@ -63,7 +62,6 @@ function HomePage() {
 
   return (
     <div className="container">
-    <MetaTags/>
       <div className="row">
         <div className="col-12 col-lg-9">
           {loading && <SkeletonMainArticle/>}
