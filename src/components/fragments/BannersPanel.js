@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from "react";
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
 import ScriptTag from 'react-script-tag';
 import "./css/banners_panel.scss";
 import MoxTV from "./MoxTV";
@@ -7,13 +7,12 @@ import MoxTV from "./MoxTV";
 
 
 function BannersPanel(props) {
-  const location = useLocation();
   function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
   const [riaRandomNumber, setRiaRandomNumber] = useState(getRandomInt(2));
   const [myRandomNumber, setMyRandomNumber] = useState(getRandomInt(5));
-  const [randomNum,setRandonNum] = useState(getRandomInt(1000000000));
+  const [randomNum, setRandonNum] = useState(getRandomInt(1000000000));
   // const custom_banner = false;
   // const custom_banner = (props.custom_banner && ["Політика", "Культура"].includes(props.rubric));
   let custom_banner = props.custom_banner;
@@ -21,20 +20,14 @@ function BannersPanel(props) {
   let customBannerLink = "";
   if (custom_banner) {
     if (["Культура"].includes(props.rubric)) {
-      const random = getRandomInt(2);
-      if (random === 0) {
-        customBannerImage = require("../../images/banners/Gala_Italia_300x250.jpg");
-        customBannerLink = "https://opera.com.ua/afisha/gala-italia?spectators=spectators";
-      } else {
-        customBannerImage = require("../../images/banners/docudays_300x250_UT.gif");
-        customBannerLink = "https://docudays.ua/";
-      }
+      customBannerImage = require("../../images/banners/docudays_300x250_UT.gif");
+      customBannerLink = "https://docudays.ua/";
     } else if (["Суспільство"].includes(props.rubric)) {
-        customBannerImage = require("../../images/banners/archaic_300х250.jpg");
-        customBannerLink = "https://kontramarka.ua/uk/sucasna-arhaika-67319.html";
+      customBannerImage = require("../../images/banners/archaic_300х250.jpg");
+      customBannerLink = "https://kontramarka.ua/uk/sucasna-arhaika-67319.html";
     } else {
-        customBannerImage = require("../../images/banners/special.gif");
-        customBannerLink = "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM";
+      customBannerImage = require("../../images/banners/special.gif");
+      customBannerLink = "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM";
     }
   }
 
