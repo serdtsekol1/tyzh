@@ -22,9 +22,6 @@ function BannersPanel(props) {
     if (["Культура"].includes(props.rubric)) {
       customBannerImage = require("../../images/banners/docudays_300x250_UT.gif");
       customBannerLink = "https://docudays.ua/";
-    } else if (["Суспільство"].includes(props.rubric)) {
-      customBannerImage = require("../../images/banners/archaic_300х250.jpg");
-      customBannerLink = "https://kontramarka.ua/uk/sucasna-arhaika-67319.html";
     } else {
       customBannerImage = require("../../images/banners/special.gif");
       customBannerLink = "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM";
