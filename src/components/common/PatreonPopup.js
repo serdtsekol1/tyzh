@@ -1,4 +1,6 @@
 import React, {useEffect} from "react";
+import {setCookie, getCookie} from "../../lib/simpleCookieLib"
+
 import Modal from 'react-modal';
 import Button from "../common/Button";
 
@@ -27,7 +29,11 @@ function PatreonPopup(props) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
-    setIsOpen(true);
+    if (!getCookie(`tyzhden_patreon`)) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
   }
 
   function afterOpenModal() {
@@ -36,8 +42,12 @@ function PatreonPopup(props) {
 
   function closeModal(){
     setIsOpen(false);
+    setCookie(`tyzhden_patreon`, true, 1, "");
   }
 
+  function setPatreonCookie() {
+    setCookie(`tyzhden_patreon`, true, 7, "");
+  }
 
   useEffect (()=>{
     setTimeout(openModal, 5000);
@@ -71,7 +81,7 @@ function PatreonPopup(props) {
             <div className="body-text">
               <p>Ми будемо вдячні кожному, хто підтримає «Український тиждень» у цей складний час. Зробити це доволі просто: передплатити журнал або зробити пожертву у наш гонорарний фонд.</p>
             </div>
-            <a href="https://www.patreon.com/ukrainianweek">
+            <a href="https://www.patreon.com/ukrainianweek" onClick={setPatreonCookie}>
               <Button title="Підтримати на Патреон" redButton={true}/>
             </a>
           </div>
