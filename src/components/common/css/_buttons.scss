@@ -5,6 +5,7 @@
   @include button;
   background-color: $red;
   color: $white;
+  font-weight: 600;
   &:hover {
     background-color: $dark-red;
   }
