@@ -43,3 +43,9 @@
     margin-bottom: 2px;
   }
 }
+
+button {
+  &:focus {
+    outline: 1px dotted #d5182a !important;
+  }
+}

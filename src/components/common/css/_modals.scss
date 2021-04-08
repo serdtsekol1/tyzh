@@ -6,9 +6,31 @@
   letter-spacing: 0.02em;
 }
 
+.container-modal {
+  display: flex;
+  align-items: center;
+}
+
 .body-modal {
   padding-top: 56px;
   padding-bottom: 56px;
-  padding-left: 288px;
+  padding-left: 36px;
   padding-right: 96px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  border: none;
+  background-color: #FFFFFF;
+}
+
+.image-modal {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  img {
+    max-width: 300px;
+  }
 }

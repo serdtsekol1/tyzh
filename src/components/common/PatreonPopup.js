@@ -18,6 +18,7 @@ function PatreonPopup(props) {
       maxWidth: '900px',
       border: 'none',
       boxShadow: '0px 0px 64px rgba(0, 0, 0, 0.12)',
+      padding: '0',
     }
   };
 
@@ -47,8 +48,18 @@ function PatreonPopup(props) {
           style={customStyles}
           contentLabel="Patreon Modal"
         >
-          <button onClick={closeModal}>close</button>
-          <div className="model-image">
+          <button className="close-modal" onClick={closeModal}>
+            <img
+              src={require("../../images/icons/close-24px.svg")}
+              alt="Іконка закрити"
+            />
+          </button>
+          <div className="container-modal">
+          <div className="image-modal">
+            <img
+              src={require("../../images/krapyvenko.png")}
+              alt="Іконка закрити"
+            />
           </div>
           <div className="body-modal">
             <h2 className="header-modal">Дмитро Крапивенко, головний
@@ -59,6 +70,7 @@ function PatreonPopup(props) {
             <a href="https://www.patreon.com/ukrainianweek">
               <Button title="Підтримати на Патреон" redButton={true}/>
             </a>
+          </div>
           </div>
         </Modal>
       </div>
