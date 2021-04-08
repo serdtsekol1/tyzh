@@ -12,6 +12,7 @@ import Header from "../common/Header";
 import ColumnsBlock from "../fragments/ColumsBlock";
 import PublicationAbstract from "../common/PublicationAbstract";
 import MagazineMaterial from "../fragments/MagazineMaterial";
+import PatreonPopup from "../common/PatreonPopup";
 
 import "./columns.scss";
 
@@ -46,7 +47,7 @@ function ColumnTemplate(props){
 
     return (
       <PublicationAbstract publication={columnItem}>
-        
+        <PatreonPopup />
       <div className="container">
       
       {columnItem.author?
@@ -54,7 +55,7 @@ function ColumnTemplate(props){
         <div className="col-3 col-md-2">
           <div className="column-author-photo-wrap">
             <img className="column-author-photo" 
-            src={columnItem.author.image1url}/>
+            src={columnItem.author.image1url} alt="Фото автора"/>
           </div>
         </div>
         

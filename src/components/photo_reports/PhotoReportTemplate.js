@@ -14,6 +14,7 @@ import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import Fragment from "../fragments/Fragment";
 import PublicationAbstract from "../common/PublicationAbstract";
+import PatreonPopup from "../common/PatreonPopup";
 
 import "react-image-gallery/styles/css/image-gallery.css";
 import "../common/css/post.scss";
@@ -60,6 +61,7 @@ function PhotoReportTemplate(props){
         )):"";
     return (    
       <PublicationAbstract publication={photoReport}>
+        <PatreonPopup />
         <div className="container">
             <div className="row">
                 <div className="col-12">
