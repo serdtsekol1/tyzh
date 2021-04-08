@@ -11,6 +11,7 @@ import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import PhotosQuantityHolder from "../fragments/PhotosQuantityHolder";
+import PatreonPopup from "../common/PatreonPopup";
 
 import "../common/css/post.scss";
 
@@ -37,6 +38,7 @@ function ArticleTemplate(props) {
 
   return (
    <PublicationAbstract publication={props.article}>
+    <PatreonPopup />
     <div className="container">
         <div className="d-block d-md-none">
 

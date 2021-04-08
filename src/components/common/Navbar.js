@@ -95,7 +95,7 @@ const Header = props => {
                       <a className="" href="https://old.tyzhden.ua/InfoCenter/Subscription/"><p className="">Передплата</p></a>
                   </li>
                   <li className="nav-item second-nav-link ">
-                      <a className="" href="https://old.tyzhden.ua/InfoCenter/Donate/"><p className="">Підтримати</p></a>
+                      <a className="" href="https://www.patreon.com/ukrainianweek"><p className="">Підтримати</p></a>
                   </li>
                   <li className="nav-item second-nav-link ">
                       <a className="" href="https://old.tyzhden.ua/"><p className="">До старої версії</p></a>

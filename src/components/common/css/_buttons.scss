@@ -5,6 +5,8 @@
   @include button;
   background-color: $red;
   color: $white;
+  font-weight: 600;
+  line-height: 18px;
   &:hover {
     background-color: $dark-red;
   }
@@ -40,5 +42,11 @@
 
     vertical-align: middle;
     margin-bottom: 2px;
+  }
+}
+
+button {
+  &:focus {
+    outline: 1px dotted #d5182a !important;
   }
 }
