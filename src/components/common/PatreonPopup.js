@@ -9,21 +9,6 @@ import "../common/css/_modals.scss";
 
 function PatreonPopup(props) {
 
-  const customStyles = {
-    content : {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      maxWidth: '900px',
-      border: 'none',
-      boxShadow: '0px 0px 64px rgba(0, 0, 0, 0.12)',
-      padding: '0',
-    }
-  };
-
   Modal.setAppElement('#root')
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -59,8 +44,8 @@ function PatreonPopup(props) {
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
-          style={customStyles}
           contentLabel="Patreon Modal"
+          className="Modal"
         >
           <button className="close-modal" onClick={closeModal}>
             <img
