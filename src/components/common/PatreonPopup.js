@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Modal from 'react-modal';
 import Button from "../common/Button";
 
@@ -38,9 +38,13 @@ function PatreonPopup(props) {
     setIsOpen(false);
   }
 
+
+  useEffect (()=>{
+    setTimeout(openModal, 5000);
+  }, []);
+
   return (
     <div>
-        <button onClick={openModal}>Open Modal</button>
         <Modal
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
