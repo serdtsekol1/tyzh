@@ -4,8 +4,7 @@ import "./css/banners.scss";
 function DonationBanner(props) {
   return (
     <div className="d-none d-md-block">
-      
-      <a href="https://old.tyzhden.ua/InfoCenter/Donate/">
+      <a href="https://www.patreon.com/ukrainianweek">
         <img
           style={props.style}
           className="banner subscription-banner"
