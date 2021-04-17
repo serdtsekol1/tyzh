@@ -19,8 +19,15 @@ function BannersPanel(props) {
   let customBannerImage = "";
   let customBannerLink = "";
   if (custom_banner) {
-      customBannerImage = require("../../images/banners/special.gif");
-      customBannerLink = "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM";
+    customBannerImage = require("../../images/banners/special.gif");
+    customBannerLink = "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM";
+    if (["Культура"].includes(props.rubric)) {
+      customBannerImage = require("../../images/banners/retro-avant300x250.gif");
+      customBannerLink = "https://bit.ly/2OSUfro";
+    } else if (["Суспільство"].includes(props.rubric)) {
+      customBannerImage = require("../../images/banners/forum_zona_ne_vidchuzhennya.png");
+      customBannerLink = "https://www.facebook.com/events/495563534786378";
+    }
   }
 
   useEffect(() => {
