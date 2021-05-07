@@ -21,6 +21,10 @@ function BannersPanel(props) {
   if (custom_banner) {
     customBannerImage = require("../../images/banners/special.gif");
     customBannerLink = "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM";
+    if (["Культура"].includes(props.rubric)) {
+      customBannerImage = require("../../images/banners/AIFF_2021_tyzhden_400u200ax600_01.png");
+      customBannerLink = "http://aiffua.com/";
+    }
   }
 
   useEffect(() => {
