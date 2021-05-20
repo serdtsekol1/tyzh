@@ -18,13 +18,34 @@ function BannersPanel(props) {
   let custom_banner = props.custom_banner;
   let customBannerImage = "";
   let customBannerLink = "";
-  if (custom_banner) {
-    customBannerImage = require("../../images/banners/special.gif");
-    customBannerLink = "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM";
-    if (["Культура"].includes(props.rubric)) {
-      customBannerImage = require("../../images/banners/AIFF_2021_tyzhden_400u200ax600_01.png");
-      customBannerLink = "http://aiffua.com/";
+
+
+  function displayRandomBanners (banners) {
+    // Function takes array of banners and return random banner
+      const random = getRandomInt(banners.length);
+    console.log(banners)
+
+    return banners[random]
+  }
+  const special = {
+      image: require("../../images/banners/special.gif"),
+      link: "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM"
     }
+  const ye1 = {
+    image: require("../../images/banners/1.png"),
+    link: "https://book-ye.com.ua/"
+  }
+  const ye2 = {
+    image: require("../../images/banners/5.png"),
+    link: "https://book-ye.com.ua/"
+  }
+  if (custom_banner) {
+    customBannerImage = displayRandomBanners([special, ye1, ye2])["image"];
+    customBannerLink = displayRandomBanners([special, ye1, ye2])["link"];
+    // if (["Культура"].includes(props.rubric)) {
+    //   customBannerImage = displayRandomBanners([aiff])["image"];
+    //   customBannerLink = displayRandomBanners([aiff])["link"];
+    //  }
   }
 
   useEffect(() => {
