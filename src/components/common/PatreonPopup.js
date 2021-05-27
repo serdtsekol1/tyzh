@@ -35,7 +35,7 @@ function PatreonPopup(props) {
   }
 
   useEffect (()=>{
-    setTimeout(openModal, 5000);
+    setTimeout(openModal, 60000);
   }, []);
 
   return (
