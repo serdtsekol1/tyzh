@@ -31,17 +31,10 @@ function BannersPanel(props) {
       image: require("../../images/banners/special.gif"),
       link: "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM"
     }
-  const ye1 = {
-    image: require("../../images/banners/1.png"),
-    link: "https://book-ye.com.ua/"
-  }
-  const ye2 = {
-    image: require("../../images/banners/5.png"),
-    link: "https://book-ye.com.ua/"
-  }
+
   if (custom_banner) {
-    customBannerImage = displayRandomBanners([special, ye1, ye2])["image"];
-    customBannerLink = displayRandomBanners([special, ye1, ye2])["link"];
+    customBannerImage = displayRandomBanners([special])["image"];
+    customBannerLink = displayRandomBanners([special])["link"];
     // if (["Культура"].includes(props.rubric)) {
     //   customBannerImage = displayRandomBanners([aiff])["image"];
     //   customBannerLink = displayRandomBanners([aiff])["link"];
