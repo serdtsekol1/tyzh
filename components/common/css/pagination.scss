@@ -67,7 +67,7 @@
 .pagination > .previous > a::before {
   content: "";
   display: inline-block;
-  background-image: url("../../../images/icons/arrow_back-32px.svg");
+  background-image: url("/images/icons/arrow_back-32px.svg");
   vertical-align: middle;
   margin-bottom: 5px;
   margin-right: $margin-more-smaller;
@@ -83,7 +83,7 @@
   margin-bottom: 5px;
   margin-left: $margin-more-smaller;
   vertical-align: middle;
-  background-image: url("../../../images/icons/arrow_forward-32px.svg");
+  background-image: url("/images/icons/arrow_forward-32px.svg");
   opacity: 0.6;
   width: 32px;
   height: 32px;

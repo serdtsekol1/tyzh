@@ -236,7 +236,7 @@
 }
 
 .navbar-toggler-icon {
-  background-image: url("../../../images/icons/menu-24px-white.svg") !important;
+  background-image: url("/images/icons/menu-24px-white.svg") !important;
   background-repeat: no-repeat;
   width: 24px !important;
   height: 24px !important;
@@ -302,7 +302,7 @@
 .articles-nav::after {
   content: "";
   display: block;
-  background-image: url("../../../images/icons/arrow_down.svg");
+  background-image: url("/images/icons/arrow_down.svg");
   background-size: contain;
   margin: auto;
   margin-top: 1px;
@@ -318,7 +318,7 @@
 }
 
 .show > .dropdown-toggle > .articles-nav::after {
-  background-image: url("../../../images/icons/arrow_up.svg") !important;
+  background-image: url("/images/icons/arrow_up.svg") !important;
 }
 
 
@@ -380,10 +380,10 @@
     padding: 0 !important;
   }
   .articles-nav::after {
-    background-image: url("../../../images/icons/arrow_down_white.svg");
+    background-image: url("/images/icons/arrow_down_white.svg");
   }
   .show > .dropdown-toggle > .articles-nav::after {
-    background-image: url("../../../images/icons/arrow_up_white.svg") !important;
+    background-image: url("/images/icons/arrow_up_white.svg") !important;
   }
 
   .arrow-down {
