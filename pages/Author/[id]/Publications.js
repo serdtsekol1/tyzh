@@ -14,7 +14,7 @@ export default function AuthorPublication({ data }) {
 
 
 export async function getServerSideProps(context) {
-  let apiUrl = `${process.env.apiDomain}authors/page/${context.params.id}/`
+  let apiUrl = `${process.env.apiDomain}/authors/page/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()
