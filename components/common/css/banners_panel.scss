@@ -1,0 +1,25 @@
+@import "../../common/css/mixins";
+@import "../../common/css/variables";
+
+.image-banner {
+  margin-bottom: $margin-big;
+  width: 100%;
+
+  img {
+    @include image-cover;
+  }
+ 
+
+}
+
+#google_image_div{
+  width: 255px !important;
+  height: auto !important;  
+}
+.image-banner:nth-child(1) {
+  margin-top: 0 !important;
+  @include for-phones {
+    margin-top: 0;
+  }
+}
+

@@ -1,0 +1,61 @@
+@import "../../common/css/mixins";
+@import "../../common/css/variables";
+
+/* HOME PAGE */
+.authors-half-block {
+  display: flex;
+  justify-content: center;
+}
+
+.author-column-link-big {
+  @include big-margin-bottom;
+}
+.author-column-link-small {
+  margin-bottom: $margin-medium;
+}
+.author_photo {
+  @include image-cover;
+  border: 2px solid $light-grey;
+}
+
+.small-author-name {
+  @include link-hover;
+  @include title-small;
+  color: $grey;
+  margin-bottom: $margin-extra-small !important;
+ 
+}
+
+.column-title-big {
+  @include title-medium;
+  @include link-hover;
+  margin-bottom: $margin-more-smaller !important;
+  @include for-phones {
+    margin-bottom: $margin-extra-small !important;
+  }
+}
+
+.column-title-small {
+  @include post-header-small;
+  @include link-hover;
+}
+
+/* COLUMNS PAGE */
+
+.author-columns-quantity {
+  @include very-small-header;
+  line-height: 130% !important;
+}
+
+.author-item{
+  @include big-margin-bottom;
+}
+
+.authors-info{
+  text-align: center;
+  .author-name {
+    @include post-header-small;
+    
+    margin-top: $margin-small !important;
+  }
+}

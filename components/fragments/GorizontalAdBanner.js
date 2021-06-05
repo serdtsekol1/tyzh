@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import ScriptTag from 'react-script-tag';
-import "./css/banners.scss";
 
 
 function GorizontalAdBanner(props) {

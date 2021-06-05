@@ -9,12 +9,12 @@ import Footer from "../components/common/Footer"
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className="App">
     <Head>
     <title>Test Next</title>
     </Head>
     <Navbar />
-    <div>
+    <div className="main-content">
     {children}
     </div>
     <Footer />
