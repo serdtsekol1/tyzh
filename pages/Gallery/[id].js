@@ -1,8 +1,8 @@
-import Layout from '../../../components/layout'
+import Layout from '../../components/layout'
 import Head from 'next/head'
 
 
-export default function Column({ data }) {
+export default function Gallery({ data }) {
   return (
     <Layout>
       <Head>
@@ -14,7 +14,7 @@ export default function Column({ data }) {
 
 
 export async function getServerSideProps(context) {
-  let apiUrl = `${process.env.apiDomain}/columns/${context.params.id}/`
+  let apiUrl = `${process.env.apiDomain}/galleries/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()
