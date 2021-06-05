@@ -30,7 +30,7 @@ function JournalItem(props) {
           />
         </a>
       </Link>
-      <Link to={`/Magazine/${journalData.num}`}>
+      <Link href={`/Magazine/${journalData.num}`}>
         <a>
           <p className="journal-title">Український тиждень</p>
         </a>
