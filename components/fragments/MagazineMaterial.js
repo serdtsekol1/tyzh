@@ -60,8 +60,8 @@ function MagazineMaterial(props) {
                     </div>
                     </div>
                     <div className="col-12 col-md-4">
-                        <Link className="button" to={`/Magazine/${props.magazine_id}`}>
-                          <a>
+                        <Link className="button" href={`/Magazine/${props.magazine_id}`}>
+                          <a className="button">
                             <Button title="Перейти до змісту"/>
                           </a>
                         </Link>

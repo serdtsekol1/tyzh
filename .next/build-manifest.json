@@ -19,10 +19,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
-    "/Gallery/[id]": [
+    "/[category]/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/Gallery/[id].js"
+      "static/chunks/pages/[category]/[id].js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
