@@ -1,7 +1,8 @@
 import React from "react";
-import PublicationAbstract from "../common/PublicationAbstract";
-
+import {useRouter} from "next/router";
 import Parser from "html-react-parser";
+
+import PublicationAbstract from "../common/PublicationAbstract";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import ShareBySocialNetworks from "../fragments/ShareBySocialNetworks";
 import BannersPanel from "../fragments/BannersPanel";
@@ -11,9 +12,7 @@ import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import NewsBlock from "./NewsBlock";
 import Fragment from "../fragments/Fragment";
-import MetaTags from "../common/MetaTagsComponent";
 
-import "../common/css/post.scss";
 
 function getImgSrc(content) {
     var tmp = document.createElement('div');
@@ -39,7 +38,7 @@ function getDate(public_ts){
       date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
       date = `Cьогодні, ${date}`;
     }
- 
+
   if (new Date(public_ts).getYear() < today.getYear()) {
       options = { year:'numeric',hour: 'numeric', minute: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
       date = new Date(public_ts).toLocaleTimeString('uK-UK', options);
@@ -51,13 +50,12 @@ function getDate(public_ts){
 
 function NewsItemTemplate(props) {
   let tags = props.newsItem.tags? props.newsItem.tags.split(","):[];
-  // let today = new Date();
-  // today.setDate(today.getDate() - 5);
+  const { query } = useRouter();
+  let thisUrl = `${process.env.domain}/News/${query.id}`;
 
   return (
     <PublicationAbstract publication={props.newsItem}>
     <div className="container">
-      <MetaTags image={props.newsItem.photo?getImgSrc(props.newsItem.content):''} />
       <div className="row">
         <div className="col-12 col-md-9">
           {props.newsItem.type_of_ad? <p className="author-location author-location-no-margin">{props.newsItem.type_of_ad}</p> :""}
@@ -102,7 +100,7 @@ function NewsItemTemplate(props) {
             {/* <p className="quantity-label">
               Поділилося: <b>18 осіб</b>
             </p> */}
-            <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={props.newsItem.title} color="red" />
+            <SocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.newsItem.title} color="red" />
           </div>
           <GorizontalAdBanner mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)} adpartner={true} yottos={true}/>
 
@@ -116,12 +114,13 @@ function NewsItemTemplate(props) {
           </Fragment>
         </div>
         <div className="d-none d-md-block col-md-3">
-          <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={props.newsItem.title} quantity={14} />
-          <BannersPanel news={true} admixer_id="admixed-news-item" admixer={true} moxTV={true} moxTV_id={`moxTV-news`} adriver={true} adriver_id="adriver-news-item" />
+          <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.newsItem.title} quantity={14} />
+          <BannersPanel news={true} admixer_id="admixed-news-item" admixer={true} moxTV={false} moxTV_id={`moxTV-news`} adriver={true} adriver_id="adriver-news-item" />
         </div>
       </div>
     </div>
     </PublicationAbstract>
   );
 }
+
 export default NewsItemTemplate;
