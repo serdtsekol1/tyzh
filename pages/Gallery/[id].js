@@ -4,6 +4,7 @@ import PhotoReportTemplate from "../../components/photo_reports/PhotoReportTempl
 
 import SkeletonPublication from "../../components/loading_skeletons/SkeletonPublication";
 
+
 export default function Gallery({ data }) {
   return (
     <Layout>

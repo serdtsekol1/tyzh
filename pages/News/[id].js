@@ -2,7 +2,7 @@ import Layout from '../../components/layout'
 import Head from 'next/head'
 
 
-export default function MagazineYear({ data }) {
+export default function News({ data }) {
   return (
     <Layout>
       <Head>
@@ -14,11 +14,12 @@ export default function MagazineYear({ data }) {
 
 
 export async function getServerSideProps(context) {
-  let apiUrl = `${process.env.apiDomain}/magazines/year/${context.params.year}/?limit=60`
+  let apiUrl = `${process.env.apiDomain}/news/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()
     return { props: { data } }
+  } else {
+    return { notFound: true }
   }
-  return { notFound: true }
 }

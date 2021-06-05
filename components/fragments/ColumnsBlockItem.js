@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import PressItem from "./PressItem";
-import "../columns/columns.scss";
 import CategoryLink from "./CategoryLink";
 
 
