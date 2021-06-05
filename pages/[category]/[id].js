@@ -14,7 +14,7 @@ export default function Post({ data }) {
 
 export async function getServerSideProps(context) {
   // Fetch data from external API
-  let apiUrl = `https://tyzhden.ua/api/publications/${context.params.id}/`
+  let apiUrl = `${process.env.apiDomain}publications/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()
