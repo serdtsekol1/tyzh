@@ -1,0 +1,101 @@
+@import "./variables";
+@import "./mixins";
+
+.journal-title {
+  @include small-header;
+  @include for-phones{
+    text-align: center;
+  }
+}
+
+.journal-number {
+  @include small-header;
+  font-weight: 600;
+  margin-bottom: $margin-very-small;
+  @include for-phones{
+    text-align: center;
+  }
+}
+
+.journal-cover {
+  @include image-cover;
+  margin-bottom: $margin-small;
+  cursor: pointer;
+}
+
+.journal-period {
+  @include very-small-header;
+  margin-bottom: $margin-very-small !important;
+  line-height: 136% !important;
+  @include for-phones{
+    text-align: center;
+  }
+}
+
+
+.journal-header-wrap{
+  margin-top: 32px;
+  margin-bottom: 72px;
+  @include not-for-extra-large-devices{
+    margin-top: 24px;
+  }
+  
+}
+
+.journal-big-cover{
+  @include image-cover;
+  @include for-phones {
+    margin-bottom: 32px;
+  }
+}
+
+.journal-info-wrap{
+  
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 110px;
+  @include for-phones{
+    margin-left: 0;
+    div{
+      width: 100%;
+    }
+  }
+ 
+}
+
+.big-journal-date{
+ @include big-date-title;
+ margin-bottom: 32px !important;
+}
+
+.big-journal-number{
+  @include big-number-title;
+}
+
+.big-journal-title{
+  @include post-title-large;
+  margin-bottom: 32px !important;
+  @include for-phones{
+    margin-bottom: 12px !important;
+  }
+}
+
+.subsc-button-centered{
+  margin-left: 45%;
+}
+
+.subsc-button{
+  
+  @include for-phones{
+    margin-left: 0;
+    button{
+      margin-bottom: 72px;
+    }
+  }
+}
+.journal-page{
+  .fragment-big .fragment-big{
+    padding-bottom: 0 !important;
+  }
+}

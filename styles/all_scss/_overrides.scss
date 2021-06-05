@@ -1,0 +1,28 @@
+@import "./variables";
+p {
+  margin-bottom: 0 !important;
+  color: $almost-black;
+}
+
+a {
+  color: $almost-black;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: unset !important;
+}
+.dropdown-item.hover,
+.dropdown-item:hover {
+  background-color: unset !important;
+}
+
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0 !important;
+}

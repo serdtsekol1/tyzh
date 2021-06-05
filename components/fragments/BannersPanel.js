@@ -130,16 +130,16 @@ function BannersPanel(props) {
       <div className="image-banner">
         <Link href="/Pandemic">
           <a>
-
+          <img
+              src="https://i.tyzhden.ua/content/main_side_pandemic_5.gif"
+              alt="Баннер"
+            />
           </a>
         </Link>
       </div>
       :""}
       </div>
-      :""}     <img
-      src="https://i.tyzhden.ua/content/main_side_pandemic_5.gif"
-      alt="Баннер"
-    />
+      :""}   
       {props.ria?
         <div>
           <div>

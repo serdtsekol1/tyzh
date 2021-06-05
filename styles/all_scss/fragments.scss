@@ -1,0 +1,16 @@
+@import "./variables";
+@import "./mixins";
+.fragment-medium {
+  margin-bottom: $margin-super-big;
+}
+.fragment-big {
+  @include large-padding-bottom;
+}
+.fragment-big-button {
+  text-align: center;
+}
+.fragment-medium-button {
+  @include for-phones {
+    text-align: center;
+  }
+}
