@@ -2,8 +2,6 @@ import Layout from '../../components/layout'
 import Head from 'next/head'
 import PhotoReportTemplate from "../../components/photo_reports/PhotoReportTemplate";
 
-import SkeletonPublication from "../../components/loading_skeletons/SkeletonPublication";
-
 
 export default function Gallery({ data }) {
   return (
