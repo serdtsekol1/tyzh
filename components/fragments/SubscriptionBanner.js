@@ -1,5 +1,4 @@
 import React from "react";
-import "./css/banners.scss";
 
 function SubscriptionBanner(props) {
   return (
@@ -9,7 +8,7 @@ function SubscriptionBanner(props) {
         <img
           style={props.style}
           className="banner subscription-banner"
-          src={require("../../images/banners/subscription.png")}
+          src={"/images/banners/subscription.png"}
           alt={`Оформлюй передплату журналу "Український тиждень"`}
         />
       </a>

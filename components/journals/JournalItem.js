@@ -1,7 +1,6 @@
 import React from "react";
-import "./journalItem.scss";
 import Button from "../common/Button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 
 function getDate(public_ts){
@@ -22,14 +21,20 @@ function JournalItem(props) {
   let date = getDate(journalData.public_ts);
   return (
     <div className="journal">
-      <Link to={`/Magazine/${journalData.num}`}>
-        <img
-          className="journal-cover"
-          src={journalData.image1}
-          alt={`Український тиждень №${journalData.localnum}`}
-        />
+      <Link href={`/Magazine/${journalData.num}`}>
+        <a>
+          <img
+            className="journal-cover"
+            src={journalData.image1}
+            alt={`Український тиждень №${journalData.localnum}`}
+          />
+        </a>
       </Link>
-      <Link to={`/Magazine/${journalData.num}`}><p className="journal-title">Український тиждень</p></Link>
+      <Link to={`/Magazine/${journalData.num}`}>
+        <a>
+          <p className="journal-title">Український тиждень</p>
+        </a>
+      </Link>
       <p className="journal-number">{`№ ${journalData.localnum} (${journalData.num})`}</p>
       <p className="journal-period">{date}</p>
       {journalData.isSpecialEdition ? (

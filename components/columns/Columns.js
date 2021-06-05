@@ -26,7 +26,7 @@ function Columns({match}){
       setLoading(true);
       const fetchData = async (page) => {
         let limit = 12;
-        let apiUrl = `${config.get("apiDomain")}/columns/?limit=${limit}&offset=${(page-1)*limit}`;
+        let apiUrl = `${process.env.apiDomain}/columns/?limit=${limit}&offset=${(page-1)*limit}`;
         
   
         await axios.get(apiUrl)

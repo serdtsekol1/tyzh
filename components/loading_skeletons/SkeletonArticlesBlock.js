@@ -1,12 +1,9 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 
-import { Link } from "react-router-dom";
 import CategoryLink from "../fragments/CategoryLink";
 import DateAndAuthor from "../fragments/DateAndAuthor";
-import "../fragments/css/press_item.scss";
 import PressItem from "../fragments/PressItem";
-import "./skeletons.scss";
 
 const SkeletonArticlesBlock = (props) => {
     let style = props.small ? "article-item-small" :"";

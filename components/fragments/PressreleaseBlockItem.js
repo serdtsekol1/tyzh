@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import CategoryLink from "./CategoryLink";
 import DateAndAuthor from "./DateAndAuthor";
-import "./css/press_item.scss";
 
 import PressItem from "./PressItem";
 

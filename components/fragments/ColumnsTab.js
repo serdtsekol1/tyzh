@@ -25,8 +25,8 @@ function ColumnsTab(props){
     const fetchData = async ()  => {
         let limit = 12;
         let apiUrl;
-        if (props.authorId) apiUrl = `${config.get("apiDomain")}/columns/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
-        if (props.tag) apiUrl = `${config.get("apiDomain")}/columns/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.authorId) apiUrl = `${process.env.apiDomain}/columns/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.tag) apiUrl = `${process.env.apiDomain}/columns/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
         await axios.get(apiUrl)
         .then(res =>{ 
             setAuthorColumns(res.data.results);

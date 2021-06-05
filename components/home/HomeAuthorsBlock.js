@@ -6,14 +6,12 @@ import config from "react-global-configuration";
 import HomeAuthorsBlockItem from "./HomeAuthorsBlockItem";
 import Fragment from "../fragments/Fragment";
 
-import "../fragments/css/authors_block.scss";
-
 function HomeAuthorsBlock() {
   const [authors, setAuthors] = useState([]);
   useEffect (()=>{
     const fetchData= async () => {
       let limit = 6;
-      await axios.get(`${config.get("apiDomain")}/columns/?limit=${limit}`)
+      await axios.get(`${process.env.apiDomain}/columns/?limit=${limit}`)
       .then(res =>{ 
         setAuthors(res.data.results);
       })

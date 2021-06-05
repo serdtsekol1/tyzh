@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Tabs, Tab } from 'react-bootstrap';
 import axios from 'axios';
 import config from "react-global-configuration";
@@ -34,7 +34,7 @@ function Author({match}){
 
     const fetchData = async () => {
       
-      let apiUrl = `${config.get("apiDomain")}/authors/page/${match.params.id}`;
+      let apiUrl = `${process.env.apiDomain}/authors/page/${match.params.id}`;
       await axios.get(apiUrl)
       .then(res =>{ 
      
@@ -43,7 +43,7 @@ function Author({match}){
 
         })
       .catch(err => console.log(err));  
-      apiUrl = `${config.get("apiDomain")}/columns/author/${match.params.id}/?limit=1`;
+      apiUrl = `${process.env.apiDomain}/columns/author/${match.params.id}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
          
@@ -54,7 +54,7 @@ function Author({match}){
   
           })
         .catch(err => console.log(err));  
-      apiUrl = `${config.get("apiDomain")}/galleries/author/${match.params.id}/?limit=1`;
+      apiUrl = `${process.env.apiDomain}/galleries/author/${match.params.id}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
          
@@ -63,7 +63,7 @@ function Author({match}){
   
           })
         .catch(err => console.log(err));  
-        apiUrl = `${config.get("apiDomain")}/publications/author/${match.params.id}/?limit=1`;
+        apiUrl = `${process.env.apiDomain}/publications/author/${match.params.id}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
           console.log(res.data.results.length);
@@ -72,7 +72,7 @@ function Author({match}){
   
           })
         .catch(err => console.log(err)); 
-      apiUrl = `${config.get("apiDomain")}/news/author/${match.params.id}/?limit=1`;
+      apiUrl = `${process.env.apiDomain}/news/author/${match.params.id}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{ 
           

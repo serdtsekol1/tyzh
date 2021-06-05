@@ -1,7 +1,6 @@
 import React, {useEffect,useState} from "react";
-import {Link} from "react-router-dom";
+import Link from "next/link";
 import ScriptTag from 'react-script-tag';
-import "./css/banners_panel.scss";
 import MoxTV from "./MoxTV";
 
 
@@ -28,7 +27,7 @@ function BannersPanel(props) {
     return banners[random]
   }
   const special = {
-      image: require("../../images/banners/special.gif"),
+      image: "/images/banners/special.gif",
       link: "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM"
     }
 
@@ -81,51 +80,66 @@ function BannersPanel(props) {
       <div>
       {myRandomNumber==0?
       <div className="image-banner">
-        <Link to="/Pandemic">
-        <img
-          src="https://i.tyzhden.ua/content/main_side_pandemic_1.gif"
-          alt="Баннер"
-        /></Link>
+        <Link href="/Pandemic">
+          <a>
+            <img
+              src="https://i.tyzhden.ua/content/main_side_pandemic_1.gif"
+              alt="Баннер"
+            />
+          </a>
+        </Link>
       </div>
       :""}
       {myRandomNumber==1?
       <div className="image-banner">
-        <Link to="/Pandemic">
-        <img
-          src="https://i.tyzhden.ua/content/main_side_pandemic_2.gif"
-          alt="Баннер"
-        /></Link>
+        <Link href="/Pandemic">
+          <a>
+            <img
+              src="https://i.tyzhden.ua/content/main_side_pandemic_2.gif"
+              alt="Баннер"
+            />
+          </a>
+        </Link>
       </div>
       :""}
       {myRandomNumber==2?
       <div className="image-banner">
-        <Link to="/Pandemic">
-        <img
-          src="https://i.tyzhden.ua/content/main_side_pandemic_3.gif"
-          alt="Баннер"
-        /></Link>
+        <Link href="/Pandemic">
+          <a>
+            <img
+              src="https://i.tyzhden.ua/content/main_side_pandemic_3.gif"
+              alt="Баннер"
+            />
+          </a>
+        </Link>
       </div>
       :""}
       {myRandomNumber==3?
       <div className="image-banner">
-        <Link to="/Pandemic">
-        <img
-          src="https://i.tyzhden.ua/content/main_side_pandemic_4.gif"
-          alt="Баннер"
-        /></Link>
+        <Link href="/Pandemic">
+          <a>
+            <img
+              src="https://i.tyzhden.ua/content/main_side_pandemic_4.gif"
+              alt="Баннер"
+            />
+          </a>
+        </Link>
       </div>
       :""}
       {myRandomNumber==4?
       <div className="image-banner">
-        <Link to="/Pandemic">
-        <img
-          src="https://i.tyzhden.ua/content/main_side_pandemic_5.gif"
-          alt="Баннер"
-        /></Link>
+        <Link href="/Pandemic">
+          <a>
+
+          </a>
+        </Link>
       </div>
       :""}
       </div>
-      :""}
+      :""}     <img
+      src="https://i.tyzhden.ua/content/main_side_pandemic_5.gif"
+      alt="Баннер"
+    />
       {props.ria?
         <div>
           <div>

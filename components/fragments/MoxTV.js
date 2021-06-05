@@ -1,8 +1,6 @@
 import React, {useEffect,useState} from "react";
-import {Link} from "react-router-dom";
 import ScriptTag from 'react-script-tag';
 import {Helmet} from 'react-helmet';
-import "./css/banners_panel.scss";
 
 
 

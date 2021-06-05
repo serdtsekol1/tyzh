@@ -2,8 +2,6 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 
 import Fragment from "../fragments/Fragment";
-import "../fragments/css/press_item.scss";
-import "./skeletons.scss";
 
 const SkeletonMainArticle = (props) => {
 

@@ -1,7 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import Link from "next/link";
 import DateAndAuthor from "./DateAndAuthor";
-import "./css/press_item.scss";
 
 
 
@@ -39,15 +38,19 @@ function PressItem(props){
         </p>
     :
       (props.type != "pressreleases") ?
-        <Link to={`/${props.type}/${props.pressItem.id}`}>
-            <p className="press-title press-title-hover">
-                {props.pressItem.title}
-            </p>
+        <Link href={`/${props.type}/${props.pressItem.id}`}>
+            <a>
+                <p className="press-title press-title-hover">
+                    {props.pressItem.title}
+                </p>
+            </a>
         </Link> :
-        <Link to={`/PressReleases/${props.pressItem.id}`}>
-            <p className="press-title press-title-hover">
-              {props.pressItem.title}
-            </p>
+        <Link href={`/PressReleases/${props.pressItem.id}`}>
+            <a>
+                <p className="press-title press-title-hover">
+                  {props.pressItem.title}
+                </p>
+            </a>
         </Link>
     }
     <p className="press-abstract">

@@ -15,7 +15,7 @@ function SubjectBlock() {
     setLoading(true);
     const fetchData= async () => {
       let limit = 2;
-      let apiUrl = `${config.get("apiDomain")}/subjects/?limit=${limit}`;
+      let apiUrl = `${process.env.apiDomain}/subjects/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
         setSubjects(res.data.results);

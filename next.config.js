@@ -18,4 +18,7 @@ module.exports = {
     );
     return config
   },
+  env: {
+      apiDomain: 'https://tyzhden.ua/api/',
+    },
 }

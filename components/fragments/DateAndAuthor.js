@@ -1,6 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import "./css/date_and_author.scss";
+import Link from "next/link";
 function DateAndAuthor(props) {
  
   let dot=false;
@@ -14,7 +13,7 @@ function DateAndAuthor(props) {
     <div className="date-and-author">
       <img
         className="clock"
-        src={require("../../images/icons/date-24px.svg")}
+        src={"/images/icons/date-24px.svg"}
         alt=""
       />
       <p className="date">{props.date}</p>
@@ -24,7 +23,7 @@ function DateAndAuthor(props) {
         ""
       )}
       {props.author ? (
-        <div>{props.author.map(author=><Link key={author.id} to={`/Author/${author.id}`}><p key={author.id*34} className="author">{author.fullname2ua}</p></Link>)}</div>
+        <div>{props.author.map(author=><Link key={author.id} href={`/Author/${author.id}`}><a><p key={author.id*34} className="author">{author.fullname2ua}</p></a></Link>)}</div>
           
       ) : (
         ""

@@ -18,7 +18,7 @@ function NewsItem({ match }) {
 
     const increaseStatCounter = async () => {
         let path = `/news/stats/${match.params.id}`;
-        let fullUrl = `${config.get("apiDomain")}${path}`;
+        let fullUrl = `${process.env.apiDomain}${path}`;
         if(!getCookie(`news_stats_${match.params.id}`)) {
           setCookie(`news_stats_${match.params.id}`, true, 1, fullUrl);
             await axios.put(fullUrl)
@@ -29,7 +29,7 @@ function NewsItem({ match }) {
 
     const fetchData = async () => {
       
-      let apiUrl = `${config.get("apiDomain")}/news/${match.params.id}`;
+      let apiUrl = `${process.env.apiDomain}/news/${match.params.id}`;
       await axios.get(apiUrl)
       .then(res =>{ 
       

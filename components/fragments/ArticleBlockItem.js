@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import CategoryLink from "./CategoryLink";
 import DateAndAuthor from "./DateAndAuthor";
-import "./css/press_item.scss";
 import categoties from "../common/categories.json";
 
 import PressItem from "./PressItem";
@@ -44,18 +43,20 @@ function ArticleBlockItem(props) {
           }
         >
            {((new Date(props.articleItem.public_ts)<=today))?
-           <Link to={`/${category}/${props.articleItem.id}`}>
-          <img
-            id={props.mainArticle && !props.small? "main-article" : ""}
-            className={
-              props.mainArticle || props.categorial
-                ? "article-block-image"
-                : "article-block-image atricle-image-margin"
-            }
-            
-            src={props.articleItem? props.articleItem.image1: ""}
-            alt="Зображення: стаття"
-          />
+           <Link href={`/${category}/${props.articleItem.id}`}>
+             <a>
+              <img
+                id={props.mainArticle && !props.small? "main-article" : ""}
+                className={
+                  props.mainArticle || props.categorial
+                    ? "article-block-image"
+                    : "article-block-image atricle-image-margin"
+                }
+
+                src={props.articleItem? props.articleItem.image1: ""}
+                alt="Зображення: стаття"
+              />
+             </a>
           </Link>
         :<img
         id={props.mainArticle && !props.small? "main-article" : ""}

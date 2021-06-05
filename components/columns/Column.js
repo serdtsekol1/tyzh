@@ -19,7 +19,7 @@ function Column({match}){
       
     const increaseStatCounter = async () => {
         let path = `/columns/stats/${match.params.id}`;
-        let fullUrl = `${config.get("apiDomain")}${path}`;
+        let fullUrl = `${process.env.apiDomain}${path}`;
         if(!getCookie(`columns_stats_${match.params.id}`)) {
             setCookie(`columns_stats_${match.params.id}`, true, 1, fullUrl);
             await axios.put(fullUrl)
@@ -30,7 +30,7 @@ function Column({match}){
 
     const fetchData = async () => {
       
-      let apiUrl = `${config.get("apiDomain")}/columns/${match.params.id}`;
+      let apiUrl = `${process.env.apiDomain}/columns/${match.params.id}`;
       await axios.get(apiUrl)
       .then(res =>{ 
      

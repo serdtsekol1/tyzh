@@ -1,5 +1,4 @@
 import React from "react";
-import "./css/banners.scss";
 
 function DonationBanner(props) {
   return (
@@ -8,7 +7,7 @@ function DonationBanner(props) {
         <img
           style={props.style}
           className="banner subscription-banner"
-          src={require("../../images/banners/donation-2.gif")}
+          src={"/images/banners/donation-2.gif"}
           alt={`Оформлюй передплату журналу "Український тиждень"`}
         />
       </a>

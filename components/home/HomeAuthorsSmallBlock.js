@@ -17,7 +17,7 @@ function HomeAuthorsSmallBlock() {
     setLoading(true);
     const fetchData= async () => {
       let limit = 4;
-      await axios.get(`${config.get("apiDomain")}/columns/?limit=${limit}`)
+      await axios.get(`${process.env.apiDomain}/columns/?limit=${limit}`)
       .then(res =>{ 
         setLoading(false);
         setAuthors(res.data.results);

@@ -27,7 +27,7 @@ function Subjects({match}){
 
         const fetchData = async (page) => {
           let limit = 13;
-          let apiUrl = `${config.get("apiDomain")}/subjects/?limit=${limit}`;
+          let apiUrl = `${process.env.apiDomain}/subjects/?limit=${limit}`;
           if (page)  apiUrl = `${apiUrl}&offset=${(page-1)*limit}`;
 
           await axios.get(apiUrl)

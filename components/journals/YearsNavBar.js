@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import DateSlider from "./DateSlider";
 import Header from "../common/Header";
 import YearsPagination from "./YearsPagination";
-import { NavLink } from "react-router-dom";
-import "./journals.scss";
+import NavLink from "../common/NavLink";
 
 function YearsNavBar() {
   const firstYear = 2007;

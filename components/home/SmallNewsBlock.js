@@ -15,7 +15,7 @@ function SmallNewsBlock() {
     setLoading(true);
     const fetchNews= async () => {
       let limit = 4;
-      await axios.get(`${config.get("apiDomain")}/news/?limit=${limit}`)
+      await axios.get(`${process.env.apiDomain}/news/?limit=${limit}`)
       .then(res =>{ 
         setNews(res.data.results);
         setLoading(false);

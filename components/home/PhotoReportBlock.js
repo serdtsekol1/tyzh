@@ -15,7 +15,7 @@ function PhotoReportBlock() {
     setLoading(true);
     const fetchData= async () => {
       let limit = 4;
-      let apiUrl = `${config.get("apiDomain")}/galleries/?limit=${limit}`;
+      let apiUrl = `${process.env.apiDomain}/galleries/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
         setGalleries(res.data.results);

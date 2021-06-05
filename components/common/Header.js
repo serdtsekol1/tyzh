@@ -1,5 +1,4 @@
 import React from "react";
-import "./css/_headers.scss";
 
 function Header(props) {
   const bigStyle = props.size == "big" ? "header-big" : "";

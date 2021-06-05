@@ -22,8 +22,8 @@ function PhotoreportsTab(props){
     const fetchData = async ()  => {
         let limit = 10;
         let apiUrl;
-        if (props.authorId) apiUrl = `${config.get("apiDomain")}/galleries/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
-        if (props.tag) apiUrl = `${config.get("apiDomain")}/galleries/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.authorId) apiUrl = `${process.env.apiDomain}/galleries/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.tag) apiUrl = `${process.env.apiDomain}/galleries/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
         await axios.get(apiUrl)
         .then(res =>{ 
             setAuthorPhotoreports(res.data.results);

@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import Link from "next/link";
 import PressItem from "./PressItem";
 import "../columns/columns.scss";
 import CategoryLink from "./CategoryLink";
@@ -14,11 +14,14 @@ function ColumnsBlockItem(props) {
       <div className={props.reverse? "flex-row-reverse column-item row":"column-item row"}>
         {props.noneImage?"":
           <div className={props.reverse? "col-3 col-md-4" : "col-3 col-md-2" }>
-          <Link to={`/Author/${props.columnItem.author.id}`}><img
-                className="author_photo"
-                src={props.columnItem.author.image1url}
-                alt="Портрет"
-              />
+            <Link href={`/Author/${props.columnItem.author.id}`}>
+              <a>
+                <img
+                  className="author_photo"
+                  src={props.columnItem.author.image1url}
+                  alt="Портрет"
+                />
+              </a>
             </Link>
           </div>
         }

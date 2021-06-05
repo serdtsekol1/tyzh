@@ -11,7 +11,7 @@ function JournalsFooter() {
     const fetchJournal= async () => {
       let today = new Date();
       const limit = 4;
-      await axios.get(`${config.get("apiDomain")}/magazines/?limit=${limit}`)
+      await axios.get(`${process.env.apiDomain}/magazines/?limit=${limit}`)
       .then(res =>{ 
     
         setJournalsFooter(res.data.results);

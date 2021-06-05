@@ -59,8 +59,8 @@ function Articles({ match, location }) {
       let limit = 11;
       let apiUrl;   
       if (initialCategoryAPI) 
-        apiUrl = `${config.get("apiDomain")}/publications/list/${initialCategoryAPI}/?limit=${limit}&offset=${(page-1)*limit}`;
-      else apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}&offset=${(page-1)*limit}`;
+        apiUrl = `${process.env.apiDomain}/publications/list/${initialCategoryAPI}/?limit=${limit}&offset=${(page-1)*limit}`;
+      else apiUrl = `${process.env.apiDomain}/publications/?limit=${limit}&offset=${(page-1)*limit}`;
 
       await axios.get(apiUrl)
       .then(res =>{ 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Button from "../common/Button";
 
 function Fragment(props) {
@@ -12,8 +12,10 @@ function Fragment(props) {
         ) : (
           <div>
           {props.showMoreLink ?
-          (<Link to={props.showMoreLink}>
-            <Button redButton={props.redButton?true:false} title={props.showMoreTitle ? props.showMoreTitle: "Показати більше"} />
+          (<Link href={props.showMoreLink}>
+            <a>
+              <Button redButton={props.redButton?true:false} title={props.showMoreTitle ? props.showMoreTitle: "Показати більше"} />
+            </a>
           </Link>)
           :
           (<a className="subsc-button" href={props.showMoreHref}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import DateAndAuthor from "../fragments/DateAndAuthor";
 import "../news/news.scss";
 
@@ -41,8 +41,10 @@ function SmallNewsBlockItem(props) {
           ""
         )}
 
-        <Link to={`/News/${props.newsItem.id}`}>
-          <p className="news-title">{props.newsItem.title}</p>
+        <Link href={`/News/${props.newsItem.id}`}>
+          <a>
+            <p className="news-title">{props.newsItem.title}</p>
+          </a>
         </Link>
       </div>
       <DateAndAuthor

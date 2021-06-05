@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./news.scss"
 import "./news_block_item.scss";
 
@@ -45,10 +45,10 @@ function NewsBlockItem(props) {
               ) : (
                 ""
               )}
-            <Link to={`/News/${props.newsItem.id}`}>
-              
-              <p className="news-title-medium">{props.newsItem.title}</p>
-
+            <Link href={`/News/${props.newsItem.id}`}>
+              <a>
+                <p className="news-title-medium">{props.newsItem.title}</p>
+              </a>
             </Link>
             </div>
           </tr>

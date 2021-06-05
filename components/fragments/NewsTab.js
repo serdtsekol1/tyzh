@@ -23,8 +23,8 @@ function NewsTab(props){
     const fetchData = async ()  => {
         let limit = 20;
         let apiUrl;
-        if (props.authorId) apiUrl = `${config.get("apiDomain")}/news/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
-        if (props.tag) apiUrl = `${config.get("apiDomain")}/news/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.authorId) apiUrl = `${process.env.apiDomain}/news/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.tag) apiUrl = `${process.env.apiDomain}/news/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
         await axios.get(apiUrl)
         .then(res =>{ 
             setAuthorNews(res.data.results);

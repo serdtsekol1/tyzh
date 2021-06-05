@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function ShowMoreButton(props) {
   return (
-    <Link to={props.to} className="show-more-button">
-      {props.title}
-      <img src={require("../../images/icons/arrow_right-24px.svg")} alt=">" />
+    <Link href={props.to} className="show-more-button">
+      <a>
+        {props.title}
+        <img src={"/images/icons/arrow_right-24px.svg"} alt=">" />
+      </a>
     </Link>
   );
 }

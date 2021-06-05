@@ -1,7 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import Link from "next/link";
 import ShowMoreButton from "../common/ShowMoreButton";
-import "../fragments/css/authors_block.scss";
 
 function HomeAuthorsBlockItem(props) {
   let author_name =props.columnItem.author.fullname2ua;
@@ -12,17 +11,29 @@ function HomeAuthorsBlockItem(props) {
      
       <div className="row">
         <div className="col-5">
-        <Link to={`/Author/${props.columnItem.author.id}`}><img
-            className="author_photo"
-            src={props.columnItem.author.image1url}
-            alt={`Портрет:${author_name}`}
-          /></Link>
+        <Link href={`/Author/${props.columnItem.author.id}`}>
+          <a>
+            <img
+              className="author_photo"
+              src={props.columnItem.author.image1url}
+              alt={`Портрет:${author_name}`}
+            />
+          </a>
+        </Link>
         </div>
         <div className="col-7">
-        <Link to={`/Author/${props.columnItem.author.id}`}><p className="small-author-name">{author_name}</p></Link>
-        <Link to={`/Columns/50/${props.columnItem.id}`}><p className={`column-title${"-" + props.size}`}>
+        <Link href={`/Author/${props.columnItem.author.id}`}>
+          <a>
+            <p className="small-author-name">{author_name}</p>
+          </a>
+        </Link>
+        <Link href={`/Columns/50/${props.columnItem.id}`}>
+          <a>
+            <p className={`column-title${"-" + props.size}`}>
             {props.columnItem.title}
-          </p></Link>
+            </p>
+          </a>
+        </Link>
           {props.size === "small" ? (
             ""
           ) : (

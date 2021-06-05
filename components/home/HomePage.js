@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import Link from "next/link";
 
 import axios from 'axios';
 import HomeAuthorsBlock from "./HomeAuthorsBlock";
@@ -33,17 +33,17 @@ function HomePage() {
     setLoading(true);
     const fetchArticles= async () => {
       let limit = 6;
-      await axios.get(`${config.get("apiDomain")}/publications/?limit=${limit}`)
+      await axios.get(`${process.env.apiDomain}/publications/?limit=${limit}`)
       .then(res =>{ 
         setArticles(res.data.results);
       })
       .catch(err => console.log(err));
-      await axios.get(`${config.get("apiDomain")}/publications/type/selected/`)
+      await axios.get(`${process.env.apiDomain}/publications/type/selected/`)
       .then(res =>{ 
         setMainArticles(res.data.results);
       })
       .catch(err => console.log(err));
-      await axios.get(`${config.get("apiDomain")}/videos/live/`)
+      await axios.get(`${process.env.apiDomain}/videos/live/`)
       .then(res =>{ 
         setVideoTranslation(res.data);
         setLoading(false);
@@ -83,7 +83,7 @@ function HomePage() {
       {loading && 
       <p className="skeleton-header"><Skeleton height={30}></Skeleton></p>}
       {!loading &&
-        <Link to="/Publications"><Header size="big" title="Статті" /></Link>
+      <Link href="/Publications"><a><Header size="big" title="Статті" /></a></Link>
       }
       <div className="row">
         <div className="col-12 col-md-9">
@@ -97,11 +97,11 @@ function HomePage() {
         </div>
       </div>
       <SubjectBlock />
-      <Link to="/Columns"><Header size="big" title="Авторські колонки" /></Link>
+      <Link href="/Columns"><a><Header size="big" title="Авторські колонки" /></a></Link>
       <HomeAuthorsBlock />
       <DonationBanner />
       <PhotoReportBlock />
-      <Link to="/Magazines"><Header size="big" title="Журнал «Український тиждень»"/></Link>
+      <Link href="/Magazines"><a><Header size="big" title="Журнал «Український тиждень»"/></a></Link>
       <JournalsFooter />
     </div>
   );

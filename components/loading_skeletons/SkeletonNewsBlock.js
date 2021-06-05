@@ -1,11 +1,8 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 
-import { Link } from "react-router-dom";
 import CategoryLink from "../fragments/CategoryLink";
 import Fragment from "../fragments/Fragment";
-import "../fragments/css/press_item.scss";
-import "../news/news.scss";
 import PressItem from "../fragments/PressItem";
 import SkeletonPressItem from "./SkeletonPressItem";
 

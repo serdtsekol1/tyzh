@@ -1,5 +1,4 @@
 import React from "react";
-import "./css/authors_block.scss";
 
 function AuthorsBlockItem(props){
 

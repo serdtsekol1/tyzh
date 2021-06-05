@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import Parser from "html-react-parser";
 import DateAndAuthor from "../fragments/DateAndAuthor";
@@ -61,7 +61,11 @@ function ColumnTemplate(props){
         
         <div className="col-9 col-md-10 d-none d-md-block">
           <div className="column-author-info">
-           <Link to={`/Author/${columnItem.author.id}`}><p className="red-link column-author-name">{author_name}</p></Link>
+           <Link href={`/Author/${columnItem.author.id}`}>
+             <a>
+               <p className="red-link column-author-name">{author_name}</p>
+             </a>
+           </Link>
           {columnItem.location? <p className="author-location">{columnItem.location}</p>:""}
             <p className="big-post-header column-title ">{columnItem.title}</p>
              <div className="column-date">

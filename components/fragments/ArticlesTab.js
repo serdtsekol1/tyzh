@@ -26,8 +26,8 @@ function ArticlesTab(props){
     const fetchData = async ()  => {
         let limit = 7;
         let apiUrl;
-        if (props.authorId) apiUrl = `${config.get("apiDomain")}/publications/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
-        if (props.tag) apiUrl = `${config.get("apiDomain")}/publications/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.authorId) apiUrl = `${process.env.apiDomain}/publications/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
+        if (props.tag) apiUrl = `${process.env.apiDomain}/publications/tags/${props.tag}/?limit=${limit}&offset=${(page-1)*limit}`;
         await axios.get(apiUrl)
         .then(res =>{ 
             setAuthorArticles(res.data.results);

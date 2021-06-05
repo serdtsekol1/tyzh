@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import "./css/category.scss";
+import NavLink from "../common/NavLink";
 import categoties from "../common/categories.json";
 
 function CategoryLink(props) {

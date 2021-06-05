@@ -22,7 +22,7 @@ function Subject({ match }) {
     setLoading(true);
 
     const fetchData = async () => {
-      let apiUrl = `${config.get("apiDomain")}/subjects/${match.params.id}`;
+      let apiUrl = `${process.env.apiDomain}/subjects/${match.params.id}`;
       await axios.get(apiUrl)
         .then(res => {
           setSubject(res.data);

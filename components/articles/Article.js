@@ -23,7 +23,7 @@ function Article({ match }) {
 
     const increaseStatCounter = async () => {
         let path = `/publications/stats/${match.params.id}`;
-        let fullUrl = `${config.get("apiDomain")}${path}`;
+        let fullUrl = `${process.env.apiDomain}${path}`;
         if(!getCookie(`publications_stats_${match.params.id}`)) {
             setCookie(`publications_stats_${match.params.id}`, true, 1, fullUrl);
             await axios.put(fullUrl)
@@ -33,7 +33,7 @@ function Article({ match }) {
     increaseStatCounter();
 
     const fetchData = async () => {
-      let apiUrl = `${config.get("apiDomain")}/publications/${match.params.id}`;
+      let apiUrl = `${process.env.apiDomain}/publications/${match.params.id}`;
       await axios.get(apiUrl)
       .then(res =>{ 
 

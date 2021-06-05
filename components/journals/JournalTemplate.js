@@ -14,9 +14,6 @@ import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ColumnsBlockItem from "../fragments/ColumnsBlockItem";
 import MetaTags from "../common/MetaTagsComponent";
 
-import "./journalItem.scss";
-import "../common/css/tabs.scss";
-
 
 
 function getDate(public_ts){

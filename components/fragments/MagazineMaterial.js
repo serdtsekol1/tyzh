@@ -1,5 +1,6 @@
 import React, { useState, useEffect}  from "react";
-import { Link,useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import Link from "next/link";
 
 import axios from 'axios';
 import config from 'react-global-configuration';
@@ -33,7 +34,7 @@ function MagazineMaterial(props) {
         setLoading(true);
         const fetchData = async () => {
           
-          let apiUrl = `${config.get("apiDomain")}/magazines/${props.magazine_id}`;
+          let apiUrl = `${process.env.apiDomain}/magazines/${props.magazine_id}`;
           await axios.get(apiUrl)
           .then(res =>{ 
           
@@ -55,8 +56,10 @@ function MagazineMaterial(props) {
                 <div className="row">
                     
                     <div className="col-12 col-md-8 flex-mobile">
-                    <Link to={`/Magazine/${props.magazine_id}`}>
+                    <Link href={`/Magazine/${props.magazine_id}`}>
+                      <a>
                         <img src={magazine.image1} className="magazine-image"/>
+                      </a>
                     </Link>
                     <div className="magazine-mobile-titles">
                         <p className="magazine-published">Матеріал друкованого видання</p>
@@ -64,7 +67,11 @@ function MagazineMaterial(props) {
                     </div>
                     </div>
                     <div className="col-12 col-md-4">
-                        <Link className="button" to={`/Magazine/${props.magazine_id}`}><Button title="Перейти до змісту"/></Link>
+                        <Link className="button" to={`/Magazine/${props.magazine_id}`}>
+                          <a>
+                            <Button title="Перейти до змісту"/>
+                          </a>
+                        </Link>
                     </div>
                 </div>
             </div>

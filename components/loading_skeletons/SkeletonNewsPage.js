@@ -2,10 +2,6 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 
 import Fragment from "../fragments/Fragment";
-import "../fragments/css/press_item.scss";
-import "../common/css/_headers.scss";
-import "../common/css/post.scss";
-import "./skeletons.scss";
 
 const SkeletonNewsPage = (props) => {
 

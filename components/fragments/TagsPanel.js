@@ -1,13 +1,15 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import Link from "next/link";
 import "./css/tags.scss";
 
 function TagsPanel(props) {
   const tagComponents = props.tags.map(tag => (
-    <Link to={`/Tag/${tag}`}>
-    <div className="tag" key={tag}>
-      <p key={tag.toUpperCase()}>{tag}</p>
-    </div>
+    <Link href={`/Tag/${tag}`}>
+      <a>
+        <div className="tag" key={tag}>
+          <p key={tag.toUpperCase()}>{tag}</p>
+        </div>
+      </a>
     </Link>
   ));
   return <div className="tags-panel">{tagComponents}</div>;

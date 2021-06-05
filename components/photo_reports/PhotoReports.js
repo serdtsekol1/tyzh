@@ -28,7 +28,7 @@ function PhotoReports({match}){
 
         const fetchData = async (page) => {
           let limit = 13;
-          let apiUrl = `${config.get("apiDomain")}/galleries/?limit=${limit}`;
+          let apiUrl = `${process.env.apiDomain}/galleries/?limit=${limit}`;
           if (page)  apiUrl = `${apiUrl}&offset=${(page-1)*limit}`;
 
           await axios.get(apiUrl)

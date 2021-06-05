@@ -16,7 +16,7 @@ function ArticlesBlock(props) {
     setLoading(true);
     const fetchArticles = async () => {
       let limit = props.quantity;
-      let apiUrl = `${config.get("apiDomain")}/publications/?limit=${limit}`;
+      let apiUrl = `${process.env.apiDomain}/publications/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
         setArticles(res.data.results);
