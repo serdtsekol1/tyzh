@@ -12,10 +12,6 @@ import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import PhotosQuantityHolder from "../fragments/PhotosQuantityHolder";
 import PatreonPopup from "../common/PatreonPopup";
-
-import "../common/css/post.scss";
-
-
 import ArticlesBlock from "../fragments/AtriclesBlock";
 import MagazineMaterial from "../fragments/MagazineMaterial";
 
@@ -31,10 +27,8 @@ function getDate(public_ts){
   return date;
 }
 
-
 function ArticleTemplate(props) {
-  let thisUrl= window.location.href;
-
+  let thisUrl= `{process.env.domain}/{context.params.category}/{context.params.id}`;
 
   return (
    <PublicationAbstract publication={props.article}>

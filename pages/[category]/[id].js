@@ -1,12 +1,16 @@
-import Layout from '../../components/layout'
 import Head from 'next/head'
+import Layout from '../../components/layout'
+import ArticleTemplate from "../../components/articles/ArticleTemplate";
 
-export default function Post({ data }) {
+export default function Post({ data, context }) {
   return (
     <Layout>
       <Head>
         <title>{data.title}</title>
       </Head>
+      <div>
+        <ArticleTemplate article={data}/>
+      </div>
     </Layout>
   )
 }

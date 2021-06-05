@@ -8,8 +8,6 @@ import config from 'react-global-configuration';
 import Button from '../common/Button';
 import Skeleton from "react-loading-skeleton";
 
-import './css/magazine_material.scss';
-
 
 function getDate(public_ts){
     const today = new Date();
@@ -28,24 +26,19 @@ function MagazineMaterial(props) {
     const [loading, setLoading] = useState(false);
     let date = "";
     let history = useHistory();
-   
-   
+
     useEffect (()=>{
         setLoading(true);
         const fetchData = async () => {
-          
           let apiUrl = `${process.env.apiDomain}/magazines/${props.magazine_id}`;
           await axios.get(apiUrl)
-          .then(res =>{ 
-          
+          .then(res =>{
             setMagazine(res.data);
             setLoading(false);
-            
             })
           .catch(err => {console.log(err);setLoading(false);});
           };
           fetchData();
-        
       },[props.magazine_id]);
       if (magazine) date = getDate(magazine.created_ts);
     return(
