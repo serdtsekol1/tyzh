@@ -1,15 +1,21 @@
-import Layout from '../../components/layout'
 import Head from 'next/head'
+import Layout from '../../components/layout'
+import JournalPage from '../../components/journals/JournalTemplate.js'
+
 
 export default function Magazine({ data }) {
   return (
     <Layout>
       <Head>
-        <title>Журнал №{data.localnum} ({data.num})</title>
+        <title>Український тиждень № {data.localnum} ({data.num})</title>
       </Head>
+      <div>
+        <JournalPage journalItem={data}/>
+      </div>
     </Layout>
   )
 }
+
 
 export async function getServerSideProps(context) {
   // Fetch data from external API

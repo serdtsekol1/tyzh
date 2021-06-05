@@ -1,4 +1,3 @@
-import React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 
 import Button from "../common/Button";
@@ -12,8 +11,6 @@ import GorizontalAdBanner from '../fragments/GorizontalAdBanner';
 import ArticlesBlock from '../fragments/AtriclesBlock';
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ColumnsBlockItem from "../fragments/ColumnsBlockItem";
-import MetaTags from "../common/MetaTagsComponent";
-
 
 
 function getDate(public_ts){
@@ -30,6 +27,7 @@ function getDate(public_ts){
 
 function JournalTemplate(props) {
     let journal = props.journalItem? props.journalItem: {};
+    console.log('item', journal)
     let date = "";
     date = getDate(journal.public_ts);
     let publicationsComponents = [];
@@ -40,11 +38,6 @@ function JournalTemplate(props) {
         });
     }
     return <div className="container">
-        <MetaTags title={`Український тиждень № ${journal.localnum} (${journal.num})`} 
-          abstract={`Український тиждень № ${journal.localnum} (${journal.num})`} 
-          ct100={true} keywords={`Український тиждень № ${journal.localnum} (${journal.num})`} 
-          image={journal.image1}
-          />
         <div className="row journal-header-wrap">
             <div className="col-12 col-md-4">
                 <img className="journal-big-cover" src={journal.image1} alt="" />

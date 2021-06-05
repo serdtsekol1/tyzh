@@ -14,7 +14,7 @@ export default function Layout({ children }) {
     <title>Test Next</title>
     </Head>
     <Navbar />
-    <div>
+    <div className="main-content">
     {children}
     </div>
     <Footer />
