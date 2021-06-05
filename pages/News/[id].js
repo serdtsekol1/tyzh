@@ -1,5 +1,7 @@
-import Layout from '../../components/layout'
 import Head from 'next/head'
+
+import Layout from '../../components/layout'
+import NewsTemplate from "../../components/news/NewsTemplate";
 
 
 export default function News({ data }) {
@@ -8,6 +10,9 @@ export default function News({ data }) {
       <Head>
         <title>{data.title}</title>
       </Head>
+      <div>
+        <NewsTemplate newsItem={data}/>
+      </div>
     </Layout>
   )
 }

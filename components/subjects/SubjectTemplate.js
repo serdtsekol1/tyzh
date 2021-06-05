@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../common/css/post.scss";
-
 
 function SubjectTemplate(props) {
   return (

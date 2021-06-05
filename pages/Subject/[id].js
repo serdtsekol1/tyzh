@@ -1,5 +1,6 @@
-import Layout from '../../components/layout'
 import Head from 'next/head'
+import Layout from '../../components/layout'
+import SubjectTemplate from "../../components/subjects/SubjectTemplate";
 
 
 export default function Subject({ data }) {
@@ -8,6 +9,9 @@ export default function Subject({ data }) {
       <Head>
         <title>{data.title}</title>
       </Head>
+      <div>
+        <SubjectTemplate subject={data}/>
+      </div>
     </Layout>
   )
 }

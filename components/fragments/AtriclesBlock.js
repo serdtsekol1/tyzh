@@ -11,7 +11,7 @@ function ArticlesBlock(props) {
   const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   let articlesComponents = "";
-  
+
   useEffect (()=>{
     setLoading(true);
     const fetchArticles = async () => {
@@ -42,7 +42,7 @@ function ArticlesBlock(props) {
     {loading && <div><SkeletonNewsBlock/><SkeletonNewsBlock/><SkeletonNewsBlock/></div>}
        {!loading &&
       <Fragment
-        size="big"
+        size="small"
         noShowMore={props.noShowMore}
         showMoreLink={props.showMoreLink}
         redButton={props.redButton}
