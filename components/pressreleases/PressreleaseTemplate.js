@@ -1,4 +1,5 @@
 import React  from "react";
+import {useRouter} from "next/router";
 
 import PublicationAbstract from "../common/PublicationAbstract";
 import Parser from "html-react-parser";
@@ -10,8 +11,6 @@ import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
 import Header from "../common/Header";
 import PhotosQuantityHolder from "../fragments/PhotosQuantityHolder";
-
-import "../common/css/post.scss";
 
 
 import PressreleasesBlock from "../fragments/PressreleasesBlock";
@@ -31,8 +30,8 @@ function getDate(public_ts){
 
 
 function PressreleaseTemplate(props) {
-  let thisUrl= window.location.href;
-
+  const { query } = useRouter();
+  let thisUrl = `${process.env.domain}/PressReleases/${query.id}`;
 
   return (
     <PublicationAbstract publication={props.pressrelease}>
@@ -115,7 +114,7 @@ function PressreleaseTemplate(props) {
             </div>
             <div className="d-none d-md-block col-md-3">
               <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.pressrelease.title} quantity={12} />
-              <BannersPanel moxTV={true} moxTV_id="moxTV_pressrelease" admixer_id="admixed-article" admixer={true} />
+              <BannersPanel moxTV={false} moxTV_id="moxTV_pressrelease" admixer_id="admixed-article" admixer={true} />
             </div>
           </div>
         ):""}

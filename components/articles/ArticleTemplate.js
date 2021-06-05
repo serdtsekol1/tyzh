@@ -1,4 +1,5 @@
 import React from "react";
+import {useRouter} from "next/router";
 
 import PublicationAbstract from "../common/PublicationAbstract";
 import Parser from "html-react-parser";
@@ -28,7 +29,8 @@ function getDate(public_ts){
 }
 
 function ArticleTemplate(props) {
-  let thisUrl= `{process.env.domain}/{context.params.category}/{context.params.id}`;
+  const { query } = useRouter();
+  let thisUrl= `${process.env.domain}/${query.category}/${query.id}`;
 
   return (
    <PublicationAbstract publication={props.article}>

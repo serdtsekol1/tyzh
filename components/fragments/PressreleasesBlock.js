@@ -16,7 +16,7 @@ function PressreleasesBlock(props) {
     setLoading(true);
     const fetchPressReleases = async () => {
       let limit = props.quantity;
-      let apiUrl = `${config.get("apiDomain")}/pressreleases/?limit=${limit}`;
+      let apiUrl = `${process.env.apiDomain}/pressreleases/?limit=${limit}`;
       await axios.get(apiUrl)
       .then(res =>{ 
         setPressReleases(res.data.results);
