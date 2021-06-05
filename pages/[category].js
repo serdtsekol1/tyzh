@@ -1,13 +1,19 @@
+import Head from 'next/head'
+
 import Layout from '../components/layout'
 import categoriesData from "../components/common/categories.json"
-import Head from 'next/head'
+import ArticleListTemplate from '../components/articles/ArticleListTemplate'
+
 
 export default function Post({ data }) {
   return (
     <Layout>
       <Head>
-        <title>{data.title}</title>
+        <title>Статті</title>
       </Head>
+      <div>
+        <ArticleListTemplate articles={data}/>
+      </div>
     </Layout>
   )
 }
@@ -16,6 +22,9 @@ export default function Post({ data }) {
 function getListApiUrl(context, limit) {
   // fix offset and pages
   let page = 1
+  if (context.query.page) {
+    page = context.query.page
+  }
   let offset = (page-1)*limit
   let apiUrl = "https://tyzhden.ua/api/publications/"
   const category = context.params.category
@@ -25,11 +34,9 @@ function getListApiUrl(context, limit) {
     apiUrl += `?limit=${limit}&offset=${offset}`
   } else if (categories.includes(category)){
     const categoryName = categoriesData.find(item => {
-      console.log(item.category_id, category)
       return item.category_id === category;
     }
     ).category_name
-    console.log(categoryName)
     apiUrl += `list/${categoryName}/?limit=${limit}&offset=${offset}`;
   } else {
     apiUrl = ""
@@ -38,7 +45,7 @@ function getListApiUrl(context, limit) {
 }
 
 export async function getServerSideProps(context) {
-  const apiUrl = getListApiUrl(context, 11)
+  const apiUrl = getListApiUrl(context, 10)
   if (apiUrl) {
     const res = await fetch(apiUrl)
     if (res.status == 200) {
