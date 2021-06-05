@@ -2,7 +2,7 @@ import Layout from '../../components/layout'
 import Head from 'next/head'
 
 
-export default function Gallery({ data }) {
+export default function Subject({ data }) {
   return (
     <Layout>
       <Head>
@@ -14,7 +14,7 @@ export default function Gallery({ data }) {
 
 
 export async function getServerSideProps(context) {
-  let apiUrl = `${process.env.apiDomain}/galleries/${context.params.id}/`
+  let apiUrl = `${process.env.apiDomain}/subjects/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()

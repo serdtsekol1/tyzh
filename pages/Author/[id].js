@@ -2,11 +2,11 @@ import Layout from '../../components/layout'
 import Head from 'next/head'
 
 
-export default function Gallery({ data }) {
+export default function Author({ data }) {
   return (
     <Layout>
       <Head>
-        <title>{data.title}</title>
+        <title>{data.fullname2ua}</title>
       </Head>
     </Layout>
   )
@@ -14,7 +14,7 @@ export default function Gallery({ data }) {
 
 
 export async function getServerSideProps(context) {
-  let apiUrl = `${process.env.apiDomain}/galleries/${context.params.id}/`
+  let apiUrl = `${process.env.apiDomain}/authors/page/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()
