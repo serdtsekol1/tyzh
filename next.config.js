@@ -20,5 +20,6 @@ module.exports = {
   },
   env: {
     apiDomain: 'https://tyzhden.ua/api',
+    domain: 'https://tyzhden.ua',
   },
 }
