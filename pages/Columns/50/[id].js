@@ -1,5 +1,7 @@
-import Layout from '../../../components/layout'
 import Head from 'next/head'
+
+import Layout from '../../../components/layout'
+import ColumnTemplate from "../../../components/columns/ColumnTemplate";
 
 
 export default function Column({ data }) {
@@ -8,6 +10,9 @@ export default function Column({ data }) {
       <Head>
         <title>{data.title}</title>
       </Head>
+      <div>
+        <ColumnTemplate columnItem={data}/>
+      </div>
     </Layout>
   )
 }
