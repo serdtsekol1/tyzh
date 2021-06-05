@@ -17,7 +17,6 @@ import PublicationAbstract from "../common/PublicationAbstract";
 import PatreonPopup from "../common/PatreonPopup";
 
 import "react-image-gallery/styles/css/image-gallery.css";
-import "../common/css/post.scss";
 
 
 
@@ -97,7 +96,7 @@ function PhotoReportTemplate(props){
             {/* <p className="quantity-label">
               Поділилося: <b>{12} осіб</b>
             </p> */}
-            <SocialNetworks shareFb={true} shareTwitter={true} shareLink={window.location.href} shareText={photoReport.title} color="red" />
+            <SocialNetworks shareFb={true} shareTwitter={true} shareLink={`${process.env.apiDomain}/Gallery/${photoReport.id}`} shareText={photoReport.title} color="red" />
           </div>
           <SubscriptionBanner />
           <GorizontalAdBanner />

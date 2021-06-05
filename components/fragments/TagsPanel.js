@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import "./css/tags.scss";
 
 function TagsPanel(props) {
   const tagComponents = props.tags.map(tag => (

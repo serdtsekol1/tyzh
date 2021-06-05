@@ -1,6 +1,5 @@
 import React from "react";
 import SocialNetworks from "../common/SocialNetworks";
-import "../common/css/social_networks.scss";
 
 function ShareBySocialNetworks(props) {
   return (

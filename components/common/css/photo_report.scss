@@ -1,0 +1,90 @@
+@import "../../common/css/variables";
+@import "../../common/css/mixins";
+
+.photos-quantity-holder {
+  display: flex;
+  align-items: center;
+  background-color: $almost-white;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: auto;
+  height: 40px;
+  padding: $padding-extra-small $padding-very-small;
+  @include for-phones {
+    width: auto;
+    height: 40px;
+    padding: $padding-extra-small $padding-very-small;
+  }
+}
+
+.camera {
+  margin-right: $margin-very-small;
+  display: inline-block;
+  width: 24px;
+  height: 24px;;
+  opacity: 0.38;
+  @include for-phones{
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.camera-small{
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.report-image-cover {
+  @include image-cover;
+  object-fit: cover;
+  height: auto;
+  position: relative;
+}
+
+.main-report-image-cover {
+  @include image-cover;
+  object-fit: cover;
+  height: 580px;
+  position: relative;
+  @include for-phones{
+    height: auto;
+  }
+}
+
+.image-cover-wrap {
+  width: 100%;
+  position: relative;
+  
+}
+
+.photo-report-title {
+  @include post-header-medium;
+  margin-top: $margin-medium;
+  margin-bottom: $margin-more-smaller !important;
+}
+
+.photo-report-author {
+  @include link-hover;
+  @include very-small-header;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.photo-report-item {
+   @include big-margin-bottom;
+}
+
+
+.quantity-label {
+  font-size: 14px;
+  line-height: 14px;
+  color: $dark-grey;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.image-gallery{
+  @include big-margin-bottom;
+}

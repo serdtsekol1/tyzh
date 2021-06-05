@@ -1,0 +1,44 @@
+@import "../../common/css/mixins";
+@import "../../common/css/variables";
+@import "../../common/css/headers";
+
+.date-and-author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ 
+  @include for-phones {
+    margin-top: 4px;
+  }
+  
+  .dot {
+    height: 4px;
+    width: 4px;
+    background: $grey;
+    margin: 0 $margin-small;
+    @include for-phones {
+      height: 2px;
+      width: 2px;
+      margin: 0 $margin-very-small;
+    }
+  }
+  .author, .date{
+    color: $grey;
+    @include very-small-header;
+  }
+  .author{
+    @include link-hover;
+  }
+  .date{
+    margin-top: 4px; 
+  }
+  .author {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-top: 5px;
+  }
+  .clock {
+    margin-right: $margin-very-small;
+  }
+}

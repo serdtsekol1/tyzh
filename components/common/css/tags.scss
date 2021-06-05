@@ -1,0 +1,28 @@
+@import "../../common/css/variables";
+@import "../../common/css/mixins";
+
+.tag {
+  margin-right: $margin-very-small;
+  margin-bottom: $margin-very-small;
+  padding: 12px 16px;
+  background: rgba(30, 30, 30, 0.03);
+  transition-duration: 0.2s;
+  p {
+    color: $grey;
+    @include title-small;
+    transition-duration: 0.2s;
+  }
+  &:hover{
+    
+    background-color:rgba(30, 30, 30, 0.07);
+    p {
+      color: $black;
+    }
+  }
+}
+.tags-panel {
+  @include flex-row;
+  flex-wrap: wrap;
+  justify-content: start !important;
+  margin-bottom: 32px;
+}

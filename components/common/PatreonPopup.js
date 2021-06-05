@@ -4,12 +4,10 @@ import {setCookie, getCookie} from "../../lib/simpleCookieLib"
 import Modal from 'react-modal';
 import Button from "../common/Button";
 
-import "../common/css/_modals.scss";
-
 
 function PatreonPopup(props) {
 
-  Modal.setAppElement('#root')
+  // Modal.setAppElement('#root')
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -49,14 +47,14 @@ function PatreonPopup(props) {
         >
           <button className="close-modal" onClick={closeModal}>
             <img
-              src={require("../../images/icons/close-24px.svg")}
+              src={"/images/icons/close-24px.svg"}
               alt="Іконка закрити"
             />
           </button>
           <div className="container-modal">
           <div className="image-modal">
             <img
-              src={require("../../images/krapyvenko.png")}
+              src={"/images/krapyvenko.png"}
               alt="Іконка закрити"
             />
           </div>

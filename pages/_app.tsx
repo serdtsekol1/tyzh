@@ -1,6 +1,6 @@
 // import '../styles/globals.css'
 import '../components/common/css/_all.scss'
-// import './index.scss'
+import './index.scss'
 import type { AppProps } from 'next/app'
 
 import "bootstrap/dist/css/bootstrap.css";
