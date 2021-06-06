@@ -11,7 +11,7 @@ NavLink.defaultProps = {
   exact: false
 };
 
-function NavLink({ to, children, className, activeStyle, ...props }) {
+function NavLink({ to, exact, children, className, activeStyle, ...props }) {
   const { asPath } = useRouter();
 
   let isActive = false;
