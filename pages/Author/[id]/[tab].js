@@ -1,19 +1,19 @@
-import Layout from '../../components/layout'
+import Layout from '../../../components/layout'
 import Head from 'next/head'
 import React, { useState, useEffect} from "react";
 import { Tabs, Tab } from 'react-bootstrap';
 import axios from 'axios';
 import { useRouter } from 'next/router'
 
-import ColumnsTab from "../../components/fragments/ColumnsTab";
-import NewsTab from "../../components/fragments/NewsTab";
-import ArticlesTab from "../../components/fragments/ArticlesTab";
-import PhotoreportsTab from "../../components/fragments/PhotoreportsTab";
+import ColumnsTab from "../../../components/fragments/ColumnsTab";
+import NewsTab from "../../../components/fragments/NewsTab";
+import ArticlesTab from "../../../components/fragments/ArticlesTab";
+import PhotoreportsTab from "../../../components/fragments/PhotoreportsTab";
 
-import BannersPanel from '../../components/fragments/BannersPanel';
-import MetaTags from "../../components/common/MetaTagsComponent";
+import BannersPanel from '../../../components/fragments/BannersPanel';
+import MetaTags from "../../../components/common/MetaTagsComponent";
 
-import SkeletonPublication from "../../components/loading_skeletons/SkeletonPublication";
+import SkeletonPublication from "../../../components/loading_skeletons/SkeletonPublication";
 
 export default function Author({ data }) {
 
@@ -249,7 +249,7 @@ export default function Author({ data }) {
 
 
 export async function getServerSideProps(context) {
-  let apiUrl = `${process.env.apiDomain}/authors/page/${context.params.id}/`
+  let apiUrl = `${process.env.apiDomain}/authors/page/${context.params.id}`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()
