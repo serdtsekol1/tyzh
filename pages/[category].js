@@ -5,11 +5,11 @@ import categoriesData from "../components/common/categories.json"
 import ArticleListTemplate from '../components/articles/ArticleListTemplate'
 
 
-export default function Post({ data, category }) {
+export default function PostList({ data, category }) {
   return (
     <Layout>
       <Head>
-        <title>Статті</title>
+        <title>{category.name}</title>
       </Head>
       <div>
         <ArticleListTemplate articles={data} category={category}/>
@@ -54,7 +54,7 @@ function getListApiUrl(context, limit, category) {
 export async function getServerSideProps(context) {
   const category = getCategory(context.params.category)
   if (category) {
-    const apiUrl = getListApiUrl(context, 10, category)
+    const apiUrl = getListApiUrl(context, 11, category)
     const res = await fetch(apiUrl)
     if (res.status == 200) {
       const data = await res.json()
