@@ -11,15 +11,14 @@ NavLink.defaultProps = {
   exact: false
 };
 
-function NavLink({ to, exact, children, className, activeStyle, ...props }) {
-  const { pathname } = useRouter();
+function NavLink({ to, children, className, activeStyle, ...props }) {
   const { asPath } = useRouter();
 
   let isActive = false;
 
   if(asPath === to || asPath.startsWith(to))
     isActive = true;
-  
+
   if (isActive) {
     className += ' active';
   }
