@@ -5,52 +5,60 @@ import categoriesData from "../components/common/categories.json"
 import ArticleListTemplate from '../components/articles/ArticleListTemplate'
 
 
-export default function Post({ data }) {
+export default function PostList({ data, category }) {
   return (
     <Layout>
       <Head>
-        <title>Статті</title>
+        <title>{category.name}</title>
       </Head>
       <div>
-        <ArticleListTemplate articles={data}/>
+        <ArticleListTemplate articles={data} category={category}/>
       </div>
     </Layout>
   )
 }
 
 
-function getListApiUrl(context, limit) {
-  // fix offset and pages
+function getCategory(category) {
+  const categories = categoriesData.map(item => item["category_id"])
+  if (category === "Publications"){
+    return {slug: category, name: "Статті"}
+  } else if (categories.includes(category)) {
+    const categoryName = categoriesData.find(item => {
+      return item.category_id === category;
+    }).category_name
+    return {slug: category, name: categoryName}
+  }
+  return false
+}
+
+
+function getListApiUrl(context, limit, category) {
   let page = 1
   if (context.query.page) {
     page = context.query.page
   }
   let offset = (page-1)*limit
-  let apiUrl = "https://tyzhden.ua/api/publications/"
-  const category = context.params.category
-  const categories = categoriesData.map(item => item["category_id"])
 
-  if (category === "Publications") {
+  let apiUrl = `${process.env.apiDomain}/publications/`
+
+  if (category.slug === "Publications") {
     apiUrl += `?limit=${limit}&offset=${offset}`
-  } else if (categories.includes(category)){
-    const categoryName = categoriesData.find(item => {
-      return item.category_id === category;
-    }
-    ).category_name
-    apiUrl += `list/${categoryName}/?limit=${limit}&offset=${offset}`;
   } else {
-    apiUrl = ""
+    apiUrl += `list/${category.name}/?limit=${limit}&offset=${offset}`;
   }
   return encodeURI(apiUrl)
 }
 
+
 export async function getServerSideProps(context) {
-  const apiUrl = getListApiUrl(context, 10)
-  if (apiUrl) {
+  const category = getCategory(context.params.category)
+  if (category) {
+    const apiUrl = getListApiUrl(context, 11, category)
     const res = await fetch(apiUrl)
     if (res.status == 200) {
       const data = await res.json()
-      return { props: { data } }
+      return { props: { data, category } }
     }
   }
   return { notFound: true }
