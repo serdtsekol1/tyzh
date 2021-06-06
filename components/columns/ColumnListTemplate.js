@@ -3,16 +3,16 @@ import ReactPaginate from "react-paginate"
 import Router, { useRouter } from "next/router"
 
 import Header from "../common/Header";
+import ColumnsBlock from "../fragments/ColumsBlock";
 import BannersPanel from "../fragments/BannersPanel";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
-import PressreleasesBlock from "../fragments/PressreleasesBlock";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 
 
-function PressReleaseListTemplate(props) {
-  const pageHeader = "Останні прес-релізи"
+function ColumnListTemplate(props) {
+  const pageHeader = "Останні колонки"
 
   let articles = props.articles.results
 
@@ -67,9 +67,9 @@ function PressReleaseListTemplate(props) {
             }
             {!loading &&
               <div>
-                <PressreleasesBlock quantity={10} pressreleases={articles} noShowMore={true}>
+                 <ColumnsBlock  noShowMore={true} columns={articles} quantity={10}>
                   <GorizontalAdBanner mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
-                </PressreleasesBlock>
+                </ColumnsBlock>
               </div>
             }
             <div className="pagination-articles">
@@ -101,4 +101,4 @@ function PressReleaseListTemplate(props) {
 }
 
 
-export default PressReleaseListTemplate;
+export default ColumnListTemplate;
