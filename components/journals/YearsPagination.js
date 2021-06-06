@@ -1,9 +1,9 @@
 import React from "react";
-import "../common/css/pagination.scss";
-import "./journals.scss";
+import { useRouter } from 'next/router';
 
 function YearsPagination(props) {
-  const currentHrefParams = window.location.href.split("/");
+  const router = useRouter();
+  const currentHrefParams = router.pathname.split("/");
   const page = parseInt(currentHrefParams[currentHrefParams.length - 1]);
   const lastYear = parseInt(props.yearsPeriod.lastYear);
   const firstYear = parseInt(props.yearsPeriod.firstYear);

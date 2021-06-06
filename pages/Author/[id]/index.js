@@ -21,7 +21,6 @@ export default function Author({ data }) {
   const [loading, setLoading] = useState(false);
 
   let [author, setAuthor] = useState({});
-  let [isNews, setIsNews] = useState(false);
   let [isPhotoreports, setIsPhotoreports] = useState(false);
   let [isArticles, setIsArticles] = useState(false);
   let [isColumns, setIsColumns] = useState(false);
@@ -66,17 +65,7 @@ export default function Author({ data }) {
           console.log(res.data.results.length);
           if (res.data.results.length)
             setIsArticles(true);
-
-        })
-        .catch(err => console.log(err));
-      apiUrl = `${process.env.apiDomain}/news/author/${router.query.id}/?limit=1`;
-      await axios.get(apiUrl)
-        .then(res =>{
-
-          if (res.data.results.length)
-            setIsNews(true);
           setLoading(false);
-
         })
         .catch(err => console.log(err));
     };
@@ -91,9 +80,6 @@ export default function Author({ data }) {
     if(isArticles) {
       setActiveTab("articles")
     }
-    if(isNews) {
-      setActiveTab("news")
-    }
     if(isPhotoreports) {
       setActiveTab("photo")
     }
@@ -105,9 +91,6 @@ export default function Author({ data }) {
       case "Publications":
         if(isArticles) setActiveTab("articles");
         break;
-      case "News":
-        if (isNews) setActiveTab("news");
-        break;
       case "Gallery":
         if (isPhotoreports) setActiveTab("photo");
         break;
@@ -118,13 +101,10 @@ export default function Author({ data }) {
         router.push(`/Author/${router.query.id}`);
         break;
     }
-  },[isNews,isColumns,isArticles,isPhotoreports,router.query.tab]);
+  },[isColumns,isArticles,isPhotoreports,router.query.tab]);
 
   function hanldleChange(key){
     switch (key) {
-      case "news":
-        router.push(`/Author/${router.query.id}/News`);
-        break;
       case "articles":
         router.push(`/Author/${router.query.id}/Publications`);
         break;
@@ -194,20 +174,6 @@ export default function Author({ data }) {
                       </div>
                     </div>
 
-                  </Tab>
-                  :""}
-                {isNews?
-                  <Tab eventKey="news" title="Новини">
-                    <div className="row">
-                      <div className="col-12 col-md-9">
-
-                        <NewsTab authorId={router.query.id}/>
-
-                      </div>
-                      <div className="col-12 col-md-3">
-                        <BannersPanel my={true} ria={true} />
-                      </div>
-                    </div>
                   </Tab>
                   :""}
                 {isArticles?

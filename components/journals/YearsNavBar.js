@@ -60,7 +60,7 @@ function YearsNavBar() {
           setPage(currentPage => (currentPage = currentPage - 1));
       }}
     >
-      <img src={require("../../images/icons/arrow_back-32px.svg")} alt="" />
+      <img src={"/images/icons/arrow_back-32px.svg"} alt="" />
     </NavLink>
   );
   const arrowForward = (
@@ -72,7 +72,7 @@ function YearsNavBar() {
           setPage(currentPage => (currentPage = currentPage + 1));
       }}
     >
-      <img src={require("../../images/icons/arrow_forward-32px.svg")} alt="" />
+      <img src={"/images/icons/arrow_forward-32px.svg"} alt="" />
     </NavLink>
   );
 

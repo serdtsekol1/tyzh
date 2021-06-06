@@ -7,9 +7,7 @@ import SpecialEditions from "./SpecialEditions";
 import config from "react-global-configuration";
 import Skeleton from "react-loading-skeleton";
 
-import "./journals.scss";
-
-function JournalsList({ match }) {
+function JournalsList({ year }) {
   const [loading, setLoading] = useState(false);
   const [journals, setJournals] = useState([]);
   useEffect (()=>{
@@ -17,11 +15,26 @@ function JournalsList({ match }) {
 
     const fetchJournal= async () => {
       const limit = 60;
-      await axios.get(`${config.get("apiDomain")}/magazines/year/${match.params.year}/?limit=${limit}`)
+      await axios.get(`${process.env.apiDomain}/magazines/year/${year}/?limit=${limit}`)
       .then(res =>{ 
         
         setJournals(res.data.results);
         setLoading(false);
+        const onScroll = function() {
+          if (document.getElementById("journals-header")){
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+              document.getElementById("journals-header").innerHTML = "";
+              document.getElementById("journals-header").style.padding = "60px 0 24px 0";
+              document.getElementById("hide").style.display = "none";
+            } else {
+              document.getElementById("journals-header").innerHTML = "Журнал «Український тиждень»";
+              document.getElementById("journals-header").style.padding = "100px 0 16px 0";
+              document.getElementById("hide").style.display = "block";
+
+            }
+          };}
+
+        window.addEventListener('scroll', onScroll);
 
       })
       .catch(err => console.log(err));
@@ -29,31 +42,13 @@ function JournalsList({ match }) {
     
      };
      fetchJournal();
-  },[match.params.year]);
+  },[year]);
 
   const journalsComponents = journals.map(journal => (
     <div key={journal.id - 1000} className="col-12 col-md-3">
       <JournalItem key={journal.id} journalItem={journal} />
     </div>
   ));
-
-
-
-  const onScroll = function() {
-    if (document.getElementById("journals-header")){
-      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        document.getElementById("journals-header").innerHTML = "";
-        document.getElementById("journals-header").style.padding = "60px 0 24px 0";
-        document.getElementById("hide").style.display = "none";
-      } else {
-        document.getElementById("journals-header").innerHTML = "Журнал «Український тиждень»";
-        document.getElementById("journals-header").style.padding = "100px 0 16px 0";
-        document.getElementById("hide").style.display = "block";
-
-      }
-  };}
-
-   window.addEventListener('scroll', onScroll);
 
 
   return (

@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./journals.scss";
-
 function DateSlider(props) {
   return (
     <div className="date-slider">
