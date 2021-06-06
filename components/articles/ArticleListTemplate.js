@@ -15,9 +15,9 @@ import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
 
 
 function ArticleListTemplate(props) {
-  const pageHeader = "Статті"
-  const initialCategory = "World"
-  const initialCategoryAPI = "Світ"
+  const pageHeader = props.category.name
+  const initialCategory = props.category.slug
+  const initialCategoryAPI = props.category.name
   let articles = props.articles.results
 
   const router = useRouter()
