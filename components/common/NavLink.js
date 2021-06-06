@@ -19,8 +19,7 @@ function NavLink({ to, exact, children, className, activeStyle, ...props }) {
 
   if(asPath === to || asPath.startsWith(to))
     isActive = true;
-
-  console.log(isActive + ' ' + to + ' '+asPath);
+  
   if (isActive) {
     className += ' active';
   }
