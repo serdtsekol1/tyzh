@@ -17,7 +17,11 @@ import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
 function ArticleListTemplate(props) {
   const pageHeader = props.category.name
   const initialCategory = props.category.slug
-  const initialCategoryAPI = props.category.name
+  let categorial = true
+  if (initialCategory === "Publications") {
+    categorial = false
+  }
+
   let articles = props.articles.results
 
   const router = useRouter()
@@ -76,8 +80,8 @@ function ArticleListTemplate(props) {
             {!loading &&
               <div>
                 <ArticleBlockItem
-                  mainArticle={true} categorial={ initialCategoryAPI?true:false} key={mainArticle.id} articleItem={mainArticle} />
-                <ArticlesBlock categorial ={initialCategoryAPI?true:false} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
+                  mainArticle={true} categorial={categorial} key={mainArticle.id} articleItem={mainArticle} />
+                <ArticlesBlock categorial ={categorial} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
                   <GorizontalAdBanner mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
                 </ArticlesBlock>
               </div>
@@ -102,7 +106,7 @@ function ArticleListTemplate(props) {
         </div>
         <div className="d-none d-md-block col-md-3">
           <LastJournalBanner />
-          <BannersPanel rubric={initialCategoryAPI} admixer_id="admixed-articles" custom_banner={true} admixer={true} adriver={true} adriver_id="adriver-articles"  />
+          <BannersPanel rubric={initialCategory} admixer_id="admixed-articles" custom_banner={true} admixer={true} adriver={true} adriver_id="adriver-articles"  />
         </div>
         </div>
       </div>

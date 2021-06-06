@@ -39,7 +39,8 @@ function getListApiUrl(context, limit, category) {
     page = context.query.page
   }
   let offset = (page-1)*limit
-  let apiUrl = "https://tyzhden.ua/api/publications/"
+
+  let apiUrl = `${process.env.apiDomain}/publications/`
 
   if (category.slug === "Publications") {
     apiUrl += `?limit=${limit}&offset=${offset}`
