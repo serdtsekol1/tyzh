@@ -13,7 +13,7 @@ export default function MagazineYear({ data }) {
   return (
     <Layout>
       <Head>
-        <title>Журнали</title>
+        <title>Журнали {router.query.year}</title>
       </Head>
       <div>
         <MetaTags title={"Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн"}
@@ -22,7 +22,6 @@ export default function MagazineYear({ data }) {
         />
         <YearsNavBar/>
         <JournalsList year={router.query.year}/>
-        {/*<Route path={"/Magazines/:year"} component={JournalsList} />*/}
       </div>
     </Layout>
   )

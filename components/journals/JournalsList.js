@@ -7,7 +7,7 @@ import SpecialEditions from "./SpecialEditions";
 import config from "react-global-configuration";
 import Skeleton from "react-loading-skeleton";
 
-function JournalsList({ year }) {
+function JournalsList({ year, data }) {
   const [loading, setLoading] = useState(false);
   const [journals, setJournals] = useState([]);
   useEffect (()=>{
@@ -20,28 +20,35 @@ function JournalsList({ year }) {
         
         setJournals(res.data.results);
         setLoading(false);
-        const onScroll = function() {
-          if (document.getElementById("journals-header")){
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-              document.getElementById("journals-header").innerHTML = "";
-              document.getElementById("journals-header").style.padding = "60px 0 24px 0";
-              document.getElementById("hide").style.display = "none";
-            } else {
-              document.getElementById("journals-header").innerHTML = "Журнал «Український тиждень»";
-              document.getElementById("journals-header").style.padding = "100px 0 16px 0";
-              document.getElementById("hide").style.display = "block";
-
-            }
-          };}
-
-        window.addEventListener('scroll', onScroll);
 
       })
       .catch(err => console.log(err));
      
     
      };
-     fetchJournal();
+
+    if(data) {
+      setJournals(data);
+      setLoading(false);
+    } else {
+      fetchJournal();
+    }
+
+    const onScroll = function() {
+      if (document.getElementById("journals-header")){
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+          document.getElementById("journals-header").innerHTML = "";
+          document.getElementById("journals-header").style.padding = "60px 0 24px 0";
+          document.getElementById("hide").style.display = "none";
+        } else {
+          document.getElementById("journals-header").innerHTML = "Журнал «Український тиждень»";
+          document.getElementById("journals-header").style.padding = "100px 0 16px 0";
+          document.getElementById("hide").style.display = "block";
+
+        }
+      };}
+
+    window.addEventListener('scroll', onScroll);
   },[year]);
 
   const journalsComponents = journals.map(journal => (
