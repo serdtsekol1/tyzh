@@ -11,17 +11,23 @@ NavLink.defaultProps = {
   exact: false
 };
 
-function NavLink({ to, exact, children, className, ...props }) {
+function NavLink({ to, exact, children, className, activeStyle, ...props }) {
   const { pathname } = useRouter();
-  const isActive = exact ? pathname === to : pathname.startsWith(to);
+  const { asPath } = useRouter();
 
+  let isActive = false;
+
+  if(asPath === to || asPath.startsWith(to))
+    isActive = true;
+
+  console.log(isActive + ' ' + to + ' '+asPath);
   if (isActive) {
-    props.className += ' active';
+    className += ' active';
   }
 
   return (
     <Link href={to}>
-      <a {...props} className={className}>
+      <a {...props} className={className} style={isActive ? activeStyle : null}>
         {children}
       </a>
     </Link>
