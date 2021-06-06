@@ -1,6 +1,7 @@
-import Layout from '../../components/layout'
 import Head from 'next/head'
-import PressreleaseTemplate from "../../components/pressreleases/PressreleaseTemplate";
+
+import Layout from '../../components/layout'
+import PressreleaseTemplate from "../../components/pressreleases/PressreleaseTemplate"
 
 
 export default function PressRelease({ data }) {

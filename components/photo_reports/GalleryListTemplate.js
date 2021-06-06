@@ -1,27 +1,17 @@
 import React, { useState, useEffect, useRef } from "react"
 import ReactPaginate from "react-paginate"
 import Router, { useRouter } from "next/router"
+import Skeleton from "react-loading-skeleton";
 
-import categoties from "../common/categories.json";
 import Header from "../common/Header";
-import ArticleBlockItem from "../fragments/ArticleBlockItem";
-import ArticlesBlock from "../fragments/AtriclesBlock";
 import BannersPanel from "../fragments/BannersPanel";
+import PhotoReportItem from "../fragments/PhotoReportItem";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 
-import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
-import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
 
-
-function ArticleListTemplate(props) {
-  const pageHeader = props.category.name
-  const initialCategory = props.category.slug
-  let categorial = true
-  if (initialCategory === "Publications") {
-    categorial = false
-  }
-
+function GalleryListTemplate(props) {
+  const pageHeader = "ФОТОРЕПОРТАЖ"
   let articles = props.articles.results
 
   const router = useRouter()
@@ -29,8 +19,8 @@ function ArticleListTemplate(props) {
   const articlesRef = useRef(null)
 
   let initialPageNumber = 0
-  let pagesCount = Math.floor(props.articles.count/10)
-
+  if (query.page) initialPageNumber = query.page - 1
+  let pagesCount = Math.floor(props.articles.count/11)
 
   const [users, setArticles] = useState([])
 
@@ -60,31 +50,34 @@ function ArticleListTemplate(props) {
     }
   }
 
-  let mainArticle = articles.shift()
+  console.log("ARTICLES", articles)
+
+  const firstPhoto = articles.shift()
+  const link = "Gallery";
+
+  const photoReportsComponents = articles.map(photoReport => (
+        <div className="col-12 col-md-6" key={photoReport.id+100}>
+            <PhotoReportItem key={photoReport.id} reportItem={photoReport} link={link} />
+        </div>
+      ));
 
   return (
     <div>
       <div ref={articlesRef} className="container">
         <div className="row" style={{ marginTop: 10 }}>
-          <div className="col-12 col-md-9">
-          <div className="">
+          <div className="col-12">
             <Header size="small" style={{ fontSize: 32 }} title={pageHeader} />
-            {loading &&
-              <div>
-                <p className="skeleton-header"></p>
-                <SkeletonMainArticle/>
-                <SkeletonArticlesBlock quantity={10} />
-              </div>
-            }
+          </div>
+          <div className="col-12">
+            {loading && <Skeleton duration={1} height={1800} width={'100%'}/>}
             {!loading &&
-              <div>
-                <ArticleBlockItem
-                  mainArticle={true} categorial={categorial} key={mainArticle.id} articleItem={mainArticle} />
-                <ArticlesBlock categorial ={categorial} quantity={10} articles={articles} noShowMore={true}>
-                  <GorizontalAdBanner mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
-                </ArticlesBlock>
-              </div>
+              <PhotoReportItem key={firstPhoto.id} main={true} reportItem={firstPhoto} link={link} />
             }
+          </div>
+          <div className="col-12">
+            {photoReportsComponents}
+          </div>
+          <div className="col-12">
             <div className="pagination-articles">
               <ReactPaginate
                 previousLabel={"Назад"}
@@ -103,15 +96,10 @@ function ArticleListTemplate(props) {
             </div>
           </div>
         </div>
-        <div className="d-none d-md-block col-md-3">
-          <LastJournalBanner />
-          <BannersPanel rubric={initialCategory} admixer_id="admixed-articles" custom_banner={true} admixer={true} adriver={true} adriver_id="adriver-articles"  />
-        </div>
-        </div>
       </div>
     </div>
   );
 }
 
 
-export default ArticleListTemplate;
+export default GalleryListTemplate;

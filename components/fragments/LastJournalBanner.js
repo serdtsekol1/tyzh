@@ -11,14 +11,15 @@ function LastJournalBanner() {
   useEffect (()=>{
     const fetchJournal= async () => {
       let today = new Date();
-      await axios.get(`${process.env.domain}/magazines/?limit=1`)
-      .then(res =>{ 
+      await axios.get(`${process.env.apiDomain}/magazines/?limit=1`)
+      .then(res => {
         setJournals(res.data.results);
       })
       .catch(err => console.log(err));
      };
      fetchJournal();
   }, []);
+
 
   const journalComponent =  journals.map( journal => <JournalItem key={journal.id} journalItem={journal}/>);
 
