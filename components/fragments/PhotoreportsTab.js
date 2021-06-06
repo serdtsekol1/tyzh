@@ -8,10 +8,6 @@ import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import Fragment from "../fragments/Fragment";
 
 
-import "../common/css/tabs.scss";
-import "../authors/author.scss";
-
-
 function PhotoreportsTab(props){
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
