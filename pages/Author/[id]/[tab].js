@@ -144,6 +144,22 @@ export default function Author({ data }) {
     <Layout>
       <Head>
         <title>{data.fullname2ua}</title>
+        <link rel="canonical" href={`https://tyzhden.ua/Author/${data.id}`}/>
+        
+        <meta name="title" content={data.fullname2ua}/>
+        <meta name="description" content={data.fullname2ua}/>
+        <meta id="ctl00_meta2" name="keywords" content={data.tags}/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content={`https://tyzhden.ua/Author/${data.id}`}/>
+        <meta property="og:title" content={data.fullname2ua}/>
+        <meta property="og:description" content={data.fullname2ua}/>
+        <meta property="og:image" content={data.image1url}/>
+        <meta property="twitter:card" content="summary"/>
+        <meta property="twitter:url" content={`https://tyzhden.ua/Author/${data.id}`}/>
+        <meta property="twitter:title" content={data.fullname2ua}/>
+        <meta property="twitter:description" content={data.fullname2ua}/>
+        <meta property="twitter:image" content={data.image1url}/>
+
       </Head>
       <div className="container">
 

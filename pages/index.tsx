@@ -65,7 +65,7 @@ function HomePage() {
     return (
         <Layout home>
         <Head>
-        <title>Test</title>
+        <title>Аналітика, безпека, економіка, міжнародна політика, культура. Зміст має значення!</title>
         </Head>
         <div className="container">
             <div className="row">
