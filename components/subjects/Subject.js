@@ -1,42 +1,45 @@
 import React, { useState, useEffect}  from "react";
-import { useHistory } from "react-router-dom";
 
 import axios from 'axios';
 import config from 'react-global-configuration';
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
-
+import Router, { useRouter } from "next/router"
 import SubjectTemplate from "./SubjectTemplate";
 import SubjectArticles from "./SubjectArticles";
 
-import "../common/css/post.scss";
 
-
-function Subject({ match }) {
-  const [subject, setSubject] = useState({});
+function Subject({ subjectData, ...match }) {
+  const [subject, setSubject] = useState(subjectData);
   const [loading, setLoading] = useState(false);
 
-  let history = useHistory();
   let subjectComponent;
+  const router = useRouter()
+  const query = router.query
 
   useEffect (() => {
     setLoading(true);
 
     const fetchData = async () => {
-      let apiUrl = `${process.env.apiDomain}/subjects/${match.params.id}`;
+      let apiUrl = `${process.env.apiDomain}/subjects/${query.id}`;
       await axios.get(apiUrl)
         .then(res => {
           setSubject(res.data);
           setLoading(false);
         })
-        .catch(err => history.push('/page-not-found/'));
+        .catch(err => router.push('/page-not-found/'));
     };
 
-    fetchData();
+    if(subject) {
+      setLoading(false);
+    } else {
+      fetchData();
+    }
 
-  }, [match.params.id, history]);
+
+  }, [query.id]);
 
   subjectComponent = <SubjectTemplate subject={subject}/>;
-  const subjectArticlesComponent = <SubjectArticles match={match} />;
+  const subjectArticlesComponent = <SubjectArticles id={router.query.id} pageNum={router.query.page} />;
 
   return (
     <div>

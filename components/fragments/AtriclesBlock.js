@@ -11,7 +11,7 @@ function ArticlesBlock(props) {
   const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   let articlesComponents = "";
-  
+ 
   useEffect (()=>{
     setLoading(true);
     const fetchArticles = async () => {

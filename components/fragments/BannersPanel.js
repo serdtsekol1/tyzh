@@ -22,7 +22,6 @@ function BannersPanel(props) {
   function displayRandomBanners (banners) {
     // Function takes array of banners and return random banner
       const random = getRandomInt(banners.length);
-    console.log(banners)
 
     return banners[random]
   }

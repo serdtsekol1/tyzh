@@ -2,8 +2,6 @@ import React from "react";
 import NewsBlockItem from "./NewsBlockItem";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 
-import "./news_block_item.scss";
-
 
 function NewsBlock(props) {
 

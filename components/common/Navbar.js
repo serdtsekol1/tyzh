@@ -10,8 +10,23 @@ import $ from "jquery";
 const Header = props => {
   const isNarrow = useMedia({maxWidth: 1200});
   useEffect(()=>{
+    $('.navbar-nav>li>a.dropdown-toggle').on('click', function(e){
+      let ariaExpanded;
+      if($(this).attr('aria-expanded') === 'false') {
+        ariaExpanded = 'true';
+      } else {
+        ariaExpanded = 'false';
+      }
+      $(this).attr('aria-expanded', ariaExpanded);
+      $(this).find('+ .dropdown-menu').toggleClass('show');
+      $('.navbar-collapse').toggleClass('show');
+      e.preventDefault();
+    });
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
-      $('.navbar-collapse').removeClass('show'); 
+      $(this).parent('.dropdown-menu').removeClass('show');
+      $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').attr('aria-expanded', 'false');
+      $('.navbar-collapse').removeClass('show');
+      console.log('click');
     }
     );
     $('.navbar-toggler, .navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
@@ -34,7 +49,7 @@ const Header = props => {
       <NavLink
         key={category.category_id}
         activeStyle={activeStyle}
-        to={`/${category.category_id}/page=1`}
+        to={`/${category.category_id}?page=1`}
         className="dropdown-item"
       >
        <div style={{'backgroundColor': category.category_color}} className="rubric-color"></div> <p>{category.category_name_short}</p>
@@ -117,7 +132,7 @@ const Header = props => {
                   <NavLink
                     activeStyle={activeStyle}
                     exact
-                    to={"/Publications/page=1"}
+                    to={"/Publications?page=1"}
                     className="dropdown-item"
                   >
                      <div className="rubric-color"></div>

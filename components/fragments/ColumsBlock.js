@@ -12,7 +12,7 @@ function ColumnsBlock(props) {
     ));
   return (
     <Fragment
-      size="big"
+      size={props.size ? props.size : "small"}
       noShowMore={props.noShowMore}
       showMoreLink={props.showMoreLink}
       redButton={props.redButton}

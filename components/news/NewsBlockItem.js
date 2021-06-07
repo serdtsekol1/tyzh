@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import "./news.scss"
-import "./news_block_item.scss";
+import Image from 'next/image'
+
 
 function NewsBlockItem(props) {
 
@@ -19,28 +19,28 @@ function NewsBlockItem(props) {
           <tr>
           <div className="title-wrap">
             {props.newsItem.original ? (
-              <img
+              <Image
                 className="unique-news"
-                src={require("../../images/icons/logo_mini_tyzhden.svg")}
-                alt=""
+                src="/images/icons/logo_mini_tyzhden.svg"
+                alt="Іконка: унікальні новини"
               />
             ) : (
               ""
             )}
             {props.newsItem.photo ? (
-              <img
+              <Image
                 className="unique-news"
-                src={require("../../images/icons/ic-news-photo.svg")}
-                alt=""
+                src="images/icons/ic-news-photo.svg"
+                alt="Іконка: новина з фото"
               />
             ) : (
               ""
              )}
             {props.newsItem.video ? (
-              <img
+              <Image
                 className="unique-news"
-                src={require("../../images/icons/ic-news-video.svg")}
-                alt=""
+                src="images/icons/ic-news-video.svg"
+                alt="Іконка: новина з фото"
               />
               ) : (
                 ""
