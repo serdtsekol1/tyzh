@@ -74,9 +74,7 @@ function GalleryListTemplate(props) {
               <PhotoReportItem key={firstPhoto.id} main={true} reportItem={firstPhoto} link={link} />
             }
           </div>
-          <div className="col-12">
-            {photoReportsComponents}
-          </div>
+          {photoReportsComponents}
           <div className="col-12">
             <div className="pagination-articles">
               <ReactPaginate
