@@ -1,7 +1,6 @@
 import Head from 'next/head'
 
 import Layout from '../../components/layout'
-import GalleryListTemplate from '../../components/photo_reports/GalleryListTemplate'
 import Subjects from '../../components/subjects/Subjects'
 
 
@@ -25,7 +24,7 @@ function getListApiUrl(context, limit) {
     page = context.query.page
   }
   let offset = (page-1)*limit
-  let apiUrl = `${process.env.apiDomain}/galleries/?limit=${limit}&offset=${offset}`;
+  let apiUrl = `${process.env.apiDomain}/subjects/?limit=${limit}&offset=${offset}`;
   return encodeURI(apiUrl)
 }
 
