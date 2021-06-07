@@ -10,6 +10,17 @@ import $ from "jquery";
 const Header = props => {
   const isNarrow = useMedia({maxWidth: 1200});
   useEffect(()=>{
+    $('.navbar-nav>li>a.dropdown-toggle').on('click', function(){
+      let ariaExpanded;
+      if($(this).attr('aria-expanded') === 'false') {
+        ariaExpanded = 'true';
+      } else {
+        ariaExpanded = 'false';
+      }
+      $(this).attr('aria-expanded', ariaExpanded);
+      $(this).find('+ .dropdown-menu').toggleClass('show');
+      $('.navbar-collapse').toggleClass('show');
+    });
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
       $('.navbar-collapse').removeClass('show'); 
     }
