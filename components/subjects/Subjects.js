@@ -1,10 +1,9 @@
 import React, { useState, useEffect} from "react";
-import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import config from "react-global-configuration";
 import Skeleton from "react-loading-skeleton";
 
-
+import Router, { useRouter } from "next/router"
 import ReactPaginate from "react-paginate";
 import Header from "../common/Header";
 import PhotoReportItem from "../fragments/PhotoReportItem";
@@ -14,13 +13,14 @@ import BannersPanel from "../fragments/BannersPanel";
 
 
 function Subjects({match}){
+    const router = useRouter()
+    const query = router.query
     const [subjects, setSubjects] = useState([]);
-    const [page, setPage] = useState(match.params.page);
+    const [page, setPage] = useState(query.page);
     const [pagesCount, setPagesCount] = useState(0);
     const [loading, setLoading] = useState(false);
-    let history = useHistory();
     let initialPageNumber = 0;
-    if (match.params.page) initialPageNumber = match.params.page - 1;
+    if (query.page) initialPageNumber = query.page - 1;
 
     useEffect (()=>{
       setLoading(true);
@@ -39,14 +39,13 @@ function Subjects({match}){
             })
           .catch(err =>  history.push("/page-not-found"));  
           };
-          if (page !== match.params.page) fetchData(match.params.page);
+          if (page !== query.page) fetchData(query.page);
           else fetchData(page);
-      }, [page, match.params.page, history]);
+      }, [page, query.page]);
 
     const handlePageClick = async (data) => {
-      history.push(`/Subject/page=${data.selected + 1}`);
-      setPage();
-      match.params.page = data.selected+1;
+      router.push(`/Subject?page=${data.selected + 1}`);
+      setPage(query.page);
     };
     const link = "Subject";
     const firstPhotoReportsComponent = subjects.map(photoReport => (
