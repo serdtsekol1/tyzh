@@ -22,14 +22,11 @@ function GalleryListTemplate(props) {
   if (query.page) initialPageNumber = query.page - 1
   let pagesCount = Math.floor(props.articles.count/13)
 
-  const [users, setArticles] = useState([])
-
   const [loading, setLoading] = useState(false)
   const startLoading = () => setLoading(true)
   const stopLoading = () => setLoading(false)
 
   useEffect(() => {
-    setArticles(articles)
     Router.events.on("routeChangeStart", startLoading)
     Router.events.on("routeChangeComplete", stopLoading)
     return () => {
