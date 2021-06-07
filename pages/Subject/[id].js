@@ -1,16 +1,16 @@
 import Head from 'next/head'
 import Layout from '../../components/layout'
-import SubjectTemplate from "../../components/subjects/SubjectTemplate";
+import Subject from "../../components/subjects/Subject";
 
 
-export default function Subject({ data }) {
+export default function SubjectId({ data }) {
   return (
     <Layout>
       <Head>
         <title>{data.title}</title>
       </Head>
       <div>
-        <SubjectTemplate subject={data}/>
+        <Subject subjectData={data}/>
       </div>
     </Layout>
   )

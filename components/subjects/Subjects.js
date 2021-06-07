@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from "react";
 import axios from 'axios';
-import config from "react-global-configuration";
 import Skeleton from "react-loading-skeleton";
 
 import Router, { useRouter } from "next/router"
@@ -44,8 +43,9 @@ function Subjects({match}){
       }, [page, query.page]);
 
     const handlePageClick = async (data) => {
-      router.push(`/Subject?page=${data.selected + 1}`);
+      router.push(`/Subject/page=${data.selected + 1}`);
       setPage(query.page);
+      // match.params.page = data.selected+1;
     };
     const link = "Subject";
     const firstPhotoReportsComponent = subjects.map(photoReport => (
