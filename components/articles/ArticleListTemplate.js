@@ -31,15 +31,11 @@ function ArticleListTemplate(props) {
   let initialPageNumber = 0
   let pagesCount = Math.floor(props.articles.count/10)
 
-
-  const [users, setArticles] = useState([])
-
   const [loading, setLoading] = useState(false)
   const startLoading = () => setLoading(true)
   const stopLoading = () => setLoading(false)
 
   useEffect(() => {
-    setArticles(articles)
     Router.events.on("routeChangeStart", startLoading)
     Router.events.on("routeChangeComplete", stopLoading)
     return () => {
@@ -60,7 +56,7 @@ function ArticleListTemplate(props) {
     }
   }
 
-  let mainArticle = articles.shift()
+  let mainArticle = articles[0]
 
   return (
     <div>
@@ -80,7 +76,7 @@ function ArticleListTemplate(props) {
               <div>
                 <ArticleBlockItem
                   mainArticle={true} categorial={categorial} key={mainArticle.id} articleItem={mainArticle} />
-                <ArticlesBlock categorial ={categorial} quantity={10} articles={articles} noShowMore={true}>
+                <ArticlesBlock categorial ={categorial} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
                   <GorizontalAdBanner mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
                 </ArticlesBlock>
               </div>
