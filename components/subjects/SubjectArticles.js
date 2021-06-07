@@ -1,6 +1,5 @@
-import React, { useState, useEffect}  from "react";
+import React, { useState, useEffect, useRef}  from "react";
 import ReactPaginate from "react-paginate";
-import { useHistory } from "react-router-dom";
 import config from "react-global-configuration";
 import axios from 'axios';
 
@@ -9,26 +8,28 @@ import Header from "../common/Header";
 import ArticleBlockItem from "../fragments/ArticleBlockItem";
 import ColumnsBlockItem from "../fragments/ColumnsBlockItem";
 import Fragment from "../fragments/Fragment";
+import Router, { useRouter } from "next/router"
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 
 
-function SubjectArticles({match}) {
+function SubjectArticles({pageNum, id,...match}) {
   const [subjectArticles, setSubjectArticles] = useState([]);
-  const [page, setPage] = useState(match.params.page);
+  const [page, setPage] = useState(pageNum);
   const [pagesCount, setPagesCount] = useState(0);
   const [loading, setLoading] = useState(false);
+  const router = useRouter()
+  const query = router.query
 
-  let history = useHistory();
   let initialPageNumber = 0;
-  if (match.params.page) initialPageNumber = Number(match.params.page) - 1;
+  if (pageNum) initialPageNumber = Number(pageNum) - 1;
 
   useEffect (()=>{
     setLoading(true);
 
     const fetchSubjectArticles = async (page) => {
       let limit = 10;
-      let apiUrl = `${config.get("apiDomain")}/subjects/articles/${match.params.id}/?limit=${limit}&offset=${(page-1)*limit}`;
+      let apiUrl = `${process.env.apiDomain}/subjects/articles/${id}/?limit=${limit}&offset=${(page-1)*limit}`;
 
       await axios.get(apiUrl)
         .then(res =>{
@@ -36,19 +37,18 @@ function SubjectArticles({match}) {
           setPagesCount(Math.floor(res.data.highest_count/limit)+1);
           setLoading(false);
         })
-        .catch(err => history.push("/page-not-found")
+        .catch(err => router.push("/page-not-found")
         );
      };
 
-      if (page !== match.params.page) fetchSubjectArticles(match.params.page);
+      if (page !== pageNum) fetchSubjectArticles(pageNum);
       else fetchSubjectArticles(page);
-    }, [page, match.params.page, match.params.id, history]);
+    }, [page, pageNum, id]);
 
-    const handlePageClick = async (data) => {
-      history.push(`/Subject/${match.params.id}/page=${data.selected+1}`);
-      setPage(data.selected+1);
-      match.params.page = data.selected+1;
-    };
+  const handlePagination = page => {
+    query.page = page.selected + 1
+    router.push(`/Subject/${id}?page=${query.page}`)
+  };
 
   let pageHeader = "Зміст";
   let publicationsComponents = subjectArticles.map(publication => {
@@ -78,7 +78,7 @@ function SubjectArticles({match}) {
               pageCount={pagesCount}
               marginPagesDisplayed={1}
               pageRangeDisplayed={3}
-              onPageChange={handlePageClick}
+              onPageChange={handlePagination}
               containerClassName={"pagination"}
               subContainerClassName={"pages pagination"}
               activeClassName={"active"}

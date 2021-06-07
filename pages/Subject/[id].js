@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Layout from '../../components/layout'
-import SubjectTemplate from "../../components/subjects/SubjectTemplate";
+import Subject from "../../components/subjects/Subject";
 
 
-export default function Subject({ data }) {
+export default function SubjectId({ data }) {
   return (
     <Layout>
       <Head>
@@ -24,7 +24,7 @@ export default function Subject({ data }) {
         <meta property="twitter:image" content={data.image1}/>
       </Head>
       <div>
-        <SubjectTemplate subject={data}/>
+        <Subject subjectData={data}/>
       </div>
     </Layout>
   )

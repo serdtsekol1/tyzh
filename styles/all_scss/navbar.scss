@@ -40,7 +40,7 @@
 }
 .dropdown-menu {
   margin-top: 11px !important;
-  padding: 24px 50px 9px 24px !important;
+  padding: 24px 50px 0px 24px !important;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
   border: none !important;
   border-radius: 0 !important;
@@ -117,7 +117,7 @@
 .dropdown-decoration{
   position: absolute;
   // top: 364px;
-  top: 425px;
+  top: 429px;
   width: 75%;
   height: 4px;
   z-index: 1000;

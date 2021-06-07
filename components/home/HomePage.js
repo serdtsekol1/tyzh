@@ -58,7 +58,7 @@ function HomePage() {
     <ArticleBlockItem 
     mainArticle={true} key={article.id} articleItem={article} />
   ));
-  let articlesComponent = <ArticlesBlock quantity={5}  articles={articles.slice(0,5)}  showMoreLink="/Publications" />;
+  let articlesComponent = <ArticlesBlock  quantity={5}  articles={articles.slice(0,5)}  showMoreLink="/Publications"  />;
 
   return (
     <div className="container">

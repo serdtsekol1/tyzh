@@ -18,11 +18,12 @@ export default function News({ data }) {
         <meta property="og:url" content={`https://tyzhden.ua/News/${data.id}`}/>
         <meta property="og:title" content={data.title}/>
         <meta property="og:description" content={data.abstract}/>
-     
         <meta property="twitter:card" content="summary"/>
         <meta property="twitter:url" content={`https://tyzhden.ua/News/${data.id}`}/>
         <meta property="twitter:title" content={data.title}/>
         <meta property="twitter:description" content={data.abstract}/>
+        <meta property="og:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
        
       </Head>
       <div>

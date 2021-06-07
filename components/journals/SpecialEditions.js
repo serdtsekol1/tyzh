@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../common/Header";
-import "./journals.scss";
 import Button from "../common/Button";
 
 function SpecialEditions(props) {

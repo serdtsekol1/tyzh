@@ -2,25 +2,17 @@ import React, { useState, useEffect, useRef } from "react"
 import ReactPaginate from "react-paginate"
 import Router, { useRouter } from "next/router"
 
-import categoties from "../common/categories.json";
 import Header from "../common/Header";
-import ArticleBlockItem from "../fragments/ArticleBlockItem";
-import ArticlesBlock from "../fragments/AtriclesBlock";
 import BannersPanel from "../fragments/BannersPanel";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
+import PressreleasesBlock from "../fragments/PressreleasesBlock";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
-import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
 
 
-function ArticleListTemplate(props) {
-  const pageHeader = props.category.name
-  const initialCategory = props.category.slug
-  let categorial = true
-  if (initialCategory === "Publications") {
-    categorial = false
-  }
+function PressReleaseListTemplate(props) {
+  const pageHeader = "Останні прес-релізи"
 
   let articles = props.articles.results
 
@@ -29,13 +21,17 @@ function ArticleListTemplate(props) {
   const articlesRef = useRef(null)
 
   let initialPageNumber = 0
+  if (query.page) initialPageNumber = query.page - 1
   let pagesCount = Math.floor(props.articles.count/10)
+
+  const [users, setArticles] = useState([])
 
   const [loading, setLoading] = useState(false)
   const startLoading = () => setLoading(true)
   const stopLoading = () => setLoading(false)
 
   useEffect(() => {
+    setArticles(articles)
     Router.events.on("routeChangeStart", startLoading)
     Router.events.on("routeChangeComplete", stopLoading)
     return () => {
@@ -56,8 +52,6 @@ function ArticleListTemplate(props) {
     }
   }
 
-  let mainArticle = articles[0]
-
   return (
     <div>
       <div ref={articlesRef} className="container">
@@ -68,17 +62,14 @@ function ArticleListTemplate(props) {
             {loading &&
               <div>
                 <p className="skeleton-header"></p>
-                <SkeletonMainArticle/>
                 <SkeletonArticlesBlock quantity={10} />
               </div>
             }
             {!loading &&
               <div>
-                <ArticleBlockItem
-                  mainArticle={true} categorial={categorial} key={mainArticle.id} articleItem={mainArticle} />
-                <ArticlesBlock categorial ={categorial} quantity={10} articles={articles.slice(1,11)} noShowMore={true}>
+                <PressreleasesBlock quantity={10} pressreleases={articles} noShowMore={true}>
                   <GorizontalAdBanner mixadvert={true} redTram={true} randomBoolean={(Math.random() >= 0.5)}/>
-                </ArticlesBlock>
+                </PressreleasesBlock>
               </div>
             }
             <div className="pagination-articles">
@@ -101,7 +92,7 @@ function ArticleListTemplate(props) {
         </div>
         <div className="d-none d-md-block col-md-3">
           <LastJournalBanner />
-          <BannersPanel rubric={initialCategory} admixer_id="admixed-articles" custom_banner={true} admixer={true} adriver={true} adriver_id="adriver-articles"  />
+          <BannersPanel admixer_id="admixed-articles" custom_banner={true} admixer={true} adriver={true} adriver_id="adriver-articles"  />
         </div>
         </div>
       </div>
@@ -110,4 +101,4 @@ function ArticleListTemplate(props) {
 }
 
 
-export default ArticleListTemplate;
+export default PressReleaseListTemplate;

@@ -141,7 +141,7 @@ function ColumnTemplate(props){
 
     <Header size="big" title="Bам також буде цікаво почитати" />
     {columnItem.more?
-      <ColumnsBlock showMoreLink="/Columns" columns={columnItem.more} quantity={3} />
+      <ColumnsBlock showMoreLink="/Columns" columns={columnItem.more} quantity={3} size="big"/>
       :""}
 
     </div>
