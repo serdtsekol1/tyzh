@@ -20,7 +20,7 @@ function GalleryListTemplate(props) {
 
   let initialPageNumber = 0
   if (query.page) initialPageNumber = query.page - 1
-  let pagesCount = Math.floor(props.articles.count/11)
+  let pagesCount = Math.floor(props.articles.count/13)
 
   const [users, setArticles] = useState([])
 
@@ -50,12 +50,10 @@ function GalleryListTemplate(props) {
     }
   }
 
-  console.log("ARTICLES", articles)
-
-  const firstPhoto = articles.shift()
+  const firstPhoto = articles[0];
   const link = "Gallery";
 
-  const photoReportsComponents = articles.map(photoReport => (
+  const photoReportsComponents = articles.slice(1,13).map(photoReport => (
         <div className="col-12 col-md-6" key={photoReport.id+100}>
             <PhotoReportItem key={photoReport.id} reportItem={photoReport} link={link} />
         </div>

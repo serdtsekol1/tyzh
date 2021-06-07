@@ -24,14 +24,13 @@ function getListApiUrl(context, limit) {
     page = context.query.page
   }
   let offset = (page-1)*limit
-  let apiUrl = `${process.env.apiDomain}/galleries/?limit=${limit}&offset=${offset}`
-  console.log(apiUrl)
+  let apiUrl = `${process.env.apiDomain}/galleries/?limit=${limit}&offset=${offset}`;
   return encodeURI(apiUrl)
 }
 
 
 export async function getServerSideProps(context) {
-  const apiUrl = getListApiUrl(context, 11)
+  const apiUrl = getListApiUrl(context, 13)
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()
