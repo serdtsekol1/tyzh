@@ -1,9 +1,17 @@
-import Layout from '../../components/layout';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect} from "react";
+import { useHistory } from "react-router-dom";
+import { Tabs, Tab } from 'react-bootstrap';
+import axios from 'axios';
+import config from "react-global-configuration";
+
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+
+import Layout from '../../components/layout'
+import FilterByTagPage from '../../components/search/FilterByTagPage'
 
 
-export default function Tag({tag}) {
+export default function Tag() {
   const router = useRouter();
   return (
     <Layout>
@@ -23,9 +31,13 @@ export default function Tag({tag}) {
         <meta property="twitter:description" content={`Усі матеріали за тегом: ${router.query.tag}`}/>
         <meta property="og:image" content="https://tyzhden.ua/sharing_image.jpg"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
-    
       </Head>
+      <FilterByTagPage/>
     </Layout>
   )
 }
 
+
+export async function getServerSideProps(context) {
+    return { props: {} }
+}
