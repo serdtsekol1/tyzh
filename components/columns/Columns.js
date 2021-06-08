@@ -42,7 +42,7 @@ function Columns({match}){
     },[page,match.params.page]);
 
   const handlePageClick = async (data) => {
-    history.push(`/Columns/page=${data.selected+1}`);
+    history.push(`/Columns?page=${data.selected+1}`);
     setPage();
     match.params.page = data.selected+1;
   };

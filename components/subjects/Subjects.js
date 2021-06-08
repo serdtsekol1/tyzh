@@ -43,7 +43,7 @@ function Subjects({match}){
       }, [page, query.page]);
 
     const handlePageClick = async (data) => {
-      router.push(`/Subject/page=${data.selected + 1}`);
+      router.push(`/Subject?page=${data.selected + 1}`);
       setPage(query.page);
       // match.params.page = data.selected+1;
     };

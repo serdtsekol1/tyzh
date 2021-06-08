@@ -179,7 +179,7 @@ const Header = props => {
                 </NavLink>
               </li>
               <li className="last-nav nav-item">
-                <NavLink to="/PressReleases/page=1"
+                <NavLink to="/PressReleases?page=1"
                   activeStyle={activeStyle}
                   className="nav-link"
                 >

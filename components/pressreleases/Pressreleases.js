@@ -45,7 +45,7 @@ function Pressreleases({match}) {
     },[page,match.params.page]);
 
     const handlePageClick = async (data) => {
-      history.push(`/PressReleases/page=${data.selected+1}`);
+      history.push(`/PressReleases?page=${data.selected+1}`);
       setPage(data.selected+1);
       match.params.page = data.selected+1;
     };
