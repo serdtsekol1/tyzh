@@ -4,126 +4,81 @@ import { Tabs, Tab } from 'react-bootstrap';
 import axios from 'axios';
 import config from "react-global-configuration";
 
+import { useRouter } from 'next/router'
+
 import ColumnsTab from "../fragments/ColumnsTab";
-import NewsTab from "../fragments/NewsTab";
 import ArticlesTab from "../fragments/ArticlesTab";
 import PhotoreportsTab from "../fragments/PhotoreportsTab";
 
 import BannersPanel from '../fragments/BannersPanel';
 import Header from "../common/Header";
-import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
-import "../common/css/tabs.scss";
-import "../authors/author.scss";
 
+function FilterByTagPage(){
+  const router = useRouter();
+  const tag = router.query.tag
 
-function FilterByTagPage({match}){
   const [loading, setLoading] = useState(false);
- 
-  let [isNews, setIsNews] = useState(false);
   let [isPhotoreports, setIsPhotoreports] = useState(false);
   let [isArticles, setIsArticles] = useState(false);
   let [isColumns, setIsColumns] = useState(false);
-  let [activeTab, setActiveTab] = useState("news");
+  let [activeTab, setActiveTab] = useState("articles");
+
   useEffect (()=>{
     setLoading(true);
 
     const fetchData = async () => {
-      
-      let apiUrl = `${config.get("apiDomain")}/columns/tags/${match.params.tag}/?limit=1`;
+      let apiUrl = `${process.env.apiDomain}/columns/tags/${tag}/?limit=1`;
       await axios.get(apiUrl)
-        .then(res =>{ 
-         
+        .then(res => {
           if (res.data.results.length){
-      
-          setIsColumns(true); }
-         
-  
-          })
-        .catch(err => console.log(err));  
-      apiUrl = `${config.get("apiDomain")}/galleries/tags/${match.params.tag}/?limit=1`;
+            setIsColumns(true); }
+        })
+        .catch(err => console.log(err));
+
+      apiUrl = `${process.env.apiDomain}/galleries/tags/${tag}/?limit=1`;
       await axios.get(apiUrl)
-        .then(res =>{ 
-         
+        .then(res => {
           if (res.data.results.length)
-          setIsPhotoreports(true);
-  
-          })
-        .catch(err => console.log(err));  
-        apiUrl = `${config.get("apiDomain")}/publications/tags/${match.params.tag}/?limit=1`;
+            setIsPhotoreports(true);
+
+        })
+        .catch(err => console.log(err));
+
+      apiUrl = `${process.env.apiDomain}/publications/tags/${tag}/?limit=1`;
       await axios.get(apiUrl)
-        .then(res =>{ 
-          console.log(res.data.results.length);
+        .then(res => {
           if (res.data.results.length)
-          setIsArticles(true);
-  
-          })
-        .catch(err => console.log(err)); 
-      apiUrl = `${config.get("apiDomain")}/news/tags/${match.params.tag}/?limit=1`;
-      await axios.get(apiUrl)
-        .then(res =>{ 
-          
-          if (res.data.results.length)
-          setIsNews(true);
-          setLoading(false);
-  
-          })
-          .catch(err => console.log(err)); 
-      };
-       
-      fetchData();
-      
-     
-  },[match.params.tag]);
+            setIsArticles(true);
+            setLoading(false);
+        })
+        .catch(err => console.log(err));
+    };
+    fetchData();
+  }, [tag]);
+
   useEffect(()=>{
     if (isPhotoreports) setActiveTab("photo");
     if (isColumns) setActiveTab("columns");
     if (isArticles) setActiveTab("articles");
-    if (isNews) setActiveTab("news");
-  },[isNews,isColumns,isArticles,isPhotoreports])
-    
+  }, [isColumns,isArticles,isPhotoreports])
+
     return (
-       
-    <div className="container">
-      
+     <div className="container">
       {loading && <SkeletonPublication article={true}/>}
-         {!loading &&
-      
+      {!loading &&
       <div>
-        <MetaTags title={match.params.tag} 
-      abstract={match.params.tag}
-      ct100={true} keywords={match.params.tag}
-      noImage={true}
-      />
-     
-      <Header style={{paddingBottom:24}}title={`Всі матеріали, позначені тегом: ${match.params.tag}`}/>
-      
+      <Header style={{paddingBottom:24}}title={`Всі матеріали, позначені тегом: ${tag}`}/>
       <div className="row">
           <div className="col-12 author-tabs">
             <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example">
-                {isNews?
-                  <Tab eventKey="news" title="Новини">
-                      <div className="row">
-                          <div className="col-12 col-md-9">
-                              
-                              <NewsTab tag={match.params.tag}/>
-
-                          </div>
-                          <div className="col-12 col-md-3">
-                          <BannersPanel my={true} ria={true} adriver={true} adriver_id="adriver-filter" />
-                          </div>
-                      </div>
-                  </Tab>
-                  :""}
                   {isArticles?
                   <Tab eventKey="articles" title="Статті">
                       <div className="row">
                           <div className="col-12 col-md-9">
-                              
-                              <ArticlesTab tag={match.params.tag}/>
-
+                              <ArticlesTab tag={tag}/>
                           </div>
                           <div className="col-12 col-md-3">
                           <BannersPanel my={true}  ria={true} />
@@ -131,26 +86,23 @@ function FilterByTagPage({match}){
                       </div>
                   </Tab>
                   :""}
-                {isColumns?   
+                {isColumns?
                   <Tab eventKey="columns" title="Колонки">
                   <div className="row">
                           <div className="col-12 col-md-9">
-                        
-                          <ColumnsTab tag={match.params.tag}/>
+                          <ColumnsTab tag={tag}/>
                           </div>
                           <div className="col-12 col-md-3">
                           <BannersPanel my={true} admixer_id="admixed-author-filter" admixer={true} ria={true} />
                           </div>
                       </div>
-                      
                   </Tab>
                   :""}
-                 
                   {isPhotoreports?
                   <Tab eventKey="photo" title="Фоторепортажі">
                       <div className="row">
                           <div className="col-12 col-md-9">
-                          <PhotoreportsTab tag={match.params.tag}/>
+                          <PhotoreportsTab tag={tag}/>
 
                           </div>
                           <div className="col-12 col-md-3 banner-no-margin">
@@ -159,12 +111,8 @@ function FilterByTagPage({match}){
                       </div>
                   </Tab>
                   :""}
-                
-                  
-              
               </Tabs>
                     </div>
-                   
              </div>
       </div>
       }
