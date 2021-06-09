@@ -4,7 +4,7 @@ import ArticleTemplate from "../../components/articles/ArticleTemplate";
 
 export default function Post({ data, context }) {
   return (
-    <Layout>
+    <Layout >
       <Head>
         <title>{data.title}</title>
         <link rel="canonical" href={`https://tyzhden.ua/${data.journal.persistentname}/${data.id}`}/>
@@ -21,7 +21,7 @@ export default function Post({ data, context }) {
         <meta property="twitter:title" content={data.title}/>
         <meta property="twitter:description" content={data.abstract}/>
         <meta property="twitter:image" content={data.image1}/>
-        
+        <meta property="fb:app_id" content="966242223397117"/>
 
       </Head>
       <div>

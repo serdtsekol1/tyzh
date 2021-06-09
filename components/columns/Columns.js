@@ -10,7 +10,6 @@ import AuthorsBlock from "../fragments/AuthorsBlock";
 import BannersPanel from "../fragments/BannersPanel";
 
 import SkeletonNewsPage from "../loading_skeletons/SkeletonNewsPage";
-import MetaTags from "../common/MetaTagsComponent";
 
 function Columns({match}){
     const [columns, setColumns] = useState([]);
@@ -49,10 +48,7 @@ function Columns({match}){
 
     return (
         <div className="container">
-          <MetaTags title={"Думки впливових людей, колонки закордонних експертів"} 
-          abstract={"Думки впливових людей, колонки закордонних експертів"}
-          ct100={true} keywords={"Думки впливових людей, колонки закордонних експертів"}
-          />
+  
           <div className="row" style={{ marginTop: 10 }}>
             <div className="col-12">
               {/* <Header  size="small" style={{ fontSize: 32 }} title="Вибрані автори" /> */}

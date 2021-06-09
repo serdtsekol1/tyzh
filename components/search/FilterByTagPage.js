@@ -11,7 +11,6 @@ import PhotoreportsTab from "../fragments/PhotoreportsTab";
 
 import BannersPanel from '../fragments/BannersPanel';
 import Header from "../common/Header";
-import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
@@ -92,11 +91,7 @@ function FilterByTagPage({match}){
          {!loading &&
       
       <div>
-        <MetaTags title={match.params.tag} 
-      abstract={match.params.tag}
-      ct100={true} keywords={match.params.tag}
-      noImage={true}
-      />
+       
      
       <Header style={{paddingBottom:24}}title={`Всі матеріали, позначені тегом: ${match.params.tag}`}/>
       

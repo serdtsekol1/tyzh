@@ -23,6 +23,8 @@ export default function Tag({tag}) {
         <meta property="twitter:description" content={`Усі матеріали за тегом: ${router.query.tag}`}/>
         <meta property="og:image" content="https://tyzhden.ua/sharing_image.jpg"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
+        
     
       </Head>
     </Layout>

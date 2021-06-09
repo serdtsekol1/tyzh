@@ -13,20 +13,22 @@ export default function PostList({ data, category }) {
       <Head>
         <title>{category.name}</title>
      
-        <link rel="canonical" href={`https://tyzhden.ua/${router.querycategory}`}/>
-        <meta name="title" content={`Усі матеріали за тегом: ${router.query.tag}`}/>
-        <meta name="description" content={`Усі матеріали за тегом: ${router.query.tag}`}/>
-        <meta id="ctl00_meta2" name="keywords" content={`${router.query.tag}`}/>
+        <link rel="canonical" href={`https://tyzhden.ua/${router.query.category}`}/>
+        <meta name="title" content="Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"/>
+        <meta name="description" content="Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"/>
+        <meta id="ctl00_meta2" name="keywords" content={`${router.query.category}`}/>
         <meta property="og:type" content="website"/>
-        <meta property="og:url" content={`https://tyzhden.ua/${router.querycategory}`}/>
-        <meta property="og:title" content={`Усі матеріали за тегом: ${router.query.tag}`}/>
-        <meta property="og:description" content={`Усі матеріали за тегом: ${router.query.tag}`}/>
+        <meta property="og:url" content={`https://tyzhden.ua/${router.query.category}`}/>
+        <meta property="og:title" content="Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"/>
+        <meta property="og:description" content="Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"/>
         <meta property="twitter:card" content="summary"/>
-        <meta property="twitter:url" content={`https://tyzhden.ua/${router.querycategory}}`}/>
-        <meta property="twitter:title" content={`Усі матеріали за тегом: ${router.query.tag}`}/>
-        <meta property="twitter:description" content={`Усі матеріали за тегом: ${router.query.tag}`}/>
+        <meta property="twitter:url" content={`https://tyzhden.ua/${router.query.category}`}/>
+        <meta property="twitter:title" content="Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"/>
+        <meta property="twitter:description" content="Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"/>
         <meta property="og:image" content="https://tyzhden.ua/sharing_image.jpg"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
       </Head>
       <div>
         <ArticleListTemplate articles={data} category={category}/>

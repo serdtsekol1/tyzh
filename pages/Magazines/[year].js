@@ -3,7 +3,6 @@ import Head from 'next/head'
 import JournalsList from "../../components/journals/JournalsList";
 import { useRouter } from 'next/router'
 import YearsNavBar from "../../components/journals/YearsNavBar";
-import MetaTags from "../../components/common/MetaTagsComponent";
 
 
 
@@ -25,13 +24,12 @@ export default function MagazineYear({ data, year }) {
         <meta property="twitter:description" content={`Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн`}/>
         <meta property="og:image" content="https://tyzhden.ua/sharing_image.jpg"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
 
       </Head>
       <div>
-        <MetaTags title={"Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн"}
-                  abstract={"Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн"}
-                  ct100={true} keywords={"Випуски журналу &laquo;Український тиждень&raquo;, &laquo;Український тиждень&raquo; онлайн-версія, &laquo;Український тиждень&raquo; онлайн"}
-        />
+      
         <YearsNavBar/>
         <JournalsList year={year}/>
       </div>

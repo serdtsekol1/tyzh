@@ -107,7 +107,7 @@ function NewsItemTemplate(props) {
           <div className="d-block d-md-none">
             <BannersPanel ria={true} my={true} />
           </div>
-          <Fragment size="big"  showMoreLink="/news" >
+          <Fragment size="big"  noShowMore={true} >
 
             <Header size="big" title="Bам також буде цікаво почитати" />
             <NewsBlock news={props.newsItem.more} quantity={3} />

@@ -11,7 +11,6 @@ export default function GalleryList({ data }) {
         
         <title>Головні теми</title>
         <link rel="canonical" href={`https://tyzhden.ua/Subject`}/>
-        
         <meta name="title" content="Головні теми"/>
         <meta name="description" content="Аналітика, оцінки, прогнози"/>
         <meta id="ctl00_meta2" name="keywords" content="Аналітика, оцінки, прогнози"/>
@@ -25,6 +24,8 @@ export default function GalleryList({ data }) {
         <meta property="twitter:title" content="Головні теми"/>
         <meta property="twitter:description" content="Аналітика, оцінки, прогнози"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
       </Head>
       <div>
         <Subjects articles={data}/>

@@ -44,7 +44,7 @@ function PressreleasesBlock(props) {
     {loading && <div><SkeletonNewsBlock/><SkeletonNewsBlock/><SkeletonNewsBlock/></div>}
        {!loading &&
       <Fragment
-        size="small"
+        size="big"
         noShowMore={props.noShowMore}
         showMoreLink={props.showMoreLink}
         redButton={props.redButton}

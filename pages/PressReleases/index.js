@@ -25,6 +25,8 @@ export default function PressReleaseList({ data }) {
         <meta property="twitter:title" content="Прес-релізи - Український тиждень"/>
         <meta property="twitter:description" content="Прес-релізи - Український тиждень"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
       </Head>
       <div>
         <PressReleaseListTemplate articles={data}/>

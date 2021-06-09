@@ -11,7 +11,6 @@ import BannersPanel from "../fragments/BannersPanel";
 import Header from "../common/Header";
 import LastJournalBanner from "../fragments/LastJournalBanner";
 import categoties from "../common/categories.json";
-import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
@@ -98,11 +97,7 @@ function Articles({ match, location }) {
     <div>
     {initialCategory=="not-a-category"?<Redirect to="/page-not-found"/>:
     <div className="container">
-  
-    <MetaTags title={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"} 
-          abstract={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"}
-          ct100={true} keywords={"Ексклюзивні статті зарубіжних партнерів, статті міжнародних експертів, ключові події в Європі, Росії, Америці, на Близькому Сході, новини в світі"}
-          />
+
       <div className="row" style={{ marginTop: 10 }}>
         <div className="col-12 col-md-9">
         {loading && <div>

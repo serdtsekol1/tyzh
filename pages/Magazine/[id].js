@@ -22,6 +22,8 @@ export default function Magazine({ data }) {
         <meta property="twitter:title" content={`Український тиждень № ${data.localnum} (${data.num})`}/>
         <meta property="twitter:description" content={`Український тиждень № ${data.localnum} (${data.num})`}/>
         <meta property="twitter:image" content={data.image1}/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
       </Head>
       <div>
         <JournalPage journalItem={data}/>

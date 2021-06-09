@@ -16,7 +16,6 @@ import ReactPaginate from "react-paginate";
 import SkeletonNewsPage from "../loading_skeletons/SkeletonNewsPage";
 
 import "./news.scss";
-import MetaTags from "../common/MetaTagsComponent";
 
 
 function getDate(public_ts){
@@ -100,7 +99,7 @@ function News({match}){
   
     
      <div className="container">
-       <MetaTags/>
+      
      <div className="row" >
        <div className="col-12">
          <div className="row">

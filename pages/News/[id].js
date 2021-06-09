@@ -24,6 +24,8 @@ export default function News({ data }) {
         <meta property="twitter:description" content={data.abstract}/>
         <meta property="og:image" content="https://tyzhden.ua/sharing_image.jpg"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
        
       </Head>
       <div>

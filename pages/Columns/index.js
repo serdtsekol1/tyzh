@@ -10,7 +10,6 @@ export default function ColumnList({ data }) {
       <Head>
         <title>Думки впливових людей, колонки закордонних експертів</title>
         <link rel="canonical" href={`https://tyzhden.ua/Columns`}/>
-        
         <meta name="title" content="Думки впливових людей, колонки закордонних експертів"/>
         <meta name="description" content="Думки впливових людей, колонки закордонних експертів"/>
         <meta id="ctl00_meta2" name="keywords" content="Думки впливових людей, колонки закордонних експертів"/>
@@ -24,6 +23,8 @@ export default function ColumnList({ data }) {
         <meta property="twitter:title" content="Думки впливових людей, колонки закордонних експертів"/>
         <meta property="twitter:description" content="Думки впливових людей, колонки закордонних експертів"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
       </Head>
       <div>
         <ColumnListTemplate articles={data}/>

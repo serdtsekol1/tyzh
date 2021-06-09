@@ -11,7 +11,6 @@ import PhotoreportsTab from "../fragments/PhotoreportsTab";
 
 import BannersPanel from '../fragments/BannersPanel';
 import Button from "../common/Button";
-import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonPublication from "../loading_skeletons/SkeletonPublication";
 
@@ -151,11 +150,7 @@ function Author({match}){
          {!loading &&
       
       <div>
-        <MetaTags title={author.fullname2ua} 
-      abstract={author.fullname2ua}
-      ct100={true} keywords={author.fullname2ua}
-      noImage={true}
-      />
+    
         <div className="row column-header">
           <div className="col-3 col-md-2">
             <div className="column-author-photo-wrap">

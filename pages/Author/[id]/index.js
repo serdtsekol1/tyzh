@@ -11,7 +11,6 @@ import ArticlesTab from "../../../components/fragments/ArticlesTab";
 import PhotoreportsTab from "../../../components/fragments/PhotoreportsTab";
 
 import BannersPanel from '../../../components/fragments/BannersPanel';
-import MetaTags from "../../../components/common/MetaTagsComponent";
 
 import SkeletonPublication from "../../../components/loading_skeletons/SkeletonPublication";
 
@@ -146,11 +145,7 @@ export default function Author({ data }) {
         {!loading &&
 
         <div>
-          <MetaTags title={data.fullname2ua}
-                    abstract={data.fullname2ua}
-                    ct100={true} keywords={data.fullname2ua}
-                    noImage={true}
-          />
+       
           <div className="row column-header">
             <div className="col-3 col-md-2">
               <div className="column-author-photo-wrap">

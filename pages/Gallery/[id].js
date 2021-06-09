@@ -23,6 +23,8 @@ export default function Gallery({ data }) {
         <meta property="twitter:title" content={data.title}/>
         <meta property="twitter:description" content={data.abstract}/>
         <meta property="twitter:image" content={data.image1}/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
       </Head>
       <div>
         <PhotoReportTemplate photoReport={data}/>

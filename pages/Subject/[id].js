@@ -22,6 +22,8 @@ export default function SubjectId({ data }) {
         <meta property="twitter:title" content={data.title}/>
         <meta property="twitter:description" content="Аналітика, оцінки, прогнози"/>
         <meta property="twitter:image" content={data.image1}/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
       </Head>
       <div>
         <Subject subjectData={data}/>

@@ -10,7 +10,6 @@ export default function GalleryList({ data }) {
       <Head>
         <title>Фоторепортажі, фотогалереї, фото дня</title>
         <link rel="canonical" href={`https://tyzhden.ua/Gallery`}/>
-        
         <meta name="title" content="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"/>
         <meta name="description" content="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"/>
         <meta id="ctl00_meta2" name="keywords" content="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"/>
@@ -24,6 +23,8 @@ export default function GalleryList({ data }) {
         <meta property="twitter:title" content="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"/>
         <meta property="twitter:description" content="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
+
       </Head>
       <div>
         <GalleryListTemplate articles={data}/>

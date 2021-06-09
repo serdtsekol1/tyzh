@@ -66,8 +66,6 @@ function HomePage() {
         <Layout home>
         <Head>
         <title>Аналітика, безпека, економіка, міжнародна політика, культура. Зміст має значення!</title>
-        <link rel="icon" href="/favicon.ico"/>
-        <meta property="fb:app_id" content="966242223397117"/>
         <link rel="canonical" href="https://tyzhden.ua"/>    
         <meta name="title" content="Аналітика, безпека, економіка, міжнародна політика, культура. Зміст має значення!"/>
         <meta name="description" content="Сайт журналу &laquo;Український тиждень&raquo;. Формуємо порядок денний разом"/>
@@ -82,6 +80,7 @@ function HomePage() {
         <meta property="twitter:title" content="Аналітика, безпека, економіка, міжнародна політика, культура. Зміст має значення!"/>
         <meta property="twitter:description" content="Сайт журналу &laquo;Український тиждень&raquo;. Формуємо порядок денний разом"/>
         <meta property="twitter:image" content="https://tyzhden.ua/sharing_image.jpg"/>
+        <meta property="fb:app_id" content="966242223397117"/>
         </Head>
         <div className="container">
             <div className="row">

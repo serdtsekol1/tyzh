@@ -8,7 +8,6 @@ import PressreleaseBlockItem from "../fragments/PressreleaseBlockItem";
 import PressreleasesBlock from "../fragments/PressreleasesBlock";
 import BannersPanel from "../fragments/BannersPanel";
 import Header from "../common/Header";
-import MetaTags from "../common/MetaTagsComponent";
 
 import SkeletonArticlesBlock from "../loading_skeletons/SkeletonArticlesBlock";
 import SkeletonMainArticle from "../loading_skeletons/SkeletonMainArticle";
@@ -62,10 +61,7 @@ function Pressreleases({match}) {
     <div>
       <div className="container">
 
-        <MetaTags title={"Прес-релізи - Український тиждень"}
-                  abstract={"Прес-релізи - Український тиждень"}
-                  ct100={true} keywords={"Прес-релізи"}
-        />
+       
         <div className="row" style={{ marginTop: 10 }}>
           <div className="col-12 col-md-9">
             {loading && <div>

@@ -11,7 +11,6 @@ import PhotoReportItem from "../fragments/PhotoReportItem";
 import SubscriptionBanner from "../fragments/SubscriptionBanner";
 import Fragment from "../fragments/Fragment";
 import BannersPanel from "../fragments/BannersPanel";
-import MetaTags from "../common/MetaTagsComponent";
 
 
 function PhotoReports({match}){
@@ -62,9 +61,7 @@ function PhotoReports({match}){
 
     return (
         <div className="container">
-            <MetaTags title="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото" 
-            ct100={true} keywords="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"
-            abstract="Фоторепортажі, фотогалереї, фото дня, новини у фото, подорожі у фото"/>
+       
             <Header title="Фоторепортаж"/>
             <Fragment size="big" noShowMore={true}> 
             <div className="row">

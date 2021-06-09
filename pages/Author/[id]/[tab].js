@@ -1,5 +1,5 @@
-import Layout from '../../../components/layout'
-import Head from 'next/head'
+import Layout from '../../../components/layout';
+import Head from 'next/head';
 import React, { useState, useEffect} from "react";
 import { Tabs, Tab } from 'react-bootstrap';
 import axios from 'axios';
@@ -11,7 +11,6 @@ import ArticlesTab from "../../../components/fragments/ArticlesTab";
 import PhotoreportsTab from "../../../components/fragments/PhotoreportsTab";
 
 import BannersPanel from '../../../components/fragments/BannersPanel';
-import MetaTags from "../../../components/common/MetaTagsComponent";
 
 import SkeletonPublication from "../../../components/loading_skeletons/SkeletonPublication";
 
@@ -125,7 +124,6 @@ export default function Author({ data }) {
       <Head>
         <title>{data.fullname2ua}</title>
         <link rel="canonical" href={`https://tyzhden.ua/Author/${data.id}`}/>
-        
         <meta name="title" content={data.fullname2ua}/>
         <meta name="description" content={data.fullname2ua}/>
         <meta id="ctl00_meta2" name="keywords" content={data.tags}/>
@@ -139,6 +137,7 @@ export default function Author({ data }) {
         <meta property="twitter:title" content={data.fullname2ua}/>
         <meta property="twitter:description" content={data.fullname2ua}/>
         <meta property="twitter:image" content={data.image1url}/>
+        <meta property="fb:app_id" content="966242223397117"/>
 
       </Head>
       <div className="container">
@@ -147,11 +146,7 @@ export default function Author({ data }) {
         {!loading &&
 
         <div>
-          <MetaTags title={data.fullname2ua}
-                    abstract={data.fullname2ua}
-                    ct100={true} keywords={data.fullname2ua}
-                    noImage={true}
-          />
+         
           <div className="row column-header">
             <div className="col-3 col-md-2">
               <div className="column-author-photo-wrap">
