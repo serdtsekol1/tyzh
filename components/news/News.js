@@ -76,7 +76,7 @@ function News({match}){
    <NewsBlock id={news.date.getDate()} news={news.news} /></div>);
   
   const handlePageClick = async (data) => {
-    history.push(`/News/page=${data.selected+1}`);
+    history.push(`/News?page=${data.selected+1}`);
     setPage(data.selected+1);
     match.params.page = data.selected+1;
   };

@@ -44,7 +44,7 @@ function PhotoReports({match}){
       }, [page, match.params.page, history]);
 
     const handlePageClick = async (data) => {
-      history.push(`/Gallery/page=${data.selected + 1}`);
+      history.push(`/Gallery?page=${data.selected + 1}`);
       setPage();
       match.params.page = data.selected+1;
     };
