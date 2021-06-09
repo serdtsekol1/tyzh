@@ -63,7 +63,7 @@ function HomePage() {
     let articlesComponent = <ArticlesBlock quantity={5}  articles={articles.slice(0,5)}  showMoreLink="/Publications" />;
 
     return (
-        <Layout home>
+        <Layout>
         <Head>
         <title>Аналітика, безпека, економіка, міжнародна політика, культура. Зміст має значення!</title>
         <link rel="canonical" href="https://tyzhden.ua"/>    

@@ -26,7 +26,6 @@ const Header = props => {
       $(this).parent('.dropdown-menu').removeClass('show');
       $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').attr('aria-expanded', 'false');
       $('.navbar-collapse').removeClass('show');
-      console.log('click');
     }
     );
     $('.navbar-toggler, .navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
