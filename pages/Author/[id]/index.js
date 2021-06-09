@@ -61,7 +61,6 @@ export default function Author({ data }) {
       apiUrl = `${process.env.apiDomain}/publications/author/${router.query.id}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{
-          console.log(res.data.results.length);
           if (res.data.results.length)
             setIsArticles(true);
           setLoading(false);
