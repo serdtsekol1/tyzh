@@ -37,7 +37,7 @@ export async function getServerSideProps(context) {
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json();
-    return { props: { data } 
+    return { props: { data }
  }
   } else {
     return { notFound: true }

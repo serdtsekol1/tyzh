@@ -105,7 +105,7 @@ function GorizontalAdBanner(props) {
         :""}
         {randomNumber!=0?
           <div>
-            <iframe id="3237491e3525b678833f071e7085c914" src="//affiliate.ria.com/service/state-informer?key=3237491e3525b678833f071e7085c914" width="100%" height="182px" frameborder="0" scrolling="no"></iframe>
+            <iframe id="3237491e3525b678833f071e7085c914" src="//affiliate.ria.com/service/state-informer?key=3237491e3525b678833f071e7085c914" width="100%" height="182px" frameBorder="0" scrolling="no"></iframe>
             <ScriptTag type="text/javascript" src="https://affiliate.ria.com/js/ria_informer_iframe.js"/>
           </div>
         :""}
