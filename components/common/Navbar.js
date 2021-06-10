@@ -2,12 +2,15 @@ import React, { useEffect } from "react";
 import NavLink from "./NavLink";
 import SocialNetworks from "./SocialNetworks";
 import useMedia from 'use-media';
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 import categoriesData from "./categories.json";
 
 import $ from "jquery";
 
 const Header = props => {
+  
   const isNarrow = useMedia({maxWidth: 1200});
   useEffect(()=>{
     $('.navbar-nav>li>a.dropdown-toggle').on('click', function(e){
@@ -19,8 +22,8 @@ const Header = props => {
       }
       $(this).attr('aria-expanded', ariaExpanded);
       $(this).find('+ .dropdown-menu').toggleClass('show');
-      $('.navbar-collapse').toggleClass('show');
-      e.preventDefault();
+      // $('.navbar-collapse').toggleClass('show');
+   
     });
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
       $(this).parent('.dropdown-menu').removeClass('show');
@@ -29,15 +32,15 @@ const Header = props => {
       console.log('click');
     }
     );
-    $('.navbar-toggler, .navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
-      $('#red-background').toggleClass('back-show');
-      if (isNarrow) {
-        $('#red-background').toggleClass('back-show');
-      }
-    }
-    );
+    // $('.navbar-toggler, .navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
+    //   $('#red-background').toggleClass('back-show');
+    //   if (isNarrow) {
+    //     $('#red-background').toggleClass('back-show');
+    //   }
+    // }
+    // );
 
-  }, [isNarrow])
+  }, [])
   const activeStyle = {
     color: "#ED1B2F"
   };
@@ -67,8 +70,11 @@ const Header = props => {
 
    //window.addEventListener('scroll', onScroll);
   return (
+   
     <div>
-    <nav className="navbar navbar-expand-xl fixed-top">
+      
+      <Navbar fixed="top" expand="xl" id="myNavbar">
+        
       <div className="container-fluid">
         <div className="container">
           <div className="navbar-custom-wrap">
@@ -84,19 +90,9 @@ const Header = props => {
               alt="Український тиждень"
             />
           </NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
           </div>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <Navbar.Collapse id="basic-navbar-nav">
              <div className="inline-flex d-xl-none">
                   <li className="nav-item second-nav-link">
                       <a className="" href="https://old.tyzhden.ua/Login">
@@ -204,10 +200,12 @@ const Header = props => {
                 <SocialNetworks color="white" />
               </div>
             </div>
-          </div>
+            
+            </Navbar.Collapse>
+          
         </div>
       </div>
-    </nav>
+    </Navbar>
     <div className="sticky-top second-nav-nar" id="navbar-2">
       <nav className="navbar navbar-expand-sm second-nav">
          <div className="container">

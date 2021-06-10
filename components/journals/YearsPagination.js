@@ -3,8 +3,9 @@ import { useRouter } from 'next/router';
 
 function YearsPagination(props) {
   const router = useRouter();
-  const currentHrefParams = router.pathname.split("/");
-  const page = parseInt(currentHrefParams[currentHrefParams.length - 1]);
+  
+  const page = parseInt(router.query.year);
+  console.log(router.pathname.split("/"));
   const lastYear = parseInt(props.yearsPeriod.lastYear);
   const firstYear = parseInt(props.yearsPeriod.firstYear);
   let startIndex = page - firstYear - 1;
