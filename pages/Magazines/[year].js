@@ -1,7 +1,6 @@
 import Layout from '../../components/layout'
 import Head from 'next/head'
 import JournalsList from "../../components/journals/JournalsList";
-import { useRouter } from 'next/router'
 import YearsNavBar from "../../components/journals/YearsNavBar";
 
 
@@ -29,7 +28,6 @@ export default function MagazineYear({ data, year }) {
 
       </Head>
       <div>
-      
         <YearsNavBar/>
         <JournalsList year={year}/>
       </div>
