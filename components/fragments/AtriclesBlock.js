@@ -42,7 +42,7 @@ function ArticlesBlock(props) {
     {loading && <div><SkeletonNewsBlock/><SkeletonNewsBlock/><SkeletonNewsBlock/></div>}
        {!loading &&
       <Fragment
-        size="big"
+        size={props.bigFragment? "big": "small"}
         noShowMore={props.noShowMore}
         showMoreLink={props.showMoreLink}
         redButton={props.redButton}
