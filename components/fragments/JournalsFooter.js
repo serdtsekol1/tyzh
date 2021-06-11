@@ -7,9 +7,10 @@ import config from "react-global-configuration";
 
 function JournalsFooter() {
   const [journalsFooter, setJournalsFooter] = useState([]);
+  let today = new Date();
+  const currentYear = today.getFullYear();
   useEffect (()=>{
     const fetchJournal= async () => {
-      let today = new Date();
       const limit = 4;
       await axios.get(`${process.env.apiDomain}/magazines/?limit=${limit}`)
       .then(res =>{ 
@@ -25,7 +26,7 @@ function JournalsFooter() {
  
 
   return (
-    <Fragment size="big" showMoreLink="/Magazines/">
+    <Fragment size="big" showMoreLink={`/Magazines/${currentYear}`}>
       <div className="row">
         {journalsFooter.map(journal => (
           <div key={journal.id - 1000} className="col-12 col-md-3">

@@ -28,7 +28,8 @@ function HomePage() {
   const [mainArticles, setMainArticles] = useState([]);
   const [videoTranslation, setVideoTranslation] = useState({});
   const [loading, setLoading] = useState(false);
-
+  let today = new Date();
+  const currentYear = today.getFullYear();
   useEffect (()=>{
     setLoading(true);
     const fetchArticles= async () => {
@@ -101,7 +102,7 @@ function HomePage() {
       <HomeAuthorsBlock />
       <DonationBanner />
       <PhotoReportBlock />
-      <Link href="/Magazines"><a><Header size="big" title="Журнал «Український тиждень»"/></a></Link>
+      <Link href={`/Magazines/${currentYear}`}><a><Header size="big" title="Журнал «Український тиждень»"/></a></Link>
       <JournalsFooter />
     </div>
   );
