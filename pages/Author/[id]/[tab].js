@@ -17,28 +17,17 @@ import SkeletonPublication from "../../../components/loading_skeletons/SkeletonP
 export default function Author({ data }) {
 
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  let [author, setAuthor] = useState({});
   let [isPhotoreports, setIsPhotoreports] = useState(false);
   let [isArticles, setIsArticles] = useState(false);
   let [isColumns, setIsColumns] = useState(false);
   let [activeTab, setActiveTab] = useState("columns");
   useEffect (()=>{
-    setLoading(true);
 
     const fetchData = async () => {
 
-      let apiUrl = `${process.env.apiDomain}/authors/page/${router.query.id}`;
-      await axios.get(apiUrl)
-        .then(res =>{
-
-          setAuthor(res.data);
-
-
-        })
-        .catch(err => console.log(err));
-      apiUrl = `${process.env.apiDomain}/columns/author/${router.query.id}/?limit=1`;
+      let apiUrl = `${process.env.apiDomain}/columns/author/${router.query.id}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{
 
@@ -63,9 +52,9 @@ export default function Author({ data }) {
         .then(res =>{
           if (res.data.results.length)
             setIsArticles(true);
-          setLoading(false);
         })
         .catch(err => console.log(err));
+      setLoading(false);
     };
 
     fetchData();
