@@ -122,7 +122,7 @@ function HomePage() {
             <HomeAuthorsBlock />
             <DonationBanner />
             <PhotoReportBlock />
-            <Link href={`/Magazines/${currentYear}`}><a><Header size="big" title="Журнал «Український тиждень»"/></a></Link>
+            <Header size="big" title="Журнал «Український тиждень»"/>
             <JournalsFooter />
         </div>
         </Layout>
