@@ -119,6 +119,7 @@ function HomePage() {
                 </div>
             </div>
             <SubjectBlock />
+            <Header size="big" title="Авторські колонки»"/>
             <HomeAuthorsBlock />
             <DonationBanner />
             <PhotoReportBlock />
