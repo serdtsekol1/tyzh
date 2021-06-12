@@ -37,11 +37,20 @@ export default function MagazineYear({ data, year }) {
 
 
 export async function getServerSideProps(context) {
-  let apiUrl = `${process.env.apiDomain}/magazines/year/${context.params.year}/?limit=60`
+  let year = new Date().getFullYear()
+  const yearParam = context.params.year
+  if (yearParam) {
+    if (yearParam.length > 1) {
+      return { notFound: true }
+    }
+    year = yearParam[0]
+  }
+  let apiUrl = `${process.env.apiDomain}/magazines/year/${year}/?limit=60`
+  console.log(apiUrl)
   const res = await fetch(apiUrl)
   if (res.status == 200) {
     const data = await res.json()
-    return { props: { data:data, year: context.params.year } }
+    return { props: { data:data, year: year } }
   }
   return { notFound: true }
 }
