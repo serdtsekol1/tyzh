@@ -14,6 +14,7 @@ import BannersPanel from '../../../components/fragments/BannersPanel';
 
 import SkeletonPublication from "../../../components/loading_skeletons/SkeletonPublication";
 
+
 export default function Author({ data }) {
 
   const router = useRouter();
@@ -24,6 +25,7 @@ export default function Author({ data }) {
   let [isArticles, setIsArticles] = useState(false);
   let [isColumns, setIsColumns] = useState(false);
   let [activeTab, setActiveTab] = useState("columns");
+
   useEffect (()=>{
     setLoading(true);
 
@@ -32,21 +34,16 @@ export default function Author({ data }) {
       let apiUrl = `${process.env.apiDomain}/authors/page/${router.query.id}`;
       await axios.get(apiUrl)
         .then(res =>{
-
           setAuthor(res.data);
-
 
         })
         .catch(err => console.log(err));
       apiUrl = `${process.env.apiDomain}/columns/author/${router.query.id}/?limit=1`;
       await axios.get(apiUrl)
         .then(res =>{
-
           if (res.data.results.length){
-
-            setIsColumns(true); }
-
-
+            setIsColumns(true);
+          }
         })
         .catch(err => console.log(err));
       apiUrl = `${process.env.apiDomain}/galleries/author/${router.query.id}/?limit=1`;
@@ -55,7 +52,6 @@ export default function Author({ data }) {
 
           if (res.data.results.length)
             setIsPhotoreports(true);
-
         })
         .catch(err => console.log(err));
       apiUrl = `${process.env.apiDomain}/publications/author/${router.query.id}/?limit=1`;
@@ -63,15 +59,12 @@ export default function Author({ data }) {
         .then(res =>{
           if (res.data.results.length)
             setIsArticles(true);
-          setLoading(false);
         })
         .catch(err => console.log(err));
     };
 
     fetchData();
-
-
-  },[router.query.id]);
+  }, [router.query.id]);
 
   useEffect(()=>{
 
@@ -99,7 +92,8 @@ export default function Author({ data }) {
         router.push(`/Author/${router.query.id}`);
         break;
     }
-  },[isColumns,isArticles,isPhotoreports,router.query.tab]);
+    setLoading(false);
+  }, [isColumns,isArticles,isPhotoreports,router.query.tab]);
 
   function hanldleChange(key){
     switch (key) {
@@ -123,7 +117,6 @@ export default function Author({ data }) {
       <Head>
       <title>{data.fullname2ua}</title>
         <link rel="canonical" href={`https://tyzhden.ua/Author/${data.id}`}/>
-        
         <meta name="title" content={data.fullname2ua}/>
         <meta name="description" content={data.fullname2ua}/>
         <meta id="ctl00_meta2" name="keywords" content={data.tags}/>
@@ -144,7 +137,6 @@ export default function Author({ data }) {
         {!loading &&
 
         <div>
-       
           <div className="row column-header">
             <div className="col-3 col-md-2">
               <div className="column-author-photo-wrap">
