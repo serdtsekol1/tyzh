@@ -39,6 +39,16 @@ const Header = props => {
     // }
     // );
 
+    const onScroll = function() {
+      if (document.getElementById("navbar-2")){
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          document.getElementById("navbar-2").style.padding = "0 0 0 0";
+        } else {
+          document.getElementById("navbar-2").style.padding = "60px 0 0 0";
+        }
+      };}
+
+    window.addEventListener('scroll', onScroll);
   }, [])
   const activeStyle = {
     color: "#ED1B2F"
@@ -57,17 +67,7 @@ const Header = props => {
        <div style={{'backgroundColor': category.category_color}} className="rubric-color"></div> <p>{category.category_name_short}</p>
       </NavLink>
     ));
-
-  const onScroll = function() {
-    if (document.getElementById("navbar-2")){
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        document.getElementById("navbar-2").style.padding = "0 0 0 0";
-      } else {
-        document.getElementById("navbar-2").style.padding = "60px 0 0 0";
-      }
-  };}
-
-   //window.addEventListener('scroll', onScroll);
+  
   return (
    
     <div>
