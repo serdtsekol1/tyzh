@@ -9,13 +9,14 @@ import Fragment from "../fragments/Fragment";
 
 
 function PhotoreportsTab(props){
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [pagesCount, setPagesCount] = useState(0);
     let [authorPhotoreports, setAuthorPhotoreports] = useState({});
     useEffect (()=>{
       setLoading(true);
     const fetchData = async ()  => {
+        setLoading(true);
         let limit = 10;
         let apiUrl;
         if (props.authorId) apiUrl = `${process.env.apiDomain}/galleries/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;

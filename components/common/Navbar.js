@@ -67,7 +67,7 @@ const Header = props => {
        <div style={{'backgroundColor': category.category_color}} className="rubric-color"></div> <p>{category.category_name_short}</p>
       </NavLink>
     ));
-  
+
   return (
    
     <div>
