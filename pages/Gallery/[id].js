@@ -1,13 +1,18 @@
-import Layout from '../../components/layout'
 import Head from 'next/head'
+
+import useSWR from 'swr'
+
+import Layout from '../../components/layout'
 import PhotoReportTemplate from "../../components/photo_reports/PhotoReportTemplate";
 
 
-export default function Gallery({ data }) {
+export default function Gallery({ initialData, apiUrl }) {
+  const fetcher = url => fetch(url).then(res => res.json())
+  const { data } = useSWR(apiUrl, fetcher, { initialData, refreshInterval: 90000 })
+
   return (
     <Layout>
       <Head>
-      
         <title>{data.title}</title>
         <link rel="canonical" href={`https://tyzhden.ua/Gallery/${data.id}`}/>
         <meta name="title" content={data.title}/>
@@ -38,8 +43,8 @@ export async function getServerSideProps(context) {
   let apiUrl = `${process.env.apiDomain}/galleries/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
-    const data = await res.json()
-    return { props: { data } }
+    const initialData = await res.json();
+    return { props: { initialData, apiUrl }}
   } else {
     return { notFound: true }
   }

@@ -1,10 +1,15 @@
 import Head from 'next/head'
 
+import useSWR from 'swr'
+
 import Layout from '../../components/layout'
 import PressreleaseTemplate from "../../components/pressreleases/PressreleaseTemplate"
 
 
-export default function PressRelease({ data }) {
+export default function PressRelease({ initialData, apiUrl }) {
+  const fetcher = url => fetch(url).then(res => res.json())
+  const { data } = useSWR(apiUrl, fetcher, { initialData, refreshInterval: 90000 })
+
   return (
     <Layout>
       <Head>
@@ -38,8 +43,8 @@ export async function getServerSideProps(context) {
   let apiUrl = `${process.env.apiDomain}/pressreleases/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
-    const data = await res.json()
-    return { props: { data } }
+    const initialData = await res.json();
+    return { props: { initialData, apiUrl }}
   } else {
     return { notFound: true }
   }
