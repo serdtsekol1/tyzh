@@ -23,6 +23,7 @@ const Header = props => {
       $(this).attr('aria-expanded', ariaExpanded);
       $(this).find('+ .dropdown-menu').toggleClass('show');
       // $('.navbar-collapse').toggleClass('show');
+      e.preventDefault();
    
     });
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
@@ -67,7 +68,7 @@ const Header = props => {
        <div style={{'backgroundColor': category.category_color}} className="rubric-color"></div> <p>{category.category_name_short}</p>
       </NavLink>
     ));
-  
+
   return (
    
     <div>
@@ -140,7 +141,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/Subject"
+                  to="/Subject?page=1"
                   className="nav-link"
                 >
                   Спецтеми
@@ -149,7 +150,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/Columns"
+                  to="/Columns?page=1"
                   className="nav-link"
                 >
                   Колонки
@@ -158,7 +159,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/Gallery"
+                  to="/Gallery?page=1"
                   className="nav-link"
                 >
                   Фоторепортаж

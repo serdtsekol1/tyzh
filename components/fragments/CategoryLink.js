@@ -24,7 +24,7 @@ function CategoryLink(props) {
   return (
     <div>
       {props.categoryInfo.journal?
-    <NavLink to={props.columnsLink? "/Columns" :"/" + category_id}>
+    <NavLink to={props.columnsLink? "/Columns" :"/" + category_id + "?page=1"}>
       <div style={props.style}>
         <div
           className={`${isSolid}`}

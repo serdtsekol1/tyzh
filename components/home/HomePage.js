@@ -84,7 +84,7 @@ function HomePage() {
       {loading && 
       <p className="skeleton-header"><Skeleton height={30}></Skeleton></p>}
       {!loading &&
-      <Link href="/Publications"><a><Header size="big" title="Статті" /></a></Link>
+      <Link href="/Publications?page=1"><a><Header size="big" title="Статті" /></a></Link>
       }
       <div className="row">
         <div className="col-12 col-md-9">
@@ -98,7 +98,7 @@ function HomePage() {
         </div>
       </div>
       <SubjectBlock />
-      <Link href="/Columns"><a><Header size="big" title="Авторські колонки" /></a></Link>
+      <Link href="/Columns?page=1"><a><Header size="big" title="Авторські колонки" /></a></Link>
       <HomeAuthorsBlock />
       <DonationBanner />
       <PhotoReportBlock />

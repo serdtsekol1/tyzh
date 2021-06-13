@@ -63,17 +63,6 @@ export default function Author({ data }) {
   },[router.query.id]);
 
   useEffect(()=>{
-
-    if(isArticles) {
-      setActiveTab("articles")
-    }
-    if(isPhotoreports) {
-      setActiveTab("photo")
-    }
-    if(isColumns) {
-      setActiveTab("columns")
-    }
-
     switch (router.query.tab) {
       case "Publications":
         if(isArticles) setActiveTab("articles");
@@ -160,7 +149,7 @@ export default function Author({ data }) {
           </div>
           <div className="row">
             <div className="col-12 author-tabs">
-              <Tabs defaultActiveKey={activeTab} id="uncontrolled-tab-example" onSelect={hanldleChange}>
+              <Tabs defaultActiveKey={activeTab} activeKey={activeTab} id="uncontrolled-tab-example" onSelect={hanldleChange}>
                 {isColumns?
                   <Tab eventKey="columns" title="Колонки">
                     <div className="row">
