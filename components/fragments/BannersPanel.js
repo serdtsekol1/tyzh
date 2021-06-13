@@ -29,14 +29,18 @@ function BannersPanel(props) {
       image: "/images/banners/special.gif",
       link: "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM"
     }
+  const swiss = {
+      image: "/images/banners/swissfilms-300x250-an.gif",
+      link: "https://bit.ly/3pJd12l"
+    }
 
   if (custom_banner) {
     customBannerImage = displayRandomBanners([special])["image"];
     customBannerLink = displayRandomBanners([special])["link"];
-    // if (["Культура"].includes(props.rubric)) {
-    //   customBannerImage = displayRandomBanners([aiff])["image"];
-    //   customBannerLink = displayRandomBanners([aiff])["link"];
-    //  }
+    if (["Культура"].includes(props.rubric)) {
+      customBannerImage = displayRandomBanners([swiss])["image"];
+      customBannerLink = displayRandomBanners([swiss])["link"];
+     }
   }
 
   useEffect(() => {
