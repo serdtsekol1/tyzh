@@ -1,0 +1,86 @@
+@import "all_scss/buttons";
+@import "all_scss/fonts";
+@import "all_scss/headers";
+@import "all_scss/mixins";
+@import "all_scss/modals";
+@import "all_scss/overrides";
+@import "all_scss/variables";
+
+@import "all_scss/authors_block.scss";
+@import "all_scss/press_item.scss";
+@import "all_scss/banners.scss";
+@import "all_scss/banners_panel.scss";
+@import "all_scss/category.scss";
+@import "all_scss/columns.scss";
+@import "all_scss/date_and_author.scss";
+@import "all_scss/footer.scss";
+@import "all_scss/fragments.scss";
+@import "all_scss/magazine_material.scss";
+@import "all_scss/navbar.scss";
+@import "all_scss/pagination.scss";
+@import "all_scss/photo_report.scss";
+@import "all_scss/post.scss";
+@import "all_scss/social_networks.scss";
+@import "all_scss/tabs.scss";
+@import "all_scss/tags.scss";
+
+@import "all_scss/video.scss";
+@import "all_scss/journals.scss";
+@import "all_scss/journalItem.scss";
+@import "all_scss/skeletons.scss";
+@import "all_scss/skeletons.scss";
+@import "all_scss/news.scss";
+@import "all_scss/news_block_item.scss";
+@import "all_scss/author.scss";
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: "UT_Magazine";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.App {
+  margin: 0;
+  font-family: "UT_Magazine";
+}
+body{
+	&::after{
+		position: absolute;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		z-index: -1;
+    content: url('/images/icons/arrow_up.svg');}
+}
+    
+
+.main-content {
+  padding-top: 140px;
+  min-height: 100%;
+  margin-bottom: -336px;
+  @include  not-for-extra-large-devices {
+    margin-bottom: -236px;
+    padding-top: 88px;
+  }
+  @include for-phones {
+    margin-bottom: -510px;
+    padding-top: 76px;
+  }
+ 
+}
+
+.main-content > div {
+  padding-bottom: 336px;
+  @include for-medium-devices {
+    padding-bottom: 236px;
+  }
+  @include for-phones {
+    padding-bottom: 510px;
+  }
+}

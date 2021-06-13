@@ -1,0 +1,55 @@
+@import "./mixins";
+@import "./variables";
+
+.category {
+  @include navigation-link;
+  @include opacity-animation;
+  line-height: 34px;
+
+  @include for-phones {
+    font-size: 10px;
+    line-height: 24px;
+  }
+}
+.category-wrap {
+  margin-bottom: 8px;
+  padding-left: $padding-medium;
+  border-left: 4px solid #cccccc;
+  @include for-phones {
+    margin-bottom: 12px;
+    padding-left: $padding-small;
+  }
+}
+
+
+.category-wrap-solid{
+
+ 
+  // @include for-phones {
+    
+    border: none;
+    padding: 10px 16px 6px 16px;
+    p{
+      color: $white !important;
+      z-index: 100;
+      opacity: 1;
+      font-size: 14px;
+      line-height: 130%;
+      font-weight: 600;
+      
+    }
+    @include for-phones{
+       margin-bottom: 12px !important;
+       padding: 7px 12px 4px 12px;
+       p{
+        font-size: 10px;
+        color: $white !important;
+        z-index: 100;
+        opacity: 1;
+        line-height: 13px !important;
+        font-weight: 600;
+        
+      }
+    }
+  // }
+}

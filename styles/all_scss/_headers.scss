@@ -1,0 +1,206 @@
+@import "./variables";
+@import "./mixins";
+
+.fragment-header {
+  margin-bottom: $margin-medium !important;
+  color: $red;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  @include for-phones {
+    margin-bottom: $margin-small !important;
+    margin-top: 8px;
+  }
+}
+
+.subtitle {
+  margin-bottom: 8px;
+  color: $red;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  @include for-phones {
+    margin-bottom: $margin-small !important;
+    margin-top: 8px;
+  }
+
+}
+
+.header-big {
+  margin-bottom: $margin-medium !important;
+  font-size: 32px;
+  line-height: 130%;
+  @include for-phones {
+    font-size: 24px;
+
+    margin-bottom: $margin-small !important;
+  }
+}
+
+.big-post-header {
+  margin-top: 24px;
+
+  &.subject-header {
+    margin-top: 0;
+  }
+
+  @include medium-margin-bottom;
+  @include post-title-large;
+  @include for-phones {
+    margin-top: $margin-very-small;
+  }
+}
+
+
+.body-text {
+  margin-bottom: $margin-big;
+  table{
+    width: 100% !important;
+  }
+  br {
+    line-height: 48px;
+    @include for-phones {
+      font-size: 24px;
+    }
+  }
+  iframe{
+    width: 100%;
+    margin-bottom: 16px;
+    
+  }
+  img{
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @include for-phones{
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 !important;
+    }
+  }
+  li{
+    list-style-type: initial !important;
+    margin-left: 32px;
+  }
+  ul {
+    margin-bottom: 16px !important;
+    margin-left: 16px;
+    font-family: Georgia;
+    font-size: 20px;
+    line-height: 180%;
+  }
+  span, div{
+    @include medium-margin-bottom;
+    font-family: Georgia !important;
+    font-size: 20px !important;
+    line-height: 150% !important;
+    @include for-phones {
+      font-size: 16px !important;
+    }
+    a {
+      color: $red;
+      &:hover {
+        color: $red;
+        text-decoration: underline !important;
+      }
+    }
+  }
+  p {
+    @include medium-margin-bottom;
+    font-family: Georgia !important;
+    font-size: 20px !important;
+    line-height: 150% !important;
+    @include for-phones {
+      font-size: 16px !important;
+    }
+    a {
+      color: $red;
+      &:hover {
+        color: $red;
+        text-decoration: underline !important;
+      }
+    }
+  }
+  .mini-header {
+    font-family: "UT_Magazine" !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 32px !important;
+    line-height: 130%!important;
+    letter-spacing: 0.02em!important;
+    margin-top: 72px!important;
+    strong {
+      font-weight: 600 !important;
+    }
+    @include for-phones {
+      margin-top: 40px!important;
+      font-size: 20px!important;
+    }
+  }
+  .read-also {
+    @include medium-margin-bottom ;
+    font-family: "UT_Magazine" !important;
+    border-left: 4px solid $light-grey  !important;
+    padding-left: 44px !important;
+    font-style: normal !important;
+    height: 56px !important;
+    line-height: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    @include title-link-small;
+    @include for-phones {
+      padding-left: $padding-medium !important;
+      line-height: 16px !important;
+      height: 40px !important;
+    }
+  
+
+    a {
+      cursor: pointer;
+      @include link-hover;
+      &:hover{
+        text-decoration: none !important;
+        color: $red  !important;
+        
+      }
+      
+    }
+    
+  }
+}
+
+blockquote  {
+  padding: 40px 48px;
+  border: 8px solid rgba(30, 30, 30, 0.03);
+  @include for-phones {
+    padding: 24px;
+  }
+  .teaser{
+    margin-bottom: 0 !important;
+    em{
+      font-family: UT_Magazine;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 150%;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: $red;
+      @include for-phones {
+        font-size: 16px;
+        line-height: 150%;
+      }
+      strong{
+        font-weight: normal !important;
+      }
+    }
+  
+}
+  
+}

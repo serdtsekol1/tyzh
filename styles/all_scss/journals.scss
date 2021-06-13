@@ -1,0 +1,168 @@
+@import "./variables";
+@import "./mixins";
+
+.journals-list {
+  padding-bottom: 56px;
+  @include for-phones {
+    padding-bottom: 32px;
+  }
+}
+.year-nav {
+  @include flex-row;
+  height: 32px;
+  //   li {
+  //     width: 70px;
+  //   }
+}
+.years {
+  padding-bottom: $margin-more-smaller;
+}
+.year-link {
+  color: $grey;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition-duration: 0.4s;
+  //   margin: 0 auto;
+  //   display: block;
+  //   text-align: center;
+
+  &:hover {
+    font-size: 28px;
+    color: $dark-grey;
+  }
+  @include for-medium-devices-and-phones {
+    font-size: 16px;
+    line-height: 22px;
+    &:hover {
+      font-size: 18px;
+      color: $dark-grey;
+    }
+    &:active {
+      font-size: 20px;
+    }
+  }
+}
+
+.dots-wrap {
+  clear: both;
+  margin-bottom: $margin-medium;
+}
+.line {
+  position: absolute;
+  width: 100%;
+  padding-top: 16px;
+  background: white;
+  z-index: -1;
+}
+
+.dots {
+  @include flex-row;
+  li {
+    line-height: 32px;
+    a {
+      width: 40px;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+      color: transparent;
+    }transition: 0.4s;
+  }
+}
+
+.pagination-line {
+  width: 100%;
+}
+
+.years-pagination {
+  @include flex-row;
+}
+
+.arrow-active {
+  opacity: 0.6;
+}
+
+.arrow-disable {
+  opacity: 0.12;
+}
+
+.journal {
+  margin-bottom: $margin-big;
+  p {
+    width: 100%;
+  }
+}
+
+.years-pagination-wrap {
+  margin-bottom: $margin-big;
+}
+
+.special-editions {
+  padding-top: $padding-super-big;
+  background-color: $light-grey-backgound;
+  @include for-phones {
+    padding-top: $padding-medium;
+  }
+}
+
+.journals-list-last {
+  @include large-padding-bottom;
+}
+#hide{
+  @include for-extra-large-devices{
+  height:40px;
+  width: 100%;
+  transition: 0.4s;
+  transition-property: all;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  }
+}
+#journals-header{
+  margin-bottom: -1px !important;
+  padding-bottom: 40px !important;
+  background: white;
+  padding-top: 100px;
+ 
+  z-index: 8;
+  transition: 0.4s;
+ 
+  @include for-phones{
+    padding-bottom: 16px !important;
+    
+
+  }
+  @include not-for-extra-large-devices{
+    margin-top: 0 !important;
+  }
+}
+
+.jounals-container{
+  position: fixed;
+  display: block;
+  width: 100%;
+  top: 0;
+  z-index: 4;
+}
+.years{
+  background: white;
+}
+
+.jounals{
+  background: white;
+}
+
+.journals-line{
+  margin: 0 !important;
+}
+
+.journal-list-padding{
+  padding-top: 180px;
+}
+
+.years-pagination-wrap {
+  background: $white;
+}
