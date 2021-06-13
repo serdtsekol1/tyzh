@@ -1,8 +1,15 @@
 import Head from 'next/head'
+
+import useSWR from 'swr'
+
 import Layout from '../../components/layout'
 import ArticleTemplate from "../../components/articles/ArticleTemplate";
 
-export default function Post({ data, context }) {
+
+export default function Post({ initialData, apiUrl }) {
+  const fetcher = url => fetch(url).then(res => res.json())
+  const { data } = useSWR(apiUrl, fetcher, { initialData, refreshInterval: 90000 })
+
   return (
     <Layout >
       <Head>
@@ -31,14 +38,13 @@ export default function Post({ data, context }) {
   )
 }
 
+
 export async function getServerSideProps(context) {
-  // Fetch data from external API
   let apiUrl = `${process.env.apiDomain}/publications/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
-    const data = await res.json();
-    return { props: { data }
- }
+    const initialData = await res.json();
+    return { props: { initialData, apiUrl }}
   } else {
     return { notFound: true }
   }
