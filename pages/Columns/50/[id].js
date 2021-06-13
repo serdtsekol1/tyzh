@@ -1,10 +1,15 @@
 import Head from 'next/head'
 
+import useSWR from 'swr'
+
 import Layout from '../../../components/layout'
 import ColumnTemplate from "../../../components/columns/ColumnTemplate";
 
 
-export default function Column({ data }) {
+export default function Column({ initialData, apiUrl }) {
+  const fetcher = url => fetch(url).then(res => res.json())
+  const { data } = useSWR(apiUrl, fetcher, { initialData, refreshInterval: 90000 })
+
   return (
     <Layout>
       <Head>
@@ -24,8 +29,6 @@ export default function Column({ data }) {
         <meta property="twitter:description" content={data.abstract}/>
         <meta property="twitter:image" content={data.author.image1url}/>
         <meta property="fb:app_id" content="966242223397117"/>
-
-        
       </Head>
       <div>
         <ColumnTemplate columnItem={data}/>
@@ -39,8 +42,8 @@ export async function getServerSideProps(context) {
   let apiUrl = `${process.env.apiDomain}/columns/${context.params.id}/`
   const res = await fetch(apiUrl)
   if (res.status == 200) {
-    const data = await res.json()
-    return { props: { data } }
+    const initialData = await res.json();
+    return { props: { initialData, apiUrl }}
   } else {
     return { notFound: true }
   }

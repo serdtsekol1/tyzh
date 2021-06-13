@@ -21,7 +21,7 @@
   @include title-medium;
   padding: $padding-extra-small $padding-small;
   letter-spacing: 0.1em !important;
-  color: $dark-grey;
+  color: $dark-grey !important;
   cursor: pointer;
   text-transform: uppercase;
   transition-duration: 0.1s;
@@ -29,7 +29,7 @@
   &:focus{
     outline : none !important;}
   &:hover {
-    color: $almost-black;
+    color: $almost-black !important;
   }
   &:hover:before {
     opacity: 0.87 !important;
@@ -40,13 +40,14 @@
 }
 
 .pagination > li{
+  
   outline : none !important;
   &:focus{
   outline : none !important;}
 }
 
 .pagination > li.active > a {
-  color: $red;
+  color: $red !important;
   outline : none !important;
   &:focus{
   outline : none !important;}

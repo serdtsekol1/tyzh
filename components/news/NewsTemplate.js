@@ -107,11 +107,6 @@ function NewsItemTemplate(props) {
           <div className="d-block d-md-none">
             <BannersPanel ria={true} my={true} />
           </div>
-          <Fragment size="big"  noShowMore={true} >
-
-            <Header size="big" title="Bам також буде цікаво почитати" />
-            <NewsBlock news={props.newsItem.more} quantity={3} />
-          </Fragment>
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.newsItem.title} quantity={14} />

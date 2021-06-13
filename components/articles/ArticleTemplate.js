@@ -109,7 +109,7 @@ function ArticleTemplate(props) {
           </div>
 
           <Header size="big" title="Bам також буде цікаво почитати" />
-          <ArticlesBlock quantity={3} articles={props.article.more} showMoreLink="/Publications" />
+          <ArticlesBlock quantity={3} bigFragment={true} articles={props.article.more} showMoreLink="/Publications" />
         </div>
         <div className="d-none d-md-block col-md-3">
           <ShareBySocialNetworks shareFb={true} shareTwitter={true} shareLink={thisUrl} shareText={props.article.title} quantity={12} />

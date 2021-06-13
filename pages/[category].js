@@ -6,7 +6,7 @@ import categoriesData from "../components/common/categories.json"
 import ArticleListTemplate from '../components/articles/ArticleListTemplate'
 
 
-export default function PostList({ data, category }) {
+export default function PostList({ data, category,page }) {
   const router = useRouter();
   return (
     <Layout>
@@ -31,7 +31,7 @@ export default function PostList({ data, category }) {
 
       </Head>
       <div>
-        <ArticleListTemplate articles={data} category={category}/>
+        <ArticleListTemplate page={page} articles={data} category={category}/>
       </div>
     </Layout>
   )
@@ -57,6 +57,7 @@ function getListApiUrl(context, limit, category) {
   if (context.query.page) {
     page = context.query.page
   }
+  console.log("getApi",page);
   let offset = (page-1)*limit
 
   let apiUrl = `${process.env.apiDomain}/publications/`
@@ -72,12 +73,13 @@ function getListApiUrl(context, limit, category) {
 
 export async function getServerSideProps(context) {
   const category = getCategory(context.params.category)
+  const page = context.query.page
   if (category) {
     const apiUrl = getListApiUrl(context, 11, category)
     const res = await fetch(apiUrl)
     if (res.status == 200) {
       const data = await res.json()
-      return { props: { data, category } }
+      return { props: { data, category,page } }
     }
   }
   return { notFound: true }

@@ -76,11 +76,6 @@ function YearsNavBar() {
     </NavLink>
   );
 
-
-    
-    
-  
-
   return (
     <div className="jounals-container">
       <div className="container jounals ">

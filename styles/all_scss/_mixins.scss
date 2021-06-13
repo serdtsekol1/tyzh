@@ -258,10 +258,16 @@
 @mixin image-cover {
   width: 100%;
 }
+@mixin medium-padding-bottom {
+  padding-bottom: $padding-large !important;
+  @include for-phones {
+    padding-bottom: $padding-big !important;
+  }
+}
 @mixin large-padding-bottom {
   padding-bottom: $padding-large !important;
   @include for-phones {
-    padding-bottom: $padding-super-big !important;
+    padding-bottom: $padding-very-big !important;
   }
 }
 @mixin big-margin-bottom {

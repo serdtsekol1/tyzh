@@ -8,7 +8,6 @@ export default function GalleryList({ data }) {
   return (
     <Layout>
       <Head>
-        
         <title>Головні теми</title>
         <link rel="canonical" href={`https://tyzhden.ua/Subject`}/>
         <meta name="title" content="Головні теми"/>

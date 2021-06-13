@@ -59,7 +59,7 @@ function Subjects({match}){
 
     return (
         <div className="container">
-            <Header title="Спецтеми"/>
+            <Header size="small" style={{ fontSize: 32 }} title="Спецтеми"/>
             <Fragment size="big" noShowMore={true}>
             <div className="row">
                 <div className="col-12">
