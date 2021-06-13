@@ -84,6 +84,7 @@ function HomePage() {
         <meta property="fb:app_id" content="966242223397117"/>
         </Head>
         <div className="container">
+          <div className="fragment-medium">
             <div className="row">
                 <div className="col-12 col-lg-9">
                     {loading && <SkeletonMainArticle/>}
@@ -100,12 +101,13 @@ function HomePage() {
                     <HomeAuthorsSmallBlock/>
                 </div>
             </div>
+          </div>
             <SubscriptionBanner />
 
             {loading &&
             <p className="skeleton-header"><Skeleton height={30}></Skeleton></p>}
             {!loading &&
-                <Link href="/Publications"><a><Header size="big" title="Статті" /></a></Link>
+                <Header size="big" title="Статті" />
             }
             <div className="row">
                 <div className="col-12 col-md-9">
@@ -119,7 +121,7 @@ function HomePage() {
                 </div>
             </div>
             <SubjectBlock />
-            <Header size="big" title="Авторські колонки»"/>
+            <Header size="big" title="Авторські колонки"/>
             <HomeAuthorsBlock />
             <DonationBanner />
             <PhotoReportBlock />
