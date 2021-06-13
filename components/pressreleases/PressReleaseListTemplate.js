@@ -39,7 +39,7 @@ function PressReleaseListTemplate(props) {
 
   const handlePagination = page => {
     const path = router.pathname
-    query.page = page.selected + 1
+    query.page = parseInt(page.selected)+1
     router.push({
       pathname: path,
       query: query,

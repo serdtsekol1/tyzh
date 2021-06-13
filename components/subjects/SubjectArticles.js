@@ -46,7 +46,7 @@ function SubjectArticles({pageNum, id,...match}) {
     }, [page, pageNum, id]);
 
   const handlePagination = page => {
-    query.page = page.selected + 1
+    query.page = parseInt(page.selected)+1
     router.push(`/Subject/${id}?page=${query.page}`)
   };
 

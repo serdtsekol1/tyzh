@@ -29,15 +29,20 @@ function ArticleListTemplate(props) {
   const articlesRef = useRef(null)
 
   let initialPageNumber = 0
+  initialPageNumber = props.page -1
+
   let pagesCount = Math.floor(props.articles.count/10)
 
   const [loading, setLoading] = useState(false)
   const startLoading = () => setLoading(true)
   const stopLoading = () => setLoading(false)
 
+
   useEffect(() => {
     Router.events.on("routeChangeStart", startLoading)
     Router.events.on("routeChangeComplete", stopLoading)
+
+    
     return () => {
       Router.events.off("routeChangeStart", startLoading)
       Router.events.off("routeChangeComplete", stopLoading)
@@ -46,7 +51,7 @@ function ArticleListTemplate(props) {
 
   const handlePagination = page => {
     const path = router.pathname
-    query.page = page.selected + 1
+    query.page = parseInt(page.selected)+1
     router.push({
       pathname: path,
       query: query,
@@ -95,6 +100,7 @@ function ArticleListTemplate(props) {
                 containerClassName={"pagination"}
                 subContainerClassName={"pages pagination"}
                 activeClassName={"active"}
+             
               />
             </div>
           </div>
