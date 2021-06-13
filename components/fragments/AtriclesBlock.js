@@ -8,7 +8,7 @@ import Fragment from "../fragments/Fragment";
 
 
 function ArticlesBlock(props) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
   let articlesComponents = "";
  

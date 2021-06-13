@@ -23,6 +23,7 @@ const Header = props => {
       $(this).attr('aria-expanded', ariaExpanded);
       $(this).find('+ .dropdown-menu').toggleClass('show');
       // $('.navbar-collapse').toggleClass('show');
+      e.preventDefault();
    
     });
     $('.navbar-nav>li>a, .dropdown-menu .dropdown-item').not(".dropdown-toggle").on('click', function(){
@@ -39,6 +40,16 @@ const Header = props => {
     // }
     // );
 
+    const onScroll = function() {
+      if (document.getElementById("navbar-2")){
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          document.getElementById("navbar-2").style.padding = "0 0 0 0";
+        } else {
+          document.getElementById("navbar-2").style.padding = "60px 0 0 0";
+        }
+      };}
+
+    window.addEventListener('scroll', onScroll);
   }, [])
   const activeStyle = {
     color: "#ED1B2F"
@@ -58,16 +69,6 @@ const Header = props => {
       </NavLink>
     ));
 
-  const onScroll = function() {
-    if (document.getElementById("navbar-2")){
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        document.getElementById("navbar-2").style.padding = "0 0 0 0";
-      } else {
-        document.getElementById("navbar-2").style.padding = "60px 0 0 0";
-      }
-  };}
-
-   //window.addEventListener('scroll', onScroll);
   return (
    
     <div>
@@ -140,7 +141,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/Subject"
+                  to="/Subject?page=1"
                   className="nav-link"
                 >
                   Спецтеми
@@ -149,7 +150,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/Columns"
+                  to="/Columns?page=1"
                   className="nav-link"
                 >
                   Колонки
@@ -158,7 +159,7 @@ const Header = props => {
               <li className="nav-item">
                 <NavLink
                   activeStyle={activeStyle}
-                  to="/Gallery"
+                  to="/Gallery?page=1"
                   className="nav-link"
                 >
                   Фоторепортаж

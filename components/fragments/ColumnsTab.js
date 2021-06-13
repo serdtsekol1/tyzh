@@ -11,14 +11,14 @@ import Fragment from "../fragments/Fragment";
 
 
 function ColumnsTab(props){
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [pagesCount, setPagesCount] = useState(0);
 
     let [authorColumns, setAuthorColumns] = useState({});
     useEffect (()=>{
-      setLoading(true);
     const fetchData = async ()  => {
+        setLoading(true);
         let limit = 12;
         let apiUrl;
         if (props.authorId) apiUrl = `${process.env.apiDomain}/columns/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;

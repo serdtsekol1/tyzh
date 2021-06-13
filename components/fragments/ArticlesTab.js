@@ -11,15 +11,15 @@ import Fragment from "../fragments/Fragment";
 
 
 function ArticlesTab(props){
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [pagesCount, setPagesCount] = useState(0);
 
     let [authorArticles, setAuthorArticles] = useState({});
     useEffect (()=>{
-      setLoading(true);
 
     const fetchData = async ()  => {
+        setLoading(true);
         let limit = 7;
         let apiUrl;
         if (props.authorId) apiUrl = `${process.env.apiDomain}/publications/author/${props.authorId}/?limit=${limit}&offset=${(page-1)*limit}`;
@@ -35,8 +35,7 @@ function ArticlesTab(props){
         fetchData();
     }, [page, props]);
     const handlePageClick = (data) => {
-        setPage(data.selected+1);
-
+      setPage(data.selected+1);
     };
 
     return  <Fragment size={"big"} noShowMore={true}>
