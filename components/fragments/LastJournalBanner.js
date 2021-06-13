@@ -24,7 +24,7 @@ function LastJournalBanner() {
   const journalComponent =  journals.map( journal => <JournalItem key={journal.id} journalItem={journal}/>);
 
   return (
-    <div className="fragment-medium">
+    <div>
       <Header size="small" title="Останній номер" />
       {journalComponent}
     </div>
