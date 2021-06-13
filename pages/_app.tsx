@@ -1,7 +1,7 @@
 import '../styles/globals.scss'
 // import '../components/common/css/_all.scss'
 import './index.scss'
-import {useEffect} from 'react'
+import React, {useEffect} from 'react'
 import type { AppProps } from 'next/app'
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -12,9 +12,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   const handleRouteChange = (url: URL) => {
-      window.gtag('config', 'UA-51335057-1', {
-          page_path: url,
-      });
+      if (typeof window !== 'undefined') {
+          window.gtag('config', 'UA-51335057-1', {
+              page_path: url,
+          });
+      }
   };
 
   useEffect(() => {
