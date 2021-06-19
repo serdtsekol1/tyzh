@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect}  from "react";
+import {setCookie, getCookie} from "../../lib/simpleCookieLib";
+import axios from 'axios';
 import {useRouter} from "next/router";
 import Parser from "html-react-parser";
+
 
 import PublicationAbstract from "../common/PublicationAbstract";
 import DateAndAuthor from "../fragments/DateAndAuthor";
@@ -9,9 +12,7 @@ import BannersPanel from "../fragments/BannersPanel";
 import GorizontalAdBanner from "../fragments/GorizontalAdBanner";
 import SocialNetworks from "../common/SocialNetworks";
 import TagsPanel from "../fragments/TagsPanel";
-import Header from "../common/Header";
-import NewsBlock from "./NewsBlock";
-import Fragment from "../fragments/Fragment";
+
 
 
 function getImgSrc(content) {
@@ -52,6 +53,21 @@ function NewsItemTemplate(props) {
   let tags = props.newsItem.tags? props.newsItem.tags.split(","):[];
   const { query } = useRouter();
   let thisUrl = `${process.env.domain}/News/${query.id}`;
+  useEffect (()=>{
+
+    const increaseStatCounter = async () => {
+        let path = `/news/stats/${props.newsItem.id}`;
+        let fullUrl = `${process.env.apiDomain}${path}`;
+        if(!getCookie(`news_stats_${props.newsItem.id}`)) {
+          setCookie(`news_stats_${props.newsItem.id}`, true, 1, fullUrl);
+            await axios.put(fullUrl)
+                .catch(err => console.log(err));
+        }
+    };
+    increaseStatCounter();
+
+  },[props.newsItem.id]);
+
 
   return (
     <PublicationAbstract publication={props.newsItem}>

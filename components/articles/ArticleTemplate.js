@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect}  from "react";
+import {setCookie, getCookie} from "../../lib/simpleCookieLib";
+import axios from 'axios';
 import {useRouter} from "next/router";
+import { useHistory } from "react-router-dom";
+
 
 import PublicationAbstract from "../common/PublicationAbstract";
 import Parser from "html-react-parser";
@@ -31,7 +35,21 @@ function getDate(public_ts){
 function ArticleTemplate(props) {
   const { query } = useRouter();
   let thisUrl= `${process.env.domain}/${query.category}/${query.id}`;
-
+  let history = useHistory();
+  useEffect (()=>{
+   
+    const increaseStatCounter = async () => {
+        let path = `/publications/stats/${props.article.id}`;
+        let fullUrl = `${process.env.apiDomain}${path}`;
+        if(!getCookie(`publications_stats_${props.article.id}`)) {
+            console.log(fullUrl);
+            setCookie(`publications_stats_${props.article.id}`, true, 1, fullUrl);
+            await axios.put(fullUrl)
+                .catch(err => console.log(err));
+        }
+    };
+    increaseStatCounter();
+  }, [props.article.id, history]);
   return (
    <PublicationAbstract publication={props.article}>
     <PatreonPopup />

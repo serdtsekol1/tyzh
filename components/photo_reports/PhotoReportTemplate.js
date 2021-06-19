@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect}  from "react";
+import {setCookie, getCookie} from "../../lib/simpleCookieLib";
+import axios from 'axios';
 
 
 import DateAndAuthor from "../fragments/DateAndAuthor";
@@ -58,6 +60,25 @@ function PhotoReportTemplate(props){
             <PhotoReportItem key={photoReport.id} reportItem={photoReport} link={link} />
         </div>
         )):"";
+
+        useEffect (()=>{
+      
+          const increaseStatCounter = async () => {
+              let path = `/galleries/stats/${props.photoReport.id}`;
+              let fullUrl = `${process.env.apiDomain}${path}`;
+              if(!getCookie(`galleries_stats_${props.photoReport.id}`)) {
+                  setCookie(`galleries_stats_${props.photoReport.id}`, true, 1, fullUrl);
+                  await axios.put(fullUrl)
+                      .catch(err => console.log(err));
+              }
+          };
+          increaseStatCounter();
+            
+          
+            
+          },[props.photoReport.id]);
+
+
     return (    
       <PublicationAbstract publication={photoReport}>
         <PatreonPopup />

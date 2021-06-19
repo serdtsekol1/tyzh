@@ -22,7 +22,7 @@ function PhotoReport({match}){
 
     const increaseStatCounter = async () => {
         let path = `/galleries/stats/${match.params.id}`;
-        let fullUrl = `${config.get("apiDomain")}${path}`;
+        let fullUrl = `${process.env.apiDomain}${path}`;
         if(!getCookie(`galleries_stats_${match.params.id}`)) {
             setCookie(`galleries_stats_${match.params.id}`, true, 1, fullUrl);
             await axios.put(fullUrl)

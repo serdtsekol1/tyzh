@@ -25,6 +25,7 @@ function Article({ match }) {
         let path = `/publications/stats/${match.params.id}`;
         let fullUrl = `${process.env.apiDomain}${path}`;
         if(!getCookie(`publications_stats_${match.params.id}`)) {
+           
             setCookie(`publications_stats_${match.params.id}`, true, 1, fullUrl);
             await axios.put(fullUrl)
                 .catch(err => console.log(err));

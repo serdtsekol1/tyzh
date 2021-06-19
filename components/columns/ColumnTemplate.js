@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect}  from "react";
+import {setCookie, getCookie} from "../../lib/simpleCookieLib";
+import axios from 'axios';
 import Link from "next/link";
 import {useRouter} from "next/router";
 
@@ -45,6 +47,22 @@ function ColumnTemplate(props){
   let author_name = columnItem.author?columnItem.author.fullname2ua:"";
 
   let tags = columnItem.tags? columnItem.tags.split(","):[];
+  useEffect (()=>{
+      
+    const increaseStatCounter = async () => {
+        let path = `/columns/stats/${props.columnItem.id}`;
+        let fullUrl = `${process.env.apiDomain}${path}`;
+        if(!getCookie(`columns_stats_${props.columnItem}`)) {
+            setCookie(`columns_stats_${props.columnItem}`, true, 1, fullUrl);
+            await axios.put(fullUrl)
+                .catch(err => console.log(err));
+        }
+    };
+    increaseStatCounter();
+
+   
+    
+  },[props.columnItem.id]);
 
   return (
     <PublicationAbstract publication={columnItem}>
