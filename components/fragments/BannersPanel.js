@@ -21,8 +21,7 @@ function BannersPanel(props) {
 
   function displayRandomBanners (banners) {
     // Function takes array of banners and return random banner
-      const random = getRandomInt(banners.length);
-
+    const random = getRandomInt(banners.length);
     return banners[random]
   }
   const special = {
@@ -33,13 +32,23 @@ function BannersPanel(props) {
       image: "/images/banners/swissfilms-300x250-an.gif",
       link: "https://bit.ly/3pJd12l"
     }
+  const robot = {
+      image: "/images/banners/viktor-300x250-banner.png",
+      link: "https://arthousetraffic.com/ua/films/viktor-robot/"
+    }
+  const saray = {
+      image: "/images/banners/saray.gif",
+      link: "https://kinosaray.com/ua/"
+    }
 
   if (custom_banner) {
-    customBannerImage = displayRandomBanners([special])["image"];
-    customBannerLink = displayRandomBanners([special])["link"];
+    let banner = displayRandomBanners([special])
+    customBannerImage = banner["image"];
+    customBannerLink = banner["link"];
     if (["Культура"].includes(props.rubric)) {
-      customBannerImage = displayRandomBanners([swiss])["image"];
-      customBannerLink = displayRandomBanners([swiss])["link"];
+      banner = displayRandomBanners([swiss, robot, saray])
+      customBannerImage = banner["image"];
+      customBannerLink = banner["link"];
      }
   }
 
