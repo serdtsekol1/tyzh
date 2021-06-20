@@ -1,51 +1,45 @@
-import React, {useEffect} from "react";
-import {setCookie, getCookie} from "../../lib/simpleCookieLib"
+import React, {useEffect} from "react"
+import { parseCookies, setCookie } from "nookies"
 
-import Modal from 'react-modal';
-import Button from "../common/Button";
+import Modal from "react-modal"
+import Button from "../common/Button"
 
 
 function PatreonPopup(props) {
 
-  // Modal.setAppElement('#root')
-
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  function openModal() {
-    if (!getCookie(`tyzhden_patreon`)) {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
-  }
+  Modal.setAppElement("#__next")
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-  }
-
-  function closeModal(){
+  function setPatreonCookie(days) {
+    setCookie(null, "tyzhden_patreon", true, {
+      path: "/",
+      maxAge: days * 60 * 60 * 24,
+    })
     setIsOpen(false);
-    setCookie(`tyzhden_patreon`, true, 1, "");
-  }
-
-  function setPatreonCookie() {
-    setCookie(`tyzhden_patreon`, true, 7, "");
   }
 
   useEffect (()=>{
-    setTimeout(openModal, 60000);
+    function openModal() {
+      const cookies = parseCookies()
+      if (!("tyzhden_patreon" in cookies) || (cookies["tyzhden_patreon"] === false)) {
+        setIsOpen(true);
+      } else {
+        setIsOpen(false);
+      }
+    }
+    setTimeout(openModal, 120000);
   }, []);
 
   return (
     <div>
         <Modal
           isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
+          onRequestClose={() => setPatreonCookie(1)}
           contentLabel="Patreon Modal"
           className="Modal"
         >
-          <button className="close-modal" onClick={closeModal}>
+          <button className="close-modal" onClick={() => setPatreonCookie(1)}>
             <img
               src={"/images/icons/close-24px.svg"}
               alt="Іконка закрити"
@@ -64,7 +58,7 @@ function PatreonPopup(props) {
             <div className="body-text">
               <p>Ми будемо вдячні кожному, хто підтримає «Український тиждень» у цей складний час. Зробити це доволі просто: передплатити журнал або зробити пожертву у наш гонорарний фонд.</p>
             </div>
-            <a href="https://www.patreon.com/ukrainianweek" onClick={setPatreonCookie}>
+            <a href="https://www.patreon.com/ukrainianweek" onClick={() => setPatreonCookie(7)}>
               <Button title="Підтримати на Патреон" redButton={true}/>
             </a>
           </div>
