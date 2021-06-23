@@ -40,6 +40,10 @@ function BannersPanel(props) {
       image: "/images/banners/saray.gif",
       link: "https://kinosaray.com/ua/"
     }
+  const cisolar = {
+      image: "/images/banners/300x250_ukr.jpg",
+      link: "https://ua.cis-solar.com/"
+    }
 
   if (custom_banner) {
     let banner = displayRandomBanners([special])
@@ -47,6 +51,11 @@ function BannersPanel(props) {
     customBannerLink = banner["link"];
     if (["Культура"].includes(props.rubric)) {
       banner = displayRandomBanners([swiss, robot, saray])
+      customBannerImage = banner["image"];
+      customBannerLink = banner["link"];
+     }
+    if (["Економіка"].includes(props.rubric)) {
+      banner = displayRandomBanners([cisolar])
       customBannerImage = banner["image"];
       customBannerLink = banner["link"];
      }
