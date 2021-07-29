@@ -28,30 +28,17 @@ function BannersPanel(props) {
       image: "/images/banners/special.gif",
       link: "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM"
     }
-  const robot = {
-      image: "/images/banners/viktor-300x250-banner.png",
-      link: "https://arthousetraffic.com/ua/films/viktor-robot/"
-    }
-  const saray = {
-      image: "/images/banners/saray.gif",
-      link: "https://kinosaray.com/ua/"
-    }
-  const cisolar = {
-      image: "/images/banners/300x250_ukr.jpg",
-      link: "https://ua.cis-solar.com/"
+  const forum = {
+      image: "/images/banners/forum.jpeg",
+      link: "https://mspu.gov.ua/events/mizhnarodnij-oboronnij-investicijnij-forum"
     }
 
   if (custom_banner) {
     let banner = displayRandomBanners([special])
     customBannerImage = banner["image"];
     customBannerLink = banner["link"];
-    if (["Культура"].includes(props.rubric)) {
-      banner = displayRandomBanners([robot, saray])
-      customBannerImage = banner["image"];
-      customBannerLink = banner["link"];
-     }
     if (["Економіка"].includes(props.rubric)) {
-      banner = displayRandomBanners([cisolar])
+      banner = displayRandomBanners([forum])
       customBannerImage = banner["image"];
       customBannerLink = banner["link"];
      }
