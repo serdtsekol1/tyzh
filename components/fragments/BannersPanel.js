@@ -14,9 +14,7 @@ function BannersPanel(props) {
   const [riaRandomNumber, setRiaRandomNumber] = useState(getRandomInt(2));
   const [myRandomNumber, setMyRandomNumber] = useState(getRandomInt(5));
   const [randomNum, setRandonNum] = useState(getRandomInt(1000000000));
-  let custom_banner = props.custom_banner;
-  let customBannerImage = "";
-  let customBannerLink = "";
+
 
   function displayRandomBanners (banners) {
     // Function takes array of banners and return random banner
@@ -24,23 +22,52 @@ function BannersPanel(props) {
     return banners[random]
   }
 
-  const special = {
+  const defaultBanner = {
       image: "/images/banners/special.gif",
       link: "https://book-ye.com.ua/projects/knyhy-spetsialnoho-pryznachennya/?fbclid=IwAR22Wp1V5dCibuRESSfU9AwYykJjCRDfWTDy_7qRd2MVyZv1C7lg_TPiBvM"
     }
-  const forum = {
+
+  // const rubricList = ["Економіка", "Політика", "Бізнес і держава", "Світ", "Суспільство", "Культура", "Історія", "Наука", "Пандемія", "Вибори 2020"]
+
+  const banners = [
+    {
       image: "/images/banners/forum.jpeg",
-      link: "https://mspu.gov.ua/events/mizhnarodnij-oboronnij-investicijnij-forum"
-  }
+      link: "https://mspu.gov.ua/events/mizhnarodnij-oboronnij-investicijnij-forum",
+      starts: new Date("2021-08-02"),
+      ends: new Date("2021-08-16"),
+      rubrics: ["Економіка"]
+    },
+    {
+      image: "/images/banners/kiss.png",
+      link: "https://www.kisff.org/",
+      starts: new Date("2021-08-02"),
+      ends: new Date("2021-08-14"),
+      rubrics: ["Культура"]
+    },
+    {
+      image: "/images/banners/hromadske-radio.png",
+      link: "https://hromadske.radio/",
+      starts: new Date("2021-08-02"),
+      ends: new Date("2021-09-01"),
+      rubrics: ["Економіка", "Політика", "Бізнес і держава", "Суспільство"]
+    },
+  ]
+
+
+  let custom_banner = props.custom_banner;
+  let banner = displayRandomBanners([defaultBanner])
+  let customBannerImage = banner["image"]
+  let customBannerLink = banner["link"]
+
   if (custom_banner) {
-    let banner = displayRandomBanners([special])
-    customBannerImage = banner["image"];
-    customBannerLink = banner["link"];
-    if (["Економіка"].includes(props.rubric)) {
-      banner = displayRandomBanners([forum])
-      customBannerImage = banner["image"];
-      customBannerLink = banner["link"];
-     }
+    const today = new Date().getTime()
+    const filteredBanners = banners.filter(ad => ad.rubrics.includes(props.rubric) && ad.starts.getTime() <= today && ad.ends.getTime() >= today )
+
+    if (filteredBanners && filteredBanners.length) {
+      banner = displayRandomBanners(filteredBanners)
+      customBannerImage = banner["image"]
+      customBannerLink = banner["link"]
+    }
   }
 
   useEffect(() => {
