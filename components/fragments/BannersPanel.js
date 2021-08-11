@@ -45,6 +45,20 @@ function BannersPanel(props) {
       rubrics: ["Культура"]
     },
     {
+      image: "/images/banners/nuk.gif",
+      link: "https://bit.ly/3CbyfMa",
+      starts: new Date("2021-08-12"),
+      ends: new Date("2021-08-26"),
+      rubrics: ["Культура"]
+    },
+    {
+      image: "/images/banners/bouquetstage.png",
+      link: "https://bouquetstage.com/",
+      starts: new Date("2021-08-14"),
+      ends: new Date("2021-08-27"),
+      rubrics: ["Культура"]
+    },
+    {
       image: "/images/banners/hromadske-radio.png",
       link: "https://hromadske.radio/",
       starts: new Date("2021-08-02"),
