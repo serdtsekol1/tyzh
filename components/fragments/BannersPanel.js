@@ -38,6 +38,13 @@ function BannersPanel(props) {
       rubrics: ["Економіка"]
     },
     {
+      image: "/images/banners/invest-forum.jpg",
+      link: "https://investinkyiv.com.ua/",
+      starts: new Date("2021-08-23"),
+      ends: new Date("2021-09-12"),
+      rubrics: ["Економіка"]
+    },
+    {
       image: "/images/banners/kiss.png",
       link: "https://www.kisff.org/",
       starts: new Date("2021-08-02"),
