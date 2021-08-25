@@ -66,6 +66,13 @@ function BannersPanel(props) {
       rubrics: ["Культура"]
     },
     {
+      image: "/images/banners/bookspace.jpeg",
+      link: "https://bookspacefest.com/",
+      starts: new Date("2021-08-23"),
+      ends: new Date("2021-09-05"),
+      rubrics: ["Культура"]
+    },
+    {
       image: "/images/banners/hromadske-radio.png",
       link: "https://hromadske.radio/",
       starts: new Date("2021-08-02"),
