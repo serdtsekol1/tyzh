@@ -125,6 +125,7 @@ function ColumnTemplate(props){
         .replace(/<\s*p\s*>\s*<\s*em\s*>\s*Читайте також:/g,'<p><em class="read-also">Читайте також:')
         .replace(/<\s*p\s*>\s*<\s*strong\s*>\s*Читай також:/g,'<p class="read-also"><strong>Читайте також:')
         .replace(/<\s*p\s*>\s*<\s*b\s*>\s*Читайте також:/g,'<p class="read-also"><b>Читайте також:')
+        .replace(/b\[([^\n]+)\]([^\n]+)/g,'<a href="$1"><button class="button-default">$2</button></a>')
         .replace("https://new.tyzhden.ua/Publications/","https://tyzhden.ua/")
         // .replace(/<\s*p\s*>\s*<\s*strong\s*>/g,'<p class="mini-header"><strong>')
         , {
