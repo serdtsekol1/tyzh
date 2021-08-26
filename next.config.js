@@ -1,4 +1,13 @@
 module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/Publications/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+    ]
+  },
   future: {
     webpack5: true,
   },
