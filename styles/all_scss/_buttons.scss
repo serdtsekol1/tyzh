@@ -14,14 +14,23 @@
     background-color: $dark-red;
   }
 }
-
+.button-default a{
+  text-decoration: none;
+}
 .button-default {
+  font-family: "UT_Magazine" !important;
   @include button;
   border: 1px solid $red;
   background-color: transparent;
+  
   color: $red;
+  
   &:hover {
     background-color: $red;
+    a{
+    color: $white !important;
+    text-decoration: none;
+    }
   }
   &:active {
     background-color: $dark-red;
