@@ -52,7 +52,7 @@ function ArticleTemplate(props) {
   }, [props.article.id, history]);
   return (
    <PublicationAbstract publication={props.article}>
-    <div>{props.article.content}</div> 
+    {/* <div>{props.article.content}</div>  */}
     <PatreonPopup />
     <div className="container">
         <div className="d-block d-md-none">
