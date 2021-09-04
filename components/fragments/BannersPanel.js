@@ -45,31 +45,17 @@ function BannersPanel(props) {
       rubrics: ["Економіка"]
     },
     {
-      image: "/images/banners/kiss.png",
-      link: "https://www.kisff.org/",
-      starts: new Date("2021-08-02"),
-      ends: new Date("2021-08-14"),
-      rubrics: ["Культура"]
-    },
-    {
-      image: "/images/banners/nuk.gif",
-      link: "https://bit.ly/3CbyfMa",
-      starts: new Date("2021-08-12"),
-      ends: new Date("2021-08-26"),
-      rubrics: ["Культура"]
-    },
-    {
-      image: "/images/banners/bouquetstage.png",
-      link: "https://bouquetstage.com/",
-      starts: new Date("2021-08-14"),
-      ends: new Date("2021-08-27"),
-      rubrics: ["Культура"]
-    },
-    {
       image: "/images/banners/bookspace.jpeg",
       link: "https://bookspacefest.com/",
       starts: new Date("2021-08-23"),
       ends: new Date("2021-09-05"),
+      rubrics: ["Культура"]
+    },
+    {
+      image: "/images/banners/bookforum.jpg",
+      link: "https://bookforum.ua/",
+      starts: new Date("2021-09-06"),
+      ends: new Date("2021-09-19"),
       rubrics: ["Культура"]
     },
     {
