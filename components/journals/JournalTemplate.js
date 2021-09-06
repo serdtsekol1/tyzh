@@ -37,6 +37,7 @@ function JournalTemplate(props) {
             else return <ColumnsBlockItem  reverse={true} key={publication.id} columnItem={publication} />;
         });
     }
+    let journalNumber = !journal.double ? `№ ${journal.localnum} (${journal.num})` : `№ ${journal.localnum}-${journal.localnum+1} (${journal.num}-${journal.num+1})`;
     return <div className="container">
         <div className="row journal-header-wrap">
             <div className="col-12 col-md-4">
@@ -46,7 +47,7 @@ function JournalTemplate(props) {
                 <div className="journal-info-wrap">
                     <div>
                     <p className="big-journal-title">Журнал «Український тиждень»</p>
-                    <p className="big-journal-number">{`№ ${journal.localnum} (${journal.num})`}</p>
+                    <p className="big-journal-number">{journalNumber}</p>
                     <p className="big-journal-date"> від {date}</p>
                     <a href="https://old.tyzhden.ua/InfoCenter/Subscription/">
                         <Button title="Передплата" redButton={true}/>
