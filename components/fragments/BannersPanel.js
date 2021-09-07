@@ -31,13 +31,6 @@ function BannersPanel(props) {
 
   const banners = [
     {
-      image: "/images/banners/forum.jpeg",
-      link: "https://mspu.gov.ua/events/mizhnarodnij-oboronnij-investicijnij-forum",
-      starts: new Date("2021-08-02"),
-      ends: new Date("2021-08-16"),
-      rubrics: ["Економіка"]
-    },
-    {
       image: "/images/banners/invest-forum.jpg",
       link: "https://investinkyiv.com.ua/",
       starts: new Date("2021-08-23"),
@@ -52,7 +45,7 @@ function BannersPanel(props) {
       rubrics: ["Культура"]
     },
     {
-      image: "/images/banners/bookforum.jpg",
+      image: "/images/banners/bookforum.png",
       link: "https://bookforum.ua/",
       starts: new Date("2021-09-06"),
       ends: new Date("2021-09-19"),
