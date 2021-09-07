@@ -19,6 +19,7 @@ function JournalItem(props) {
   
   let journalData = props.journalItem;
   let date = getDate(journalData.public_ts);
+  let journalNumber = !journalData.double ? `№ ${journalData.localnum} (${journalData.num})`: `№ ${journalData.localnum}-${journalData.localnum+1} (${journalData.num}-${journalData.num+1})`;
   return (
     <div className="journal">
       <Link href={`/Magazine/${journalData.num}`}>
@@ -35,7 +36,7 @@ function JournalItem(props) {
           <p className="journal-title">Український тиждень</p>
         </a>
       </Link>
-      <p className="journal-number">{`№ ${journalData.localnum} (${journalData.num})`}</p>
+      <p className="journal-number">{journalNumber}</p>
       <p className="journal-period">{date}</p>
       {journalData.isSpecialEdition ? (
         <Button redButton={true} title="Завантажити pdf" />
