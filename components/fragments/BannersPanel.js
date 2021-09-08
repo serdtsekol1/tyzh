@@ -65,6 +65,13 @@ function BannersPanel(props) {
       ends: new Date("2021-09-30"),
       rubrics: ["Економіка", "Політика", "Бізнес і держава", "Суспільство"]
     },
+    {
+      image: "/images/banners/lviv.gif",
+      link: "https://tyzhden.ua/Culture/252970",
+      starts: new Date("2021-09-08"),
+      ends: new Date("2021-09-20"),
+      rubrics: ["Економіка", "Політика", "Бізнес і держава", "Світ", "Суспільство", "Культура", "Історія", "Наука", "Пандемія", "Вибори 2020"]
+    },
   ]
 
 
