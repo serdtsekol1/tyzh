@@ -38,10 +38,10 @@ function BannersPanel(props) {
       rubrics: ["Економіка"]
     },
     {
-      image: "/images/banners/bookspace.jpeg",
-      link: "https://bookspacefest.com/",
-      starts: new Date("2021-08-23"),
-      ends: new Date("2021-09-05"),
+      image: "/images/banners/meetdocsfestival.png",
+      link: "https://meetdocsfestival.com/",
+      starts: new Date("2021-09-13"),
+      ends: new Date("2021-09-26"),
       rubrics: ["Культура"]
     },
     {
