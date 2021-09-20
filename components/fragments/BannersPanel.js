@@ -52,6 +52,13 @@ function BannersPanel(props) {
       rubrics: ["Культура"]
     },
     {
+      image: "/images/banners/pl-kino.jpg",
+      link: "https://polskino.takflix.com/",
+      starts: new Date("2021-09-18"),
+      ends: new Date("2021-10-02"),
+      rubrics: ["Культура"]
+    },
+    {
       image: "/images/banners/hromadske-radio.png",
       link: "https://hromadske.radio/",
       starts: new Date("2021-08-02"),
