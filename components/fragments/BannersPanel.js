@@ -38,6 +38,13 @@ function BannersPanel(props) {
       rubrics: ["Економіка"]
     },
     {
+      image: "/images/banners/kief.gif",
+      link: "http://forumkyiv.org/uk/forum/2021/terms?utm_campaign=tyzhden",
+      starts: new Date("2021-09-22"),
+      ends: new Date("2021-10-06"),
+      rubrics: ["Економіка"]
+    },
+    {
       image: "/images/banners/meetdocsfestival.png",
       link: "https://meetdocsfestival.com/",
       starts: new Date("2021-09-13"),
