@@ -52,6 +52,13 @@ function BannersPanel(props) {
       rubrics: ["Культура"]
     },
     {
+      image: "/images/banners/germanfilms-300x250.gif",
+      link: "https://bit.ly/3zMhvbZ",
+      starts: new Date("2021-09-30"),
+      ends: new Date("2021-10-13"),
+      rubrics: ["Культура"]
+    },
+    {
       image: "/images/banners/bookforum.png",
       link: "https://bookforum.ua/",
       starts: new Date("2021-09-06"),
