@@ -95,7 +95,7 @@ function ColumnTemplate(props){
       <div className="col-9 col-md-10 d-block d-md-none">
       <div className="mobile-column-author-info">
       <p className="column-author-name">{author_name}</p>
-
+      {columnItem.location? <p className="author-location">{columnItem.location}</p>:""}
       </div>
       </div>
       </div>
