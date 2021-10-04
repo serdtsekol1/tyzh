@@ -43,7 +43,12 @@
 .mobile-column-author-info {
     display: flex;
     height: 100%;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    .author-location{
+        margin-bottom: 0!important;
+    }
 }
 
 .red-link{
