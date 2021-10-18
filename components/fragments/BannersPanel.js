@@ -200,7 +200,7 @@ function BannersPanel(props) {
         <div>
           <div>
              <iframe id="612a42a8d345f0bd8b57a05e98f987f5" src="//affiliate.ria.com/service/state-informer?key=612a42a8d345f0bd8b57a05e98f987f5" width="100%" height="470px" frameBorder="0" scrolling="no"></iframe>
-             <ScriptTag type="text/javascript" src="https://affiliate.ria.com/js/ria_informer_iframe.js" />
+             {/* <ScriptTag type="text/javascript" src="https://affiliate.ria.com/js/ria_informer_iframe.js" /> */}
           </div>
         </div>
       :""}

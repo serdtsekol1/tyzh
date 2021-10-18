@@ -11,10 +11,7 @@ export default function Layout({ children }) {
   return (
     <div className="App">
       <Head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-51335057-1"
-        />
+       
 
         <script
           dangerouslySetInnerHTML={{
@@ -34,6 +31,7 @@ export default function Layout({ children }) {
           })(window,document,'script','dataLayer','GTM-PK9HWTL');`}}></script>
     
       </Head>
+      <noscript dangerouslySetInnerHTML={{__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK9HWTL" height="0" width="0" style="display:none;visibility:hidden"></iframe>`}} />
       <Navbar />
       <div className="main-content">
         {children}
