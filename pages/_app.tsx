@@ -12,7 +12,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   const handleRouteChange = (url: URL) => {
-      if (typeof window !== 'undefined') {
+      // added workaround to fix bug witn window gtag
+      if (typeof window !== 'undefined' && typeof window.gtag == 'function') {
           window.gtag('config', 'UA-51335057-1', {
               page_path: url,
           });
