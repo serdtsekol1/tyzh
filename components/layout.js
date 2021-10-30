@@ -11,21 +11,6 @@ export default function Layout({ children }) {
   return (
     <div className="App">
       <Head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-51335057-1"
-        />
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'UA-51335057-1', { page_path: window.location.pathname });
-            `,
-          }}
-        />
 
         <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -34,6 +19,7 @@ export default function Layout({ children }) {
           })(window,document,'script','dataLayer','GTM-PK9HWTL');`}}></script>
     
       </Head>
+      <noscript dangerouslySetInnerHTML={{__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK9HWTL" height="0" width="0" style="display:none;visibility:hidden"></iframe>`}} />
       <Navbar />
       <div className="main-content">
         {children}
