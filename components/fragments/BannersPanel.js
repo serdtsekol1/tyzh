@@ -45,24 +45,10 @@ function BannersPanel(props) {
       rubrics: ["Економіка"]
     },
     {
-      image: "/images/banners/meetdocsfestival.png",
-      link: "https://meetdocsfestival.com/",
-      starts: new Date("2021-09-13"),
-      ends: new Date("2021-09-26"),
-      rubrics: ["Культура"]
-    },
-    {
       image: "/images/banners/germanfilms-300x250.gif",
       link: "https://bit.ly/3zMhvbZ",
       starts: new Date("2021-09-30"),
       ends: new Date("2021-10-13"),
-      rubrics: ["Культура"]
-    },
-    {
-      image: "/images/banners/bookforum.png",
-      link: "https://bookforum.ua/",
-      starts: new Date("2021-09-06"),
-      ends: new Date("2021-09-19"),
       rubrics: ["Культура"]
     },
     {
@@ -75,17 +61,10 @@ function BannersPanel(props) {
     {
       image: "/images/banners/hr-what-kyiv.png",
       link: "https://hromadske.radio/",
-      starts: new Date("2021-09-02"),
-      ends: new Date("2021-10-31"),
+      starts: new Date("2021-10-30"),
+      ends: new Date("2021-11-30"),
       rubrics: ["Економіка", "Політика", "Бізнес і держава", "Суспільство"]
-    },
-    {
-      image: "/images/banners/lviv.gif",
-      link: "https://tyzhden.ua/Culture/252970",
-      starts: new Date("2021-09-08"),
-      ends: new Date("2021-09-20"),
-      rubrics: ["Економіка", "Політика", "Бізнес і держава", "Світ", "Суспільство", "Культура", "Історія", "Наука", "Пандемія", "Вибори 2020"]
-    },
+    }
   ]
 
 
