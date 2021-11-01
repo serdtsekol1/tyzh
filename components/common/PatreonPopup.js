@@ -48,12 +48,12 @@ function PatreonPopup(props) {
           <div className="container-modal">
           <div className="image-modal">
             <img
-              src={"/images/krapyvenko.png"}
+              src={"/images/jurij.jpg"}
               alt="Іконка закрити"
             />
           </div>
           <div className="body-modal">
-            <h2 className="header-modal">Дмитро Крапивенко, головний
+            <h2 className="header-modal">Юрій Лапаєв, головний
 редактор</h2>
             <div className="body-text">
               <p>Ми будемо вдячні кожному, хто підтримає «Український тиждень» у цей складний час. Зробити це доволі просто: передплатити журнал або зробити пожертву у наш гонорарний фонд.</p>
