@@ -66,6 +66,13 @@ function BannersPanel(props) {
       rubrics: ["Культура"]
     },
     {
+      image: "/images/banners/charity.jpg",
+      link: "https://supporting.ucu.edu.ua/blahodijnyj-vechir-uku/",
+      starts: new Date("2021-11-19"),
+      ends: new Date("2021-12-04"),
+      rubrics: ["Суспільство"]
+    },
+    {
       image: "/images/banners/hr-what-kyiv.png",
       link: "https://hromadske.radio/",
       starts: new Date("2021-10-30"),
