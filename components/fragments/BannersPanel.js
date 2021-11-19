@@ -59,6 +59,13 @@ function BannersPanel(props) {
       rubrics: ["Культура"]
     },
     {
+      image: "/images/banners/konrad.jpg",
+      link: "https://instytutpolski.pl/kyiv/2021/10/29/%d0%bb%d1%96%d1%82%d0%b5%d1%80%d0%b0%d1%82%d1%83%d1%80%d0%bd%d0%b0-%d0%bf%d1%80%d0%b5%d0%bc%d1%96%d1%8f-%d1%96%d0%bc%d0%b5%d0%bd%d1%96-%d0%b4%d0%b6%d0%be%d0%b7%d0%b5%d1%84%d0%b0-%d0%ba%d0%be%d0%bd-2/",
+      starts: new Date("2021-11-22"),
+      ends: new Date("2021-11-30"),
+      rubrics: ["Культура"]
+    },
+    {
       image: "/images/banners/wine.gif",
       link: "https://bit.ly/3cjoq3a",
       starts: new Date("2021-11-18"),
