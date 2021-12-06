@@ -45,10 +45,10 @@ function BannersPanel(props) {
       rubrics: ["Економіка"]
     },
     {
-      image: "/images/banners/germanfilms-300x250.gif",
+      image: "/images/banners/bavaria.gif",
       link: "https://bit.ly/3zMhvbZ",
-      starts: new Date("2021-09-30"),
-      ends: new Date("2021-10-13"),
+      starts: new Date("2021-12-07"),
+      ends: new Date("2021-12-19"),
       rubrics: ["Культура"]
     },
     {
