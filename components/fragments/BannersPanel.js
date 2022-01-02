@@ -82,8 +82,8 @@ function BannersPanel(props) {
     {
       image: "/images/banners/hr-what-kyiv.png",
       link: "https://hromadske.radio/",
-      starts: new Date("2021-10-30"),
-      ends: new Date("2021-12-31"),
+      starts: new Date("2022-01-01"),
+      ends: new Date("2022-01-31"),
       rubrics: ["Економіка", "Політика", "Бізнес і держава", "Суспільство"]
     }
   ]
